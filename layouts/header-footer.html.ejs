@@ -1,0 +1,99 @@
+---
+layout: boot_page.html.ejs
+---
+
+<div class="container" role="main">
+<div class="row">
+<header class="span12">
+  <div class="row" style="height: 130px;">
+    <span class="span8" style="text-align: center;">
+      <a href="/">
+      <a href="/"><img src="logo.gif" align="left"/></a>
+      <h1>AkashaCMS</h1>
+      </a>
+      
+      <p><a href="/">Home</a>
+       &nbsp;|&nbsp; <a href="/install.html">Installation</a>
+       &nbsp;|&nbsp; <a href="/config.html">Configuration</a>
+       &nbsp;|&nbsp; <a href="/content.html">Content</a>
+       &nbsp;|&nbsp; <a href="/extensions.html">File names</a>
+       &nbsp;|&nbsp; <a href="/layouts.html">Layouts</a>
+       &nbsp;|&nbsp; <a href="/deploy.html">Deployment</a>
+       &nbsp;|&nbsp; <a href="/metatags.html">Metatags</a>
+       &nbsp;|&nbsp; <a href="/about.html">About</a>
+      </p>
+    </span>
+    TBD - set up search engine
+    <span class="span4" style="background-image: url('/img/leaf.jpg'); height: 100%; float: right;">
+      <script>
+        (function() {
+          var cx = '004649612972154539699:orblpra2atc';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+              '//www.google.com/cse/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:searchbox-only style="float: right;"></gcse:searchbox-only>
+    </span>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <% if (typeof documenttitle !== "undefined") {
+         %><h1 align="center"><%= documenttitle %></h1><% 
+      } else if (typeof title !== "undefined") {
+         %><h1 align="center"><%= title %></h1><% 
+      } %>
+    </div>
+  </div>
+      
+      <!-- sharing buttons -->
+  <div class="row">
+    <div class="span12">
+      <span  class='st_tumblr_large' ></span>
+      <span  class='st_stumbleupon_large' ></span>
+      <span  class='st_care2_large' ></span>
+      <span  class='st_twitter_large' ></span>
+      <span  class='st_facebook_large' ></span>
+      <span  class='st_yahoo_large' ></span>
+      <span  class='st_blogger_large' ></span>
+      <span  class='st_sharethis_large' ></span>
+    </div>
+  </div>
+</header>
+</div>
+
+<%- content %>
+
+<footer style="text-align: center; height: 100px;">
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_googleplus_large' displayText='Google +'></span>
+<span class='st_delicious_large' displayText='Delicious'></span>
+<span class='st_digg_large' displayText='Digg'></span>
+<span class='st_dzone_large' displayText='DZone'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_reddit_large' displayText='Reddit'></span>
+<span class='st_technorati_large' displayText='Technorati'></span>
+<span class='st_tumblr_large' displayText='Tumblr'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_sharethis_large' displayText='ShareThis'></span>
+<span class='st_email_large' displayText='Email'></span>
+
+  <p>AkashaCMS is<br/> developed by<br/> the author of:
+
+<a href="http://www.amazon.com/gp/product/184951514X/ref=as_li_tf_il?ie=UTF8&tag=thereikipage&linkCode=as2&camp=217145&creative=399373&creativeASIN=184951514X"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&amp;Format=_SL110_&amp;ASIN=184951514X&amp;MarketPlace=US&amp;ID=AsinImage&amp;WS=1&amp;tag=thereikipage&amp;ServiceVersion=20070822" /></a>
+</p>
+
+<a href="https://twitter.com/AkashaCMS" class="twitter-follow-button" data-show-count="false">Follow @AkashaCMS</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+
+
+</footer>
+</div>

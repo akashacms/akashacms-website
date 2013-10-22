@@ -1,0 +1,53 @@
+---
+layout: layoutarticle.html.ejs
+title: Asynchronous code in AkashaCMS web sites
+---
+
+
+<p>Node.js forces us to make requests like database lookups using asynchronous code.
+Some websites are going to retrieve dynamic data from a database or a web service,
+meaning those websites are going to make asynchronous requests while rendering pages.</p>
+
+<p>As cool as is the EJS template engine, it does not support asynchronous code.
+AkashaCMS uses the Kernel template engine for asynchronous template support.</p>
+
+<p>To use this template engine, name your content file with the extension <tt>.html.kernel</tt>.
+Files in <tt>root_layouts</tt> or <tt>root_partials</tt> can also have the <tt>.html.kernel</tt> extension.</p>
+
+<p>AkashaCMS tries hard to allow a mix of asynchronous (Kernel) and synchronous (EJS or MD) templates,
+but this won't work for every combination.
+Specifically, an EJS template cannot consume content rendered by Kernel
+because of the way Kernel provides the rendered content.</p>
+
+<p>Hence, if your site is going to use asynchronously retrieved data,
+the content files must use the <tt>.html.kernel</tt> extension.</p>
+
+<h2>OEmbed support</h2>
+
+<p>The OEmbed service assists with creating a nice HTML representation of items stored on specific websites.
+For example, it automagically generates a video player given the URL of a page on youtube.com.</p>
+
+<p>An OEmbed function is available to <tt>.html.kernel</tt> templates and is used as follows.
+Note that an EJS template is used to render the data retrieved from OEmbed.</p>
+
+<pre>
+    &#123;oembed({
+        url: "https://www.youtube.com/watch?v=qrqv5wkHYmw&feature=g-vrec",
+        template: "youtube.html.ejs"
+        })&#125;
+</pre>
+
+<p>With this template</p>
+
+<pre>
+    &lt;h4>&lt;%= title %>&lt;/h4>
+    &lt;%- html %> - &lt;a href="&lt;%= author_url %>">&lt;%= author_name %> - &lt;%= author_url %>&lt;/a>
+</pre>
+
+<p>This produces the following</p>
+
+{oembed({
+    url: "https://www.youtube.com/watch?v=qrqv5wkHYmw&feature=g-vrec",
+    template: "youtube.html.ejs"
+    })}
+

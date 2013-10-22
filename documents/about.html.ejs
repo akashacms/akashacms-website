@@ -1,0 +1,35 @@
+---
+layout: article.html.ejs
+title: About AkashaCMS - the powerful static file CMS to build your dream website
+rightsidebar:
+---
+
+<p>AkashaCMS was developed by <a href="http://davidherron.com">David Herron</a> in 2012 after a long period of pondering the value of dynamic CMS's like Drupal.  I have years of Drupal use, programming, and configuration, and can do quite fancy things with Drupal.  However, over time I realized my own needs were pretty simple and that the overhead of maintaining Drupal was keeping me from doing the writing I had set out to do.   have moments of being wow'd by all you can do with Drupal, but in reality my needs aren't that big.  Plus, I think there are plenty of others whose needs are modest.  However this page is not the place to rehash Drupal, but to speak about the origin, purpose, scope and maintainership of AkashaCMS.</p>
+
+<p><b>Origin</b>: As said, AkashaCMS grew out of a combination of dissatisfaction with Drupal and other PHP based dynamic CMS's, and an idea that my own needs would be met with static HTML files.  My first stab at that was to revisit the "server side includes" technique but that proved unweildy.  What I settled on for AkashaCMS was a model used by some other static file CMS's, to have each content file contain "frontmatter" and "content" with the frontmatter defining a template with which to render the content.  This should be able to implement most of the flexity of a full CMS without requiring the overhead of dynamic page generation.</p>
+
+<p><b>Purpose</b>: Seek a return to straight HTML files, while retaining the flexibility of modern CMS's.  </p>
+
+<p><b>Scope</b>: This is a system for producing a website full of HTML files.  The input content files can reference external data sources, just as dynamic CMS's do, etc.</p>
+
+<p><b>Maintainership</b>: At this time this is the work of myself, David Herron.  If you have ideas, fork the <a href="https://github.com/robogeek/akashacms">AkashaCMS github project</a> then send a pull request.  Over time there might need to be an expansion into a more formal arrangement, but at the moment this will do.</p>
+
+
+<p>Excess stuff below</p>
+
+<p>This system grew out of a realization that, for my needs, I (<a href="http://davidherron.com">David Herron</a>) did not need an ultra-fancy full fledged content management system (such as Drupal).  What I realized is that my real needs were modest, and that there are plenty of others with modest needs but who were being saddled with complexity in dynamic content management systems.  What particularly struck a chord for me was realizing the unnecessariness of regenerating each page for each visitor.  In most cases each time a page is viewed its content is the same as the previous view of that page, yet most dynamic CMS's like Drupal regenerate the page each time (yes, I know about caching systems, but that just adds complexity to unnecessary complexity).  For more see <a href="about.html">About AkashaCMS</a>.</p>
+
+
+<p>Each content file is named something like "index.html.ejs" where the final extension (".ejs" or ".md") declares the templating engine used for the file in question.  The idea is to support multiple template engines to provide choice to the content creator.  One particularly powerful feature is the support for asynchronous templates via the Kernel template engine.</p>
+
+<p>The content files are structured to have a frontmatter area containing metadata, and a content area containing the content.  For example:</p>
+
+<pre>
+---
+layout: article.html.ejs
+title: Gettysburgh Address
+---
+<p>Four scores and seven years ago our Forefathers ... </p>
+</pre>
+
+<p>The frontmatter is the section between the "---'d" lines and is a simple tag:value format.  The only frontmatter tag that has defined meeting is "layout" which refers to the template used to render the page.  The template itself can have frontmatter and also declare its own template.  This allows you to use a chain of templates, with different ones for different kinds of pages on the website.</p>

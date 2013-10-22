@@ -1,0 +1,47 @@
+---
+layout: article.html.ejs
+title: AkashaCMS - the powerful static file CMS to build your dream website
+rightsidebar:
+---
+<p align="center"><em>Akasha means the basis and essence of all things in the material world; the first material element created from the astral world. </em></p>
+
+<p align="center"><em>AkashaCMS (<a href="https://github.com/robogeek/akashacms">github project</a>) is a Node.js based tool with which you can convert ideas into websites while maintaining separation between content, layout and design.</em></p>
+
+<table> <!-- style="border-spacing: 5px;" -->
+<tr>
+<td style="padding: 10px;" width="50%">
+<p>With AkashaCMS, one writes web content in HTML (or Markdown) but with none of the styling and framing boilerplate that surrounds the content.  Styles, page layouts, and navigational elements are kept in separate files, and are brought together in a highly flexible manner to produce HTML files.  We use the HTML5 boilerplate project to provide a modern foundation.  Several templating engines are available to facilitate bringing in data from external repositories. </p>
+
+<p>The goal for AkashaCMS is to provide most of the flexibility of a full scale CMS, while producing static HTML files, and skipping the administrative overhead of running a full CMS.</p>
+
+<p>Technology: Node.js - Markdown - EJS templates - Kernel asynchronous templates - LESS - Columnal - jQuery - Modernizr - OEmbed</p>
+
+<p>The <a href="https://github.com/robogeek/akashacms-example">AkashaCMS Example github project</a> contains a small working example of an AkashaCMS site.  The rendered version of that example is at <a href="http://example.akashacms.com">example.akashacms.com</a>. </p>
+
+</td>
+<td style="padding: 10px;" width="50%">
+<p>Getting started is pretty easy, assuming you already have Node.js installed:</p>
+
+<pre>
+$ npm install -g akashacms
+$ akashacms init directoryName
+$ cd directoryName
+$ .... start hacking
+</pre>
+
+<p>This pulls down a blank starter site for you from the <a href="https://github.com/robogeek/akashacms-example">akashacms-example</a> project.</p>
+
+<p>To build the static website:</p>
+
+<pre>
+$ akashacms build
+</pre>
+
+<p>To view the local copy of the website in your browser (http://localhost:8080):</p>
+
+<pre>
+$ akashacms serve
+</pre>
+</td>
+</tr>
+</table>

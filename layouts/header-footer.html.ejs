@@ -2,65 +2,71 @@
 layout: boot_page.html.ejs
 ---
 
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  
+  <div class="navbar-collapse collapse navHeaderCollapse">
+    <ul class="nav navbar-nav navbar-rights">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/install.html">Installation</a></li>
+          <li><a href="/config.html">Configuration</a></li>
+          <li><a href="/extensions.html">File names</a></li>
+          <li><a href="/layouts.html">Layouts</a></li>
+          <li><a href="/deploy.html">Deployment</a></li>
+          <li><a href="/metatags.html">Metatags</a></li>
+          <li><a href="/about.html">About</a></li>
+    </ul>
+  </div>
+</div>
+
 <div class="container" role="main">
 <div class="row">
-<header class="span12">
+<header class="col-md-12">
   <div class="row" style="height: 130px;">
-    <span class="span8" style="text-align: center;">
-      <a href="/">
+    <span class="col-md-8" style="text-align: center;">
       <a href="/"><img src="logo.gif" align="left"/></a>
-      <h1>AkashaCMS</h1>
-      </a>
-      
-      <p><a href="/">Home</a>
-       &nbsp;|&nbsp; <a href="/install.html">Installation</a>
-       &nbsp;|&nbsp; <a href="/config.html">Configuration</a>
-       &nbsp;|&nbsp; <a href="/content.html">Content</a>
-       &nbsp;|&nbsp; <a href="/extensions.html">File names</a>
-       &nbsp;|&nbsp; <a href="/layouts.html">Layouts</a>
-       &nbsp;|&nbsp; <a href="/deploy.html">Deployment</a>
-       &nbsp;|&nbsp; <a href="/metatags.html">Metatags</a>
-       &nbsp;|&nbsp; <a href="/about.html">About</a>
-      </p>
-    </span>
-    TBD - set up search engine
-    <span class="span4" style="background-image: url('/img/leaf.jpg'); height: 100%; float: right;">
-      <script>
-        (function() {
-          var cx = '004649612972154539699:orblpra2atc';
-          var gcse = document.createElement('script');
-          gcse.type = 'text/javascript';
-          gcse.async = true;
-          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-              '//www.google.com/cse/cse.js?cx=' + cx;
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(gcse, s);
-        })();
-      </script>
-      <gcse:searchbox-only style="float: right;"></gcse:searchbox-only>
-    </span>
-  </div>
-  <div class="row">
-    <div class="span12">
       <% if (typeof documenttitle !== "undefined") {
          %><h1 align="center"><%= documenttitle %></h1><% 
       } else if (typeof title !== "undefined") {
          %><h1 align="center"><%= title %></h1><% 
       } %>
-    </div>
+    </span>
+    <span class="col-md-4">
+      <form action="http://www.google.com" id="cse-search-box">
+        <div>
+          <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022" />
+          <input type="hidden" name="ie" value="UTF-8" />
+          <input type="text" name="q" size="55" />
+          <input type="submit" name="sa" value="Search" />
+        </div>
+      </form>
+      <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+    </span>
   </div>
       
       <!-- sharing buttons -->
   <div class="row">
-    <div class="span12">
-      <span  class='st_tumblr_large' ></span>
-      <span  class='st_stumbleupon_large' ></span>
-      <span  class='st_care2_large' ></span>
-      <span  class='st_twitter_large' ></span>
-      <span  class='st_facebook_large' ></span>
-      <span  class='st_yahoo_large' ></span>
-      <span  class='st_blogger_large' ></span>
-      <span  class='st_sharethis_large' ></span>
+    <div class="col-md-12">
+      <%- sharethisButtons({
+        titleToShare: title,
+        publisherID: "c828d855-27af-4910-b7a5-2b9b14030895",
+        chiclets: [
+          { className: "st_tumblr_large" },
+          { className: "st_stumbleupon_large" },
+          { className: "st_care2_large" },
+          { className: "st_twitter_large" },
+          { className: "st_facebook_large" },
+          { className: "st_yahoo_large" },
+          { className: "st_blogger_large" },
+          { className: "st_sharethis_large" }
+        ]
+      }) %>
+      <%- googlePlusSimpleButton() %>
+      <%- twitterShareButton() %>
     </div>
   </div>
 </header>
@@ -69,18 +75,6 @@ layout: boot_page.html.ejs
 <%- content %>
 
 <footer style="text-align: center; height: 100px;">
-<span class='st_facebook_large' displayText='Facebook'></span>
-<span class='st_googleplus_large' displayText='Google +'></span>
-<span class='st_delicious_large' displayText='Delicious'></span>
-<span class='st_digg_large' displayText='Digg'></span>
-<span class='st_dzone_large' displayText='DZone'></span>
-<span class='st_twitter_large' displayText='Tweet'></span>
-<span class='st_reddit_large' displayText='Reddit'></span>
-<span class='st_technorati_large' displayText='Technorati'></span>
-<span class='st_tumblr_large' displayText='Tumblr'></span>
-<span class='st_linkedin_large' displayText='LinkedIn'></span>
-<span class='st_sharethis_large' displayText='ShareThis'></span>
-<span class='st_email_large' displayText='Email'></span>
 
   <p>AkashaCMS is<br/> developed by<br/> the author of:
 

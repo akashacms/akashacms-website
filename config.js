@@ -42,7 +42,8 @@ module.exports = {
         headerScripts: {
             stylesheets: [
                 { href: "/video.css", media: "screen" },
-                { href: "/style.css", media: "screen" }
+                { href: "/style.css", media: "screen" },
+                { href: "/readable.min.css", media: "screen" }
             ],
             javaScriptTop: [
                 

@@ -15,3 +15,4 @@ The layout file, `ak_page.html.ejs`, produces an HTML5 page loosely derived from
 * `ak_javaScript.html.ejs` References a set of JavaScript files, that are listed in `config.headerScripts`.
 * `ak_googleAnalytics.html.ejs` Sets up Google Analytics code.
 
+[OpenGraph protocol documentation](https://developers.facebook.com/docs/opengraph/) - Some tags supported by `ak_headermeta.html.ejs` are OpenGraph.

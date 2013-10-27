@@ -1,6 +1,6 @@
 ---
 layout: article.html.ejs
-title: Book-style navigation plugin
+title: Book-style navigation plugin  (akashacms-booknav)
 rightsidebar:
 ---
 
@@ -8,7 +8,8 @@ The `akashacms-booknav` doesn't quite live up to the original goal, but it is st
 
 The part of `akashacms-booknav` which works correctly generates an indented listing of all the child documents to the current document.
 
-The list of links in the [AkashaCMS plugin directory](index.html) is generated with this module.
+The list of links in the [AkashaCMS plugin directory](index.html) is generated with this module.  
+Another example exists on the [GreenTransportation.info electric vehicle tracking section](http://greentransportation.info/ev-tracker/index.html).
 
 The source for this file uses the template `index-page.html.ejs` ([source](https://github.com/robogeek/akashacms-website/blob/master/layouts/index-page.html.ejs)).
 
@@ -19,5 +20,3 @@ The critical line is:
 This function scans through the documents of the website, finds everything under the directory containing the current document, and generates links.
 
 This plugin looks for `teaser` metadata in the documents, and if present adds the teaser following the link.
-
-An example of this tree shaped index exists on the [GreenTransportation.info electric vehicle tracking section](http://greentransportation.info/ev-tracker/index.html).

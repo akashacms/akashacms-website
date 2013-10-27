@@ -12,20 +12,12 @@ layout: header-footer.html.ejs
   </section>
 </div>
 <div class="row">
-  <!-- section id="left" class="span2">
-    <%- bookTreeNav(locals) %>
-  </section -->
-  <!-- include our document's content -->
   <article class="span10">
-    <!-- %- prevNextBar(locals) % -->
     <% if (typeof teaser  !== "undefined") { %><p><strong><%= teaser %></strong></p> <% } %>
     <% if (typeof content !== "undefined") { %><%- content %><% } %>
-    <!-- %- prevNextBar(locals) % -->
     <%- partial('disqus.html') %>
   </article>
   <section id="right" class="span2">
-    <!-- TBD %- partial('adverts-right.html') % -->
-    <!-- TBD %- partial('fb-like-box.html') % -->
     <% if (rightsidebar) { %><%- partial(rightsidebar) %><% } %>
     <%- tagCloud() %>
   </section>

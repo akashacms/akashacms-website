@@ -22,7 +22,8 @@ module.exports = {
         'akashacms-embeddables',
         'akashacms-social-buttons',
         'akashacms-tagged-content',
-        'akashacms-theme-bootstrap'
+        'akashacms-theme-bootstrap',
+        '/Volumes/Drobo/Node.js/akashacms-theme-boilerplate'
     ],
     
     tags: {

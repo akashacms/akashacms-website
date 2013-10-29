@@ -14,6 +14,10 @@ Theoretically installing AkashaCMS and getting started is this simple:
 
 Then visit [http://localhost:8080](http://localhost:8080).  This works for me on my Mac OS X laptop and I believe will work on other Unix/Linux/etc type of systems.
 
+The first command may have to be done this way on most systems:
+
+    $ sudo npm install -g akashacms
+
 Installing AkashaCMS on Windows
 ===============================
 

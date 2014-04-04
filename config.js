@@ -17,13 +17,13 @@ module.exports = {
     },
     
     plugins: [
-        'akashacms-breadcrumbs',
-        'akashacms-booknav',
-        'akashacms-embeddables',
-        'akashacms-social-buttons',
-        'akashacms-tagged-content',
-        'akashacms-theme-bootstrap',
-        '/Volumes/Drobo/Node.js/akashacms-theme-boilerplate'
+        require('akashacms-breadcrumbs'),
+        require('akashacms-booknav'),
+        require('akashacms-embeddables'),
+        require('akashacms-social-buttons'),
+        require('akashacms-tagged-content'),
+        require('akashacms-theme-bootstrap'),
+        require('/Volumes/Drobo/Node.js/akashacms-theme-boilerplate')
     ],
     
     tags: {
@@ -55,5 +55,30 @@ module.exports = {
         }
     },
     funcs: {
-    }
+    },
+    config: function(akasha) {
+        akasha.emitter.on('done-render-files', function() {
+            // Generate .htaccess instructions for redirects from pages on wikidot
+            // to the new pages
+            // util.log('done-render-files received in Green Transportation .info');
+            var htappend = "\n\n";
+            for (var i = 0; i < module.exports.htaccess_append.length; i++) {
+                var redir = module.exports.htaccess_append[i];
+                htappend += 'RedirectMatch permanent '+ redir[0] +' '+ redir[1] +'\n';
+            }
+            // util.log('appending '+ htappend);
+            fs.appendFileSync(path.join(module.exports.root_out, ".htaccess"), htappend, 'utf8');
+        });
+    },
+    // For setting up redirects from pages on wikidot version of greentransportation.info
+    htaccess_append: [
+    	[ '^/partials.html', '/layout/partials.html' ],
+    	[ '^/content.html', '/documents/index.html' ],
+    	[ '^/templatechain.html', '/theming/index.html' ],
+    	[ '^/layoutrecommendations.html', '/theming/index.html' ],
+    	[ '^/deploy.html', '/deployment/index.html' ],
+    	[ '^/asynchronous.html', '/layout/asynchronous-synchronous.html' ],
+    	[ '^/config.html', '/configuration/index.html' ],
+    	[ '^/extensions.html', '/configuration/ab-plugins.html' ],
+    ]
 }

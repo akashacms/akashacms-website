@@ -11,27 +11,10 @@ rightsidebar:
 
 <p>Why not just balance the modern features of modern CMS's, of modern JavaScript UI frameworks, with the efficiency of static HTML pages on a disk?</p>
 
-<p>My first stab was to revisit the old "server side includes" technique, but that proved unwieldy.  I also looked at some other static file CMS's but didn't fine one that I liked.  What I settled on as a plan was developing a system using Node.js and templating systems on that platform.  I'd picked up one idea from other static file CMS's - that each file should have "frontmatter" providing metadata, and the system of cascading page templates.  I felt that would be able to implement most of the flexity of a full CMS without requiring the overhead of dynamic page generation.</p>
+<p>That's what AkashaCMS does.  It gives you a flexible page generation system, and lots of support for the newest HTML5 and semantic web goodness.  You can easily add OpenGraph tags to the header, for example, and any JavaScript or CSS file is easily pulled in.</p>
 
 <p><b>Purpose</b>: Seek a return to straight HTML files, while retaining the flexibility of modern CMS's and modern advanced JavaScript/CSS UI frameworks.  </p>
 
 <p><b>Scope</b>: This is a system for producing a website full of HTML files.  The input content files can reference external data sources, just as dynamic CMS's do, etc.</p>
 
 <p><b>Maintainership</b>: At this time this is the work of myself, David Herron.  If you have ideas, fork the <a href="https://github.com/robogeek/akashacms">AkashaCMS github project</a> then send a pull request.  Over time there might need to be an expansion into a more formal arrangement, but at the moment this will do.</p>
-
-
-<p>Excess stuff below</p>
-
-<p>Each content file is named something like "index.html.ejs" where the final extension (".ejs" or ".md") declares the templating engine used for the file in question.  The idea is to support multiple template engines to provide choice to the content creator.  One particularly powerful feature is the support for asynchronous templates via the Kernel template engine.</p>
-
-<p>The content files are structured to have a frontmatter area containing metadata, and a content area containing the content.  For example:</p>
-
-<pre>
----
-layout: article.html.ejs
-title: Gettysburgh Address
----
-<p>Four scores and seven years ago our Forefathers ... </p>
-</pre>
-
-<p>The frontmatter is the section between the "---'d" lines and is a simple tag:value format.  The only frontmatter tag that has defined meeting is "layout" which refers to the template used to render the page.  The template itself can have frontmatter and also declare its own template.  This allows you to use a chain of templates, with different ones for different kinds of pages on the website.</p>

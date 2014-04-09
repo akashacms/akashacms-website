@@ -3,7 +3,7 @@ layout: header-footer.html.ejs
 ---
 <div class="row">
 <article class="col-md-10">
-  <p><%- breadcrumbsSync(locals) %></p>
+  <p><%- breadcrumbsBootstrapSync(locals) %></p>
   <% if (typeof content !== "undefined") { %><%- content %><% } %>
   <%- bookChildTree(locals) %>
 </article>

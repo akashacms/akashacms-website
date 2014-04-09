@@ -25,4 +25,28 @@ In `config.js` give this configuration
 
 Under the covers `akashacms deploy` looks for this information to construct the `rsync` line given above.
 
-This feature has only been tested on a Mac OS X system, not Windows.  I suspect it will work on any Unix-like system.  However, Windows does not have `rsync` so you may be out of luck.  The [cwRsync](http://www.rsync.net/resources/howto/windows_rsync.html) tool may work but has not been tested.
+If you need to tell `rsync` to exclude files from consideration, that is with this sort of command:
+
+    $ rsync --verbose --archive --delete --exclude /path/to/foo.bar out/ user@server.domain:example.com/
+
+Then add a `exclude` tag in the configuration like so:
+
+    deploy_rsync: {
+        user: 'user',
+        host: 'server.domain.com',
+        dir:  'example.com',
+        exclude: '/path/to/foo.bar'
+    }
+
+The string specified is passed directly to rsync, so all the filter pattern stuff mentioned in the man page applies.
+
+If you need to specify exclusion for multiple patterns, you'll have to use a file to specify the patterns.  Simply create a file containing the exclude patterns, as documented in the rsync man page, and set up the configuration like so:
+
+    deploy_rsync: {
+        user: 'user',
+        host: 'server.domain.com',
+        dir:  'example.com',
+        excludeFile: 'exclusions.txt'
+    }
+
+This `deploy_rsync` feature has only been tested on a Mac OS X system, not Windows.  I suspect it will work on any Unix-like system, because `rsync` is commonly installed on these systems.  However, Windows does not have `rsync` so you may be out of luck.  The [cwRsync](http://www.rsync.net/resources/howto/windows_rsync.html) tool may work but has not been tested.

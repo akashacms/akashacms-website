@@ -8,7 +8,8 @@ First, you use the `akashacms-theme-bootstrap` module as so:
 
     plugins: [
         ...
-        'akashacms-theme-bootstrap'
+        require('akashacms-theme-bootstrap'),
+        ...
     ],
 
 This gives you the default Bootstrap look and feel.

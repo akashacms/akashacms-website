@@ -20,3 +20,7 @@ The critical line is:
 This function scans through the documents of the website, finds everything under the directory containing the current document, and generates links.
 
 This plugin looks for `teaser` metadata in the documents, and if present adds the teaser following the link.
+
+An alternative is available if you're using Bootstrap, that uses the Bootstrap List Group component
+
+      <%- bookChildTreeBootstrap(locals) %>

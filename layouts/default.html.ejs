@@ -4,11 +4,11 @@ layout: header-footer.html.ejs
 
 <div class="row">
   <section id="breadcrumb" class="span12">
-    <%- breadcrumbsBootstrapSync(locals) %>
+    <%- breadcrumbsSync(locals) %>
   </section>
   <section id="category-tags" class="span12">
     Date: <%= publicationDate %>
-    Tags: <%- tagsForDocument(locals) %>
+    <!-- Tags: < %- tagsForDocument(locals) %> -->
   </section>
 </div>
 <div class="row">
@@ -19,7 +19,7 @@ layout: header-footer.html.ejs
   </article>
   <section id="right" class="span2">
     <% if (rightsidebar) { %><%- partial(rightsidebar) %><% } %>
-    <%- tagCloud() %>
+    <!-- %- tagCloud() % -->
   </section>
 </div>
 

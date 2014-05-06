@@ -3,11 +3,11 @@ layout: header-footer.html.ejs
 ---
 <div class="row">
 <article class="col-md-10">
-  <p><%- breadcrumbsBootstrapSync(locals) %></p>
+  <p><%- breadcrumbsSync(locals) %></p>
   <% if (typeof content !== "undefined") { %><%- content %><% } %>
-  <%- bookChildTreeBootstrap(locals) %>
+  <%- bookChildTree(locals) %>
 </article>
 <section id="right" class="col-md-2">
-  <%- tagCloud() %>
+  <!-- %- tagCloud() % -->
 </section>
 </div>

@@ -2,6 +2,7 @@
 layout: article.html.ejs
 title: AkashaCMS plugins
 rightsidebar:
+publDate: May 5, 2014
 ---
 
 AkashaCMS can be extended using a flexible plugin system.  Consult the [directory of known plugins](../plugins/index.html) to see if the one you desire has already been built.  If not, Plugins are easy to implement and can do a wide range of things including
@@ -15,15 +16,19 @@ AkashaCMS can be extended using a flexible plugin system.  Consult the [director
 In a config file, plugins are invoked this way:
 
     plugins: [
+        require('akashacms-theme-bootstrap'),
         require('akashacms-breadcrumbs'),
         require('akashacms-booknav'),
         require('akashacms-embeddables'),
         require('akashacms-social-buttons'),
-        require('akashacms-tagged-content'),
-        require('akashacms-theme-bootstrap')
+        require('akashacms-tagged-content')
     ],
 
-Each entry in the array is a module reference, which is require'd inside the config file.  This way the module is resolved relative to the config file.  If desired the module reference can be a string instead, but in that case it is AkashaCMS whih require's the module, and the module location is resolved relative to where AkashaCMS is installed.  
+Each entry in the array is a module reference, which is require'd inside the config file.  This way the module is resolved relative to the config file.  If desired the module reference can be a string instead, but in that case it is AkashaCMS which require's the module, and the module location is resolved relative to where AkashaCMS is installed.
+
+A plugin can override behavior (functions) or templates (layouts, or partials) defined by a plugin farther down the list.  In this plugin config, we've placed `akashacms-theme-bootstrap` because some of its partials override partials defined in other plugins.  Those partials have bootstrap-specific markup and should make a site look better.
+
+The general rule is a plugin overrides things defined in plugins further down this list.  We'll see in a minute how this is done.
 
 An AkashaCMS plugin is simply a Node.js module that has a function with this signature:
 
@@ -38,15 +43,24 @@ A common task is to add a directory to `root_assets`, `root_layouts` or `root_pa
     module.exports.config = function(akasha, config) {
         config.root_partials.push(path.join(__dirname, 'partials'));
         config.root_layouts.push(path.join(__dirname, 'layout'));
-        config.root_assets.push(path.join(__dirname, 'bootstrap'));
+        config.root_assets.unshift(path.join(__dirname, 'bootstrap'));
         ...
     }
 
 Remember that AkashaCMS searches these arrays to find files.  By adding its own directories to these arrays, a plugin provides its own files for use in rendering a website.
 
-The `push` function makes sure the directory name goes to the end of the given array.   This seemingly minor point is important for determining the order of precedence of files in one directory or another.  This gives the website author the option to override partials or layouts provided by plugins.
+There's a careful dance played in whether a directory is pushed or unshifted into an array.  Remember that the goal is for a plugin that's early in the list to override plugins later in the list.  Remember that `push` inserts items on the end of the array, while `unshift` inserts items at the beginning.  This seemingly minor point is important for maintaining the correct idea of which plugin is first.
 
-This is another common thing to do in the `config` function, add a function that's available in templates.  Remember that the `funcs` object contains functions that are available to templates.  This example comes from the `akashacms-social-buttons` plugin:
+What's different is that
+
+* for `root_partials` and `root_layouts`, AkashaCMS searches for the first matching file, stopping when it finds one.  For a layout or partial template in one plugin to override one in another plugin, the plugin has to be scanned first.
+* for `root_assets`, AkashaCMS copies the file tree of each named directory in turn.  For a file in a plugin asset directory to override an identically-named file in another plugin, the plugin's assets directory has to be copied second.
+
+If you're unclear about the order of entries in these arrays, this command prints out the configuration data:
+
+    $ akashacms config
+
+Another common thing to do in the `config` function is to add a function for use in templates.  Remember that `config.funcs` contains the functions for use in templates.  This example comes from the `akashacms-social-buttons` plugin:
 
     // http://www.reddit.com/buttons/
     config.funcs.redditThisButton = function(arg, callback) {
@@ -57,17 +71,11 @@ This is another common thing to do in the `config` function, add a function that
 
 This adds a function, `redditThisButton`, to the functions available in a template.  That function then renders some data using the `reddit-this.html.ejs` partial.  An implementation of this partial is provided inside the `akashacms-social-buttons` plugin.
 
-Plugins will commonly do this, provide a template function along with a partial to render the data.  
+Plugin functions commonly use a partial to render the data.  If you want to render the data differently than it's done by the plugin, simply override the partial file.  The akashacms-theme-bootstrap plugin does this for bootstrap-friendly site behavior.
 
-As we noted earlier, AkashaCMS searches the `root_layouts` and `root_partials` arrays in order.  It stops at the first instance of a given file name it finds.  Therefore, it's possible to override a specific partial or layout template by putting an identically named template file in a directory that appears earlier in the search order.
-
-By pushing its directories onto the end of the `root_layouts` or `root_partials` arrays, plugins ensure that the websites own layouts and partials directories appear first in the search order.  Which means, a website author can easily override a layout or partial provided by a plugin by putting identically named files in its own layouts or partials directories.
-
-That is... for any website with a few plugins, the content of these array will be something like
+That is... for any website with a few plugins, the content of the `root_partials` and `root_layouts` arrays will be something like
 
     [ site, P1, P2, P3, P4, ... ]
-
-That's because of using `push` to put each plugins' directory at the end of the array.
 
 AkashaCMS, searching for a partial named `reddit-this.html.ejs` will look in these directories in order
 
@@ -78,10 +86,6 @@ AkashaCMS, searching for a partial named `reddit-this.html.ejs` will look in the
     P4/partials/reddit-this.html.ejs
 
 Suppose both `site/partials/reddit-this.html.ejs` and `P3/partials/reddit-this.html.ejs` exist.  The first one on the list, `site/partials/reddit-this.html.ejs`, will be used because AkashaCMS will find it first.
-
-The general principle is that plugins attach their directories to the end of the list, so that the website can override the plugins' templates.
-
-That way, directories provided by the website config file will always be listed first in these directory arrays.
 
 # Typical plugin structure
 
@@ -97,7 +101,7 @@ The `partials` directory will of course contain partial templates.
 
 The `assets` and `layout` directories are less typically used.  The first, of course, contains static files like images, while the second contains page layouts.
 
-The `index.js` module will, of course, contain the `config` function and the `package.json` file is necessary to ensure it's recognized by both Node and npm as a module.
+The `index.js` module will, of course, contain the `config` function and the `package.json` file is necessary to be recognized by both Node and npm as a module.
 
 Typically the `config` function will have this structure:
 
@@ -105,7 +109,7 @@ Typically the `config` function will have this structure:
         // Push directories onto end of the array
         config.root_partials.push(path.join(__dirname, 'partials'));
         // config.root_layouts.push(path.join(__dirname, 'layout'));
-        // config.root_assets.push(path.join(__dirname, 'bootstrap'));
+        // config.root_assets.unshift(path.join(__dirname, 'bootstrap'));
         ...
         config.funcs.function1 =  function(arg, callback) {
             var val = akasha.partialSync(config, "partial1.html.ejs", arg);

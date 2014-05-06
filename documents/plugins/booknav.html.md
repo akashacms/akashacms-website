@@ -2,6 +2,7 @@
 layout: article.html.ejs
 title: Book-style navigation plugin  (akashacms-booknav)
 rightsidebar:
+publDate: May 5, 2014
 ---
 
 The `akashacms-booknav` doesn't quite live up to the original goal, but it is still useful.  The goal had been to support a tree of documents, with "Next" and "Previous" links between documents to make a group of pages that act somewhat like chapters in a book.  The idea was inspired by the `book` module in Drupal.
@@ -20,7 +21,3 @@ The critical line is:
 This function scans through the documents of the website, finds everything under the directory containing the current document, and generates links.
 
 This plugin looks for `teaser` metadata in the documents, and if present adds the teaser following the link.
-
-An alternative is available if you're using Bootstrap, that uses the Bootstrap List Group component
-
-      <%- bookChildTreeBootstrap(locals) %>

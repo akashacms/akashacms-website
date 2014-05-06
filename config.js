@@ -19,13 +19,13 @@ module.exports = {
     },
     
     plugins: [
+        require('akashacms-theme-bootstrap'),
         require('akashacms-breadcrumbs'),
         require('akashacms-booknav'),
         require('akashacms-embeddables'),
         require('akashacms-social-buttons'),
-        require('akashacms-tagged-content'),
-        require('akashacms-theme-bootstrap'),
-        require('/Volumes/Drobo/Node.js/akashacms-theme-boilerplate')
+        // require('akashacms-tagged-content'),
+        require('akashacms-theme-boilerplate')
     ],
     
     tags: {

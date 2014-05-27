@@ -14,7 +14,7 @@ module.exports = {
     
     deploy_rsync: {
         user: 'reikiman',
-        host: 'rules4humans.com',
+        host: 'akashacms.com',
         dir:  'akashacms.com'
     },
     
@@ -56,8 +56,12 @@ module.exports = {
             ]
         }
     },
+    
     funcs: {
     },
+    
+    mahabhuta: [],
+    
     config: function(akasha) {
         akasha.emitter.on('done-render-files', function() {
             // Generate .htaccess instructions for redirects from pages on wikidot

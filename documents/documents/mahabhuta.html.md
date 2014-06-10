@@ -46,6 +46,19 @@ The `mahabhuta` array will store a list of functions.  The website can add its o
     ]
 ```
 
+Additionally you can pass configuration options to Cheerio:
+
+```
+    cheerio: {
+        recognizeSelfClosing: true,
+        recognizeCDATA: true
+    },
+```
+
+The `recognizeSelfClosing` option is important because it seems the HTML5 paradigm doesn't support self-closing tags.  
+
+## Plugins
+
 A plugin is supposed to add functions to this array like so:
 
 ```

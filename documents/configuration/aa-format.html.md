@@ -21,15 +21,19 @@ This object in turn contains other objects, that comprise the configuration data
 * `root_url` - Declares the destination URL of the website.  This gets used in various ways.
 * `doMinimize` - Instruct AkashaCMS to minimize the output directory once built.  This is equivalent to the `akashacms minimize` command.
 * `deploy_rsync` - Data required to configure `rsync` in the `akashacms deploy` command.
-* `plugins` - An array of plugin names to use for this site.
+* `plugins` - An array of modules for AkashaCMS plugins used for this site.
 * `data` - An object that is passed into the rendering of all pages.
-* `funcs` - A list of functions available to the rendering of all pages.
-* `config` - A function that, if present, is called while configuring AkashaCMS for this site.
+* `googleAnalyticsAccount` - Contains the site's Google Analytics account ID to generate the correct Analytics code.
+* `googleAnalyticsDomain` - The domain name to use with Google Analytics.
+* `headerScripts` - Contains data about CSS or JavaScript scripts to add to pages.  Plugins can push either into the arrays contained in this object.
+* `funcs` - A list of functions available to template engines while rendering all pages.
+* `config` - A function that, if present, is called while configuring AkashaCMS for this site.  This lets the site add behavior to AkashaCMS.
+* `mahabhuta` - An array of functions called by the Mahabhuta engine to do jQuery/DOM-like manipulations of HTML just before writing page content to disk.
 
 The big picture operation of AkashaCMS is that it
 
 * Renders each file in each `root_docs` directory into the `root_out` directory.
-* Each of the Document files layout templates, or partial templates, to render the page
+* Each of the Document files call on layout templates, or partial templates, to render the page
 * The `data` object is available while each page is being rendered.
 
 Because `root_assets`, `root_layouts` and `root_partials` are all arrays, AkashaCMS searches for files in each directory in the array in order.  If, among the directories listed in one array, are two files with the same name, AkashaCMS will stop searching at the first one it finds. This has important considerations for [plugins](ab-plugins.html) because you can provide your own version of a template provided by a plugin.
@@ -39,5 +43,7 @@ The files in `root_layouts` provide page layout structure.  These can chain toge
 The files in `root_partials` provide snippets of HTML rendering that can be plopped into the middle of a page anywhere.  See [the partials documentation](../layout/partials.html) for more information.
 
 Each of the functions in the `funcs` object are available inside templates as functions.  See [the template functions documentation](../layout/template-functions.html) for more information.
+
+After rendering content through any template engines, a final step before writing the content to the `root_out` directory is to process it with [the Mahabhuta engine](../documents/mahabhuta.html).  This provides an jQuery-like API for performing DOM manipulations.  It's powerful enough that one almost does not need the EJS engine.
 
 The [config file for this website](https://github.com/robogeek/akashacms-website/blob/master/config.js) should be able to serve as a good example of a config file.

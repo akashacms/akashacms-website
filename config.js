@@ -34,27 +34,29 @@ module.exports = {
     },
     
     data: {
-        googleAnalyticsAccount: "UA-37003917-1",
-        googleAnalyticsDomain: "akashacms.com",
-        // googleSiteVerification: "CcDz9XDUIb4D1cW8VuiGj3kI_hckLDPFuwMrM2tYBds",
         metarobots: "index,follow",
         metaOGtype: "website",
         metaOGsite_name: "AkashaCMS",
         metasubject: "Content Management Systems",
         metalanguage: "EN",
-        headerScripts: {
-            stylesheets: [
-                { href: "/video.css", media: "screen" },
-                { href: "/style.css", media: "screen" },
-                { href: "/readable.min.css", media: "screen" }
-            ],
-            javaScriptTop: [
-                
-            ],
-            javaScriptBottom: [
-                
-            ]
-        }
+    },
+    
+    googleAnalyticsAccount: "UA-37003917-1",
+    googleAnalyticsDomain: "akashacms.com",
+    // googleSiteVerification: "CcDz9XDUIb4D1cW8VuiGj3kI_hckLDPFuwMrM2tYBds",
+    
+    headerScripts: {
+        stylesheets: [
+            { href: "/video.css", media: "screen" },
+            { href: "/style.css", media: "screen" },
+            { href: "/readable.min.css", media: "screen" }
+        ],
+        javaScriptTop: [
+            
+        ],
+        javaScriptBottom: [
+            
+        ]
     },
     
     funcs: {

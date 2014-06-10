@@ -64,6 +64,11 @@ module.exports = {
     
     mahabhuta: [],
     
+    cheerio: {
+        recognizeSelfClosing: true,
+        recognizeCDATA: true
+    },
+    
     config: function(akasha) {
         akasha.emitter.on('done-render-files', function() {
             // Generate .htaccess instructions for redirects from pages on wikidot

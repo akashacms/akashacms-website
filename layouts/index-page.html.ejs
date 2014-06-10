@@ -3,8 +3,8 @@ layout: header-footer.html.ejs
 ---
 <div class="row">
 <article class="col-md-10">
-  <p><%- breadcrumbsSync(locals) %></p>
-  <% if (typeof content !== "undefined") { %><%- content %><% } %>
+  <breadcrumb-trail/>
+  <ak-insert-body-content/>
   <%- bookChildTree(locals) %>
 </article>
 <section id="right" class="col-md-2">

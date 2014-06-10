@@ -4,7 +4,7 @@ layout: header-footer.html.ejs
 
 <div class="row">
   <section id="breadcrumb" class="span12">
-    <%- breadcrumbsSync(locals) %>
+    <breadcrumb-trail/>
   </section>
   <section id="category-tags" class="span12">
     Date: <%= publicationDate %>
@@ -14,8 +14,8 @@ layout: header-footer.html.ejs
 <div class="row">
   <article class="span10">
     <% if (typeof teaser  !== "undefined") { %><p><strong><%= teaser %></strong></p> <% } %>
-    <% if (typeof content !== "undefined") { %><%- content %><% } %>
-    <%- partial('disqus.html') %>
+    <ak-insert-body-content/>
+    <partial file-name='disqus.html'/>
   </article>
   <section id="right" class="span2">
     <% if (rightsidebar) { %><%- partial(rightsidebar) %><% } %>

@@ -2,21 +2,26 @@
 layout: article.html.ejs
 title: Installing AkashaCMS
 rightsidebar:
+author: david
+publicationDate: Jan 1, 2015
 ---
-
 Theoretically installing AkashaCMS and getting started is this simple:
 
     $ npm install -g akashacms
     $ akashacms init akashacms-example
     $ cd akashacms-example
     $ akashacms build
-    $ akashacms serve
+    $ akashacms preview
 
-Then visit [http://localhost:8080](http://localhost:8080).  This works for me on my Mac OS X laptop and I believe will work on other Unix/Linux/etc type of systems.
+Then visit [http://localhost:6080](http://localhost:6080).  This works for me on my Mac OS X laptop and I believe will work on other Unix/Linux/etc type of systems.
 
 The first command may have to be done this way on most systems:
 
     $ sudo npm install -g akashacms
+
+The last command can be replaced with the following to launch an in-browser website editor.  The editor is at http://localhost:8080
+
+    $ akashacms serve
 
 Installing AkashaCMS on Windows
 ===============================
@@ -45,9 +50,9 @@ At this point you'll have to kill the Windows command window, and start a new on
     C:\..> akashacms init akashacms-example
     C:\..> cd akashacms-example
     C:\..> akashacms build
-    C:\..> akashacms serve
+    C:\..> akashacms preview
 
-Then visit [http://localhost:8080](http://localhost:8080).  This worked for me in a Windows XP image running in Virtual Box.
+Then visit [http://localhost:6080](http://localhost:6080).  This worked for me in a Windows XP image running in Virtual Box.
 
 Taking a tour of akashacms-example
 ==================================
@@ -58,5 +63,4 @@ First is the `config.js` file, which is documented in [Configuring AkashaCMS](co
 
 The content files ([Writing content in AkashaCMS](content.html)) are located in the `documents` directory which in turn is named in the `root_docs` configuration variable.  The format of these files is straight-forward, some metadata at the front (frontmatter) and content following the frontmatter.
 
-The other directories are `assets`, containing unprocessed static files like images and CSS, `boilerplate`, containing a modified copy of the HTML5 Boilerplate code, `layouts`, containing page layouts ([Page layout in AkashaCMS](layouts.html)), and `partials` containing a couple mini-templates ([Partials in AkashaCMS](partials.html)).
-
+The other directories are `assets`, containing unprocessed static files like images and CSS, `layouts`, containing page layouts ([Page layout in AkashaCMS](layouts.html)), and `partials` containing a couple mini-templates ([Partials in AkashaCMS](partials.html)).

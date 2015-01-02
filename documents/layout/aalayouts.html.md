@@ -2,8 +2,8 @@
 layout: article.html.ejs
 title: Page layout in AkashaCMS
 rightsidebar:
+publicationDate: Jan 1, 2014
 ---
-
 As we noted when discussing the [overall format for AkashaCMS files](/documents/content.html), documents are split into frontmatter and content.  Among the frontmatter tags is the `layout` tag which specifies the layout template for the content.
 
 The template is simply declared using the `layout` tag in the frontmatter like so:
@@ -21,12 +21,6 @@ Rendered content is available in its' layout template in the `content` variable.
     <%- content %>
 
 This gives us a separation between the content and the page layout.  Page layout is handled by the files in the `root_layouts` directories, while the content is provided by files in the `root_docs` directories.
-
-# Synchronous versus asynchronous templates
-
-The EJS template engine is nice and powerful, but it only supports synchronous rendering.  It cannot be used to asynchronously pull data from somewhere, making it difficult to do Node-like things.  For example, retrieving data from a database will obviously require asynchronous code.
-
-To support asynchronous code, AkashaCMS incorporated the Kernel template engine.  Any page that needs to use asynchronous code must be rendered by the Kernel engine.  See [Asynchronous code in AkashaCMS web sites](asynchronous-synchronous.html) for more information.
 
 # Chaining templates
 
@@ -46,4 +40,3 @@ The final template, which we called `page.html.ejs` here, should be the destinat
 # Base themes and the page template
 
 The [AkashaCMS built-in plugin](/plugins/builtin.html), the [Bootstrap base theme](/plugins/theme-bootstrap.html) and the [Boilerplate base theme](/plugins/theme-boilerplate.html) all provide implementations of the `page.html.ejs`.  In each case the implementation supports a complete set of META tags, and flexible methods of bringing in stylesheets or JavaScript.
-

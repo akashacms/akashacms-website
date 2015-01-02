@@ -2,24 +2,23 @@
 layout: article.html.ejs
 title: File names and extensions in AkashaCMS 
 rightsidebar:
-publDate: May 26, 2014
+publicationDate: Jan 1, 2015
+author: david
 ---
+AkashaCMS uses the file name extensions to determine how to process each document, layout or partial.  
 
-AkashaCMS uses the file name extensions to determine how to process each document, layout or partial.  During the AkashaCMS v0.3.x time frame the rules for file names will be in flux.  File name rules will settle down by the time AkashaCMS v0.4 is released.
-
-The general concept is that each document has its base name (xyzzy.html) and for documents requiring special processing (say, Markdown rendering) we append extensions to the file name documenting the processing.  For example, `xyzzy.html.ejs.md` says to process the file first with Markdown, then with EJS, then with [the Mahabhuta engine](mahabhuta.html).  The result is `xyzzy.html`.
+The general concept is that each document has its base name (xyzzy.html) and for documents requiring special processing (say, Markdown rendering) we append a second extension to the file name documenting that processing.  For example, `xyzzy.html.md` says to process the file first with Markdown, then with [the Mahabhuta engine](mahabhuta.html).  The result is `xyzzy.html`.
 
 The extensions recognized are for files in `root_documents` and `root_layouts` directories are:
 
-* `php` - for PHP files - must be xyzzy.php(.other.extensions)
-* `html` - for HTML files - must be xyzzy.html(.other.extensions)
-* `ejs` - Process with EJS - https://github.com/visionmedia/ejs
-* `md` - Process with Markdown - https://github.com/evilstreak/markdown-js/
-* `kernel` - Process with Kernel - https://github.com/c9/kernel
+* `php` - for PHP files - must be `xyzzy.php(.other.extensions)`
+* `html` - for HTML files - must be `xyzzy.html(.other.extensions)`
+* `ejs` - Process with EJS - must be either `xyzzy.html.ejs` or `xyzzy.html.ejs.md` - the latter processes first with Markdown, then with EJS - https://github.com/visionmedia/ejs
+* `md` - Process with Markdown - must be `xyzzy.html.md` - https://www.npmjs.com/package/remarkable - https://github.com/jonschlinkert/remarkable
 
 The processing by different engines occurs in the order specified in the file name.
 
-Asset files are normally placed in the `root_assets` directory, but you may find it convenient to place them in the `root_documents` directory, instead.  Go ahead and do so, and these files will be copied with no processing to the output directory.  
+Asset files are normally placed in the `root_assets` directory, but you may find it convenient to place them in the `root_documents` directory, instead.  Files with simple file names (xyzzy.html) will be copied with no processing to the output directory.  
 
 Files with the extension `.css.less` are recognized specially, and will be processed with the LESS renderer to produce a CSS file.  See http://lesscss.org
 
@@ -27,15 +26,13 @@ Currently files in `root_partials` directories do not get the full processing tr
 
 * `xyzzy.html.ejs` - Process with EJS engine
 * `xyzzy.html.md` - Process with Markdown
-* `xyzzy.html.kernel` - Process with Kernel engine (asynchronous)
+* `xyzzy.html.ejs.md` - Process first with Markdown, then with EJS
 * `xyzzy.html` - No processing
-
-Additionally, if a partial is requested from an EJS template, do not use a `.kernel` template.   EJS does not support asynchronous functions, whereas the Kernel engine is asynchronous.
 
 ## Mahabhuta - jQuery style processing
 
-Earlier "the Mahabhuta engine" was mentioned without explanation.  This is an experimental method for using jQuery functions to manipulate the HTML of a website.  It lets you run jQuery DOM manipulations of the HTML, but on the server.  This is a big idea - too big for this little section of this page.
+Earlier "the Mahabhuta engine" was mentioned without explanation.  This is a method for using jQuery functions to manipulate the HTML of a website.  Running jQuery DOM manipulations of the HTML, on the server and not in the web browser, is a big idea - too big for this little section of this page.
 
-Mahabhuta processing occurs on the `xyzzy.html` step of processing the file.  It remains to be verified whether Mahabhuta works for `xyzzy.php` files.
+Mahabhuta processing occurs is run several times while processing the file.  It remains to be verified whether Mahabhuta works for `xyzzy.php` files.
 
 For more information see [The Mahabhuta templating engine for AkashaCMS](mahabhuta.html)

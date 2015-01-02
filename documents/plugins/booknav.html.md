@@ -2,9 +2,8 @@
 layout: article.html.ejs
 title: Book-style navigation plugin  (akashacms-booknav)
 rightsidebar:
-publDate: May 5, 2014
+publicationDate: May 5, 2014
 ---
-
 The `akashacms-booknav` doesn't quite live up to the original goal, but it is still useful.  The goal had been to support a tree of documents, with "Next" and "Previous" links between documents to make a group of pages that act somewhat like chapters in a book.  The idea was inspired by the `book` module in Drupal.
 
 The part of `akashacms-booknav` which works correctly generates an indented listing of all the child documents to the current document.

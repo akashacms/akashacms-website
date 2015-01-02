@@ -33,6 +33,21 @@ module.exports = {
         header: "---\ntitle: @title@\nlayout: tagpage.html.ejs\n---\n<p>Pages with tag @tagName@</p>"
     },
     
+    authorship: {
+    	defaultAuthorName: "david",
+    	authors: [    	
+			{
+				name: "david",
+				fullname: "David Herron",
+				authorship: "https://plus.google.com/+DavidHerron/about",
+			}
+    	]
+    },
+    
+    editor: {
+    	users: require('website-data').akashacmsCom.users
+    },
+    
     data: {
         metarobots: "index,follow",
         metaOGtype: "website",

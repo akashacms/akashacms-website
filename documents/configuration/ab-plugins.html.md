@@ -2,9 +2,9 @@
 layout: article.html.ejs
 title: AkashaCMS plugins
 rightsidebar:
-publDate: May 5, 2014
+publicationDate: Jan 1, 2015
+authorname: david
 ---
-
 AkashaCMS can be extended using a flexible plugin system.  Consult the [directory of known plugins](../plugins/index.html) to see if the one you desire has already been built.  If not, Plugins are easy to implement and can do a wide range of things including
 
 * Provide page layouts
@@ -13,7 +13,7 @@ AkashaCMS can be extended using a flexible plugin system.  Consult the [director
 * Provide template functions
 * Listen to, and react to, events emitted by AkashaCMS during processing
 
-In a config file, plugins are invoked this way:
+In the site config file, plugins are invoked this way:
 
     plugins: [
         require('akashacms-theme-bootstrap'),
@@ -43,7 +43,7 @@ A common task is to add a directory to `root_assets`, `root_layouts` or `root_pa
     module.exports.config = function(akasha, config) {
         config.root_partials.push(path.join(__dirname, 'partials'));
         config.root_layouts.push(path.join(__dirname, 'layout'));
-        config.root_assets.unshift(path.join(__dirname, 'bootstrap'));
+        config.root_assets.unshift(path.join(__dirname, 'assets'));
         ...
     }
 
@@ -60,30 +60,19 @@ If you're unclear about the order of entries in these arrays, this command print
 
     $ akashacms config
 
-Another common thing to do in the `config` function is to add a function for use in templates.  Remember that `config.funcs` contains the functions for use in templates.  This example comes from the `akashacms-social-buttons` plugin:
-
-    // http://www.reddit.com/buttons/
-    config.funcs.redditThisButton = function(arg, callback) {
-        var val = akasha.partialSync(config, "reddit-this.html.ejs", arg);
-        if (callback) callback(undefined, val);
-        return val;
-    }
-
-This adds a function, `redditThisButton`, to the functions available in a template.  That function then renders some data using the `reddit-this.html.ejs` partial.  An implementation of this partial is provided inside the `akashacms-social-buttons` plugin.
-
-Plugin functions commonly use a partial to render the data.  If you want to render the data differently than it's done by the plugin, simply override the partial file.  The akashacms-theme-bootstrap plugin does this for bootstrap-friendly site behavior.
-
 That is... for any website with a few plugins, the content of the `root_partials` and `root_layouts` arrays will be something like
 
-    [ site, P1, P2, P3, P4, ... ]
+    [ site, P1, P2, P3, P4, ..., builtin ]
 
 AkashaCMS, searching for a partial named `reddit-this.html.ejs` will look in these directories in order
 
     site/partials/reddit-this.html.ejs
-    P1/partials/reddit-this.html.ejs
-    P2/partials/reddit-this.html.ejs
-    P3/partials/reddit-this.html.ejs
-    P4/partials/reddit-this.html.ejs
+    /path/to/P1/partials/reddit-this.html.ejs
+    /path/to/P2/partials/reddit-this.html.ejs
+    /path/to/P3/partials/reddit-this.html.ejs
+    /path/to/P4/partials/reddit-this.html.ejs
+    ...
+    /path/to/akashacms/builtin/partials/reddit-this.html.ejs
 
 Suppose both `site/partials/reddit-this.html.ejs` and `P3/partials/reddit-this.html.ejs` exist.  The first one on the list, `site/partials/reddit-this.html.ejs`, will be used because AkashaCMS will find it first.
 
@@ -111,36 +100,43 @@ Typically the `config` function will have this structure:
         // config.root_layouts.push(path.join(__dirname, 'layout'));
         // config.root_assets.unshift(path.join(__dirname, 'bootstrap'));
         ...
-        config.funcs.function1 =  function(arg, callback) {
-            var val = akasha.partialSync(config, "partial1.html.ejs", arg);
-            if (callback) callback(undefined, val);
-            return val;
-        }
-        config.funcs.function2 =  function(arg, callback) {
-            var val = akasha.partialSync(config, "partial2.html.ejs", arg);
-            if (callback) callback(undefined, val);
-            return val;
-        }
     }
 
-The code sequence
+Any Mahabhuta processing done by a plugin will be done with code in this function.  For example this function from the _builtin_ plugin handles the `ak-teaser` tag.
 
-        config.funcs.function2 =  function(arg, callback) {
-            ...
-            if (callback) callback(undefined, val);
-            return val;
-        }
 
-is necessary for fitting with AkashaCMS's rendering system.  AkashaCMS supports both asynchronous and synchronous rendering, and in many cases these template functions can work in either model.
+        config.mahabhuta.push(function($, metadata, dirty, done) {
+        	logger.trace('ak-teaser');
+            var elements = [];
+            $('ak-teaser').each(function(i, elem) { elements.push(elem); });
+            async.eachSeries(elements,
+            function(element, next) {
+			
+				if (typeof metadata.teaser !== "undefined" || typeof metadata["ak-teaser"] !== "undefined") {
+					$('ak-teaser').each(function(i, elem) {
+						$(this).replaceWith(
+							akasha.partialSync("ak_teaser.html.ejs", {
+								teaser: typeof metadata["ak-teaser"] !== "undefined"
+									? metadata["ak-teaser"] : metadata.teaser
+							})
+						)
+					});
+				} else {
+					$('ak-teaser').remove();
+				}
+            
+				next();
+            }, 
+            function(err) {
+				if (err) {
+					logger.error('ak-teaser Errored with '+ util.inspect(err));
+					done(err);
+				} else done();
+            });
+        });
 
-In some cases a template function can only operate asynchronously.  An example is this function from `akashacms-embeddables`
+# The _builtin_ plugin
 
-    config.funcs.youtubePlayer = function(arg, callback) {
-        if (!callback)       { callback(new Error("No callback given")); }
-        if (!arg.youtubeUrl) { callback(new Error("No youtubeUrl given")); }
-        if (!arg.template)   { arg.template = "youtube-embed.html.ejs"; }
-        arg.url = arg.youtubeUrl;
-        akasha.oembedRender(arg, callback);
-    }
+AkashaCMS provides some basic functions, partials and assets in the _builtin_ plugin.  As I pondered the design, it was clear AkashaCMS needed to provide some fundamental content management and layout capabilities, and that it would be easiest to implement with a "plugin".
 
-This calls OEmbed, which is a network protocol that queries over the Internet to retrieve some data.  It obviously cannot be used in a synchronous execution context.  There is no attempt to synchronously return data from the function, instead it solely calls the callback function.
+The _builtin_ plugin appears last in the search order, and it is expected other plugins will override things implemented by _builtin_.

@@ -2,11 +2,12 @@
 layout: article.html.ejs
 title: Buttons for various social networks (akashacms-social-buttons)
 rightsidebar:
+publicationDate: Jan 3, 2015
+author: david
 ---
+Making a website __shareable__ is a key part of modern online marketing strategies.  Facilitating the natural tendancy for people to tell all their friends about finding a cool website can create virality.  Hence it's important to include sharing buttons on websites.
 
-Making a website __shareable__ is a key part of modern online marketing strategies.  That is, we want to facilitate the natural tendancy for people finding a cool website to tell all their friends about it.  All the social networks provide code snippets we can embed in websites to enable sharing over to their network.
-
-The `akashacms-social-buttons` plugin implements several of these services, and we are open to others being added.  Just issue a pull request on [the project](https://github.com/robogeek/akashacms-social-buttons).
+All social networks provide embeddable code snippets to enable sharing over to their network.  This plugin makes it simple to embed sharing buttons for various social networks.  
 
 Currently supported are:
 
@@ -14,29 +15,32 @@ Currently supported are:
 * Google+
 * Twitter
 
+We are open to others being added.  Just issue a pull request on [the project](https://github.com/robogeek/akashacms-social-buttons).
+
 # ShareThis
 
 [ShareThis](http://sharethis.com) is one of the several services that have already incorporated buttons from all the social networks.  Each offers a customizable button bar with buttons of your choice.
 
 Basic usage is something like this:
 
-    <%- sharethisButtons({
-      publisherID: "... your publisher ID",
-      chiclets: [
-        { className: "st_tumblr_large" },
-        { className: "st_stumbleupon_large" },
-        { className: "st_care2_large" },
-        { className: "st_twitter_large" },
-        { className: "st_facebook_large" },
-        { className: "st_yahoo_large" },
-        { className: "st_blogger_large" },
-        { className: "st_sharethis_large" }
-      ]
-    }) %>
+	<sharethis publisher-id=".... your publisher ID" title-to-share="<%= title %>">
+	{
+	  "chiclets": [
+		{ "className": "st_tumblr_large" },
+		{ "className": "st_stumbleupon_large" },
+		{ "className": "st_care2_large" },
+		{ "className": "st_twitter_large" },
+		{ "className": "st_facebook_large" },
+		{ "className": "st_yahoo_large" },
+		{ "className": "st_blogger_large" },
+		{ "className": "st_sharethis_large" }
+	  ]
+	}
+	</sharethis>
 
 There is a lot of options, however, because the ShareThis is so comprehensive.  It may be instructive to refer to the [ShareThis customization instructions](http://support.sharethis.com/customer/portal/articles/464527-customize-appearance).
 
-The `publisherID` is a required value.  To get one simply register for an account on [sharethis.com](http://sharethis.com) then click on the __account__ link at the top of the page.  The publisher ID string appears there.
+The `publisher-id` is a required value.  To get one simply register for an account on [sharethis.com](http://sharethis.com) then click on the __account__ link at the top of the page.  The publisher ID string appears there.
 
 ## Chiclets
 
@@ -64,16 +68,18 @@ ShareThis will also consult OpenGraph data in the page as [documented on their s
 
 You can also customize the same parameters for the whole widget, not just for one of the chiclets.  To do so invoke the template function as so:
 
-    <%- sharethisButtons({
-      publisherID: "... your publisher ID",
-      urlToShare: "... the URL for the shared content - OPTIONAL",
-      titleToShare: "... the title for the shared content - OPTIONAL",
-      imageToShare: "... the image URL to share in the shared content - OPTIONAL",
-      summaryToShare: "... the description of the shared content - OPTIONAL",
-      chiclets: [
+    <sharethis 
+      publisher-id="... your publisher ID"
+      url-to-share="... the URL for the shared content - OPTIONAL"
+      title-to-share="... the title for the shared content - OPTIONAL"
+      image-to-share="... the image URL to share in the shared content - OPTIONAL"
+      summary-to-share="... the description of the shared content - OPTIONAL">
+    {
+      "chiclets": [
          ... chiclets
       ]
-    }) %>
+    }
+    </sharethis>
 
 ## Overriding widget behavior and look
 
@@ -81,12 +87,12 @@ You can change some aspects of the default behavior as well.  It may be instruct
 
 These options can also be added to the options object.
 
-* `enableGoogleTracking` - If set to `true` then Google Analytics tracking is enabled.
-* `disablePopularShares` - If set to `true` the "Popular Shares" screen is turned off.
-* `disableHoverWidget` - If set to `true` the widget that pops up mouse hover is disabled.
-* `headerTitle` - Adds the title to the ShareThis frame.
-* `headerFGColor` - Sets the foreground color of the header in the ShareThis frame.
-* `headerBGColor` - ditto for the background color
+* `google-tracking` - If set to `true` then Google Analytics tracking is enabled.
+* `disable-popular-shares` - If set to `true` the "Popular Shares" screen is turned off.
+* `disable-hover-widget` - If set to `true` the widget that pops up mouse hover is disabled.
+* `header-title` - Adds the title to the ShareThis frame.
+* `header-color-fg` - Sets the foreground color of the header in the ShareThis frame.
+* `header-color-bg` - ditto for the background color
 
 # Google+ simple button
 
@@ -94,19 +100,18 @@ Google+ has several sharing buttons, this is the simpler one.  ([documentation](
 
 Simple use is simply:
 
-    <%- googlePlusSimpleButton() %>
+    <gplus-simple options></gplus-simple>
 
-It uses the asynchronous javascript loading method.
+Available options are
 
-* `dataSize` - Sets the button size to render - `small`, `medium`, `standard`, `tall`
-* `dataAnnotation` - Sets the annotation to display next to the button. - `none`, `bubble`, `inline`
-* `dataWidth` - When using the `inline` annotation style, sets the width of the box in pixels.
-* `expandTo` - Sets the preferred positions to display hover and confirmation bubbles, which are relative to the button. 
-* `dataCallback` - A callback function that is called (in the browser) after the user clicks the +1 button.
-* `dataOnStartInteraction` - A callback function that is called either when a hover bubble displays, which is caused by the user hovering the mouse over the +1 button, or when a confirmation bubble displays, which is caused by the user +1'ing the page.
-* `dataOnEndInteraction` - A callback function that is called when either a hover or confirmation bubble disappears.
-* `dataRecommendations` - 
-
+* `size=` - Sets the button size to render - `small`, `medium`, `standard`, `tall`
+* `annotation=` - Sets the annotation to display next to the button. - `none`, `bubble`, `inline`
+* `width=` - When using the `inline` annotation style, sets the width of the box in pixels.
+* `expandTo=` - Sets the preferred positions to display hover and confirmation bubbles, which are relative to the button. 
+* `callback=` - A callback function that is called (in the browser) after the user clicks the +1 button.
+* `onstartinteraction=` - A callback function that is called either when a hover bubble displays, which is caused by the user hovering the mouse over the +1 button, or when a confirmation bubble displays, which is caused by the user +1'ing the page.
+* `onendinteraction=` - A callback function that is called when either a hover or confirmation bubble disappears.
+* `recommendations=` - 
 
 # Twitter
 
@@ -116,12 +121,12 @@ It uses the asynchronous javascript loading method.
 
 Usage is as follows:
 
-    <%- twitterShareButton() %>
+    <twitter-share options></twitter-share>
 
-* `dataSize` - Set to `large` for a large button
-* `dataVia` -  Handle of twitter account
-* `dataRelated` -  
-* `dataHashtags` - Add hashtags
+* `size=` - Set to `large` for a large button
+* `via=` -  Handle of twitter account
+* `related=` -  
+* `hashtags=` - Add hashtags
 
 ## Follow button
 
@@ -129,10 +134,11 @@ Usage is as follows:
 
 Usage is as follows:
 
-    <%- twitterFollowButton() %>
+    <twitter-follow options></twitter-follow>
 
-* `dataSize` - Set to `large` for a large button
-* `dataShowCount` -  Show the follower count
+* `size=` - Set to `large` for a large button
+* `show-count=` -  Show the follower count
+* `twitter-handle=` -
 
 # Reddit
 
@@ -140,7 +146,6 @@ This is just the simple Reddit button [documented on their site](http://www.redd
 
 Usage is as follows:
 
-    <%- redditThisButton() %>
+    <reddit-this></reddit-this>
 
 There are no options.
-

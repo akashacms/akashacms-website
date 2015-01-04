@@ -2,7 +2,7 @@
 layout: article.html.ejs
 title: The Mahabhuta templating engine for AkashaCMS
 rightsidebar:
-publDate: Jan 1, 2015
+publDate: Jan 2, 2015
 author: david
 ---
 The Mahabhuta engine allows website authors to perform jQuery DOM manipulations on the server side.  Reusing your jQuery knowledge may be a good thing, we hope.  Mahbhuta will make it possible to reuse jQuery knowledge to reorganize, rewrite, or otherwise manipulate pages on the server side.  Let the concept sink in for a moment, because this can be powerful.
@@ -73,6 +73,10 @@ module.exports.config = function(akasha, config) {
 }
 ```
 
+Note that `config.mahabhuta` is the same array shown earlier.
+
+The order of the functions in `config.mahabhuta` will reflect the order the plugins are listed in the `config.plugins` array.  This can be important if you end up with two functions working on the same tag.
+
 # Coding Mahabhuta functions
 
 A _mahafunc_ (Mahabhuta function) has the signature: `function($, metadata, dirty, done)`
@@ -98,7 +102,7 @@ This piece looks for a tag named `hello-world` and replaces it with the HTML sni
 
 It's required to call `done()` when the function is done, and if there's an error to indicate it by calling `done(err)`.  This means the function can do asynchronous code execution.  Only one Mahabhuta function will execute at a time.
 
-The jQuery functionality is the subset implemented by [the Cheerio module](https://www.npmjs.org/package/cheerio).  Cheerio has its own implementation of the jQuery API, and the authors give their rationale on the project page.  What's available is the portion of jQuery which makes sense on the server.  It does not use JSDOM under the covers, for speed and for more liberal HTML parsing.
+The jQuery functionality is the subset implemented by [the Cheerio module](https://www.npmjs.org/package/cheerio).  Cheerio has its own implementation of a subset of the jQuery API.  The Cheerio authors give their rationale for not implementing the entire jQuery API on the project page.  What's important for us is that because it doesn't use JSDOM under the covers, Cheerio is faster and more liberal parsing HTML.
 
 Asynchronous processing can be done in a Mahabhuta function, if special care is taken to ensure `done` is called when every last erg of asynchronicity has been accomplished.
 
@@ -127,7 +131,7 @@ There is a problem with this code snippet however.  Suppose there is more than o
 
 While the jQuery `.each` function looks like it's asynchronous, it isn't.
 
-This sort of code pattern is preferred because it ensures `done` is called only once, while accommodating multiple instances of a tag, and the potential for error in any of them.
+This code pattern is preferred because it ensures `done` is called only once, while accommodating multiple instances of a tag, and the potential for error in any of them.
 
 ```
 config.mahabhuta.push(function($, metadata, dirty, done) {
@@ -157,4 +161,4 @@ The first step is to collect references to each tag processed by the function (`
 
 Then we use `async.eachSeries` to process the instances, one at a time.  Each instance is rendered using the `akasha.partial` function, which itself is an asynchronous function.  All possible branches are coded to call the `next` function with appropriate parameters, ensuring the final stage of the `async.eachSeries` is entered only once and with values appropriate to whether or not there was an error.
 
-By calling `.replaceWith` we ensure the tag which triggered this code is removed from the content.  The mahafunc's have to be written with the knowledge they'll be invoked multiple times.  They should not repeatedly perform the same manipulation each time, but should instead ensure the manipulation is done only once.  
+By calling `.replaceWith` we ensure the tag which triggered this code is removed from the content.  The mahafunc's have to be written with the knowledge they'll be invoked multiple times.  They should not repeatedly perform the same manipulation each time, but should instead ensure the manipulation is done only once.  Using `.replaceWith` is a cheap way to ensure the tag won't be processed more than once.

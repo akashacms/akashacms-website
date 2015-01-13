@@ -76,6 +76,24 @@ AkashaCMS, searching for a partial named `reddit-this.html.ejs` will look in the
 
 Suppose both `site/partials/reddit-this.html.ejs` and `P3/partials/reddit-this.html.ejs` exist.  The first one on the list, `site/partials/reddit-this.html.ejs`, will be used because AkashaCMS will find it first.
 
+## Per-site plugin configuration data
+
+In some cases plugins will need some data to configure plugin behavior.  For example, the `akashacms-embeddables` plugin requires a authentication key from Google to allow access to the YouTube API.
+
+Since that configuration data needs to reside in `config.js` we need some rules-of-the-road to share that common resource in a way that plugins don't step on each other.
+
+First - we recommend naming plugins with dash's in their name:  `akashacms-embeddables` etc
+
+Second - that dash-separated name then translates to a camelCase name:  `akashacmsEmbeddables`
+
+Use the camelCase name in the `config.js` as the root object of config data for the plugin:
+
+    akashacmsEmbeddables: {
+        ... data for plugin
+    }
+
+The plugin can then access the data as so:  `config.akashacmsEmbeddables....`
+
 # Typical plugin structure
 
 The typical plugin will have this directory structure

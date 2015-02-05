@@ -82,6 +82,26 @@ AkashaCMS, searching for a partial named `reddit-this.html.ejs` will look in the
 
 Suppose both `site/partials/reddit-this.html.ejs` and `P3/partials/reddit-this.html.ejs` exist.  The first one on the list, `site/partials/reddit-this.html.ejs`, will be used because AkashaCMS will find it first.
 
+## API to access a plugin module
+
+While the primary purpose for plugins is to provide partials or Mahabhuta functions, they can also provide functions.  That requires accessing the plugin module.
+
+    akasha.plugin('plugin-name').pluginFunction(...arguments...);
+
+The `plugin-name` of course must be the same as a registered plugin name, as seen above.
+
+The plugin would have a function like so:
+
+    module.exports.helloWorld = function() {
+       return "Hello, World!";
+    };
+
+Then calling `akasha.plugin('plugin-name').helloWorld()` returns the string shown above.
+
+Additionally, in an EJS template the `plugin` function is available so you can do this:
+
+    <%= plugin('plugin-name').helloWorld() %>
+
 ## Per-site plugin configuration data
 
 In some cases plugins will need some data to configure plugin behavior.  For example, the `akashacms-embeddables` plugin requires a authentication key from Google to allow access to the YouTube API.

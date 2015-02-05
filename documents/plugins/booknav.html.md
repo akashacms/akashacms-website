@@ -9,14 +9,16 @@ The `akashacms-booknav` doesn't quite live up to the original goal, but it is st
 The part of `akashacms-booknav` which works correctly generates an indented listing of all the child documents to the current document.
 
 The list of links in the [AkashaCMS plugin directory](index.html) is generated with this module.  
-Another example exists on the [GreenTransportation.info electric vehicle tracking section](http://greentransportation.info/ev-tracker/index.html).
+Another example exists on the [GreenTransportation.info electric vehicle politics section](http://greentransportation.info/ev-politics/index.html).
 
 The source for this file uses the template `index-page.html.ejs` ([source](https://github.com/robogeek/akashacms-website/blob/master/layouts/index-page.html.ejs)).
 
 The critical line is:
 
-      <%- bookChildTree(locals) %>
+      <book-child-tree></book-child-tree>
 
-This function scans through the documents of the website, finds everything under the directory containing the current document, and generates links.
+This function scans through the documents of the website, finding everything under the directory containing the current document, and generating links to the pages.  The presentation is nested and indented to indicate the structure of the directory tree.
 
-This plugin looks for `teaser` metadata in the documents, and if present adds the teaser following the link.
+It's a quick and easy way to generate navigational pages for a group of documents.
+
+For any documents with `teaser` metadata, the teaser will follow the link.

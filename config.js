@@ -18,16 +18,6 @@ module.exports = {
         dir:  'akashacms.com'
     },
     
-    plugins: [
-        require('akashacms-theme-bootstrap'),
-        require('akashacms-breadcrumbs'),
-        require('akashacms-booknav'),
-        require('akashacms-embeddables'),
-        require('akashacms-social-buttons'),
-        // require('akashacms-tagged-content'),
-        require('akashacms-theme-boilerplate')
-    ],
-    
     tags: {
         pathIndexes: '/tags/',
         header: "---\ntitle: @title@\nlayout: tagpage.html.ejs\n---\n<p>Pages with tag @tagName@</p>"
@@ -44,9 +34,9 @@ module.exports = {
     	]
     },
     
-    editor: {
-    	users: require('website-data').akashacmsCom.users
-    },
+    // editor: {
+    // 	users: require('website-data').akashacmsCom.users
+    // },
     
     data: {
         metarobots: "index,follow",
@@ -85,6 +75,17 @@ module.exports = {
     },
     
     config: function(akasha) {
+		
+		akasha.registerPlugins(module.exports, [
+			{ name: 'akashacms-theme-bootstrap', plugin: require('akashacms-theme-bootstrap') },
+			{ name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
+			{ name: 'akashacms-booknav', plugin: require('../../akashacms/akashacms-booknav') },
+			{ name: 'akashacms-embeddables', plugin: require('akashacms-embeddables') },
+			{ name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
+			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') },
+			{ name: 'akashacms-theme-boilerplate', plugin: require('akashacms-theme-boilerplate') }
+		]);
+		
         akasha.emitter.on('done-render-files', function() {
             // Generate .htaccess instructions for redirects from pages on wikidot
             // to the new pages

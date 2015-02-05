@@ -13,22 +13,28 @@ AkashaCMS can be extended using a flexible plugin system.  Consult the [director
 * Provide template functions
 * Listen to, and react to, events emitted by AkashaCMS during processing
 
+# Configuring plugins for a site
+
 In the site config file, plugins are invoked this way:
 
-    plugins: [
-        require('akashacms-theme-bootstrap'),
-        require('akashacms-breadcrumbs'),
-        require('akashacms-booknav'),
-        require('akashacms-embeddables'),
-        require('akashacms-social-buttons'),
-        require('akashacms-tagged-content')
-    ],
+    config: function(akasha) {
+        akasha.registerPlugins(module.exports, [
+            { name: 'akashacms-theme-bootstrap', plugin: require('akashacms-theme-bootstrap') },
+            { name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
+            { name: 'akashacms-booknav', plugin: require('akashacms-booknav') },
+            { name: 'akashacms-embeddables', plugin: require('akashacms-embeddables') },
+            { name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
+            { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') }
+        ]);
+    }
 
-Each entry in the array is a module reference, which is require'd inside the config file.  This way the module is resolved relative to the config file.  If desired the module reference can be a string instead, but in that case it is AkashaCMS which require's the module, and the module location is resolved relative to where AkashaCMS is installed.
+Each entry in the array is an object describing the plugin.  The module reference is require'd inside the config file so that it is resolved relative to the config file.  If desired the module reference can be a string instead, but in that case it is AkashaCMS which require's the module, and the module location is resolved relative to where AkashaCMS is installed.
 
-A plugin can override behavior (functions) or templates (layouts, or partials) defined by a plugin farther down the list.  In this plugin config, we've placed `akashacms-theme-bootstrap` because some of its partials override partials defined in other plugins.  Those partials have bootstrap-specific markup and should make a site look better.
+A plugin can override behavior (functions) or templates (layouts, or partials) defined by a plugin farther down the list.  In this plugin config, we've placed `akashacms-theme-bootstrap` first because some of its partials override partials defined in other plugins.  Those partials have bootstrap-specific markup and should make a site look better.
 
 The general rule is a plugin overrides things defined in plugins further down this list.  We'll see in a minute how this is done.
+
+# Coding a plugin
 
 An AkashaCMS plugin is simply a Node.js module that has a function with this signature:
 
@@ -129,21 +135,22 @@ Any Mahabhuta processing done by a plugin will be done with code in this functio
             $('ak-teaser').each(function(i, elem) { elements.push(elem); });
             async.eachSeries(elements,
             function(element, next) {
-			
 				if (typeof metadata.teaser !== "undefined" || typeof metadata["ak-teaser"] !== "undefined") {
-					$('ak-teaser').each(function(i, elem) {
-						$(this).replaceWith(
-							akasha.partialSync("ak_teaser.html.ejs", {
+						akasha.partial("ak_teaser.html.ejs", {
 								teaser: typeof metadata["ak-teaser"] !== "undefined"
 									? metadata["ak-teaser"] : metadata.teaser
-							})
-						)
-					});
+							},
+							function(err, html) {
+								if (err) next(err);
+								else {
+										$(element).replaceWith(html);
+										next();
+								}
+							});
 				} else {
-					$('ak-teaser').remove();
+					$(element).remove();
+					next();
 				}
-            
-				next();
             }, 
             function(err) {
 				if (err) {

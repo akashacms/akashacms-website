@@ -66,9 +66,7 @@ module.exports = {
     
     funcs: {
     },
-    
-    mahabhuta: [],
-    
+
     cheerio: {
         recognizeSelfClosing: true,
         recognizeCDATA: true
@@ -79,7 +77,7 @@ module.exports = {
 		akasha.registerPlugins(module.exports, [
 			{ name: 'akashacms-theme-bootstrap', plugin: require('akashacms-theme-bootstrap') },
 			{ name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
-			{ name: 'akashacms-booknav', plugin: require('../../akashacms/akashacms-booknav') },
+			{ name: 'akashacms-booknav', plugin: require('akashacms-booknav') },
 			{ name: 'akashacms-embeddables', plugin: require('akashacms-embeddables') },
 			{ name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
 			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') },
@@ -110,4 +108,4 @@ module.exports = {
     	[ '^/config.html', '/configuration/index.html' ],
     	[ '^/extensions.html', '/configuration/ab-plugins.html' ],
     ]
-}
+};

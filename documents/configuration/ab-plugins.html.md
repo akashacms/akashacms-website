@@ -146,10 +146,12 @@ Typically the `config` function will have this structure:
         ...
     }
 
-Any Mahabhuta processing done by a plugin will be done with code in this function.  For example this function from the _builtin_ plugin handles the `ak-teaser` tag.
+# Mahabhuta functions
 
+Plugins can add [Mahabhuta](/documents/mahabhuta.html) functions to support additional tags or perform additional DOM manipulations.  Simply create an array, `module.exports.mahabhuta`, containing Mahabhuta functions.  During the `registerPlugins` process, this array of functions will be detected and registered in the master list of Mahabhuta functions.
 
-        config.mahabhuta.push(function($, metadata, dirty, done) {
+    module.exports.mahabhuta = [
+        function($, metadata, dirty, done) {
         	logger.trace('ak-teaser');
             var elements = [];
             $('ak-teaser').each(function(i, elem) { elements.push(elem); });
@@ -178,7 +180,10 @@ Any Mahabhuta processing done by a plugin will be done with code in this functio
 					done(err);
 				} else done();
             });
-        });
+        },
+        
+        ... other functions
+    ];
 
 # The _builtin_ plugin
 

@@ -14,7 +14,7 @@ The extensions recognized are for files in `root_documents` and `root_layouts` d
 * `php` - for PHP files - must be `xyzzy.php(.other.extensions)`
 * `html` - for HTML files - must be `xyzzy.html(.other.extensions)`
 * `ejs` - Process with EJS - must be either `xyzzy.html.ejs` or `xyzzy.html.ejs.md` - the latter processes first with Markdown, then with EJS - https://github.com/visionmedia/ejs
-* `md` - Process with Markdown - must be `xyzzy.html.md` - https://www.npmjs.com/package/remarkable - https://github.com/jonschlinkert/remarkable
+* `md` - Process with Markdown - must be `xyzzy.html.md` - https://www.npmjs.com/package/markdown-it
 
 The processing by different engines occurs in the order specified in the file name.
 

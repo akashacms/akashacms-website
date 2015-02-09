@@ -6,7 +6,7 @@ publDate: Jan 1, 2015
 author: david
 ---
 
-As noted in <a href="/documents/extensions.html"></a>, AkashaCMS uses the [Remarkable](https://github.com/jonschlinkert/remarkable) markdown processor.  This gives us quite a lot of capabilities, as well as a focus on the [CommonMark](http://commonmark.org/) spec.  As nice as Markdown is, the original "specification" was not terribly precise leading to some fragmentation among the various Markdown processors.  The CommonMark spec aims to fix that, opening a route to a day of compatibility between Markdown processors.
+As noted in <a href="/documents/extensions.html"></a>, AkashaCMS uses the [Markdown-it](https://www.npmjs.com/package/markdown-it) markdown processor.  This gives us quite a lot of capabilities, as well as a focus on the [CommonMark](http://commonmark.org/) spec.  As nice as Markdown is, the original "specification" was not terribly precise leading to some fragmentation among the various Markdown processors.  The CommonMark spec aims to fix that, opening a route to a day of compatibility between Markdown processors.
 
 The Remarkable engine has a number of configuration options to customize the output and what it does.  At the moment AkashaCMS has a fixed configuration hidden in its internals.  It would be fairly easy to allow `config.js` to contain configuration options allowing a website to precisely configure its operation.  If that's desired, please file an issue and we'll take care of it.
 

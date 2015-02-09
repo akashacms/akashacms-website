@@ -34,7 +34,9 @@ The jQuery code is written in functions that are stored in a `config.js` array, 
 mahabhuta: [ ],
 ```
 
-The `mahabhuta` array will store a list of functions.  The website can add its own function like so:
+If you don't create the `mahabhuta` array it will be created for you.  The `mahabhuta` array stores a list of functions, each of which we call a `mahafunc`.  The Mahabhuta engine iterates through this array, executing each mahafunc.
+
+The website can add its own mahafunc's like so:
 
 ```
 mahabhuta: [
@@ -62,18 +64,16 @@ The `recognizeSelfClosing` option is important because it seems the HTML5 paradi
 A plugin is supposed to add functions to this array like so:
 
 ```
-module.exports.config = function(akasha, config) {
-    ...
-    if (config.mahabhuta) {
-        config.mahabhuta.push(function($, metadata, dirty, done) {
-            ... jQuery code
-        });
-    }
+module.exports.mahabhuta = [
+    
+    function($, metadata, dirty, done) {
+        ... jQuery code
+    });
     ...
 }
 ```
 
-Note that `config.mahabhuta` is the same array shown earlier.
+When the plugin is registered with AkashaCMS, the content of this array is copied over to `config.mahabhuta`.
 
 The order of the functions in `config.mahabhuta` will reflect the order the plugins are listed in the `config.plugins` array.  This can be important if you end up with two functions working on the same tag.
 

@@ -17,3 +17,5 @@ To use the theme, add `akashacms-theme-bootstrap` to the plugin list and then in
     ---
 
 Every page using that layout will use the full Bootstrap page.
+
+Additionally, this theme provides a number of partials that override partials from other plugins.  These re-implement Bootstrapified versions of various things.

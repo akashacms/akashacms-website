@@ -36,7 +36,7 @@ The tag list is simply a comma seperated set of phrases.  It doesn't matter too 
 
 In one (or more) of your layout templates do something this:
 
-    <p><small>Tags: <%- tagsForDocument(locals) %></small></p>
+    <p><small>Tags: <tags-for-document></tags-for-document></small></p>
 
 Each tag will link to the index page for that tag
 
@@ -69,7 +69,7 @@ The `header` parameter sets up the frontmatter block for the tag index page.  It
 
 In one (or more) of your layout templates do this:
 
-    <%- tagCloud() %>
+    <tag-cloud></tag-cloud>
 
 This uses the `tagcloud-generator` module for some of the heavy lifting.
 

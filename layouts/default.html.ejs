@@ -16,6 +16,6 @@ layout: header-footer.html.ejs
     <partial file-name='disqus.html'/>
   </article>
   <section id="right" class="col-sm-2">
-    <% if (rightsidebar) { %><%- partial(rightsidebar) %><% } %>
+    <% if (typeof rightsidebar !== "undefined" && rightsidebar) { %><%- partial(rightsidebar) %><% } %>
   </section>
 </div>

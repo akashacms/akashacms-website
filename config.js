@@ -63,6 +63,27 @@ module.exports = {
             
         ]
     },
+	
+	blogPodcast: {
+		"news": {
+			rss: {
+				title: "AkashaCMS News",
+				description: "Announcements and news about the AkashaCMS content management system",
+				site_url: "http://akashacms.com/news/index.html",
+				image_url: "http://akashacms.com/logo.gif",
+				managingEditor: 'David Herron',
+				webMaster: 'David Herron',
+				copyright: '2015 David Herron',
+				language: 'en',
+				categories: [ "Node.js", "Content Management System", "HTML5" ]
+			},
+			rssurl: "/news/rss.xml",
+			matchers: {
+				layouts: [ "article.html.ejs" ],
+				path: /^news\//
+			}
+		}
+	},
     
     funcs: {
     },
@@ -79,6 +100,7 @@ module.exports = {
 			{ name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
 			{ name: 'akashacms-booknav', plugin: require('akashacms-booknav') },
 			{ name: 'akashacms-embeddables', plugin: require('akashacms-embeddables') },
+			{ name: 'akashacms-blog-podcast', plugin: require('akashacms-blog-podcast') },
 			{ name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
 			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') },
 			{ name: 'akashacms-theme-boilerplate', plugin: require('akashacms-theme-boilerplate') }

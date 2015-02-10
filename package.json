@@ -1,0 +1,19 @@
+{
+  "author": {
+    "name": "David Herron",
+    "email": "david@davidherron.com",
+    "url": "http://davidherron.com"
+  },
+  "name": "akashacms-website",
+  "description": "AkashaCMS.com website source",
+  "homepage": "http://akashacms.com/",
+  "dependencies": {
+    "akashacms-theme-bootstrap": "*",
+    "akashacms-breadcrumbs": "*",
+    "akashacms-booknav": "*",
+    "akashacms-embeddables": "*",
+    "akashacms-blog-podcast": "*",
+    "akashacms-social-buttons": "*",
+    "akashacms-theme-boilerplate": "*"
+  }
+}

@@ -46,9 +46,11 @@ module.exports = {
         metalanguage: "EN",
     },
     
-    googleAnalyticsAccount: "UA-37003917-1",
-    googleAnalyticsDomain: "akashacms.com",
-    // googleSiteVerification: "CcDz9XDUIb4D1cW8VuiGj3kI_hckLDPFuwMrM2tYBds",
+	google: {
+		analyticsAccount: "UA-37003917-1",
+		analyticsDomain: "akashacms.com",
+		// siteVerification: "CcDz9XDUIb4D1cW8VuiGj3kI_hckLDPFuwMrM2tYBds",
+	},
     
     headerScripts: {
         stylesheets: [

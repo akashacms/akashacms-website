@@ -52,7 +52,7 @@ Generating the tag index pages occurs automatically within AkashaCMS's processin
 
 In `config.js` add an object of this sort:
 
-    tags: {
+    taggedContent: {
         pathIndexes: '/tags/',
         header: "---\ntitle: @title@\nlayout: tagpage.html.ejs\n---\n<p>Pages with tag @tagName@</p>"
     },

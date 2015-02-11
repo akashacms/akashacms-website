@@ -18,10 +18,10 @@ module.exports = {
         dir:  'akashacms.com'
     },
     
-    tags: {
+    /* taggedContent: {
         pathIndexes: '/tags/',
         header: "---\ntitle: @title@\nlayout: tagpage.html.ejs\n---\n<p>Pages with tag @tagName@</p>"
-    },
+    }, */
     
     authorship: {
     	defaultAuthorName: "david",

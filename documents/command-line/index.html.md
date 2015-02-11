@@ -51,9 +51,17 @@ This requires some [configuration in `config.js` as noted elsewhere](/deployment
 
 After rendering a website you might want to preview it before deploying the site to a server.
 
-    $ akashacms serve
+    $ akashacms preview
 
-This starts up a webserver on http://localhost:8080
+This starts up a webserver on http://localhost:6080
+
+# Notifying search engines the site was updated
+
+The search engine Sitemap protocol includes provision for pinging search engines.
+
+    $ akashacms ping
+
+This sends notifications to the known search engines that are known to support pinging.
 
 # Printing out the configuration
 

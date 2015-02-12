@@ -86,6 +86,22 @@ The `blogtag` tag in the frontmatter defines which blog definition to use.  The 
 
 With the blog configuration, the `blog-news-river` tag will use the defined Matchers to select the items, sort them into reverse chronological order, and render both an RSS feed and the index page.  The index page is rendered using the partial `blog-news-river.html.ejs`.
 
+## Previous/Next links among the blog posts
+
+Some blogs like to have each blog post link to the next & previous entries in the blog.
+
+It is likely the `blog-news-river` tag will need to limit the number of items it puts in the blog index.  The question is, what's the best way to still link to all items in the blog?  On most blogging systems, the river-of-news index extends over multiple pages, and you click through to page 2, page 3, etc.  In some other blogging systems as the user scrolls to the bottom of the page an AJAX query retrieves the next block of items appending them to the bottom of the page, giving the illusion of infinite scrolling in an infinitely long page.
+
+Another option beyond multiple index pages and illusory infinite scrolling is ... previous/next links in the blog posts.  The navigation to traverse all blog entries is to go to the blog post, then repeatedly click on the link to the previous post.  Or, going to the first post you click on the "previous" link and you're taken to the last post on the blog at which point you can keep clicking on the appropriate link and visit the next post.
+
+If any of this sounds interesting, in the layout used for blog posts add:
+
+```
+<blog-next-prev></blog-next-prev>
+```
+
+This tag is rendered using the partial: `blog-next-prev.html.ejs`
+
 ## Podcasting?
 
 As noted above, the RSS package claims to support Podcasting by adding some custom data elements.  This hasn't been tested, yet.

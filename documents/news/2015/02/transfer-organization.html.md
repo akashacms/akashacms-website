@@ -1,5 +1,5 @@
 ---
-layout: article.html.ejs
+layout: blog.html.ejs
 title: Created AkashaCMS organization to shephard AkashaCMS into the future
 publicationDate: Feb 11, 2015
 blogtag: news

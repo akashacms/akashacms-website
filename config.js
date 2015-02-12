@@ -81,7 +81,7 @@ module.exports = {
 			},
 			rssurl: "/news/rss.xml",
 			matchers: {
-				layouts: [ "article.html.ejs" ],
+				layouts: [ "blog.html.ejs" ],
 				path: /^news\//
 			}
 		}

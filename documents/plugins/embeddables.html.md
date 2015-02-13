@@ -122,6 +122,12 @@ Embeds a slideshare presentation into your site, from the given URL
 
 	<slideshare-metadata href=".."/>
 
+## Twitter
+
+    <twitter-embed href=".."></twitter-embed>
+
+Embeds a tweet. 
+
 ## oEmbed
 
 Like `youtube-metadata` it generates `<HEAD>` meta tags with thumbnails for the presentation.

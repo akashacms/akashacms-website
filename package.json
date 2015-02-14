@@ -13,7 +13,6 @@
     "akashacms-booknav": "*",
     "akashacms-embeddables": "*",
     "akashacms-blog-podcast": "*",
-    "akashacms-social-buttons": "*",
-    "akashacms-theme-boilerplate": "*"
+    "akashacms-social-buttons": "*"
   }
 }

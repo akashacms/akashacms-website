@@ -58,12 +58,8 @@ module.exports = {
             { href: "/style.css", media: "screen" },
             { href: "/readable.min.css", media: "screen" }
         ],
-        javaScriptTop: [
-            
-        ],
-        javaScriptBottom: [
-            
-        ]
+        javaScriptTop: [ ],
+        javaScriptBottom: [ ]
     },
 	
 	blogPodcast: {
@@ -95,6 +91,14 @@ module.exports = {
         recognizeCDATA: true
     },
     
+	themeBootstrap: {
+		bootstrapCSSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
+		bootstrapThemeCSSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
+		bootstrapJSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js",
+		useHtml5shiv: true,
+		useRespondJS: true
+	},
+	
     config: function(akasha) {
 		
 		akasha.registerPlugins(module.exports, [

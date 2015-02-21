@@ -6,6 +6,18 @@ rightsidebar:
 
 AkashaCMS provides one plugin with generally useful partials, a root layout page, and a long list of Mahabhuta tags.  They work together to provide a comprehensive base for presenting website content.
 
+A given website may want to disable parts of the `builtin` plugin.  If so, put this in the config file
+
+```
+builtin: {
+    suppress: {
+        partials: true,   // to suppress the built-in partials
+        layouts: true,    // to suppress the built-in layouts
+        assets: true      // to suppress the built-in assets
+    }
+}
+```
+
 The layout file, `ak_page.html.ejs`, produces an HTML5 page loosely derived from the HTML5 Boilerplate project (version 4).
 
     <ak-page-title></ak-page-title>

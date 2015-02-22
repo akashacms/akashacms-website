@@ -148,26 +148,26 @@ Typically the `config` function will have this structure:
 
 ## Pluggable Renderers
 
-AkashaCMS allows a plugin to define new rendering pipelines.  These pipelines are documented by the file-name extension, with each combination of extensions indicating different rendering steps.  For example, among [the built-in rendering pipelines](../documents/extensions.html) is support for `.html.ejs.md` files.  Such files are first rendered from Markdown to HTML, then processed using EJS, to finally produce HTML output.
+AkashaCMS allows a plugin to define new rendering chains.  These are documented by the file-name extension, with each combination of extensions indicating different rendering steps.  For example, among [the built-in rendering chains](../documents/extensions.html) is support for `.html.ejs.md` files.  Such files are first rendered from Markdown to HTML, then processed using EJS, to finally produce HTML output.
 
 One registers a renderer in the plugin's `config` function like so:
 
 ```
 config: function(akasha) {
     ...
-    akasha.registerRenderer({
-        ... renderer object
+    akasha.registerRenderChain({
+        ... renderChain object
     });
 };
 ```
 
-The renderer object has three functions,
+The renderChain object has three functions,
 
-* `match` to indicate whether this renderer handles a given file name
+* `match` to indicate whether this renderChain handles a given file name
 * `renderSync` to render text in a synchronous fashion
 * `render` to render text in asynchronous fashion
 
-To make it clearer, this renderer handles the `.html.ejs.md` files mentioned earlier
+To make it clearer, this renderChain handles the `.html.ejs.md` files mentioned earlier
 
 ```
 module.exports.rendererEJSMD = {

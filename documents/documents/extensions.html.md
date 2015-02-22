@@ -9,6 +9,8 @@ AkashaCMS uses the file name extensions to determine how to process each documen
 
 The general concept is that each document has its base name (xyzzy.html) and for documents requiring special processing (say, Markdown rendering) we append a second extension to the file name documenting that processing.  For example, `xyzzy.html.md` says to process the file first with Markdown, then with [the Mahabhuta engine](mahabhuta.html).  The result is `xyzzy.html`.
 
+That's a "renderChain", or a chain of processing steps for a given file extension.
+
 The extensions recognized are for files in `root_documents` and `root_layouts` directories are:
 
 * `php` - for PHP files - must be `xyzzy.php` or `xyzzy.php.ejs` (see [PHP files in Akashacms](php-documents.html) for instructions)
@@ -21,6 +23,8 @@ The processing by different engines occurs in the order specified in the file na
 Asset files are normally placed in the `root_assets` directory, but you may find it convenient to place them in the `root_documents` directory, instead.  Files with simple file names (xyzzy.html) will be copied with no processing to the output directory.  
 
 Files with the extension `.css.less` are recognized specially, and will be processed with the LESS renderer to produce a CSS file.  See http://lesscss.org
+
+It's possible to register arbitrary renderChain's, [to perform any processing sequence with a given file name](../configuration/ab-plugins.html).  
 
 Currently files in `root_partials` directories do not get the full processing treatment we just discussed.  Instead only a single phase of processing is recognized, and the Mahabhuta engine is not run on these files.
 

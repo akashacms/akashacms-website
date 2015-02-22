@@ -5,7 +5,7 @@ rightsidebar:
 publDate: Jan 2, 2015
 author: david
 ---
-The Mahabhuta engine allows website authors to perform jQuery DOM manipulations on the server side.  Reusing your jQuery knowledge may be a good thing, we hope.  Mahbhuta will make it possible to reuse jQuery knowledge to reorganize, rewrite, or otherwise manipulate pages on the server side.  Let the concept sink in for a moment, because this can be powerful.
+The [Mahabhuta](https://github.com/akashacms/mahabhuta) engine allows website authors to perform jQuery DOM manipulations on the server side.  Reusing your jQuery knowledge may be a good thing, we hope.  Mahbhuta will make it possible to reuse jQuery knowledge to reorganize, rewrite, or otherwise manipulate pages on the server side.  Let the concept sink in for a moment, because this can be powerful.
 
 The name?  "Mahabhuta" is the Sanskrit name for the five elements, with Akasha being one of those elements.  The Mahabhuta engine deals with HTML Elements, so it seems like a fitting name.
 
@@ -65,7 +65,6 @@ A plugin is supposed to add functions to this array like so:
 
 ```
 module.exports.mahabhuta = [
-    
     function($, metadata, dirty, done) {
         ... jQuery code
     });
@@ -127,7 +126,7 @@ config.mahabhuta.push(function($, metadata, dirty, done) {
 });
 ```
 
-There is a problem with this code snippet however.  Suppose there is more than one `googledocs-viewer` tags on a page, and one triggers the error detected in the middle.  In such a case the `done` function will be called multiple times when it should only be called once.
+There is a problem with this code snippet however.  Suppose there is more than one `googledocs-viewer` tag on a page, and one triggers the error detected in the middle.  In such a case the `done` function will be called multiple times when it should only be called once.
 
 While the jQuery `.each` function looks like it's asynchronous, it isn't.
 

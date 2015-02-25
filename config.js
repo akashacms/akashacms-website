@@ -111,7 +111,7 @@ module.exports = {
 			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') }
 		]);
 		
-        akasha.emitter.on('done-render-files', function() {
+        akasha.emitter.on('done-render-files', function(cb) {
             // Generate .htaccess instructions for redirects from pages on wikidot
             // to the new pages
             // util.log('done-render-files received in Green Transportation .info');
@@ -122,6 +122,7 @@ module.exports = {
             }
             // util.log('appending '+ htappend);
             fs.appendFileSync(path.join(module.exports.root_out, ".htaccess"), htappend, 'utf8');
+			cb();
         });
     },
     // For setting up redirects from pages on wikidot version of greentransportation.info

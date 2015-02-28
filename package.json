@@ -14,6 +14,10 @@
     "akashacms-embeddables": "*",
     "akashacms-blog-podcast": "*",
     "akashacms-social-buttons": "*",
-    "grunt": "*"
+    "grunt": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-clean": "*"
   }
 }

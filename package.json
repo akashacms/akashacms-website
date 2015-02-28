@@ -18,6 +18,7 @@
     "grunt-contrib-htmlmin": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-copy": "*",
-    "grunt-contrib-clean": "*"
+    "grunt-contrib-clean": "*",
+    "grunt-sftp-deploy": "*"
   }
 }

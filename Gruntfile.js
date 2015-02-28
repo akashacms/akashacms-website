@@ -55,6 +55,22 @@ module.exports = function(grunt) {
         copy: {
             // Copy the contents of all root_assets directories into root_out
             assets: { files: copyAssetsConfig }
+        },
+        'sftp-deploy': {
+            deploy: {
+                auth: {
+                    host: 'akashacms.com',
+                    port: 22,
+                    authKey: process.env.HOME +"/.sftp-deploy-akashacms.txt"
+                },
+                cache: 'sftpCache.json',
+                src: config.root_out,
+                dest: 't.akashacms.com',
+                exclusions: [],
+                serverSep: '/',
+                concurrency: 4,
+                progress: true
+            }
         }
     });
     
@@ -63,6 +79,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-sftp-deploy');
     
     // This is equivalent to akashacms build
     

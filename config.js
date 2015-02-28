@@ -12,17 +12,6 @@ module.exports = {
     
     doMinimize: false,
     
-    deploy_rsync: {
-        user: 'reikiman',
-        host: 'akashacms.com',
-        dir:  'akashacms.com'
-    },
-    
-    /* taggedContent: {
-        pathIndexes: '/tags/',
-        header: "---\ntitle: @title@\nlayout: tagpage.html.ejs\n---\n<p>Pages with tag @tagName@</p>"
-    }, */
-    
     authorship: {
     	defaultAuthorName: "david",
     	authors: [    	

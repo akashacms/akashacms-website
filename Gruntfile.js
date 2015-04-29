@@ -1,5 +1,5 @@
 
-var akasha = require('../../Node.js/akashacms');
+var akasha = require('akashacms');
 var config = require('./config.js');
 akasha.config(config);
 
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
         }
     });
     
-    grunt.loadTasks('../../Node.js/akashacms/tasks');
+    grunt.loadNpmTasks('akashacms');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');

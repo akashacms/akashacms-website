@@ -98,6 +98,7 @@ module.exports = {
 			{ name: 'akashacms-blog-podcast', plugin: require('akashacms-blog-podcast') },
 			{ name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
 			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') }
+			{ name: 'akashacms-base', plugin: require('akashacms-base') }
 		]);
 		
         akasha.emitter.on('done-render-files', function(cb) {
@@ -124,5 +125,6 @@ module.exports = {
     	[ '^/asynchronous.html', '/layout/asynchronous-synchronous.html' ],
     	[ '^/config.html', '/configuration/index.html' ],
     	[ '^/extensions.html', '/configuration/ab-plugins.html' ],
+    	[ '^/plugins/builtin.html', '/plugins/base.html' ],
     ]
 };

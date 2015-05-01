@@ -64,7 +64,7 @@ To configure the chiclets for your website, create an array of chiclet descripto
 
 By default the ShareThus buttons do a good job of figuring out the content to share.  But they also let you configure each instance of the widget to share customized content if desired.  We already saw this while discussing chiclet configuration.
 
-ShareThis will also consult OpenGraph data in the page as [documented on their site](http://support.sharethis.com/customer/portal/articles/475079-share-properties-and-sharing-custom-information).  AkashaCMS makes it easy to generate OpenGraph metadata using the [builtin plugin](builtin.html).
+ShareThis will also consult OpenGraph data in the page as [documented on their site](http://support.sharethis.com/customer/portal/articles/475079-share-properties-and-sharing-custom-information).  AkashaCMS makes it easy to generate OpenGraph metadata using the [akashacms-base plugin](base.html).
 
 You can also customize the same parameters for the whole widget, not just for one of the chiclets.  To do so invoke the template function as so:
 

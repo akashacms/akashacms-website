@@ -46,7 +46,7 @@ The big picture operation of AkashaCMS is that it
 * Each of the Document files call on layout templates, or partial templates, to render the page
 * The `data` object is available while each page is being rendered.
 
-Because `root_assets`, `root_layouts` and `root_partials` are all arrays, AkashaCMS searches for files in each directory in the array in order.  The first match wins.  That means if several plugins provide a file of a given name, the instance used by the site is the first one found by AkashaCMS.  For example, AkashaCMS provides a base plugin named `builtin` with several partial's providing default renderings for many things.  Another plugin, or the site itself, can override those files.  For example the bootstrap theme (akashacms-theme-bootstrap) overrides several other partial's with ones using bootstrap components.
+Because `root_assets`, `root_layouts` and `root_partials` are all arrays, AkashaCMS searches for files in each directory in the array in order.  The first match wins.  That means if several plugins provide a file of a given name, the instance used by the site is the first one found by AkashaCMS.  Another plugin, or the site itself, can override those files.  For example the bootstrap theme (akashacms-theme-bootstrap) overrides several other partial's with ones using bootstrap components.
 
 The files in `root_layouts` provide page layout structure.  These can chain together to allow for multiple page layouts.  See [the layout documentation](../layout/index.html) for more information.
 

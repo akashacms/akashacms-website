@@ -75,6 +75,7 @@ module.exports = function(grunt) {
     });
     
     grunt.loadNpmTasks('akashacms');
+    // grunt.loadNpmTasks('akashacms-base');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');

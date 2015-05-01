@@ -33,7 +33,7 @@ Every page using that layout will use the full Bootstrap page, adapted from the 
 Additionally, this theme provides a number of partials that override partials from other plugins.  These re-implement Bootstrapified versions of various things.
 
 
-The Bootstrap theme adds several CSS and JavaScript files to the `config.headerScripts` object from the Bootstrap project.  It's possible to override these files by adding a `config.themeBootstrap` object to `config.js`.  At the current writing, `akashacms-theme-bootstrap` is built on Bootstrap v3, but the Bootstrap team have moved on to v3.3.2.  You can override the builtin version, using that version or a custom-built Bootstrap just by modifying the options listed below.
+The Bootstrap theme adds several CSS and JavaScript files to the `config.headerScripts` object from the Bootstrap project.  It's possible to override these files by adding a `config.themeBootstrap` object to `config.js`.  At the current writing, `akashacms-theme-bootstrap` is built on Bootstrap v3, but the Bootstrap team have moved on to v3.3.2.  You can override the built-in version, using that version or a custom-built Bootstrap just by modifying the options listed below.
 
 ```js
 themeBootstrap: {

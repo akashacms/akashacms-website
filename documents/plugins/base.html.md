@@ -1,12 +1,12 @@
 ---
 layout: article.html.ejs
-title: AkashaCMS' built-in plugin
+title: AkashaCMS' website-base-functionality plugin
 rightsidebar:
 ---
 
-AkashaCMS provides one plugin with generally useful partials, a root layout page, and a long list of Mahabhuta tags.  They work together to provide a comprehensive base for presenting website content.
+The AkashaCMS-base plugin provides generally useful partials, a root layout page, and a long list of Mahabhuta tags.  They work together to provide a comprehensive base for presenting website content.  This had formerly been built-into AkashaCMS, hence had been called `builtin`.
 
-A given website may want to disable parts of the `builtin` plugin.  If so, put this in the config file
+A given website may want to disable parts of the `akashacms-base` plugin.  If so, put this in the config file
 
 ```
 builtin: {

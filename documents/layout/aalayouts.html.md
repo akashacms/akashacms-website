@@ -39,4 +39,4 @@ The final template, which we called `page.html.ejs` here, should be the destinat
 
 # Base themes and the page template
 
-The [AkashaCMS built-in plugin](/plugins/builtin.html), the [Bootstrap base theme](/plugins/theme-bootstrap.html) and the [Boilerplate base theme](/plugins/theme-boilerplate.html) all provide implementations of the `page.html.ejs`.  In each case the implementation supports a complete set of META tags, and flexible methods of bringing in stylesheets or JavaScript.
+The [AkashaCMS-base plugin](/plugins/base.html), the [Bootstrap base theme](/plugins/theme-bootstrap.html) and the [Boilerplate base theme](/plugins/theme-boilerplate.html) all provide implementations of the `page.html.ejs`.  In each case the implementation supports a complete set of META tags, and flexible methods of bringing in stylesheets or JavaScript.

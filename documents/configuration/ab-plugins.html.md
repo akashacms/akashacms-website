@@ -24,7 +24,8 @@ In the site config file, plugins are invoked this way:
             { name: 'akashacms-booknav', plugin: require('akashacms-booknav') },
             { name: 'akashacms-embeddables', plugin: require('akashacms-embeddables') },
             { name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
-            { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') }
+            { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') },
+            { name: 'akashacms-base', plugin: require('akashacms-base') }
         ]);
     }
 
@@ -33,6 +34,8 @@ Each entry in the array is an object describing the plugin.  The module referenc
 A plugin can override behavior (functions) or templates (layouts, or partials) defined by a plugin farther down the list.  In this plugin config, we've placed `akashacms-theme-bootstrap` first because some of its partials override partials defined in other plugins.  Those partials have bootstrap-specific markup and should make a site look better.
 
 The general rule is a plugin overrides things defined in plugins further down this list.  We'll see in a minute how this is done.
+
+One effect is that `akashacms-base` is designed to be the last plugin on the list, so that other plugins can override it.
 
 # Coding a plugin
 
@@ -68,7 +71,7 @@ If you're unclear about the order of entries in these arrays, this command print
 
 That is... for any website with a few plugins, the content of the `root_partials` and `root_layouts` arrays will be something like
 
-    [ site, P1, P2, P3, P4, ..., builtin ]
+    [ site, P1, P2, P3, P4, ... ]
 
 AkashaCMS, searching for a partial named `reddit-this.html.ejs` will look in these directories in order
 
@@ -78,7 +81,6 @@ AkashaCMS, searching for a partial named `reddit-this.html.ejs` will look in the
     /path/to/P3/partials/reddit-this.html.ejs
     /path/to/P4/partials/reddit-this.html.ejs
     ...
-    /path/to/akashacms/builtin/partials/reddit-this.html.ejs
 
 Suppose both `site/partials/reddit-this.html.ejs` and `P3/partials/reddit-this.html.ejs` exist.  The first one on the list, `site/partials/reddit-this.html.ejs`, will be used because AkashaCMS will find it first.
 
@@ -235,8 +237,6 @@ Plugins can add [Mahabhuta](/documents/mahabhuta.html) functions to support addi
         ... other functions
     ];
 
-# The _builtin_ plugin
+# The _akashacms-base_ plugin
 
-AkashaCMS provides some basic functions, partials and assets in the _builtin_ plugin.  As I pondered the design, it was clear AkashaCMS needed to provide some fundamental content management and layout capabilities, and that it would be easiest to implement with a "plugin".
-
-The _builtin_ plugin appears last in the search order, and it is expected other plugins will override things implemented by _builtin_.
+The AkashaCMS-base plugin provides some basic functions, partials and assets.  As I pondered the AkashaCMS design, it was clear  fundamental content management and layout capabilities were needed, designed to be last on the list of plugins, allowing any other plugin to override its behavior.  That thought lead to the `akashacms-base` plugin.

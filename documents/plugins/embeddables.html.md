@@ -112,7 +112,7 @@ Generates some HTML that people can embed on their sites, linking to your site, 
 
 The embed code is rendered through the partial: `video-embed-code.html.ejs`
 
-It's made available to the viewer of the site through the builtin module partial: `ak-show-embed-code.html.ejs`
+It's made available to the viewer of the site through the `akashacms-base` module partial: `ak-show-embed-code.html.ejs`
 
 ## Slideshare
 

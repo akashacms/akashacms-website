@@ -24,7 +24,7 @@ Asset files are normally placed in the `root_assets` directory, but you may find
 
 Files with the extension `.css.less` are recognized specially, and will be processed with the LESS renderer to produce a CSS file.  See http://lesscss.org
 
-It's possible to register arbitrary renderChain's, [to perform any processing sequence with a given file name](../configuration/ab-plugins.html).  
+It's possible to register arbitrary renderChain's, [to perform any processing sequence with a given file name](rendering-chains.html).  
 
 Currently files in `root_partials` directories do not get the full processing treatment we just discussed.  Instead only a single phase of processing is recognized, and the Mahabhuta engine is not run on these files.
 
@@ -32,6 +32,8 @@ Currently files in `root_partials` directories do not get the full processing tr
 * `xyzzy.html.md` - Process with Markdown
 * `xyzzy.html.ejs.md` - Process first with Markdown, then with EJS
 * `xyzzy.html` - No processing
+
+
 
 ## Mahabhuta - jQuery style processing
 

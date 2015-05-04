@@ -152,51 +152,7 @@ Typically the `config` function will have this structure:
 
 AkashaCMS allows a plugin to define new rendering chains.  These are documented by the file-name extension, with each combination of extensions indicating different rendering steps.  For example, among [the built-in rendering chains](../documents/extensions.html) is support for `.html.ejs.md` files.  Such files are first rendered from Markdown to HTML, then processed using EJS, to finally produce HTML output.
 
-One registers a renderer in the plugin's `config` function like so:
-
-```
-config: function(akasha) {
-    ...
-    akasha.registerRenderChain({
-        ... renderChain object
-    });
-};
-```
-
-The renderChain object has three functions,
-
-* `match` to indicate whether this renderChain handles a given file name
-* `renderSync` to render text in a synchronous fashion
-* `render` to render text in asynchronous fashion
-
-To make it clearer, this renderChain handles the `.html.ejs.md` files mentioned earlier
-
-```
-module.exports.rendererEJSMD = {
-  match: function(fname) {
-	var matches;
-	if ((matches = fname.match(/^(.*\.html)(\.ejs\.md)$/)) !== null) {
-	  return {
-		path: matches[0],
-		renderedFileName: matches[1],
-		extension: matches[2]
-	  };
-	} else {
-	  return null;
-	}
-  },
-  renderSync: function(text, metadata) {
-	return ejs.render(md.renderSync(text), metadata);
-  },
-  render: function(text, metadata, done) {
-	done(null, ejs.render(md.renderSync(text), metadata));
-  }
-};
-```
-
-The `match` function returns an object, as shown above, documenting the full path name, what it needs to render as, and the matching extension.  This is needed by other pieces of AkashaCMS to determine what file name to create after processing the file.
-
-The `render` and `renderSync` functions simply perform the rendering, giving the output.
+See [](../documents/rendering-chains.html) for details.
 
 # Mahabhuta functions
 

@@ -7,7 +7,7 @@ publicationDate: Jan 1, 2015
 ---
 Theoretically installing AkashaCMS and getting started is this simple:
 
-    $ npm install -g akashacms
+    $ npm install -g akashacms-cli
     $ akashacms init akashacms-example
     $ cd akashacms-example
     $ akashacms build
@@ -17,7 +17,7 @@ Then visit [http://localhost:6080](http://localhost:6080).  This works for me on
 
 The first command may have to be done this way on most systems:
 
-    $ sudo npm install -g akashacms
+    $ sudo npm install -g akashacms-cli
 
 The last command can be replaced with the following to launch an in-browser website editor.  The editor is at [http://localhost:8080](http://localhost:8080)
 

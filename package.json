@@ -8,6 +8,7 @@
   "description": "AkashaCMS.com website source",
   "homepage": "http://akashacms.com/",
   "dependencies": {
+    "akashacms": "*",
     "akashacms-theme-bootstrap": "*",
     "akashacms-breadcrumbs": "*",
     "akashacms-booknav": "*",

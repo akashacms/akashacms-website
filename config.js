@@ -90,7 +90,7 @@ module.exports = {
 	
     config: function(akasha) {
 		
-		akasha.registerPlugins(module.exports, [
+		akasha.registerPlugins([
 			{ name: 'akashacms-theme-bootstrap', plugin: require('akashacms-theme-bootstrap') },
 			{ name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
 			{ name: 'akashacms-booknav', plugin: require('akashacms-booknav') },

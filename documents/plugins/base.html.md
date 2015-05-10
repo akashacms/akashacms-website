@@ -32,18 +32,9 @@ Generates a long list of `meta` tags to be put in the `<head>` section, using th
 
 Generates a canonical URL for the page.
 
-    <ak-stylesheets></ak-stylesheets>
-
-Generates links to CSS stylesheets, as declared in the site config file.
-
     <ak-siteverification></ak-siteverification>
 
 Generates a site verification tag in the `<head>` section, based on data in the site config file.
-
-    <ak-headerJavaScript></ak-headerJavaScript>
-    <ak-footerJavaScript></ak-footerJavaScript>
-
-Generates JavaScript `<script>` tags either in the head of the document, or foot of the document.
 
     <ak-google-analytics></ak-google-analytics>
 
@@ -56,10 +47,6 @@ Generate a tag for the site sitemap.
     <ak-insert-body-content></ak-insert-body-content>
 
 Insert the content of the `content` variable into the current document.  This is used in layout templates to insert previously rendered content as the template chain is processed.  There is two ways to insert this content, one to use `<%- content %>` in an EJS template.  But if you're not in an EJS template, you can use this tag instead.
-
-    <ak-teaser></ak-teaser>
-
-Inserts content from the `teaser` metadata variable.  The `ak_teaser.html.ejs` partial is used.
 
     <rss-header-meta href="..."></rss-header-meta>
 

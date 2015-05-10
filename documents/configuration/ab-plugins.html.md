@@ -18,7 +18,7 @@ AkashaCMS can be extended using a flexible plugin system.  Consult the [director
 In the site config file, plugins are invoked this way:
 
     config: function(akasha) {
-        akasha.registerPlugins(module.exports, [
+        akasha.registerPlugins([
             { name: 'akashacms-theme-bootstrap', plugin: require('akashacms-theme-bootstrap') },
             { name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
             { name: 'akashacms-booknav', plugin: require('akashacms-booknav') },

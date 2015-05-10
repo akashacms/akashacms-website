@@ -20,14 +20,13 @@ This object in turn contains other objects, that comprise the configuration data
 * `root_partials` - An array of directories each of which contain templates that can be inserted inline anywhere using the function named `partial`.  These templates can be passed a data object that's then rendered by the template.
 * `root_docs` - An array of directories each of which contain the content files, each of which correspond to a URL on the website.
 * `root_out` - The output directory into which everything is rendered.
-* `root_url` - Declares the destination URL of the website.  This gets used in various ways.  Do not include the final slash - `http://example.com` rather than `http://example.com/`
+* `root_url` - Declares the destination URL of the website.  This gets used in various ways.  Do not include the final slash - use `http://example.com` rather than `http://example.com/`
 * `doMinimize` - Instruct AkashaCMS to minimize the output directory once built.  This is equivalent to the `akashacms minimize` command.  This is ignored currently.
 * `deploy_rsync` - Data required to configure `rsync` in the `akashacms deploy` command.
-* `plugins` - An array of modules for AkashaCMS plugins used for this site.
 * `data` - An object that is passed into the rendering of all pages.
 * `googleAnalyticsAccount` - Contains the site's Google Analytics account ID to generate the correct Analytics code.
 * `googleAnalyticsDomain` - The domain name to use with Google Analytics.
-* `headerScripts` - Contains data about CSS or JavaScript scripts to add to pages.  Plugins can push either into the arrays contained in this object.
+* `headerScripts` - Contains data about CSS or JavaScript scripts to add to pages.  Plugins can push either into the arrays contained in this object. (see [](/documents/css-js.html))
 * `funcs` - A list of functions available to template engines while rendering all pages.
 * `config` - A function that, if present, is called while configuring AkashaCMS for this site.  This lets the site add behavior to AkashaCMS.
 * `mahabhuta` - An array of functions called by the Mahabhuta engine to do jQuery/DOM-like manipulations of HTML just before writing page content to disk.

@@ -62,12 +62,31 @@ module.exports = {
 				webMaster: 'David Herron',
 				copyright: '2015 David Herron',
 				language: 'en',
-				categories: [ "Node.js", "Content Management System", "HTML5" ]
+				categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
 			},
 			rssurl: "/news/rss.xml",
 			matchers: {
 				layouts: [ "blog.html.ejs" ],
 				path: /^news\//
+			}
+		},
+		
+		"howto": {
+			rss: {
+				title: "AkashaCMS Tutorials",
+				description: "Tutorials about using the AkashaCMS content management system",
+				site_url: "http://akashacms.com/howto/index.html",
+				image_url: "http://akashacms.com/logo.gif",
+				managingEditor: 'David Herron',
+				webMaster: 'David Herron',
+				copyright: '2015 David Herron',
+				language: 'en',
+				categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
+			},
+			rssurl: "/howto/rss.xml",
+			matchers: {
+				layouts: [ "blog.html.ejs" ],
+				path: /^howto\//
 			}
 		}
 	},
@@ -95,7 +114,7 @@ module.exports = {
 			{ name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
 			{ name: 'akashacms-booknav', plugin: require('akashacms-booknav') },
 			{ name: 'akashacms-embeddables', plugin: require('akashacms-embeddables') },
-			{ name: 'akashacms-blog-podcast', plugin: require('akashacms-blog-podcast') },
+			{ name: 'akashacms-blog-podcast', plugin: require('../akashacms-blog-podcast') },
 			{ name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
 			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') }
 			{ name: 'akashacms-base', plugin: require('akashacms-base') }

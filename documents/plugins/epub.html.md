@@ -5,7 +5,7 @@ rightsidebar:
 teaser: Leveraging AkashaCMS's ability to render HTML files, AkashaEPUB provides tools for building EPUB 3 documents.
 ---
 
-<img src="/akashaepub-logo.jpg" align="right"/>Do you want to write an electronic book while using light-weight open source tools?  Maybe you're a programmer and are more comfortable in a programmers editor than in a Word Processor.  Maybe you prefer Markdown for writing e-books, or you don't like the HTML that's exported out of word processors.  Whatever the reason, the typical method for writing an e-book (MS Word or Libre Office or Pages) isn't for everyone.  Some of us like lightweight plain text editors.
+<img src="/akashaepub-logo.jpg" align="right"/>Do you want to write an electronic book while using light-weight open source tools?  Maybe you're a programmer and are more comfortable in a programmers editor than in a Word Processor.  Maybe you prefer Markdown for writing e-books, or you don't like the HTML that's exported out of word processors.  Maybe you want a simple lightweight low cost eBook publishing system.  Whatever the reason, the typical method for writing an e-book (MS Word or Libre Office or Pages) isn't for everyone.  Some of us like lightweight plain text editors.
 
 What AkashaCMS does for building websites, AkashaEPUB does for electronic books.  It produces EPUB documents from the same input files you'd use in an AkashaCMS website.  That means being able to write your book using Markdown, for ease of writing, and use a simplified description of e-book structure and metadata in the `config.js` file to round out the eBook publishing process.
 
@@ -40,3 +40,12 @@ Then for the skeleton
     $ npm install
     $ grunt doepub
 ```
+
+For bugs and feature requests in AkashaEPUB, go to [https://github.com/akashacms/akashacms-epub/issues](https://github.com/akashacms/akashacms-epub/issues/).  Or for AkashaCMS, go to  [https://github.com/akashacms/akashacms/issues](https://github.com/akashacms/akashacms/issues/). 
+
+The projects are open for code contributions via these repositories
+
+* [https://github.com/akashacms/akashacms](https://github.com/akashacms/akashacms/)
+* [https://github.com/akashacms/akashacms-epub](https://github.com/akashacms/akashacms-epub/)
+* [https://github.com/akashacms/epub-guide](https://github.com/akashacms/epub-guide/)
+* [https://github.com/akashacms/epub-skeleton](https://github.com/akashacms/epub-skeleton/)

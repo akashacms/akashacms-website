@@ -19,6 +19,17 @@ What we mean by "tags" is roughly a "keyword phrase".  Drupal, Wordpress and oth
 
 The `akashacms-tagged-content` plugin supports only a single pool of tag names.
 
+# Metadata
+
+This module looks for the following metadata
+
+* ```title```: The title for the document.
+* ```tags```: Metadata tags as discussed below
+* ```teaser```: The teaser (a short description) for the document.
+* ```teaserthumb```: Path for a thumbnail image for the document.
+* ```youtubeThumbnail```: URL of a YouTube video to use for thumbnail image.
+* ```imageThumbnail```: URL of a video to use for thumbnail image.
+
 # Adding tags
 
 Tags get carried in the metadata for a document and it's very simple to tag a page.

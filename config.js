@@ -124,14 +124,28 @@ module.exports = {
             // Generate .htaccess instructions for redirects from pages on wikidot
             // to the new pages
             // util.log('done-render-files received in Green Transportation .info');
-            var htappend = "\n\n";
-            for (var i = 0; i < module.exports.htaccess_append.length; i++) {
-                var redir = module.exports.htaccess_append[i];
-                htappend += 'RedirectMatch permanent '+ redir[0] +' '+ redir[1] +'\n';
-            }
+            // var htappend = "\n\n";
+            // for (var i = 0; i < module.exports.htaccess_append.length; i++) {
+            //      var redir = module.exports.htaccess_append[i];
+            //      htappend += 'RedirectMatch permanent '+ redir[0] +' '+ redir[1] +'\n';
+            //  }
             // util.log('appending '+ htappend);
-            fs.appendFileSync(path.join(module.exports.root_out, ".htaccess"), htappend, 'utf8');
-			cb();
+            fs.exists('htaccess-append.txt', function(exists) {
+                if (exists) {
+                    fs.readFile('htaccess-append.txt', function(err, htappend) {
+                        if (err) cb(err);
+                        else {
+                            fs.appendFile(path.join(module.exports.root_out, ".htaccess"),
+                                          htappend,
+                                          'utf8',
+                                          function(err) {
+                                if (err) cb(err);
+                                else cb();
+                            });                     
+                        }
+                    });
+                } else cb();
+            });
         });
     },
     // For setting up redirects from pages on wikidot version of greentransportation.info

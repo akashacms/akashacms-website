@@ -21,4 +21,10 @@ This function scans through the documents of the website, finding everything und
 
 It's a quick and easy way to generate navigational pages for a group of documents.
 
-For any documents with `teaser` metadata, the teaser will follow the link.
+The document metadata consulted is:
+
+* ```title```: The title for the document.
+* ```teaser```: The teaser (a short description) for the document.
+* ```teaserthumb```: Path for a thumbnail image for the document.
+* ```youtubeThumbnail```: URL of a YouTube video to use for thumbnail image.
+* ```imageThumbnail```: URL of a video to use for thumbnail image.

@@ -86,6 +86,8 @@ The `blogtag` tag in the frontmatter defines which blog definition to use.  The 
 
 With the blog configuration, the `blog-news-river` tag will use the defined Matchers to select the items, sort them into reverse chronological order, and render both an RSS feed and the index page.  The index page is rendered using the partial `blog-news-river.html.ejs`.
 
+Adding a `maxentries` attribute to `blog-news-river` limits the number of entries in the index, and the RSS feed, to the number given in the attribute.  If the attribute is not added both the index and RSS feed will get every item.
+
 ## Previous/Next links among the blog posts
 
 Some blogs like to have each blog post link to the next & previous entries in the blog.

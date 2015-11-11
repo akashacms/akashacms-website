@@ -3,13 +3,14 @@ layout: article.html.ejs
 title: Installing AkashaCMS
 rightsidebar:
 author: david
-publicationDate: Jan 1, 2015
+publicationDate: November 11, 2015
 ---
 Theoretically installing AkashaCMS and getting started is this simple:
 
     $ npm install -g akashacms-cli
     $ akashacms init akashacms-example
     $ cd akashacms-example
+    $ npm install
     $ akashacms build
     $ akashacms preview
 
@@ -19,33 +20,68 @@ The first command may have to be done this way on most systems:
 
     $ sudo npm install -g akashacms-cli
 
-The last command can be replaced with the following to launch an in-browser website editor.  The editor is at [http://localhost:8080](http://localhost:8080)
+The last command can be replaced with the following to launch an in-browser website editor.  The editor is at [http://localhost:8080](http://localhost:8080) while the previewer is at [http://localhost:6080](http://localhost:6080)
 
     $ akashacms serve
 
-Installing AkashaCMS on Windows
-===============================
 
-For Windows the steps are a little different.  First we must set up a couple dependencies (Node.js and git).  I have tested this method on Windows XP and found it to work.
+AkashaCMS example and skeleton websites
+=======================================
+
+We have created two sample websites for AkashaCMS.  The `akashacms-example` site shown above contains a few examples of using AkashaCMS plugins.  We also use it for testing AkashaCMS features.  But it isn't a good starting point.
+
+The `akashacms-skeleton` is a completely stripped down website, that's meant to be a starting point.  Install it this way:
+
+    $ akashacms skeleton akashacms-skeleton
+
+The repositories for these examples are at:
+
+* [https://github.com/akashacms/akashacms-website](https://github.com/akashacms/akashacms-website): The source for this very website, serving as an example of building a comprehensive website.
+* [https://github.com/akashacms/akashacms-example](https://github.com/akashacms/akashacms-example): The workspace installed with the `akashacms init` command.
+* [https://github.com/akashacms/akashacms-skeleton](https://github.com/akashacms/akashacms-skeleton): The workspace installed with the `akashacms skeleton` command.
+* [https://github.com/akashacms/akashacms-blog-skeleton](https://github.com/akashacms/akashacms-blog-skeleton): Showing how to set up a blog using the `akashacms-blog-podcast` plugin.
+
+Other AkashaCMS installation options, such as Windows
+=====================================================
+
+On Windows there are a couple pre-requisite steps.  First we must set up a couple dependencies (Node.js and git).  I have tested this method on Windows XP and found it to work.
 
 * Install Node.js using the installer from nodejs.org
 * Install [msysgit](http://msysgit.github.com/).  Go to the Downloads page and get the file at the top.  Once downloaded run the `.exe` file you just downloaded and go through the installer.  Select the option that allow `git` to be run from Windows batch files.
 
-Next install AkashaCMS using a slightly different process.  The primary change is to not install AkashaCMS globally, but locally.
+Next is the question of installing `akashacms-cli` as a global package.  I don't currently have access to Windows, but a couple years had tried installing AkashaCMS on Windows and had troubles installing it as a global package.  Also, many are currently saying global package installs are a bad idea and it's better to install it locally.
 
-The first step is to select a directory on your disk where you'll be working.  I tested this in `C:\Documents and Settings\David Herron` but of course you could do this anywhere.
+The first step is to select a directory on your disk where you'll be working on websites.  For Windows, I tested this in `C:\Documents and Settings\David Herron` but of course you could do this anywhere.  On my Linux system I'm using `$HOME/ws` for all websites.
 
-    C:\..> npm install akashacms
+At the command line, navigate to your chosen directory
 
-It's very important to leave off the `-g` option.
+    C:\..> npm install akashacms-cli
 
-After this step `npm` will have created a directory named `node_modules` containing two directories, one named `.bin` and the other named `akashacms`.
+Or
 
-Before you can do the rest of this you must modify the Windows PATH variable to list the `.bin` directory.  To do so, start the `Control Panel` and open the System Properties panel.  Click on Advanced and then click on the button marked Environment Variables at the bottom of the window.  In the top is a section of "User variables" one of which is PATH.  Select the line marked PATH, click the Edit button, then add the pathname for the `.bin` file.
+    $ npm install akashacms-cli
 
-On my computer the PATH variable became `C:\Documents and Settings\David Herron\node_modules\.bin`.
+After this step `npm` will have created a directory named `node_modules` containing two directories, one named `.bin` and the other named `akashacms`.  Inside the `node_modules/.bin` is an executable file named `akashacms`.
 
-At this point you'll have to kill the Windows command window, and start a new one, so that it picks up the new PATH variable.
+Now you can execute:
+
+    $ ./node_modules/.bin/akashacms init akashacms-example
+    $ cd akashacms-example
+    $ npm install
+    $ ../node_modules/.bin/akashacms build
+    $ ../node_modules/.bin/akashacms preview
+
+For Windows, you may have to reverse the slashes ...because... Windows.
+
+The first thing you'll want to do is simplify this.  That's as simple as adding the `node_modules/.bin` directory to your PATH variable.
+
+On Windows, start the `Control Panel` and open the System Properties panel.  Click on Advanced and then click on the button marked Environment Variables at the bottom of the window.  In the top is a section of "User variables" one of which is PATH.  Select the line marked PATH, click the Edit button, then add the pathname for the `.bin` directory.  On my computer the PATH variable became `C:\Documents and Settings\David Herron\node_modules\.bin`.
+
+For Linux/Unix it's as simple as updating your `.profile` or `.bashrc` or `.login` or `.cshrc` (depending on your login shell) with the equivalent of
+
+    export PATH=$HOME/path/node_modules/.bin:${PATH}
+
+At this point you'll have to close the command window, and start a new one, so that it picks up the new PATH variable.  Then you can execute `akashacms` as a regular command
 
     C:\..> akashacms init akashacms-example
     C:\..> cd akashacms-example

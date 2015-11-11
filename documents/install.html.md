@@ -81,7 +81,13 @@ For Linux/Unix it's as simple as updating your `.profile` or `.bashrc` or `.logi
 
     export PATH=$HOME/path/node_modules/.bin:${PATH}
 
-At this point you'll have to close the command window, and start a new one, so that it picks up the new PATH variable.  Then you can execute `akashacms` as a regular command
+At this point you'll have to close the command window, and start a new one, so that it picks up the new PATH variable.  
+
+On Windows a variant of this command will work, and let you avoid closing the window.  This command can be saved in a `.cmd` file if you like:
+
+    set PATH=%PATH%;C:\Documents and Settings\David Herron\node_modules\.bin
+
+Then you can execute `akashacms` as a regular command
 
     C:\..> akashacms init akashacms-example
     C:\..> cd akashacms-example

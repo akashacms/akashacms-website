@@ -14,7 +14,7 @@ Theoretically installing AkashaCMS and getting started is this simple:
     $ akashacms build
     $ akashacms preview
 
-Then visit [http://localhost:6080](http://localhost:6080).  This works for me on my Mac OS X laptop and I believe will work on other Unix/Linux/etc type of systems.
+Then visit [http://localhost:6080](http://localhost:6080).  This works for me on my Mac OS X laptop and I believe will work on other Unix/Linux/etc type of systems.  These steps have been reported to work on Windows machines.
 
 The first command may have to be done this way on most systems:
 
@@ -24,6 +24,23 @@ The last command can be replaced with the following to launch an in-browser webs
 
     $ akashacms serve
 
+Necessary pre-requisite - installing Node.js
+============================================
+
+AkashaCMS is written for the Node.js platform, and therefore requires that you install Node.js first.  If you don't have Node.js installed the `npm` commands above will have failed.
+
+The first stop is the [Node.js download page](https://nodejs.org/en/download/) where you'll see all the download options.  You may prefer to install via a package manager for your system, [which is also documented on nodejs.org](https://nodejs.org/en/download/package-manager/).
+
+A quick test is to run these commands
+
+    $ node --help
+    $ npm help
+
+AkashaCMS has been tested for Node.js v0.10.0 and above.
+
+Some Node.js modules (in the npm repository) are written with C++ code and must be compiled when installed.  This means you must have C/C++ compiler tools installed.  The page discussing installation through package managers covers compiler tools installation for many systems, but not for Mac OS X or Windows.
+
+Since the actual dependency on compilers is `node-gyp` it is the [node-gyp project home page](https://github.com/nodejs/node-gyp) which documents installation of compiler tools for various systems, including Mac OS X and Windows.  Hint:  For OS X install Xcode, for Windows install the free Microsoft Visual Studio release.
 
 AkashaCMS example and skeleton websites
 =======================================
@@ -48,8 +65,9 @@ On Windows there are a couple pre-requisite steps.  First we must set up a coupl
 
 * Install Node.js using the installer from nodejs.org
 * Install [msysgit](http://msysgit.github.com/).  Go to the Downloads page and get the file at the top.  Once downloaded run the `.exe` file you just downloaded and go through the installer.  Select the option that allow `git` to be run from Windows batch files.
+* As noted above, install Visual Studio C++
 
-Next is the question of installing `akashacms-cli` as a global package.  I don't currently have access to Windows, but a couple years had tried installing AkashaCMS on Windows and had troubles installing it as a global package.  Also, many are currently saying global package installs are a bad idea and it's better to install it locally.
+Next is the question of installing `akashacms-cli` as a global package.  I don't currently have access to Windows, but a couple years ago had tried installing AkashaCMS on Windows and had troubles installing it as a global package.  Also, many are currently saying global package installs are a bad idea and it's better to install it locally.
 
 The first step is to select a directory on your disk where you'll be working on websites.  For Windows, I tested this in `C:\Documents and Settings\David Herron` but of course you could do this anywhere.  On my Linux system I'm using `$HOME/ws` for all websites.
 
@@ -81,7 +99,7 @@ For Linux/Unix it's as simple as updating your `.profile` or `.bashrc` or `.logi
 
     export PATH=$HOME/path/node_modules/.bin:${PATH}
 
-At this point you'll have to close the command window, and start a new one, so that it picks up the new PATH variable.  
+At this point you'll have to close the command window, and start a new one, so that it picks up the new PATH variable.
 
 On Windows a variant of this command will work, and let you avoid closing the window.  This command can be saved in a `.cmd` file if you like:
 
@@ -99,7 +117,7 @@ Then visit [http://localhost:6080](http://localhost:6080).  This worked for me i
 Taking a tour of akashacms-example
 ==================================
 
-The above commands let you verify you have a working AkashaCMS installation.  Let's take a brief tour.   
+The above commands let you verify you have a working AkashaCMS installation.  Let's take a brief tour.
 
 First is the `config.js` file, which is documented in [Configuring AkashaCMS](config.html).  This is a little Node module that simply returns a data object describing the configuration of a website.  It lists several directories, has a place for you to put data and functions specific to your website.
 

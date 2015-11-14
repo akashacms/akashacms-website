@@ -14,7 +14,7 @@ module.exports = {
     
     authorship: {
     	defaultAuthorName: "david",
-    	authors: [    	
+    	authors: [
 			{
 				name: "david",
 				fullname: "David Herron",
@@ -47,7 +47,10 @@ module.exports = {
             { href: "/style.css", media: "screen" },
             { href: "/readable.min.css", media: "screen" }
         ],
-        javaScriptTop: [ ],
+        javaScriptTop: [
+            { lang: "text/javascript",
+              href: "https://ecommerce.shopintegrator.com/client/GetShopScript?CLIENT_ID=me0000151114" }
+        ],
         javaScriptBottom: [ ]
     },
 	
@@ -141,7 +144,7 @@ module.exports = {
                                           function(err) {
                                 if (err) cb(err);
                                 else cb();
-                            });                     
+                            });
                         }
                     });
                 } else cb();

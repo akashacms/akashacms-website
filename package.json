@@ -9,6 +9,7 @@
   "homepage": "http://akashacms.com/",
   "dependencies": {
     "akashacms": "*",
+    "akashacms-cli": "*",
     "akashacms-theme-bootstrap": "*",
     "akashacms-breadcrumbs": "*",
     "akashacms-booknav": "*",
@@ -17,6 +18,7 @@
     "akashacms-social-buttons": "*",
     "akashacms-base": "*",
     "grunt": "*",
+    "grunt-cli": "*",
     "grunt-contrib-htmlmin": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-copy": "*",

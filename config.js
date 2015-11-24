@@ -1,16 +1,11 @@
 var fs   = require('fs');
 var path = require('path');
 
-module.exports = {
-    root_assets: [ 'assets' ],
-    root_layouts: [ 'layouts' ],
-    root_partials: [ 'partials' ],
-    root_out: 'out',
-    root_docs: [ 'documents'],
+var akashacms = require('akashacms');
+
+module.exports = akashacms.prepareConfig({
     
     root_url: 'http://akashacms.com',
-    
-    doMinimize: false,
     
     authorship: {
     	defaultAuthorName: "david",
@@ -22,10 +17,6 @@ module.exports = {
 			}
     	]
     },
-    
-    // editor: {
-    // 	users: require('website-data').akashacmsCom.users
-    // },
     
     data: {
         metarobots: "index,follow",
@@ -39,6 +30,12 @@ module.exports = {
 		analyticsAccount: "UA-37003917-1",
 		analyticsDomain: "akashacms.com",
 		// siteVerification: "CcDz9XDUIb4D1cW8VuiGj3kI_hckLDPFuwMrM2tYBds",
+	},
+	
+	akBase: {
+	    linkRelTags: [
+	        { relationship: "me", url: "https://twitter.com/akashacms" }
+	    ]
 	},
     
     headerScripts: {
@@ -111,7 +108,6 @@ module.exports = {
 	},
 	
     config: function(akasha) {
-		
 		akasha.registerPlugins([
 			{ name: 'akashacms-theme-bootstrap', plugin: require('akashacms-theme-bootstrap') },
 			{ name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
@@ -122,45 +118,6 @@ module.exports = {
 			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') }
 			{ name: 'akashacms-base', plugin: require('akashacms-base') }
 		]);
-		
-        akasha.emitter.on('done-render-files', function(cb) {
-            // Generate .htaccess instructions for redirects from pages on wikidot
-            // to the new pages
-            // util.log('done-render-files received in Green Transportation .info');
-            // var htappend = "\n\n";
-            // for (var i = 0; i < module.exports.htaccess_append.length; i++) {
-            //      var redir = module.exports.htaccess_append[i];
-            //      htappend += 'RedirectMatch permanent '+ redir[0] +' '+ redir[1] +'\n';
-            //  }
-            // util.log('appending '+ htappend);
-            fs.exists('htaccess-append.txt', function(exists) {
-                if (exists) {
-                    fs.readFile('htaccess-append.txt', function(err, htappend) {
-                        if (err) cb(err);
-                        else {
-                            fs.appendFile(path.join(module.exports.root_out, ".htaccess"),
-                                          htappend,
-                                          'utf8',
-                                          function(err) {
-                                if (err) cb(err);
-                                else cb();
-                            });
-                        }
-                    });
-                } else cb();
-            });
-        });
-    },
-    // For setting up redirects from pages on wikidot version of greentransportation.info
-    htaccess_append: [
-    	[ '^/partials.html', '/layout/partials.html' ],
-    	[ '^/content.html', '/documents/index.html' ],
-    	[ '^/templatechain.html', '/theming/index.html' ],
-    	[ '^/layoutrecommendations.html', '/theming/index.html' ],
-    	[ '^/deploy.html', '/deployment/index.html' ],
-    	[ '^/asynchronous.html', '/layout/asynchronous-synchronous.html' ],
-    	[ '^/config.html', '/configuration/index.html' ],
-    	[ '^/extensions.html', '/configuration/ab-plugins.html' ],
-    	[ '^/plugins/builtin.html', '/plugins/base.html' ],
-    ]
-};
+    }
+});
+

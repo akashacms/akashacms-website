@@ -44,10 +44,7 @@ module.exports = akashacms.prepareConfig({
             { href: "/style.css", media: "screen" },
             { href: "/readable.min.css", media: "screen" }
         ],
-        javaScriptTop: [
-            { lang: "text/javascript",
-              href: "https://ecommerce.shopintegrator.com/client/GetShopScript?CLIENT_ID=me0000151114" }
-        ],
+        javaScriptTop: [ ],
         javaScriptBottom: [ ]
     },
 	

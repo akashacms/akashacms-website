@@ -41,3 +41,5 @@ For this site I wanted a simple button in the sidebar.  The `header-footer.html.
 That's it - two places to add code, then the product is in the sidebar.
 
 Suppose you have multiple products, or want to have a full product description on a page.  Simply make a different choice in "Choose How To Display The Product On Your Website" and paste the resulting code into the page.
+
+UPDATE: I have since removed the ShopIntegrator code from this site because their service is down today.  That makes this particular service unreliable, and therefore I don't want it on the site.  The advice is still valuable and shows not just integration of ShopIntegrator but other 3rd party services.

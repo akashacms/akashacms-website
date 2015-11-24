@@ -50,4 +50,3 @@ The projects are open for code contributions via these repositories
 * [https://github.com/akashacms/epub-guide](https://github.com/akashacms/epub-guide/)
 * [https://github.com/akashacms/epub-skeleton](https://github.com/akashacms/epub-skeleton/)
 
-<script type='text/javascript'>if(window.shopActive){sellItemFullBuyNow('1');}</script><noscript><a href='https://ecommerce.shopintegrator.com/ecommerce?ci=me0000151114&amp;op=sifbn&amp;ID=1' target='sifbn_1'><img src='https://ecommerce.shopintegrator.com/ecommerce.png?ci=me0000151114&amp;op=sifbn&amp;ID=1' border='0'/></a></noscript>

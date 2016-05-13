@@ -1,0 +1,38 @@
+<header class="col-md-12">
+  <div class="row">
+    <span class="col-md-8" style="text-align: center;">
+      <a href="/"><img src="/logo.gif" align="left"/></a>
+      <% if (typeof documenttitle !== "undefined") {
+         %><h1 align="center"><%= documenttitle %></h1><%
+      } else if (typeof title !== "undefined") {
+         %><h1 align="center"><%= title %></h1><%
+      } %>
+    </span>
+    <span class="col-md-4">
+      <form action="http://www.google.com" id="cse-search-box">
+        <div>
+          <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022" />
+          <input type="hidden" name="ie" value="UTF-8" />
+          <input type="text" name="q" size="30" />
+          <input type="submit" name="sa" value="Search" />
+        </div>
+      </form>
+      <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+      // Not empty
+      </script>
+      <br/>
+      
+      <form action="https://app.nouri.sh/campaigns/6559/subscribe" method="post">
+      <input type="hidden" name="redirect_to" value="http://akashacms.com/news/index.html"/>
+      <input type="hidden" name="notify_me" value="1"/>
+      <input type="hidden" name="notify_them" value="1"/>
+    
+      <label>Subscribe to AkashaCMS News</label><br />
+      <input id="subscriber[email]" name="subscriber[email]" type="text" /><br />
+      <input name="commit" type="submit" value="Subscribe" />
+    </form>
+      
+    </span>
+  </div>
+      
+</header>

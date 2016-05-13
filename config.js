@@ -62,6 +62,7 @@ module.exports = akashacms.prepareConfig({
 				categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
 			},
 			rssurl: "/news/rss.xml",
+            rootPath: "news",
 			matchers: {
 				layouts: [ "blog.html.ejs" ],
 				path: /^news\//
@@ -81,6 +82,7 @@ module.exports = akashacms.prepareConfig({
 				categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
 			},
 			rssurl: "/howto/rss.xml",
+            rootPath: "howto",
 			matchers: {
 				layouts: [ "blog.html.ejs" ],
 				path: /^howto\//

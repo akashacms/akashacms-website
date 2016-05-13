@@ -11,22 +11,27 @@
     "type": "git",
     "url": "git://github.com/akashacms/akashacms-website.git"
   },
+  "scripts": {
+    "postinstall": "bower install"
+  },
   "dependencies": {
     "akashacms": "*",
-    "akashacms-cli": "*",
-    "akashacms-theme-bootstrap": "*",
-    "akashacms-breadcrumbs": "*",
-    "akashacms-booknav": "*",
-    "akashacms-embeddables": "*",
-    "akashacms-blog-podcast": "*",
-    "akashacms-social-buttons": "*",
     "akashacms-base": "*",
+    "akashacms-blog-podcast": "*",
+    "akashacms-booknav": "*",
+    "akashacms-breadcrumbs": "*",
+    "akashacms-cli": "*",
+    "akashacms-embeddables": "*",
+    "akashacms-social-buttons": "*",
+    "akashacms-theme-bootstrap": "*",
+    "bower": "^1.7.9",
     "grunt": "*",
     "grunt-cli": "*",
-    "grunt-contrib-htmlmin": "*",
-    "grunt-contrib-cssmin": "*",
-    "grunt-contrib-copy": "*",
     "grunt-contrib-clean": "*",
-    "grunt-sftp-deploy": "*"
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-sftp-deploy": "*",
+    "oembed": "^0.1.0"
   }
 }

@@ -1,0 +1,15 @@
+
+<!-- Twitter summary card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<% if (typeof rendered_url !== "undefined") { %>
+<meta name="twitter:url" content="<%- rendered_url %>">
+<% } %>
+<% if (typeof pagetitle !== "undefined") { %>
+<meta name="twitter:title" content="<%= pagetitle %>">
+<% } else if (typeof title !== "undefined") { %>
+<meta name="twitter:title" content="<%= title %>">
+<% } %>
+<% if (typeof metadescription !== "undefined") { %><meta name="twitter:description" content="<%= metadescription %>" /><% } %>
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">

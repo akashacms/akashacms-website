@@ -36,21 +36,11 @@
 
 <div class="col-md-10">
 
-<div class="row">
-  <section id="breadcrumb" class="col-sm-12">
-    <breadcrumb-trail></breadcrumb-trail>
-  </section>
-  <section id="category-tags" class="col-sm-12">
-    By: <author-link></author-link> <publication-date></publication-date>
-  </section>
-</div>
-
 
 <div class="row">
 <article class="col-md-10 col-sm-10">
-  <breadcrumb-trail/>
+  <breadcrumb-trail></breadcrumb-trail>
   <%- content %>
-  <!-- %- bookChildTree(locals) % -->
   <book-child-tree></book-child-tree>
 </article>
 <section id="right" class="col-md-2 col-sm-2">

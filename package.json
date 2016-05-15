@@ -15,23 +15,17 @@
     "postinstall": "bower install"
   },
   "dependencies": {
-    "akashacms": "*",
-    "akashacms-base": "*",
-    "akashacms-blog-podcast": "*",
-    "akashacms-booknav": "*",
-    "akashacms-breadcrumbs": "*",
-    "akashacms-cli": "*",
-    "akashacms-embeddables": "*",
-    "akashacms-social-buttons": "*",
-    "akashacms-theme-bootstrap": "*",
+    "akashacms-base": "akashacms/akashacms-base#akasharender",
+    "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast#akasharender",
+    "akashacms-booknav": "akashacms/akashacms-booknav#akasharender",
+    "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs#akasharender",
+    "akashacms-embeddables": "akashacms/akashacms-embeddables#akasharender",
+    "akashacms-social-buttons": "akashacms/akashacms-social-buttons#akasharender",
+    "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap#akasharender",
+    "akasharender": "akashacms/akasharender",
+    "async": "^2.0.0-rc.4",
     "bower": "^1.7.9",
-    "grunt": "*",
-    "grunt-cli": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-cssmin": "*",
-    "grunt-contrib-htmlmin": "*",
-    "grunt-sftp-deploy": "*",
+    "globfs": "*",
     "oembed": "^0.1.0"
   }
 }

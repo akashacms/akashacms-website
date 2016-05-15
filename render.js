@@ -2,8 +2,8 @@
 'use strict';
 
 const util = require('util');
-var akasha = require('../akasharender');
-var config = new akasha.Configuration();
+const akasha = require('akasharender');
+const config = new akasha.Configuration();
 
 config
     .addAssetsDir('assets')
@@ -22,12 +22,12 @@ config
     .addPartialsDir('partials');
 
 config
-    .use(require('../akashacms-base-render'))
-    .use(require('../akashacms-breadcrumbs-render'))
-    .use(require('../akashacms-booknav-render'))
-    .use(require('../akashacms-embeddables-render'))
-    .use(require('../akashacms-blog-podcast-render'))
-    .use(require('../akashacms-social-buttons-render'));
+    .use(require('akashacms-base'))
+    .use(require('akashacms-breadcrumbs'))
+    .use(require('../akashacms-booknav'))
+    .use(require('akashacms-embeddables'))
+    .use(require('akashacms-blog-podcast'))
+    .use(require('akashacms-social-buttons'));
 
 config
     .addFooterJavaScript({

@@ -24,6 +24,7 @@ config
 config.rootURL("http://akashacms.com");
 
 config
+    .use(require('akashacms-theme-bootstrap'))
     .use(require('akashacms-base'))
     .use(require('akashacms-breadcrumbs'))
     .use(require('akashacms-booknav'))
@@ -46,6 +47,14 @@ config
     })
     .addStylesheet({
         href: "/readable.min.css"
+    })
+    .addStylesheet({
+        href: "/style.css"
+    });
+
+config.setMahabhutaConfig({
+        recognizeSelfClosing: true,
+        recognizeCDATA: true
     });
 
 config.plugin('akashacms-blog-podcast')

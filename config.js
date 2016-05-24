@@ -7,6 +7,7 @@ module.exports = akashacms.prepareConfig({
     
     root_url: 'http://akashacms.com',
     
+    // SEE akashacms-base
     authorship: {
     	defaultAuthorName: "david",
     	authors: [
@@ -26,18 +27,21 @@ module.exports = akashacms.prepareConfig({
         metalanguage: "EN",
     },
     
+    // SEE akashacms-base
 	google: {
 		analyticsAccount: "UA-37003917-1",
 		analyticsDomain: "akashacms.com",
 		// siteVerification: "CcDz9XDUIb4D1cW8VuiGj3kI_hckLDPFuwMrM2tYBds",
 	},
 	
+    // SEE akashacms-base
 	akBase: {
 	    linkRelTags: [
 	        { relationship: "me", url: "https://twitter.com/akashacms" }
 	    ]
 	},
     
+    // DONE
     headerScripts: {
         stylesheets: [
             { href: "/video.css", media: "screen" },
@@ -48,6 +52,7 @@ module.exports = akashacms.prepareConfig({
         javaScriptBottom: [ ]
     },
 	
+    // DONE
 	blogPodcast: {
 		"news": {
 			rss: {
@@ -93,11 +98,13 @@ module.exports = akashacms.prepareConfig({
     funcs: {
     },
 
+    // DONE
     cheerio: {
         recognizeSelfClosing: true,
         recognizeCDATA: true
     },
     
+    // SEE akashacms-theme-bootstrap
 	themeBootstrap: {
 		bootstrapCSSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
 		bootstrapThemeCSSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",

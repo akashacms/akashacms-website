@@ -21,10 +21,12 @@ config
     .addDocumentsDir('documents')
     .addPartialsDir('partials');
 
+config.rootURL("http://akashacms.com");
+
 config
     .use(require('akashacms-base'))
     .use(require('akashacms-breadcrumbs'))
-    .use(require('../akashacms-booknav'))
+    .use(require('akashacms-booknav'))
     .use(require('akashacms-embeddables'))
     .use(require('akashacms-blog-podcast'))
     .use(require('akashacms-social-buttons'));
@@ -46,6 +48,49 @@ config
         href: "/readable.min.css"
     });
 
+config.plugin('akashacms-blog-podcast')
+    .addBlogPodcast(config, "news", {
+        rss: {
+            title: "AkashaCMS News",
+            description: "Announcements and news about the AkashaCMS content management system",
+            site_url: "http://akashacms.com/news/index.html",
+            image_url: "http://akashacms.com/logo.gif",
+            managingEditor: 'David Herron',
+            webMaster: 'David Herron',
+            copyright: '2015 David Herron',
+            language: 'en',
+            categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
+        },
+        rssurl: "/news/rss.xml",
+        rootPath: "news",
+        matchers: {
+            layouts: [ "blog.html.ejs" ],
+            path: /^news\//
+        }
+    });
+
+config.plugin('akashacms-blog-podcast')
+    .addBlogPodcast(config, "howto", {
+        rss: {
+            title: "AkashaCMS Tutorials",
+            description: "Tutorials about using the AkashaCMS content management system",
+            site_url: "http://akashacms.com/howto/index.html",
+            image_url: "http://akashacms.com/logo.gif",
+            managingEditor: 'David Herron',
+            webMaster: 'David Herron',
+            copyright: '2015 David Herron',
+            language: 'en',
+            categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
+        },
+        rssurl: "/howto/rss.xml",
+        rootPath: "howto",
+        matchers: {
+            layouts: [ "blog.html.ejs" ],
+            path: /^howto\//
+        }
+    });
+
+console.log('before prepare');
 // console.log(util.inspect(config));
 
 config.prepare();

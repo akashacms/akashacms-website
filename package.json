@@ -12,7 +12,11 @@
     "url": "git://github.com/akashacms/akashacms-website.git"
   },
   "scripts": {
-    "postinstall": "bower install"
+    "prebuild": "akasharender copy-assets config.js",
+    "build": "akasharender render config.js",
+    "postinstall": "bower --allow-root install",
+    "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
+    "preview": "cd out && ../node_modules/.bin/hostr"
   },
   "dependencies": {
     "akashacms-base": "akashacms/akashacms-base#akasharender",
@@ -26,6 +30,7 @@
     "async": "^2.0.0-rc.4",
     "bower": "^1.7.9",
     "globfs": "*",
-    "oembed": "^0.1.0"
+    "oembed": "^0.1.0",
+    "hostr": "^2.x"
   }
 }

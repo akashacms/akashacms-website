@@ -1,9 +1,8 @@
 
 'use strict';
 
-const util = require('util');
-const akasha = require('../akasharender');
-
+const util    = require('util');
+const akasha  = require('akasharender');
 
 const config = new akasha.Configuration();
 

@@ -19,7 +19,7 @@
     "preview": "cd out && ../node_modules/.bin/hostr"
   },
   "dependencies": {
-    "mahabhuta": ">=0.5",
+    "mahabhuta": ">=0.6",
     "akashacms-base": "akashacms/akashacms-base#akasharender",
     "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast#akasharender",
     "akashacms-booknav": "akashacms/akashacms-booknav#akasharender",

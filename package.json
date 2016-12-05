@@ -27,7 +27,7 @@
     "akashacms-embeddables": "akashacms/akashacms-embeddables#akasharender",
     "akashacms-social-buttons": "akashacms/akashacms-social-buttons#akasharender",
     "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap#akasharender",
-    "akasharender": "akashacms/akasharender",
+    "akasharender": ">=0.5",
     "async": "^2.0.0-rc.4",
     "bower": "^1.7.9",
     "globfs": "*",

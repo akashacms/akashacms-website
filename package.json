@@ -13,7 +13,9 @@
   },
   "scripts": {
     "prebuild": "akasharender copy-assets config.js",
-    "build": "akasharender render config.js",
+    "build": "akasharender render config.js && npm run minify",
+    "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out2",
+    "postminify": "globfs copy out2 out && rm -rf out2",
     "postinstall": "bower --allow-root install",
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
     "preview": "cd out && ../node_modules/.bin/hostr"
@@ -32,6 +34,7 @@
     "bower": "^1.7.9",
     "globfs": "*",
     "oembed": "^0.1.0",
+    "html-minifier": "^3.1.1",
     "hostr": "^2.x"
   }
 }

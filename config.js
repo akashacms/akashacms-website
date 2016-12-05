@@ -100,7 +100,7 @@ config.plugin('akashacms-blog-podcast')
         }
     });
 
-console.log('before prepare');
+// console.log('before prepare');
 // console.log(util.inspect(config));
 
 config.prepare();

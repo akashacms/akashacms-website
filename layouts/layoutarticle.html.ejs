@@ -10,21 +10,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width" />
 
-<ak-page-title></ak-page-title>
+<% if (typeof pagetitle !== "undefined") { %>
+    <title><%= pagetitle %></title>
+<% } else if (typeof title !== "undefined") { %>
+    <title><%= title %></title>
+<% } %>
 <ak-header-metatags></ak-header-metatags>
-<ak-sitemapxml></ak-sitemapxml>
-<ak-siteverification></ak-siteverification>
+<xml-sitemap></xml-sitemap>
+<site-verification></site-verification>
 <ak-header-linkreltags></ak-header-linkreltags>
 <ak-stylesheets></ak-stylesheets>
 <ak-headerJavaScript></ak-headerJavaScript>
-	
+
 <partial file-name="fb-page-header.html"></partial>
 
 <partial file-name="twitter-card-header.html.ejs"></partial>
 
 </head>
 <body>
-	
+
 <partial file-name="site-navbar.html"></partial>
 
 <div class="container" role="main">
@@ -73,4 +77,3 @@
 
 </body>
 </html>
-

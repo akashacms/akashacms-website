@@ -33,6 +33,8 @@ config
     .use(require('akashacms-blog-podcast'))
     .use(require('akashacms-social-buttons'));
 
+config.plugin("akashacms-base").generateSitemap(true);
+
 config
     .addFooterJavaScript({
         href: "/vendor/jquery/jquery.min.js"

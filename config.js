@@ -22,7 +22,7 @@ config
     .addDocumentsDir('documents')
     .addPartialsDir('partials');
 
-config.rootURL("http://akashacms.com");
+config.rootURL("https://akashacms.com");
 
 config
     .use(require('akashacms-theme-bootstrap'))

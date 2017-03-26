@@ -16,7 +16,6 @@
     "build": "akasharender render config.js && npm run minify",
     "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out2",
     "postminify": "globfs copy out2 out && rm -rf out2",
-    "postinstall": "bower --allow-root install",
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
     "preview": "cd out && ../node_modules/.bin/hostr"
   },
@@ -31,10 +30,19 @@
     "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap#akasharender",
     "akasharender": ">=0.5",
     "async": "^2.0.0-rc.4",
-    "bower": "^1.7.9",
+    "jquery": "*",
+    "bootstrap": "*",
     "globfs": "*",
     "oembed": "^0.1.0",
     "html-minifier": "^3.1.1",
-    "hostr": "^2.x"
+    "hostr": "^2.x",
+    "akashacms-theme-boilerplate": "akashacms/akashacms-theme-boilerplate",
+    "akashacms-footnotes": "akashacms/akashacms-footnotes#akasharender",
+    "akashacms-tagged-content": "akashacms/akashacms-tagged-content#akasharender",
+    "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
+    "akasharender-epub": "akashacms/akasharender-epub",
+    "epubtools": "epubtools/epubtools",
+    "epubtools-guide": "epubtools/epubtools-guide",
+    "epub-website": "akashacms/epub-website"
   }
 }

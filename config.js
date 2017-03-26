@@ -9,11 +9,11 @@ const config = new akasha.Configuration();
 config
     .addAssetsDir('assets')
     .addAssetsDir({
-        src: 'bower_components/bootstrap/dist',
+        src: 'node_modules/bootstrap/dist',
         dest: 'vendor/bootstrap'
     })
    .addAssetsDir({
-        src: 'bower_components/jquery/dist',
+        src: 'node_modules/jquery/dist',
         dest: 'vendor/jquery'
     });
 
@@ -33,7 +33,7 @@ config
     .use(require('akashacms-blog-podcast'))
     .use(require('akashacms-social-buttons'));
 
-config.plugin("akashacms-base").generateSitemap(true);
+config.plugin("akashacms-base").generateSitemap(config, true);
 
 config
     .addFooterJavaScript({

@@ -24,15 +24,15 @@ config
 config
     .addDocumentsDir('documents')
     .addDocumentsDir({
-        src: 'akasharender/guide/documents',
+        src: 'akasharender/guide',
         dest: 'new/akasharender'
     })
     .addDocumentsDir({
-        src: 'node_modules/mahabhuta/guide/documents',
+        src: 'node_modules/mahabhuta/guide',
         dest: 'new/mahabhuta'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-adblock-checker/guide/documents',
+        src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
     });
 

@@ -14,13 +14,12 @@
   "scripts": {
     "prebuild": "akasharender copy-assets config.js",
     "build": "akasharender render config.js && npm run minify",
-    "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out2",
-    "postminify": "globfs copy out2 out && rm -rf out2",
+    "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out",
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
     "preview": "cd out && ../node_modules/.bin/hostr"
   },
   "dependencies": {
-    "mahabhuta": ">=0.6.1",
+    "mahabhuta": "akashacms/mahabhuta",
     "akashacms-base": "akashacms/akashacms-base#akasharender",
     "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast#akasharender",
     "akashacms-booknav": "akashacms/akashacms-booknav#akasharender",
@@ -28,7 +27,7 @@
     "akashacms-embeddables": "akashacms/akashacms-embeddables#akasharender",
     "akashacms-social-buttons": "akashacms/akashacms-social-buttons#akasharender",
     "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap#akasharender",
-    "akasharender": ">=0.5",
+    "akasharender": "akashacms/akasharender",
     "async": "^2.0.0-rc.4",
     "jquery": "*",
     "bootstrap": "*",

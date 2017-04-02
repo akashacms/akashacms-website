@@ -19,8 +19,22 @@ config
 
 config
     .addLayoutsDir('layouts')
-    .addDocumentsDir('documents')
     .addPartialsDir('partials');
+
+config
+    .addDocumentsDir('documents')
+    .addDocumentsDir({
+        src: 'akasharender/guide/documents',
+        dest: 'new/akasharender'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/mahabhuta/guide/documents',
+        dest: 'new/mahabhuta'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-adblock-checker/guide/documents',
+        dest: 'new/plugins/adblock-checker'
+    });
 
 config.rootURL("https://akashacms.com");
 

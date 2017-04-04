@@ -32,6 +32,10 @@ config
         dest: 'new/mahabhuta'
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-base/guide',
+        dest: 'new/plugins/base'
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
     });

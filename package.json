@@ -19,7 +19,7 @@
     "preview": "cd out && ../node_modules/.bin/hostr"
   },
   "dependencies": {
-    "mahabhuta": "akashacms/mahabhuta",
+    "mahabhuta": ">=0.6.4",
     "akashacms-base": "akashacms/akashacms-base#akasharender",
     "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast#akasharender",
     "akashacms-booknav": "akashacms/akashacms-booknav#akasharender",
@@ -27,7 +27,7 @@
     "akashacms-embeddables": "akashacms/akashacms-embeddables#akasharender",
     "akashacms-social-buttons": "akashacms/akashacms-social-buttons#akasharender",
     "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap#akasharender",
-    "akasharender": "akashacms/akasharender",
+    "akasharender": ">=0.5.20",
     "async": "^2.0.0-rc.4",
     "jquery": "*",
     "bootstrap": "*",

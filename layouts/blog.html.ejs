@@ -29,16 +29,12 @@
 </head>
 <body>
 
-<partial file-name="site-navbar.html"></partial>
+<partial file-name="site-navbar.html.ejs"></partial>
 
 <div class="container" role="main">
 <div class="row">
 <partial file-name="header.html.ejs"></partial>
 </div>
-
-<div class="row">
-
-<div class="col-md-10">
 
 <div class="row">
   <section id="breadcrumb" class="col-sm-12">
@@ -58,13 +54,8 @@
   </article>
   <section id="right" class="col-sm-2">
     <% if (typeof rightsidebar !== "undefined" && rightsidebar) { %><%- partial(rightsidebar) %><% } %>
+    <partial file-name="sidebar.html.ejs"></partial>
   </section>
-</div>
-</div>
-<div class="col-md-2">
-<partial file-name="sidebar.html.ejs"></partial>
-</div>
-
 </div>
 
 <footer class="row" style="text-align: center; height: 100px;">

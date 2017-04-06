@@ -44,6 +44,10 @@ config
         dest: 'new/plugins/booknav'
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-blog-podcast/guide',
+        dest: 'new/plugins/blog-podcast'
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
     });

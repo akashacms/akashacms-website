@@ -14,6 +14,7 @@ See [the documentation on writing a plugin](/configuration/ab-plugins.html) for 
 <li class="list-group-item"><a href="base/index.html">AkashaCMS-base</a> Provides foundation-level support for building websites</li>
 <li class="list-group-item"><a href="booknav/index.html">AkashaCMS-booknav</a> Provides book-like navigation of content</li>
 <li class="list-group-item"><a href="blog-podcast/index.html">akashacms-blog-podcast</a> Provides a river-of-news presentation for blog posts</li>
+<li class="list-group-item"><a href="breadcrumb/index.html">akashacms-breadcrumbs</a> Provides a breadcrumb trail to aid navigation</li>
 <li class="list-group-item"><a href="adblock-checker/index.html">Adblock Checker</a> Detect if advertising has been blocked, and display a message</li>
 </ul>
 

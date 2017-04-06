@@ -48,6 +48,10 @@ config
         dest: 'new/plugins/blog-podcast'
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-breadcrumbs/guide',
+        dest: 'new/plugins/breadcrumbs'
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
     });

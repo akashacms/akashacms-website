@@ -36,6 +36,10 @@ config
         dest: 'new/plugins/base'
     })
     .addDocumentsDir({
+        src: 'node_modules/akasharender/built-in-guide',
+        dest: 'new/plugins/built-in'
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
     });

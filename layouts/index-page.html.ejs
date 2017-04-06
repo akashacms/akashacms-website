@@ -36,29 +36,20 @@
 <partial file-name="header.html.ejs"></partial>
 </div>
 
-<div class="row">
-
-<div class="col-md-10">
-
 
 <div class="row">
 <article class="col-md-10 col-sm-10">
-  <breadcrumb-trail></breadcrumb-trail>
-  <%- content %>
-  <book-child-tree></book-child-tree>
+    <breadcrumb-trail></breadcrumb-trail>
+    <%- content %>
+    <book-child-tree></book-child-tree>
 </article>
 <section id="right" class="col-md-2 col-sm-2">
+    <partial file-name="sidebar.html.ejs"></partial>
 </section>
-</div>
-</div>
-<div class="col-md-2">
-<partial file-name="sidebar.html.ejs"></partial>
-</div>
-
 </div>
 
 <footer class="row" style="text-align: center; height: 100px;">
-<partial file-name="footer.html.ejs"></partial>
+    <partial file-name="footer.html.ejs"></partial>
 </footer>
 </div>
 

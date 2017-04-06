@@ -40,6 +40,10 @@ config
         dest: 'new/plugins/built-in'
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-booknav/guide',
+        dest: 'new/plugins/booknav'
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
     });

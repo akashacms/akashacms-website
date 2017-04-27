@@ -15,6 +15,11 @@ See [the documentation on writing a plugin](/configuration/ab-plugins.html) for 
 <li class="list-group-item"><a href="booknav/index.html">AkashaCMS-booknav</a> Provides book-like navigation of content</li>
 <li class="list-group-item"><a href="blog-podcast/index.html">akashacms-blog-podcast</a> Provides a river-of-news presentation for blog posts</li>
 <li class="list-group-item"><a href="breadcrumbs/index.html">akashacms-breadcrumbs</a> Provides a breadcrumb trail to aid navigation</li>
+<li class="list-group-item"><a href="embeddables/index.html">akashacms-embeddables</a> Assists with embedding content from other sites</li>
+<li class="list-group-item"><a href="footnotes/index.html">akashacms-footnotes</a> Adds footnote-style citations at the bottom of the page</li>
+<li class="list-group-item"><a href="social-buttons/index.html">akashacms-social-buttons</a> Easily add buttons enabling your visitors to share your content to social networks.</li>
+<li class="list-group-item"><a href="tagged-content/index.html">akashacms-tagged-content</a> Categorizing content by adding tags.</li>
+<li class="list-group-item"><a href="theme-boostrap/index.html">akashacms-theme-boostrap</a> Use Twitter Bootstrap to improve website look and feel.</li>
 <li class="list-group-item"><a href="adblock-checker/index.html">Adblock Checker</a> Detect if advertising has been blocked, and display a message</li>
 </ul>
 

@@ -52,6 +52,26 @@ config
         dest: 'new/plugins/breadcrumbs'
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-embeddables/guide',
+        dest: 'new/plugins/embeddables'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-footnotes/guide',
+        dest: 'new/plugins/footnotes'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-social-buttons/guide',
+        dest: 'new/plugins/social-buttons'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-tagged-content/guide',
+        dest: 'new/plugins/tagged-content'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-theme-bootstrap/guide',
+        dest: 'new/plugins/theme-bootstrap'
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
     });
@@ -64,6 +84,7 @@ config
     .use(require('akashacms-breadcrumbs'))
     .use(require('akashacms-booknav'))
     .use(require('akashacms-embeddables'))
+    .use(require('akashacms-footnotes'))
     .use(require('akashacms-blog-podcast'))
     .use(require('akashacms-social-buttons'));
 

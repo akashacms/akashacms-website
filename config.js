@@ -74,6 +74,10 @@ config
     .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker'
+    })
+    .addDocumentsDir({
+        src: "node_modules/mahabhuta/guide",
+        dest: 'new/mahabhuta'
     });
 
 config.rootURL("https://akashacms.com");

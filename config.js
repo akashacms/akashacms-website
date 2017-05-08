@@ -24,7 +24,7 @@ config
 config
     .addDocumentsDir('documents')
     .addDocumentsDir({
-        src: 'akasharender/guide',
+        src: 'node_modules/akasharender/guide',
         dest: 'new/akasharender'
     })
     .addDocumentsDir({

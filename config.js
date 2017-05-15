@@ -25,55 +25,104 @@ config
     .addDocumentsDir('documents')
     .addDocumentsDir({
         src: 'node_modules/akasharender/guide',
-        dest: 'new/akasharender'
+        dest: 'new/akasharender',
+        baseMetadata: {
+            bookHomeURL: "/new/akasharender/toc.html",
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/mahabhuta/guide',
-        dest: 'new/mahabhuta'
+        dest: 'new/mahabhuta',
+        baseMetadata: {
+            bookHomeURL: "/new/mahabhuta/toc.html",
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/epubtools/guide',
+        dest: 'new/epubtools',
+        baseMetadata: {
+            bookHomeURL: "/new/epubtools/toc.html",
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-base/guide',
-        dest: 'new/plugins/base'
+        dest: 'new/plugins/base',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akasharender/built-in-guide',
-        dest: 'new/plugins/built-in'
+        dest: 'new/plugins/built-in',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-booknav/guide',
-        dest: 'new/plugins/booknav'
+        dest: 'new/plugins/booknav',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-blog-podcast/guide',
-        dest: 'new/plugins/blog-podcast'
+        dest: 'new/plugins/blog-podcast',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-breadcrumbs/guide',
-        dest: 'new/plugins/breadcrumbs'
+        dest: 'new/plugins/breadcrumbs',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-embeddables/guide',
-        dest: 'new/plugins/embeddables'
+        dest: 'new/plugins/embeddables',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-footnotes/guide',
-        dest: 'new/plugins/footnotes'
+        dest: 'new/plugins/footnotes',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-social-buttons/guide',
-        dest: 'new/plugins/social-buttons'
+        dest: 'new/plugins/social-buttons',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-tagged-content/guide',
-        dest: 'new/plugins/tagged-content'
+        dest: 'new/plugins/tagged-content',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-theme-bootstrap/guide',
-        dest: 'new/plugins/theme-bootstrap'
+        dest: 'new/plugins/theme-bootstrap',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
-        dest: 'new/plugins/adblock-checker'
+        dest: 'new/plugins/adblock-checker',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
     });
 
 config.rootURL("https://akashacms.com");
@@ -86,7 +135,8 @@ config
     .use(require('akashacms-embeddables'))
     .use(require('akashacms-footnotes'))
     .use(require('akashacms-blog-podcast'))
-    .use(require('akashacms-social-buttons'));
+    .use(require('akashacms-social-buttons'))
+    .use(require('epub-website'));
 
 config.plugin("akashacms-base").generateSitemap(config, true);
 

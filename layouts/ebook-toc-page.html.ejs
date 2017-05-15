@@ -36,11 +36,11 @@
   <article class="col-sm-8">
     <div class="panel panel-default">
         <ebook-nameplate-block></ebook-nameplate-block>
+        <div class="ebook-toc-page-toc">
+        <%- content %>
+        </div>
+        <!-- book-toc-list-group></book-toc-list-group -->
     </div>
-    <div class="ebook-toc-page-toc">
-    <%- content %>
-    </div>
-    <!-- book-toc-list-group></book-toc-list-group -->
   </article>
   <div class="col-sm-4">
       <% if (typeof coverImage !== 'undefined') { %><img src="<%= coverImage %>" width="100%"/><% } %>

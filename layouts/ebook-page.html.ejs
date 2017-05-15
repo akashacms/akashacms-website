@@ -76,12 +76,22 @@ html, body {
 </head>
 <body class="ebook-page">
 
+<partial file-name="site-navbar.html.ejs"></partial>
 
 <div id="page-container">
-    <div id="site-navbar"><partial file-name="site-navbar.html.ejs"></partial></div>
     <ebook-page-header id="ebook-masthead" header-height="60px"></ebook-page-header>
-    <ebook-navigation-header id="ebook-navigation"></ebook-navigation-header>
-    <div id="book-page-content" class="panel-body"><%- content %></div>
+    <div class="panel panel-default">
+        <ebook-navigation-header id="ebook-navigation" class="panel-heading"></ebook-navigation-header>
+        <div id="book-page-content" class="panel-body">
+            <% if (typeof teaser  !== "undefined") {
+                 %><div class="jumbotron"><p class="lead"><%= teaser %></p></div> <%
+            } %>
+            <div id="book-page-content" class="panel-body"><%- content %></div>
+            <partial file-name="video-players-from-videourls.html.ejs"/>
+            <ebook-navigation-header id="ebook-navigation-bottom" class="panel-heading"></ebook-navigation-header>
+            <partial file-name='disqus.html'/>
+        </div>
+    </div>
     <footer id="footer-row" class="container">
     <partial file-name="footer.html.ejs"></partial>
     </footer>

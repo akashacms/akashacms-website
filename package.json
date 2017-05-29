@@ -39,6 +39,7 @@
     "akashacms-footnotes": "akashacms/akashacms-footnotes#akasharender",
     "akashacms-tagged-content": "akashacms/akashacms-tagged-content#akasharender",
     "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
+    "akashacms-affiliates": "akashacms/akashacms-affiliates",
     "akasharender-epub": "akashacms/akasharender-epub",
     "epubtools": "epubtools/epubtools",
     "epubtools-guide": "epubtools/epubtools-guide",

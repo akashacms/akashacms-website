@@ -21,6 +21,7 @@ See [the documentation on writing a plugin](/configuration/ab-plugins.html) for 
 <li class="list-group-item"><a href="tagged-content/index.html">akashacms-tagged-content</a> Categorizing content by adding tags.</li>
 <li class="list-group-item"><a href="theme-bootstrap/index.html">akashacms-theme-bootstrap</a> Use Twitter Bootstrap to improve website look and feel.</li>
 <li class="list-group-item"><a href="adblock-checker/index.html">Adblock Checker</a> Detect if advertising has been blocked, and display a message</li>
+<li class="list-group-item"><a href="affiliates/index.html">Affiliate links</a> Simplify using affiliate links</li>
 </ul>
 
 

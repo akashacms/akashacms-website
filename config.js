@@ -118,6 +118,13 @@ config
         }
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-affiliates/guide',
+        dest: 'new/plugins/affiliates',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'new/plugins/adblock-checker',
         baseMetadata: {

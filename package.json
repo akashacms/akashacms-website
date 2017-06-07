@@ -41,8 +41,7 @@
     "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
     "akashacms-affiliates": "akashacms/akashacms-affiliates",
     "akasharender-epub": "akashacms/akasharender-epub",
-    "epubtools": "epubtools/epubtools",
-    "epubtools-guide": "epubtools/epubtools-guide",
+    "epubtools": "epubtools/epubtools#akasharender",
     "epub-website": "akashacms/epub-website"
   }
 }

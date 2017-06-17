@@ -37,7 +37,7 @@
     "hostr": "^2.x",
     "akashacms-theme-boilerplate": "akashacms/akashacms-theme-boilerplate",
     "akashacms-footnotes": "akashacms/akashacms-footnotes#akasharender",
-    "akashacms-tagged-content": "akashacms/akashacms-tagged-content#akasharender",
+    "akashacms-tagged-content": "akashacms/akashacms-tagged-content",
     "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
     "akashacms-affiliates": "akashacms/akashacms-affiliates",
     "akasharender-epub": "akashacms/akasharender-epub",

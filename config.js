@@ -97,13 +97,6 @@ config
         }
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-social-buttons/guide',
-        dest: 'new/plugins/social-buttons',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
-    })
-    .addDocumentsDir({
         src: 'node_modules/akashacms-tagged-content/guide',
         dest: 'new/plugins/tagged-content',
         baseMetadata: {

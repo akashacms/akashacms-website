@@ -25,7 +25,6 @@
     "akashacms-booknav": "akashacms/akashacms-booknav",
     "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "akashacms-embeddables": "akashacms/akashacms-embeddables#akasharender",
-    "akashacms-social-buttons": "akashacms/akashacms-social-buttons#akasharender",
     "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap",
     "akasharender": "akashacms/akasharender",
     "async": "^2.0.0-rc.4",

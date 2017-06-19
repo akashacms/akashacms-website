@@ -22,7 +22,7 @@
     "mahabhuta": "akashacms/mahabhuta",
     "akashacms-base": "akashacms/akashacms-base#akasharender",
     "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast#akasharender",
-    "akashacms-booknav": "akashacms/akashacms-booknav#akasharender",
+    "akashacms-booknav": "akashacms/akashacms-booknav",
     "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs#akasharender",
     "akashacms-embeddables": "akashacms/akashacms-embeddables#akasharender",
     "akashacms-social-buttons": "akashacms/akashacms-social-buttons#akasharender",

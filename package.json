@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "mahabhuta": "akashacms/mahabhuta",
-    "akashacms-base": "akashacms/akashacms-base#akasharender",
+    "akashacms-base": "akashacms/akashacms-base",
     "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast#akasharender",
     "akashacms-booknav": "akashacms/akashacms-booknav",
     "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs#akasharender",

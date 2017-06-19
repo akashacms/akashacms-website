@@ -36,7 +36,7 @@
     "html-minifier": "^3.1.1",
     "hostr": "^2.x",
     "akashacms-theme-boilerplate": "akashacms/akashacms-theme-boilerplate",
-    "akashacms-footnotes": "akashacms/akashacms-footnotes#akasharender",
+    "akashacms-footnotes": "akashacms/akashacms-footnotes",
     "akashacms-tagged-content": "akashacms/akashacms-tagged-content",
     "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
     "akashacms-affiliates": "akashacms/akashacms-affiliates",

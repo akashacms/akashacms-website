@@ -21,7 +21,7 @@
   "dependencies": {
     "mahabhuta": "akashacms/mahabhuta",
     "akashacms-base": "akashacms/akashacms-base",
-    "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast#akasharender",
+    "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast",
     "akashacms-booknav": "akashacms/akashacms-booknav",
     "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "akashacms-embeddables": "akashacms/akashacms-embeddables#akasharender",

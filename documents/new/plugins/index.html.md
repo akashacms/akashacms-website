@@ -7,7 +7,7 @@ useNewSiteNavbar: true
 
 These are the known plugins for AkashaCMS.  We say "known" because the AkashaCMS plugin system allows anybody to write a plugin and not inform us of its existence.  Instructions for adding to this list are given below.
 
-See [the documentation on writing a plugin](/configuration/ab-plugins.html) for more information.  TODO FIX THIS URL TO NEW PLUGIN DOCUMENTATION
+See [the documentation on writing a plugin](/new/akasharender/plugins-writing.html) for more information.
 
 <ul class="list-group">
 <li class="list-group-item"><a href="built-in/index.html">AkashaCMS built-in</a> Provides foundation-level support for any HTML</li>
@@ -36,6 +36,6 @@ First, add the necessary dependency to the `package.json`.  Plugin documentation
 
 Second, add an entry in `config.js` to mount `node_modules/plugin-name/guide` into the website.  Several of these mounts already exist, so simply follow the pattern in the configuration.
 
-Third, use these layout templates (TODO IS THIS SUFFICIENT?):
+Third, use these layout templates:
 
 * `plugin-documentation.html.ejs`

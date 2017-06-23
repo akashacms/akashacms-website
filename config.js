@@ -83,6 +83,13 @@ config
         }
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-document-viewers/guide',
+        dest: 'new/plugins/document-viewers',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-embeddables/guide',
         dest: 'new/plugins/embeddables',
         baseMetadata: {

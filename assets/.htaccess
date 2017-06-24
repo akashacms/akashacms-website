@@ -583,3 +583,18 @@ RedirectMatch permanent ^/guides/epubtools/layout-fixed.html /new/epubtools/layo
 RedirectMatch permanent ^/guides/epubtools/layout-flexbox.html /new/epubtools/layout-flexbox.html
 RedirectMatch permanent ^/guides/epubtools/setup.html /new/epubtools/setup.html
 RedirectMatch permanent ^/guides/epubtools/toc.html /new/epubtools/toc.html
+
+RedirectMatch permanent ^/plugins/base.html /plugins/base/index.html
+RedirectMatch permanent ^/plugins/builtin.html /plugins/built-in/index.html
+RedirectMatch permanent ^/plugins/blog-podcast.html /plugins/blog-podcast/index.html
+RedirectMatch permanent ^/plugins/booknav.html /plugins/booknav/index.html
+RedirectMatch permanent ^/plugins/breadcrumbs.html /plugins/breadcrumbs/index.html
+RedirectMatch permanent ^/plugins/embeddables.html /plugins/embeddables/index.html
+# TODO RedirectMatch permanent ^/plugins/epub.html /plugins/embeddables/index.html
+RedirectMatch permanent ^/plugins/footnotes.html /plugins/footnotes/index.html
+# TODO RedirectMatch permanent ^/plugins/htmlcheck.html /plugins/footnotes/index.html
+RedirectMatch permanent ^/plugins/index.html /plugins/index.html
+RedirectMatch permanent ^/plugins/social-buttons.html /plugins/index.html
+RedirectMatch permanent ^/plugins/tagged-content.html /plugins/tagged-content/index.html
+RedirectMatch permanent ^/plugins/theme-boilerplate.html /plugins/index.html
+RedirectMatch permanent ^/plugins/theme-bootstrap.html /plugins/theme-bootstrap/index.html

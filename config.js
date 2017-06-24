@@ -142,7 +142,6 @@ config
     .use(require('akashacms-embeddables'))
     .use(require('akashacms-footnotes'))
     .use(require('akashacms-blog-podcast'))
-    .use(require('akashacms-social-buttons'))
     .use(require('epub-website'));
 
 config.plugin("akashacms-base").generateSitemap(config, true);

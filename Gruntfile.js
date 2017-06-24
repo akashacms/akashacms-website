@@ -1,7 +1,16 @@
 
-var akasha = require('akashacms');
-var config = require('./config.js');
-akasha.config(config);
+'use strict';
+
+var akasha = require('../akasharender');
+var config = new akasha.Configuration();
+config.prepare();
+config.use(require('../akashacms-base-render'));
+config.use(require('../akashacms-breadcrumbs-render'));
+config.use(require('../akashacms-booknav-render'));
+config.use(require('../akashacms-embeddables-render'));
+config.use(require('../akashacms-blog-podcast-render'));
+config.use(require('../akashacms-social-buttons-render'));
+
 
 // This is instead of the copyAssets function in akashacms.  It seems
 // we can't put this config in the initConfig below because cwd can be only

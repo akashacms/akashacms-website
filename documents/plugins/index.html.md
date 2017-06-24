@@ -2,6 +2,7 @@
 layout: index-page.html.ejs
 title: AkashaCMS plugin directory
 rightsidebar:
+bookRoot: /plugins/index.html
 ---
 
 These are the known plugins for AkashaCMS.  Because of its plugin system, anybody can write an AkashaCMS plugin and not inform us of its existence.

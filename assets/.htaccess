@@ -565,3 +565,21 @@ RedirectMatch permanent ^/config.html /configuration/index.html
 RedirectMatch permanent ^/extensions.html /configuration/ab-plugins.html
 RedirectMatch permanent ^/plugins/builtin.html /plugins/base.html
 
+RedirectMatch permanent ^/guides/mahabhuta/api.html /new/mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/express.html /new/mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/introduction.html /new/mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/processing.html /new/mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/project-setup.html /new/mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/toc.html /new/mahabhuta/toc.html
+
+RedirectMatch permanent ^/guides/akasharender/1-introduction.html /new/akasharender/1-introduction.html
+RedirectMatch permanent ^/guides/akasharender/2-setup.html /new/akasharender/2-setup.html
+RedirectMatch permanent ^/guides/akasharender/3-create-content.html /new/akasharender/3-create-content.html
+RedirectMatch permanent ^/guides/akasharender/cover.html /new/akasharender/cover.html
+RedirectMatch permanent ^/guides/akasharender/toc.html /new/akasharender/toc.html
+
+RedirectMatch permanent ^/guides/epubtools/introduction.html /new/epubtools/introduction.html
+RedirectMatch permanent ^/guides/epubtools/layout-fixed.html /new/epubtools/layout-fixed.html
+RedirectMatch permanent ^/guides/epubtools/layout-flexbox.html /new/epubtools/layout-flexbox.html
+RedirectMatch permanent ^/guides/epubtools/setup.html /new/epubtools/setup.html
+RedirectMatch permanent ^/guides/epubtools/toc.html /new/epubtools/toc.html

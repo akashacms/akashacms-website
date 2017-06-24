@@ -1,120 +1,222 @@
-var fs   = require('fs');
-var path = require('path');
 
-var akashacms = require('akashacms');
+'use strict';
 
-module.exports = akashacms.prepareConfig({
-    
-    root_url: 'http://akashacms.com',
-    
-    authorship: {
-    	defaultAuthorName: "david",
-    	authors: [
-			{
-				name: "david",
-				fullname: "David Herron",
-				authorship: "https://plus.google.com/+DavidHerron/about",
-			}
-    	]
-    },
-    
-    data: {
-        metarobots: "index,follow",
-        metaOGtype: "website",
-        metaOGsite_name: "AkashaCMS",
-        metasubject: "Content Management Systems",
-        metalanguage: "EN",
-    },
-    
-	google: {
-		analyticsAccount: "UA-37003917-1",
-		analyticsDomain: "akashacms.com",
-		// siteVerification: "CcDz9XDUIb4D1cW8VuiGj3kI_hckLDPFuwMrM2tYBds",
-	},
-	
-	akBase: {
-	    linkRelTags: [
-	        { relationship: "me", url: "https://twitter.com/akashacms" }
-	    ]
-	},
-    
-    headerScripts: {
-        stylesheets: [
-            { href: "/video.css", media: "screen" },
-            { href: "/style.css", media: "screen" },
-            { href: "/readable.min.css", media: "screen" }
-        ],
-        javaScriptTop: [ ],
-        javaScriptBottom: [ ]
-    },
-	
-	blogPodcast: {
-		"news": {
-			rss: {
-				title: "AkashaCMS News",
-				description: "Announcements and news about the AkashaCMS content management system",
-				site_url: "http://akashacms.com/news/index.html",
-				image_url: "http://akashacms.com/logo.gif",
-				managingEditor: 'David Herron',
-				webMaster: 'David Herron',
-				copyright: '2015 David Herron',
-				language: 'en',
-				categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
-			},
-			rssurl: "/news/rss.xml",
-			matchers: {
-				layouts: [ "blog.html.ejs" ],
-				path: /^news\//
-			}
-		},
-		
-		"howto": {
-			rss: {
-				title: "AkashaCMS Tutorials",
-				description: "Tutorials about using the AkashaCMS content management system",
-				site_url: "http://akashacms.com/howto/index.html",
-				image_url: "http://akashacms.com/logo.gif",
-				managingEditor: 'David Herron',
-				webMaster: 'David Herron',
-				copyright: '2015 David Herron',
-				language: 'en',
-				categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
-			},
-			rssurl: "/howto/rss.xml",
-			matchers: {
-				layouts: [ "blog.html.ejs" ],
-				path: /^howto\//
-			}
-		}
-	},
-    
-    funcs: {
-    },
+const util    = require('util');
+const akasha  = require('akasharender');
 
-    cheerio: {
-        recognizeSelfClosing: true,
-        recognizeCDATA: true
-    },
-    
-	themeBootstrap: {
-		bootstrapCSSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
-		bootstrapThemeCSSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
-		bootstrapJSurl: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js",
-		useHtml5shiv: true,
-		useRespondJS: true
-	},
-	
-    config: function(akasha) {
-		akasha.registerPlugins([
-			{ name: 'akashacms-theme-bootstrap', plugin: require('akashacms-theme-bootstrap') },
-			{ name: 'akashacms-breadcrumbs', plugin: require('akashacms-breadcrumbs') },
-			{ name: 'akashacms-booknav', plugin: require('akashacms-booknav') },
-			{ name: 'akashacms-embeddables', plugin: require('akashacms-embeddables') },
-			{ name: 'akashacms-blog-podcast', plugin: require('akashacms-blog-podcast') },
-			{ name: 'akashacms-social-buttons', plugin: require('akashacms-social-buttons') },
-			// { name: 'akashacms-tagged-content', plugin: require('akashacms-tagged-content') }
-			{ name: 'akashacms-base', plugin: require('akashacms-base') }
-		]);
-    }
+const config = new akasha.Configuration();
+
+config
+    .addAssetsDir('assets')
+    .addAssetsDir({
+        src: 'node_modules/bootstrap/dist',
+        dest: 'vendor/bootstrap'
+    })
+   .addAssetsDir({
+        src: 'node_modules/jquery/dist',
+        dest: 'vendor/jquery'
+    });
+
+config
+    .addLayoutsDir('layouts')
+    .addPartialsDir('partials');
+
+config
+    .addDocumentsDir('documents')
+    .addDocumentsDir({
+        src: 'node_modules/akasharender/guide',
+        dest: 'new/akasharender',
+        baseMetadata: {
+            bookHomeURL: "/new/akasharender/toc.html",
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/mahabhuta/guide',
+        dest: 'new/mahabhuta',
+        baseMetadata: {
+            bookHomeURL: "/new/mahabhuta/toc.html",
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/epubtools/guide',
+        dest: 'new/epubtools',
+        baseMetadata: {
+            bookHomeURL: "/new/epubtools/toc.html",
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-base/guide',
+        dest: 'new/plugins/base',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akasharender/built-in-guide',
+        dest: 'new/plugins/built-in',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-booknav/guide',
+        dest: 'new/plugins/booknav',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-blog-podcast/guide',
+        dest: 'new/plugins/blog-podcast',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-breadcrumbs/guide',
+        dest: 'new/plugins/breadcrumbs',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-document-viewers/guide',
+        dest: 'new/plugins/document-viewers',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-embeddables/guide',
+        dest: 'new/plugins/embeddables',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-footnotes/guide',
+        dest: 'new/plugins/footnotes',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-tagged-content/guide',
+        dest: 'new/plugins/tagged-content',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-theme-bootstrap/guide',
+        dest: 'new/plugins/theme-bootstrap',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-affiliates/guide',
+        dest: 'new/plugins/affiliates',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-adblock-checker/guide',
+        dest: 'new/plugins/adblock-checker',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    });
+
+config.rootURL("https://akashacms.com");
+
+config
+    .use(require('akashacms-theme-bootstrap'))
+    .use(require('akashacms-base'))
+    .use(require('akashacms-breadcrumbs'))
+    .use(require('akashacms-booknav'))
+    .use(require('akashacms-embeddables'))
+    .use(require('akashacms-footnotes'))
+    .use(require('akashacms-blog-podcast'))
+    .use(require('akashacms-social-buttons'))
+    .use(require('epub-website'));
+
+config.plugin("akashacms-base").generateSitemap(config, true);
+
+config
+    .addFooterJavaScript({
+        href: "/vendor/jquery/jquery.min.js"
+    })
+    .addFooterJavaScript({
+        href: "/vendor/bootstrap/js/bootstrap.min.js"
+    })
+    .addStylesheet({
+        href: "/vendor/bootstrap/css/bootstrap.min.css"
+    })
+    .addStylesheet({
+        href: "/vendor/bootstrap/css/bootstrap-theme.min.css"
+    })
+    .addStylesheet({
+        href: "/readable.min.css"
+    })
+    .addStylesheet({
+        href: "/style.css"
+    });
+
+config.setMahabhutaConfig({
+    recognizeSelfClosing: true,
+    recognizeCDATA: true
 });
 
+config.plugin('akashacms-blog-podcast')
+    .addBlogPodcast(config, "news", {
+        rss: {
+            title: "AkashaCMS News",
+            description: "Announcements and news about the AkashaCMS content management system",
+            site_url: "http://akashacms.com/news/index.html",
+            image_url: "http://akashacms.com/logo.gif",
+            managingEditor: 'David Herron',
+            webMaster: 'David Herron',
+            copyright: '2015 David Herron',
+            language: 'en',
+            categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
+        },
+        rssurl: "/news/rss.xml",
+        rootPath: "news",
+        matchers: {
+            layouts: [ "blog.html.ejs" ],
+            path: /^news\//
+        }
+    });
+
+config.plugin('akashacms-blog-podcast')
+    .addBlogPodcast(config, "howto", {
+        rss: {
+            title: "AkashaCMS Tutorials",
+            description: "Tutorials about using the AkashaCMS content management system",
+            site_url: "http://akashacms.com/howto/index.html",
+            image_url: "http://akashacms.com/logo.gif",
+            managingEditor: 'David Herron',
+            webMaster: 'David Herron',
+            copyright: '2015 David Herron',
+            language: 'en',
+            categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
+        },
+        rssurl: "/howto/rss.xml",
+        rootPath: "howto",
+        matchers: {
+            layouts: [ "blog.html.ejs" ],
+            path: /^howto\//
+        }
+    });
+
+// console.log('before prepare');
+// console.log(util.inspect(config));
+
+config.prepare();
+
+module.exports = config;

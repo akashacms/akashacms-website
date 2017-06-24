@@ -50,8 +50,6 @@ The files in `root_layouts` provide page layout structure.  These can chain toge
 
 The files in `root_partials` provide snippets of HTML rendering that can be plopped into the middle of a page anywhere.  See [the partials documentation](../layout/partials.html) for more information.
 
-Each of the functions in the `funcs` object are available inside templates as functions.  See [the template functions documentation](../layout/template-functions.html) for more information.
-
 After rendering content through any template engines, a final step before writing the content to the `root_out` directory is to process it with [the Mahabhuta engine](../documents/mahabhuta.html).  This provides an jQuery-like API for performing DOM manipulations.  It's powerful enough that one almost does not need the EJS engine.
 
 The [config file for this website](https://github.com/robogeek/akashacms-website/blob/master/config.js) should be able to serve as a good example of a config file.

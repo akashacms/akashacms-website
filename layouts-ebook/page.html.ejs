@@ -10,26 +10,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width" />
 
-<% if (typeof pagetitle !== "undefined") { %>
-    <title><%= pagetitle %></title>
-<% } else if (typeof title !== "undefined") { %>
-    <title><%= title %></title>
-<% } %>
+<ak-page-title></ak-page-title>
 <ak-header-metatags></ak-header-metatags>
-<xml-sitemap></xml-sitemap>
-<site-verification></site-verification>
+<ak-sitemapxml></ak-sitemapxml>
+<ak-siteverification></ak-siteverification>
 <ak-header-linkreltags></ak-header-linkreltags>
 <ak-stylesheets></ak-stylesheets>
 <ak-headerJavaScript></ak-headerJavaScript>
-
+	
 <partial file-name="fb-page-header.html"></partial>
 
 <partial file-name="twitter-card-header.html.ejs"></partial>
 
 </head>
 <body>
-
-<partial file-name="site-navbar.html.ejs"></partial>
+	
+<partial file-name="site-navbar.html"></partial>
 
 <div class="container" role="main">
 <div class="row">
@@ -39,8 +35,7 @@
 <div class="row">
 
 <div class="col-md-10">
-
-<div class="row">
+    <div class="row">
   <section id="breadcrumb" class="col-sm-12">
     <breadcrumb-trail></breadcrumb-trail>
   </section>
@@ -48,7 +43,6 @@
     By: <author-link></author-link> <publication-date></publication-date>
   </section>
 </div>
-
 <div class="row">
   <article class="col-sm-10">
     <% if (typeof teaser  !== "undefined") { %><p><strong><ak-teaser></ak-teaser></strong></p> <% } %>
@@ -59,6 +53,7 @@
     <% if (typeof rightsidebar !== "undefined" && rightsidebar) { %><%- partial(rightsidebar) %><% } %>
   </section>
 </div>
+    
 </div>
 <div class="col-md-2">
 <partial file-name="sidebar.html.ejs"></partial>
@@ -77,3 +72,4 @@
 
 </body>
 </html>
+

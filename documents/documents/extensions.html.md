@@ -1,6 +1,6 @@
 ---
 layout: article.html.ejs
-title: File names and extensions in AkashaCMS 
+title: File names and extensions in AkashaCMS
 rightsidebar:
 publicationDate: Jan 1, 2015
 author: david
@@ -61,7 +61,7 @@ Any function executed in EJS has to run synchronously.
 
 Any functions listed in `config.funcs` are made available as are two special functions provided by AkashaCMS.
 
-The first, `partial`, [is documented elsewhere](/layouts/partials.html).
+The first, `partial`, [is documented elsewhere](/layout/partials.html).
 
 The second, `plugin`, lets one access functions exported by plugins.
 
@@ -70,4 +70,3 @@ The second, `plugin`, lets one access functions exported by plugins.
 ```
 
 This looks up the plugin by name, returning the plugin at which point you can invoke any of its functions.  Of course those functions must execute synchronously.
-

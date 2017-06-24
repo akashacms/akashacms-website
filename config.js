@@ -25,108 +25,108 @@ config
     .addDocumentsDir('documents')
     .addDocumentsDir({
         src: 'node_modules/akasharender/guide',
-        dest: 'new/akasharender',
+        dest: 'akasharender',
         baseMetadata: {
-            bookHomeURL: "/new/akasharender/toc.html",
+            bookHomeURL: "/akasharender/toc.html",
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/mahabhuta/guide',
-        dest: 'new/mahabhuta',
+        dest: 'mahabhuta',
         baseMetadata: {
-            bookHomeURL: "/new/mahabhuta/toc.html",
+            bookHomeURL: "/mahabhuta/toc.html",
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/epubtools/guide',
-        dest: 'new/epubtools',
+        dest: 'epubtools',
         baseMetadata: {
-            bookHomeURL: "/new/epubtools/toc.html",
+            bookHomeURL: "/epubtools/toc.html",
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-base/guide',
-        dest: 'new/plugins/base',
+        dest: 'plugins/base',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akasharender/built-in-guide',
-        dest: 'new/plugins/built-in',
+        dest: 'plugins/built-in',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-booknav/guide',
-        dest: 'new/plugins/booknav',
+        dest: 'plugins/booknav',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-blog-podcast/guide',
-        dest: 'new/plugins/blog-podcast',
+        dest: 'plugins/blog-podcast',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-breadcrumbs/guide',
-        dest: 'new/plugins/breadcrumbs',
+        dest: 'plugins/breadcrumbs',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-document-viewers/guide',
-        dest: 'new/plugins/document-viewers',
+        dest: 'plugins/document-viewers',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-embeddables/guide',
-        dest: 'new/plugins/embeddables',
+        dest: 'plugins/embeddables',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-footnotes/guide',
-        dest: 'new/plugins/footnotes',
+        dest: 'plugins/footnotes',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-tagged-content/guide',
-        dest: 'new/plugins/tagged-content',
+        dest: 'plugins/tagged-content',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-theme-bootstrap/guide',
-        dest: 'new/plugins/theme-bootstrap',
+        dest: 'plugins/theme-bootstrap',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-affiliates/guide',
-        dest: 'new/plugins/affiliates',
+        dest: 'plugins/affiliates',
         baseMetadata: {
             useNewSiteNavbar: true
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
-        dest: 'new/plugins/adblock-checker',
+        dest: 'plugins/adblock-checker',
         baseMetadata: {
             useNewSiteNavbar: true
         }

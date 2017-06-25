@@ -598,3 +598,23 @@ RedirectMatch permanent ^/plugins/social-buttons.html /plugins/index.html
 RedirectMatch permanent ^/plugins/tagged-content.html /plugins/tagged-content/index.html
 RedirectMatch permanent ^/plugins/theme-boilerplate.html /plugins/index.html
 RedirectMatch permanent ^/plugins/theme-bootstrap.html /plugins/theme-bootstrap/index.html
+
+RedirectMatch permanent ^/configuration/aa-format.html /akasharender/configuration.html
+RedirectMatch permanent ^/configuration/ab-plugins.html /akasharender/plugins-using.html
+RedirectMatch permanent ^/configuration/index.html /akasharender/configuration.html
+
+RedirectMatch permanent ^/deployment/index.html /akasharender/projects.html
+RedirectMatch permanent ^/deployment/rsync.html /akasharender/projects.html
+RedirectMatch permanent ^/deployment/ssh2.html /akasharender/projects.html
+
+RedirectMatch permanent ^/documents/content.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/css-js.html /akasharender/css-less.html
+RedirectMatch permanent ^/documents/extensions.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/rendering-chains.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/review-edit.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/php-documents.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/metadata.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/markdown.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/json-document.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/mahabhuta.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/documents/index.html /akasharender/3-create-content.html

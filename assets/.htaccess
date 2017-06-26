@@ -627,3 +627,7 @@ RedirectMatch permanent ^/layouts/partials.html /akasharender/layouts-partials.h
 RedirectMatch permanent ^/layouts/index.html /akasharender/layouts-partials.html
 
 RedirectMatch permanent ^/command-line/index.html /akasharender/3-create-content.html
+
+RedirectMatch permanent ^/theming/aadiy.html /akasharender/theming.html
+RedirectMatch permanent ^/theming/bootstrap.html /akasharender/theming.html
+RedirectMatch permanent ^/theming/index.html /akasharender/theming.html

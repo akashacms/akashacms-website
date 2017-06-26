@@ -593,7 +593,7 @@ RedirectMatch permanent ^/plugins/embeddables.html /plugins/embeddables/index.ht
 # TODO RedirectMatch permanent ^/plugins/epub.html /plugins/embeddables/index.html
 RedirectMatch permanent ^/plugins/footnotes.html /plugins/footnotes/index.html
 # TODO RedirectMatch permanent ^/plugins/htmlcheck.html /plugins/footnotes/index.html
-RedirectMatch permanent ^/plugins/index.html /plugins/index.html
+# NOT NEEDED MAKES A LOOP RedirectMatch permanent ^/plugins/index.html /plugins/index.html
 RedirectMatch permanent ^/plugins/social-buttons.html /plugins/index.html
 RedirectMatch permanent ^/plugins/tagged-content.html /plugins/tagged-content/index.html
 RedirectMatch permanent ^/plugins/theme-boilerplate.html /plugins/index.html

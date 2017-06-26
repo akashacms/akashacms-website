@@ -6,6 +6,4 @@ blogtag: news
 teaser: The Boilerplate team just released version 5, which has now been rolled into akashacms-theme-boilerplate.
 ---
 
-For documentation see <a href="/plugins/theme-boilerplate.html.md"></a>
-
 This means that AkashaCMS again has no issues against the 0.4 release milestone.  

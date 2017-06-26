@@ -4,7 +4,7 @@ title: DIY Theming of an AkashaCMS website
 rightsidebar:
 ---
 
-The [AkashaCMS-base plugin](/plugins/base.html) provides a couple useful tools that you may, or may not, want to use in theming your website.  Let's go over how to use them.
+The <!-- [AkashaCMS-base plugin](/plugins/base.html) --> provides a couple useful tools that you may, or may not, want to use in theming your website.  Let's go over how to use them.
 
 Most important is that it provides a base layout, [`ak_page.html.ejs`](https://github.com/robogeek/akashacms-base/blob/master/layout/ak_page.html.ejs), that is derived from the Boilerplate framework, and provides complete ability to specify stylesheets and JavaScript at both the top and bottom.
 
@@ -27,10 +27,10 @@ To configure the stylesheets and JavaScript add this data to your `config.js`
                 ... other stylesheets
             ],
             javaScriptTop: [
-                
+
             ],
             javaScriptBottom: [
-                
+
             ]
         }
     }

@@ -14,4 +14,4 @@ To that end I created a standalone plugin -- `akashacms-footnotes` and the `foot
 
 This means for any websites using the `footnote` tag you must register `akashacms-footnotes` in your site configuration.
 
-For more information see [](/plugins/footnotes.html)
+For more information see [](/plugins/footnotes/index.html)

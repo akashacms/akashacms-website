@@ -4,7 +4,7 @@ title: Page layout in AkashaCMS
 rightsidebar:
 publicationDate: Jan 1, 2014
 ---
-As we noted when discussing the [overall format for AkashaCMS files](/documents/content.html), documents are split into frontmatter and content.  Among the frontmatter tags is the `layout` tag which specifies the layout template for the content.
+As we noted when discussing the [overall format for AkashaCMS files](/akasharender/3-create-content.html), documents are split into frontmatter and content.  Among the frontmatter tags is the `layout` tag which specifies the layout template for the content.
 
 The template is simply declared using the `layout` tag in the frontmatter like so:
 
@@ -14,7 +14,7 @@ The template is simply declared using the `layout` tag in the frontmatter like s
     ---
     <p>Content</p>
 
-The layout template is interpreted by the template engine implied by the [file extension](/documents/extensions.html), just as for partials and documents.
+The layout template is interpreted by the template engine implied by the [file extension](/akasharender/3-create-content.html), just as for partials and documents.
 
 Rendered content is available in its' layout template in the `content` variable.  Therefore, somewhere in the template that variable must be accessed to render the content into the template.  The content is to be referenced like so:-
 
@@ -39,4 +39,4 @@ The final template, which we called `page.html.ejs` here, should be the destinat
 
 # Base themes and the page template
 
-The [AkashaCMS-base plugin](/plugins/base.html), the [Bootstrap base theme](/plugins/theme-bootstrap.html) and the [Boilerplate base theme](/plugins/theme-boilerplate.html) all provide implementations of the `page.html.ejs`.  In each case the implementation supports a complete set of META tags, and flexible methods of bringing in stylesheets or JavaScript.
+The [AkashaCMS-base plugin](/plugins/base/index.html), the [Bootstrap base theme](/plugins/theme-bootstrap/index.html)<!-- and the [Boilerplate base theme](/plugins/theme-boilerplate.html) --> all provide implementations of the `page.html.ejs`.  In each case the implementation supports a complete set of META tags, and flexible methods of bringing in stylesheets or JavaScript.

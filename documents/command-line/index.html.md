@@ -45,7 +45,7 @@ After rendering a website you want to copy it over to your server:
 
     $ akashacms deploy
 
-This requires some [configuration in `config.js` as noted elsewhere](/deployment/index.html).
+This requires some <!-- [configuration in `config.js` as noted elsewhere](/deployment/index.html). -->
 
 # Running a local webserver to preview the site
 

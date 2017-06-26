@@ -119,8 +119,8 @@ Taking a tour of akashacms-example
 
 The above commands let you verify you have a working AkashaCMS installation.  Let's take a brief tour.
 
-First is the `config.js` file, which is documented in [Configuring AkashaCMS](/configuration/index.html).  This is a little Node module that simply returns a data object describing the configuration of a website.  It lists several directories, has a place for you to put data and functions specific to your website.
+First is the `config.js` file, which is documented in <!-- [Configuring AkashaCMS](/configuration/index.html). --> This is a little Node module that simply returns a data object describing the configuration of a website.  It lists several directories, has a place for you to put data and functions specific to your website.
 
-The content files ([Writing content in AkashaCMS](/documents/index.html)) are located in the `documents` directory which in turn is named in the `root_docs` configuration variable.  The format of these files is straight-forward, some metadata at the front (frontmatter) and content following the frontmatter.
+The content files ([Writing content in AkashaCMS](/akasharender/3-create-content.html)) are located in the `documents` directory which in turn is named in the `root_docs` configuration variable.  The format of these files is straight-forward, some metadata at the front (frontmatter) and content following the frontmatter.
 
-The other directories are `assets`, containing unprocessed static files like images and CSS, `layouts`, containing page layouts ([Page layout in AkashaCMS](/layout/index.html)), and `partials` containing a couple mini-templates ([Partials in AkashaCMS](/layout/partials.html)).
+The other directories are `assets`, containing unprocessed static files like images and CSS, `layouts`, containing page layouts <!-- ([Page layout in AkashaCMS](/layout/index.html)), and `partials` containing a couple mini-templates ([Partials in AkashaCMS](/layout/partials.html)). -->

@@ -7,7 +7,7 @@ useNewSiteNavbar: true
 
 These are the known plugins for AkashaCMS.  We say "known" because the AkashaCMS plugin system allows anybody to write a plugin and not inform us of its existence.  Instructions for adding to this list are given below.
 
-See [the documentation on writing a plugin](/new/akasharender/plugins-writing.html) for more information.
+See [the documentation on writing a plugin](/akasharender/plugins-writing.html) for more information.
 
 <ul class="list-group">
 <li class="list-group-item"><a href="built-in/index.html">AkashaCMS built-in</a> Provides foundation-level support for any HTML</li>

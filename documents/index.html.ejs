@@ -2,62 +2,50 @@
 layout: article.html.ejs
 title: AkashaCMS - the powerful static file CMS to build your dream website
 rightsidebar:
-publicationDate: Jan 1, 2015
+publicationDate: June 25, 2017
 ---
 <p align="center"><em>Akasha means the basis and essence of all things in the material world; the first material element created from the astral world. </em></p>
 
-<p align="center"><em>AkashaCMS (<a href="https://github.com/robogeek/akashacms">github project</a>) is a Node.js based tool with which you can convert ideas into websites while maintaining separation between content, layout and design.</em></p>
+<p align="center"><em>AkashaRender (<a href="https://github.com/akashacms/akasharender">github project</a>) is a Node.js based tool with which you can convert ideas into websites while maintaining separation between content, layout and design.  AkashaRender renders files for websites or eBooks, while AkashaCMS is the sum of AkashaRender plus the AkashaCMS plugins.</em></p>
 
 <table> <!-- style="border-spacing: 5px;" -->
 <tr>
 <td style="padding: 10px;" width="50%">
-<p>With AkashaCMS, one writes web content in HTML (or Markdown) but with none of the styling and framing boilerplate that surrounds the content.  Styles, page layouts, and navigational elements are kept in separate files, and are brought together in a highly flexible manner to produce HTML files.  We use the HTML5 boilerplate project to provide a modern foundation.  Several templating engines are available to facilitate bringing in data from external repositories. </p>
+<p>With AkashaCMS, one writes web content in HTML (or Markdown) but with none of the styling and framing boilerplate that surrounds the content.  Styles, page layouts, and navigational elements are kept in separate files, and are brought together in a highly flexible manner to produce HTML files.  We use the HTML5 boilerplate and/or the Twitter Bootstrap projects to provide a modern foundation.  Several templating engines are available to facilitate bringing in data from external repositories. </p>
 
 <p>The goal for AkashaCMS is to provide most of the flexibility of a full scale CMS, incorporate modern JavaScript/CSS UI frameworks, while producing static HTML files, and skipping the administrative overhead of running a full CMS.</p>
 
 <p>Technology: Node.js - Markdown - EJS templates - LESS - jQuery - Bootstrap - Server-side jQuery - OEmbed</p>
 
-<p>The <a href="https://github.com/robogeek/akashacms-example">AkashaCMS Example github project</a> contains a small working example of an AkashaCMS site.  The rendered version of that example is at <a href="http://example.akashacms.com">example.akashacms.com</a>.  The <a href="https://github.com/robogeek/akashacms-website">source code for this website</a> serves as a larger example of AkashaCMS use. </p>
+<p>The <a href="https://github.com/akashacms/akashacms-example">AkashaCMS Example github project</a> contains a small working example of an AkashaCMS site.  The rendered version of that example is at <a href="http://example.akashacms.com">example.akashacms.com</a>.  The <a href="https://github.com/akashacms/akashacms-website">source code for this website</a> serves as a larger example of AkashaCMS use. </p>
 
 </td>
 <td style="padding: 10px;" width="50%">
 <p>Getting started is pretty easy, assuming you already have Node.js installed:</p>
 
 <pre>
-$ npm install -g akashacms-cli
-$ akashacms init directoryName
+$ git clone https://github.com/akashacms/akashacms-example.git
+$ git clone https://github.com/akashacms/akashacms-skeleton.git directoryName
 $ cd directoryName
 $ npm install
 $ .... start hacking
+$ npm run build
+$ npm run preview
 </pre>
 
-<p>If that first command gives an error you may need to run it this way:</p>
 
-<pre>
-$ sudo npm install -g akashacms-cli
-</pre>
-
-<p>This pulls down site full of examples for you from the <a href="https://github.com/robogeek/akashacms-example">akashacms-example</a> project.  For a blank starter site look at <a href="https://github.com/robogeek/akashacms-skeleton">akashacms-skeleton</a>. </p>
-
-<p>The skeleton starter site can also be initialized this way: </p>
-
-<pre>
-$ akashacms skeleton directoryName
-$ cd directoryName
-$ npm install
-$ .... start hacking
-</pre>
+<p>The first <em>git</em> command pulls down the AkashaCMS examples site from the <a href="https://github.com/akashacms/akashacms-example">akashacms-example</a> project.  We've made that project available so you can peruse sample code.  The second command pulls down a blank starter site from <a href="https://github.com/akashacms/akashacms-skeleton">akashacms-skeleton</a>.  That site can serve as a starting point for your website. </p>
 
 <p>To build the static website:</p>
 
 <pre>
-$ akashacms build
+$ npm run build
 </pre>
 
-<p>To view the local copy of the website in your browser (http://localhost:6080):</p>
+<p>To view the local copy of the website in your browser (http://localhost:3000):</p>
 
 <pre>
-$ akashacms preview
+$ npm run preview
 </pre>
 </td>
 </tr>

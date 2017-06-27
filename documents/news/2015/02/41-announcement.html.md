@@ -10,7 +10,7 @@ The last two weeks I've learned how to create EPUB 3 documents, and have adapted
 
 ## Pluggable renderingChain's
 
-Out of the box AkashaCMS supports a [couple file extensions (example.html.md, etc)](/documents/extensions.html).  While that was pretty good, there are a lot more potential file types we might want to create using AkashaCMS.  Such as the special files used in EPUB documents.  A generic file processing mechanism was needed.  In the 0.3.x timeframe I tried to implement such a thing, but it became too convoluted and I gave up.  As of 0.4.0 the rendering module supported just a few rendering chains.
+Out of the box AkashaCMS supports a [couple file extensions (example.html.md, etc)](/akasharender/3-create-content.html).  While that was pretty good, there are a lot more potential file types we might want to create using AkashaCMS.  Such as the special files used in EPUB documents.  A generic file processing mechanism was needed.  In the 0.3.x timeframe I tried to implement such a thing, but it became too convoluted and I gave up.  As of 0.4.0 the rendering module supported just a few rendering chains.
 
 A _renderingChain_ is a sequence of rendering steps.  For example, AkashaCMS core supports `example.html.ejs.md` which says to render the content first with Markdown, then with EJS, and produce an HTML file named `example.html`.
 

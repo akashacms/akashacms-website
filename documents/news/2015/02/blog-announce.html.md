@@ -12,8 +12,8 @@ A blog is just a website where there's an index of the content presented in reve
 
 Yes, bloggers tend to add other doodads in their sidebars, and I'll get to those eventually.  But at its barest minimum a blog is a website where the main index is a river of news as I just described.  That's it.  There's nothing magical to it.
 
-A few weeks ago, to support evwow.com, I did add a `generateRSS` method to AkashaCMS.  A teensy bit of tweaking was needed to make it support blogs.  Then with a bit more work, I adapted some code out of the evwow.com site to create a new AkashaCMS plugin - `akashacms-blog-podcast`.  The plugin is documented [elsewhere on this site](/plugins/blog-podcast.html).
+A few weeks ago, to support `evwow.com`, I did add a `generateRSS` method to AkashaCMS.  A teensy bit of tweaking was needed to make it support blogs.  Then with a bit more work, I adapted some code out of the `evwow.com` site to create a new AkashaCMS plugin - `akashacms-blog-podcast`.  The plugin is documented [elsewhere on this site](/plugins/blog-podcast/index.html).
 
 At the moment the Podcast portion of this is aspirational.  A podcast is just a blog, with media entries in the RSS feed, and with audio (or video) players embedded on the website.  I haven't yet implemented that stuff, but it appears to simply require some custom elements in the RSS feed definition.
 
-This blog post is meant to both test the akashacms-blog-podcast plugin, and to announce its existence.  If you see this publicly you'll know the plugin is working.  
+This blog post is meant to both test the `akashacms-blog-podcast` plugin, and to announce its existence.  If you see this publicly you'll know the plugin is working.  

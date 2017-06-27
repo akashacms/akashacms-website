@@ -27,14 +27,14 @@ JSONFormatter: json-format.html.ejs
 
 As you see, the content body is straight-up JSON.  The JSON is immediately processed by the partial named in `JSONFormatter` to produce HTML that's then rendered as a page through the normal AkashaCMS process.
 
-See [](/documents/json-document.html)
+See [](/akasharender/3-create-content.html)
 
 ## Per-page CSS and JavaScript
 
 It's often desirable to put custom CSS and JavaScript on a page.  That's now very easy, with the following document metadata instructions:
 
 ```
-headerStylesheetsAdd: 
+headerStylesheetsAdd:
   - href: /extra.css
     media: screen
 headerJavaScriptAddTop:
@@ -43,4 +43,4 @@ headerJavaScriptAddBottom:
   - href: /extraBottom.js
 ```
 
-See [](/documents/css-js.html)
+See [](/akasharender/3-create-content.html)

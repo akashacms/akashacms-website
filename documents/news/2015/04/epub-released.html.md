@@ -18,5 +18,3 @@ There are two complete EPUB workspaces for AkashaEPUB currently:
 
 * https://github.com/akashacms/epub-guide -- is a guidebook on using AkashaEPUB
 * https://github.com/akashacms/epub-skeleton -- is a skeleton EPUB meant to be your starting point for building an EPUB
-
-See <a href="/plugins/epub.html">the AkashaEPUB plugin page</a> for more information.

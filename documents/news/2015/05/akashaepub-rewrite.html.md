@@ -6,7 +6,7 @@ blogtag: news
 teaser: The initial version of AkashaEPUB demonstrated the need to hugely simplify book configuration.  That's been done.
 ---
 
-While [AkashaEPUB](/plugins/epub.html) was very important for producing EPUB's that pass the EPUB3 epubchecker program, getting the configuration right was a little tedious.  Explaining the configuration in the AkashaEPUB Guide took a long time, and dotting i's and crossing t's meant constantly going from detail to detail, and basically fiddling.  After some thought a couple things became clear
+While AkashaEPUB was very important for producing EPUB's that pass the EPUB3 epubchecker program, getting the configuration right was a little tedious.  Explaining the configuration in the AkashaEPUB Guide took a long time, and dotting i's and crossing t's meant constantly going from detail to detail, and basically fiddling.  After some thought a couple things became clear
 
 * The chapter/section metadata needed to be IN the document file.
 * The chapter/section hierarchy can be IN the document files.
@@ -23,5 +23,3 @@ That pattern is followed for every `config.js` option.  The value can be left ou
 All this is new for AkashaEPUB 0.4.9.  The epub-skeleton has been updated to the new configuration, and I added a more complex directory structure to test different content linking structures.
 
 As it stands the epub-guide content is out-of-date.  It builds with the new AkashaEPUB, but the documentation is for the old AkashaEPUB.  I'll rewrite the guide shortly.
-
-The instructions on the [AkashaEPUB plugin page](/plugins/epub.html) are still correct, but as just said the implementation is extremely different.

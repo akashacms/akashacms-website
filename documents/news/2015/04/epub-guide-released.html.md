@@ -6,7 +6,7 @@ blogtag: news
 teaser: Achieved a major goal with AkashaEPUB - the guidebook has been successfully uploaded to several online eBook marketplaces.
 ---
 
-<a href="/plugins/epub.html"><img src="/akashaepub-logo.jpg" align="right"/></a>My goal for implementing [AkashaEPUB](/plugins/epub.html) was to launch a business selling books via online eBook marketplaces like Amazon or Google Play or Apple's iBook store.  I have some things to say, and think publishing via an eBook or many eBooks is a great way to go.  In order to test AkashaEPUB and prove that it does what it claims on the label, I wrote the Guidebook with the goal of uploading it to as many markets as I could find.
+<img src="/akashaepub-logo.jpg" align="right"/>My goal for implementing AkashaEPUB was to launch a business selling books via online eBook marketplaces like Amazon or Google Play or Apple's iBook store.  I have some things to say, and think publishing via an eBook or many eBooks is a great way to go.  In order to test AkashaEPUB and prove that it does what it claims on the label, I wrote the Guidebook with the goal of uploading it to as many markets as I could find.
 
 <img src="/akashaepub-guide-cover.jpg" align="right" style="max-width: 400px;"/>The good news is that four major eBook marketplaces accepted the Guidebook without hiccup.  The Guidebook is now on sale on those marketplaces, proof positive that AkashaEPUB does what it says on the tin.
 

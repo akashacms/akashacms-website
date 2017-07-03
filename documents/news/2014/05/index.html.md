@@ -1,4 +1,4 @@
 ---
 layout: index-page.html.ejs
-title: AkashaCMS News and Announcements for August 2014
+title: AkashaCMS News and Announcements for May 2014
 ---

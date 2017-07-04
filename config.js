@@ -97,6 +97,13 @@ config
         }
     })
     .addDocumentsDir({
+        src: 'node_modules/akashacms-external-links/guide',
+        dest: 'plugins/external-links',
+        baseMetadata: {
+            useNewSiteNavbar: true
+        }
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-footnotes/guide',
         dest: 'plugins/footnotes',
         baseMetadata: {
@@ -140,11 +147,16 @@ config
     .use(require('akashacms-breadcrumbs'))
     .use(require('akashacms-booknav'))
     .use(require('akashacms-embeddables'))
+    .use(require('akashacms-external-links'))
     .use(require('akashacms-footnotes'))
     .use(require('akashacms-blog-podcast'))
     .use(require('epub-website'));
 
 config.plugin("akashacms-base").generateSitemap(config, true);
+
+config.plugin("akashacms-external-links")
+    .setTargetBlank(config, true)
+    .setShowFavicons(config, "before");
 
 config
     .addFooterJavaScript({

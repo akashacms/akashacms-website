@@ -26,6 +26,7 @@
     "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "akashacms-document-viewers": "akashacms/akashacms-document-viewers",
     "akashacms-embeddables": "akashacms/akashacms-embeddables",
+    "akashacms-external-links": "akashacms/akashacms-external-links",
     "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap",
     "akasharender": "akashacms/akasharender",
     "async": "^2.0.0-rc.4",

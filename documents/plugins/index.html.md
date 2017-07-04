@@ -17,6 +17,7 @@ See [the documentation on writing a plugin](/akasharender/plugins-writing.html) 
 <li class="list-group-item"><a href="breadcrumbs/index.html">akashacms-breadcrumbs</a> Provides a breadcrumb trail to aid navigation</li>
 <li class="list-group-item"><a href="document-viewers/index.html">akashacms-document-viewers</a> Embeds documents (PDF, etc) in-line</li>
 <li class="list-group-item"><a href="embeddables/index.html">akashacms-embeddables</a> Assists with embedding content from other sites</li>
+<li class="list-group-item"><a href="external-links/index.html">akashacms-external-links</a> Useful manipulations to outbound links</li>
 <li class="list-group-item"><a href="footnotes/index.html">akashacms-footnotes</a> Adds footnote-style citations at the bottom of the page</li>
 <li class="list-group-item"><a href="tagged-content/index.html">akashacms-tagged-content</a> Categorizing content by adding tags.</li>
 <li class="list-group-item"><a href="theme-bootstrap/index.html">akashacms-theme-bootstrap</a> Use Twitter Bootstrap to improve website look and feel.</li>

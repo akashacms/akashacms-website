@@ -565,24 +565,45 @@ RedirectMatch permanent ^/config.html /configuration/index.html
 RedirectMatch permanent ^/extensions.html /configuration/ab-plugins.html
 RedirectMatch permanent ^/plugins/builtin.html /plugins/base.html
 
-RedirectMatch permanent ^/guides/mahabhuta/api.html /new/mahabhuta/toc.html
-RedirectMatch permanent ^/guides/mahabhuta/express.html /new/mahabhuta/toc.html
-RedirectMatch permanent ^/guides/mahabhuta/introduction.html /new/mahabhuta/toc.html
-RedirectMatch permanent ^/guides/mahabhuta/processing.html /new/mahabhuta/toc.html
-RedirectMatch permanent ^/guides/mahabhuta/project-setup.html /new/mahabhuta/toc.html
-RedirectMatch permanent ^/guides/mahabhuta/toc.html /new/mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/api.html /mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/express.html /mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/introduction.html /mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/processing.html /mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/project-setup.html /mahabhuta/toc.html
+RedirectMatch permanent ^/guides/mahabhuta/toc.html /mahabhuta/toc.html
 
-RedirectMatch permanent ^/guides/akasharender/1-introduction.html /new/akasharender/1-introduction.html
-RedirectMatch permanent ^/guides/akasharender/2-setup.html /new/akasharender/2-setup.html
-RedirectMatch permanent ^/guides/akasharender/3-create-content.html /new/akasharender/3-create-content.html
-RedirectMatch permanent ^/guides/akasharender/cover.html /new/akasharender/cover.html
-RedirectMatch permanent ^/guides/akasharender/toc.html /new/akasharender/toc.html
+RedirectMatch permanent ^/guides/akasharender/1-introduction.html /akasharender/1-introduction.html
+RedirectMatch permanent ^/guides/akasharender/2-setup.html /akasharender/2-setup.html
+RedirectMatch permanent ^/guides/akasharender/3-create-content.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/guides/akasharender/cover.html /akasharender/cover.html
+RedirectMatch permanent ^/guides/akasharender/toc.html /akasharender/toc.html
 
-RedirectMatch permanent ^/guides/epubtools/introduction.html /new/epubtools/introduction.html
-RedirectMatch permanent ^/guides/epubtools/layout-fixed.html /new/epubtools/layout-fixed.html
-RedirectMatch permanent ^/guides/epubtools/layout-flexbox.html /new/epubtools/layout-flexbox.html
-RedirectMatch permanent ^/guides/epubtools/setup.html /new/epubtools/setup.html
-RedirectMatch permanent ^/guides/epubtools/toc.html /new/epubtools/toc.html
+RedirectMatch permanent ^/guides/epubtools/introduction.html /epubtools/introduction.html
+RedirectMatch permanent ^/guides/epubtools/layout-fixed.html /epubtools/layout-fixed.html
+RedirectMatch permanent ^/guides/epubtools/layout-flexbox.html /epubtools/layout-flexbox.html
+RedirectMatch permanent ^/guides/epubtools/setup.html /epubtools/setup.html
+RedirectMatch permanent ^/guides/epubtools/toc.html /epubtools/toc.html
+
+RedirectMatch permanent ^/new/index.html /index.html
+RedirectMatch permanent ^/new/plugins/index.html /plugins/index.html
+RedirectMatch permanent ^/new/plugins/base/index.html /plugins/base/index.html
+RedirectMatch permanent ^/new/plugins/built-in/index.html /plugins/built-in/index.html
+RedirectMatch permanent ^/new/plugins/blog-podcast/index.html /plugins/blog-podcast/index.html
+RedirectMatch permanent ^/new/plugins/booknav/index.html /plugins/booknav/index.html
+RedirectMatch permanent ^/new/plugins/breadcrumbs/index.html /plugins/breadcrumbs/index.html
+RedirectMatch permanent ^/new/plugins/embeddables/index.html /plugins/embeddables/index.html
+RedirectMatch permanent ^/new/plugins/footnotes/index.html /plugins/footnotes/index.html
+RedirectMatch permanent ^/new/plugins/tagged-content/index.html /plugins/tagged-content/index.html
+RedirectMatch permanent ^/new/plugins/theme-bootstra/index.html /plugins/theme-bootstra/index.html
+RedirectMatch permanent ^/new/akasharender/toc.html /akasharender/toc.html
+RedirectMatch permanent ^/new/akasharender/2-setup.html /akasharender/2-setup.html
+RedirectMatch permanent ^/new/akasharender/advanced.html /akasharender/advanced.html
+RedirectMatch permanent ^/new/akasharender/plugins-writing.html /akasharender/plugins-writing.html
+RedirectMatch permanent ^/new/akasharender/plugins-using.html /akasharender/plugins-using.html
+RedirectMatch permanent ^/new/akasharender/layouts-partials.html /akasharender/layouts-partials.html
+RedirectMatch permanent ^/new/akasharender/toc.html /akasharender/toc.html
+RedirectMatch permanent ^/new/akasharender/toc.html /akasharender/toc.html
+RedirectMatch permanent ^/new/akasharender/3-create-content.html /akasharender/3-create-content.html
 
 RedirectMatch permanent ^/plugins/base.html /plugins/base/index.html
 RedirectMatch permanent ^/plugins/builtin.html /plugins/built-in/index.html
@@ -590,7 +611,7 @@ RedirectMatch permanent ^/plugins/blog-podcast.html /plugins/blog-podcast/index.
 RedirectMatch permanent ^/plugins/booknav.html /plugins/booknav/index.html
 RedirectMatch permanent ^/plugins/breadcrumbs.html /plugins/breadcrumbs/index.html
 RedirectMatch permanent ^/plugins/embeddables.html /plugins/embeddables/index.html
-# TODO RedirectMatch permanent ^/plugins/epub.html /plugins/embeddables/index.html
+RedirectMatch permanent ^/plugins/epub.html /epubtools/toc.html
 RedirectMatch permanent ^/plugins/footnotes.html /plugins/footnotes/index.html
 # TODO RedirectMatch permanent ^/plugins/htmlcheck.html /plugins/footnotes/index.html
 # NOT NEEDED MAKES A LOOP RedirectMatch permanent ^/plugins/index.html /plugins/index.html
@@ -622,9 +643,9 @@ RedirectMatch permanent ^/documents/index.html /akasharender/3-create-content.ht
 RedirectMatch permanent ^/install.html /akasharender/2-setup.html
 RedirectMatch permanent ^/metatags.html /akasharender/3-create-content.html
 
-RedirectMatch permanent ^/layouts/aalayouts.html /akasharender/layouts-partials.html
-RedirectMatch permanent ^/layouts/partials.html /akasharender/layouts-partials.html
-RedirectMatch permanent ^/layouts/index.html /akasharender/layouts-partials.html
+RedirectMatch permanent ^/layout/aalayouts.html /akasharender/layouts-partials.html
+RedirectMatch permanent ^/layout/partials.html /akasharender/layouts-partials.html
+RedirectMatch permanent ^/layout/index.html /akasharender/layouts-partials.html
 
 RedirectMatch permanent ^/command-line/index.html /akasharender/3-create-content.html
 

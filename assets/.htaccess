@@ -591,6 +591,7 @@ RedirectMatch permanent ^/new/plugins/built-in/index.html /plugins/built-in/inde
 RedirectMatch permanent ^/new/plugins/blog-podcast/index.html /plugins/blog-podcast/index.html
 RedirectMatch permanent ^/new/plugins/booknav/index.html /plugins/booknav/index.html
 RedirectMatch permanent ^/new/plugins/breadcrumbs/index.html /plugins/breadcrumbs/index.html
+RedirectMatch permanent ^/new/plugins/document-viewers/index.html /plugins/document-viewers/index.html
 RedirectMatch permanent ^/new/plugins/embeddables/index.html /plugins/embeddables/index.html
 RedirectMatch permanent ^/new/plugins/footnotes/index.html /plugins/footnotes/index.html
 RedirectMatch permanent ^/new/plugins/tagged-content/index.html /plugins/tagged-content/index.html
@@ -601,9 +602,16 @@ RedirectMatch permanent ^/new/akasharender/advanced.html /akasharender/advanced.
 RedirectMatch permanent ^/new/akasharender/plugins-writing.html /akasharender/plugins-writing.html
 RedirectMatch permanent ^/new/akasharender/plugins-using.html /akasharender/plugins-using.html
 RedirectMatch permanent ^/new/akasharender/layouts-partials.html /akasharender/layouts-partials.html
-RedirectMatch permanent ^/new/akasharender/toc.html /akasharender/toc.html
-RedirectMatch permanent ^/new/akasharender/toc.html /akasharender/toc.html
+RedirectMatch permanent ^/new/akasharender/css-less.html /akasharender/css-less.html
+RedirectMatch permanent ^/new/akasharender/projects.html /akasharender/projects.html
+RedirectMatch permanent ^/new/akasharender/rendering-engines.html /akasharender/rendering-engines.html
+RedirectMatch permanent ^/new/akasharender/theming.html /akasharender/theming.html
 RedirectMatch permanent ^/new/akasharender/3-create-content.html /akasharender/3-create-content.html
+RedirectMatch permanent ^/new/akasharender/index.html /akasharender/index.html
+RedirectMatch permanent ^/new/epubtools/toc.html /epubtools/toc.html
+RedirectMatch permanent ^/new/epubtools/1-introduction.html /epubtools/1-introduction.html
+RedirectMatch permanent ^/new/mahabhuta/toc.html /mahabhuta/toc.html
+RedirectMatch permanent ^/new/mahabhuta/introduction.html /mahabhuta/introduction.html
 
 RedirectMatch permanent ^/plugins/base.html /plugins/base/index.html
 RedirectMatch permanent ^/plugins/builtin.html /plugins/built-in/index.html

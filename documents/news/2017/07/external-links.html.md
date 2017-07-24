@@ -16,4 +16,4 @@ At the moment its features are:
 * Add a simple icon next to outbound links (this and the favicon support are mutually exclusive)
 * Control which sites get `rel=nofollow` based on domain name
 
-See documentation:  [](/akasharender/external-links/index.html)
+See documentation:  [](/plugins/external-links/index.html)

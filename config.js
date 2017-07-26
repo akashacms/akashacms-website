@@ -27,115 +27,80 @@ config
         src: 'node_modules/akasharender/guide',
         dest: 'akasharender',
         baseMetadata: {
-            bookHomeURL: "/akasharender/toc.html",
-            useNewSiteNavbar: true
+            bookHomeURL: "/akasharender/toc.html"
         }
     })
     .addDocumentsDir({
         src: 'node_modules/mahabhuta/guide',
         dest: 'mahabhuta',
         baseMetadata: {
-            bookHomeURL: "/mahabhuta/toc.html",
-            useNewSiteNavbar: true
+            bookHomeURL: "/mahabhuta/toc.html"
         }
     })
     .addDocumentsDir({
         src: 'node_modules/epubtools/guide',
         dest: 'epubtools',
         baseMetadata: {
-            bookHomeURL: "/epubtools/toc.html",
-            useNewSiteNavbar: true
+            bookHomeURL: "/epubtools/toc.html"
         }
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-base/guide',
-        dest: 'plugins/base',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/base'
     })
     .addDocumentsDir({
         src: 'node_modules/akasharender/built-in-guide',
-        dest: 'plugins/built-in',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/built-in'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-booknav/guide',
-        dest: 'plugins/booknav',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/booknav'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-blog-podcast/guide',
-        dest: 'plugins/blog-podcast',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/blog-podcast'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-breadcrumbs/guide',
-        dest: 'plugins/breadcrumbs',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/breadcrumbs'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-document-viewers/guide',
-        dest: 'plugins/document-viewers',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/document-viewers'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-embeddables/guide',
-        dest: 'plugins/embeddables',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/embeddables'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-external-links/guide',
-        dest: 'plugins/external-links',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/external-links'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-footnotes/guide',
-        dest: 'plugins/footnotes',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/footnotes'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-tagged-content/guide',
-        dest: 'plugins/tagged-content',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/tagged-content'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-theme-bootstrap/guide',
-        dest: 'plugins/theme-bootstrap',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/theme-bootstrap'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-affiliates/guide',
-        dest: 'plugins/affiliates',
-        baseMetadata: {
-            useNewSiteNavbar: true
-        }
+        dest: 'plugins/affiliates'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
-        dest: 'plugins/adblock-checker',
+        dest: 'plugins/adblock-checker'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/epub-guide/documents',
+        dest: 'epub-guide',
         baseMetadata: {
-            useNewSiteNavbar: true
+            bookHomeURL: "/epub-guide/toc.html"
         }
     });
 

@@ -43,6 +43,7 @@
     "akashacms-affiliates": "akashacms/akashacms-affiliates",
     "akasharender-epub": "akashacms/akasharender-epub",
     "epubtools": "epubtools/epubtools#akasharender",
-    "epub-website": "akashacms/epub-website"
+    "epub-website": "akashacms/epub-website",
+    "epub-guide": "akashacms/epub-guide"
   }
 }

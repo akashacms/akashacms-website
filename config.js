@@ -38,7 +38,7 @@ config
         }
     })
     .addDocumentsDir({
-        src: 'node_modules/epubtools/guide',
+        src: 'node_modules/epub-guide/documents',
         dest: 'epubtools',
         baseMetadata: {
             bookHomeURL: "/epubtools/toc.html"
@@ -95,13 +95,6 @@ config
     .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'plugins/adblock-checker'
-    })
-    .addDocumentsDir({
-        src: 'node_modules/epub-guide/documents',
-        dest: 'epub-guide',
-        baseMetadata: {
-            bookHomeURL: "/epub-guide/toc.html"
-        }
     });
 
 config.rootURL("https://akashacms.com");

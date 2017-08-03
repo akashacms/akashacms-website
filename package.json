@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git://github.com/akashacms/akashacms-website.git"
   },
+  "version": "0.6.1",
   "scripts": {
     "prebuild": "akasharender copy-assets config.js",
     "build": "akasharender render config.js && npm run minify",

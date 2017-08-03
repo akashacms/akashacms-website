@@ -93,6 +93,10 @@ config
         dest: 'plugins/affiliates'
     })
     .addDocumentsDir({
+        src: 'node_modules/akasharender-epub/guide',
+        dest: 'plugins/akasharender-epub'
+    })
+    .addDocumentsDir({
         src: 'node_modules/akashacms-adblock-checker/guide',
         dest: 'plugins/adblock-checker'
     });

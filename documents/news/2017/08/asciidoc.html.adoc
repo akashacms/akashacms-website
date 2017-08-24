@@ -1,0 +1,24 @@
+---
+layout: blog.html.ejs
+title: Announcing AsciiDoc rendering support in AkashaCMS, another easy-to-edit text format option
+publicationDate: August 25, 2017
+blogtag: news
+attribute: Additional metadata attribute
+teaser: |
+    <p>The big goal with AkashaRender is simplifying the content editing experience.  Until now that meant encuraging the use of Markdown when editing content, and EJS for writing templates.  Markdown isn't the only easy-to-use content format.  AsciiDoc is widely used especially in book authoring, and is far more powerful than Markdown.</p>
+
+    <p>Initial AsciiDoc support has been added to AkashaRender.  This post is being written with the AsciiDoc Renderer, and the <a href="https://example.akashacms.com/asciidoctor.html">AkashaCMS Example</a> website has a corresponding test page.</p>
+---
+
+AsciiDoc support is turned on now by using the `AsciidocRenderer` class.  It looks for file nemas with the `.html.adoc` extension, and of course renders the content to `.html` as is done when Markdown files (`.html.md`) render to the corresponding `.html` file.
+
+The `doctype` is set to `article` and at the moment we do not support overriding that decision.  Setting this `doctype` does have an effect on the rendering, and you can learn about this in the AsciiDoc user manual.
+
+Metadata gathered by AkashaRender is available in the document as what AsciiDoc calls an _attribute_.  Attributes are substituted in the document as so: `{attribute}` is substituted as: {attribute}
+
+Because of limitations in AsciiDoc, only a subset of the attributes available in AkashaRendered are made available to AsciiDoc.  Any non-String/Number item is eliminated from the AkashaRender metadata.  That also impacts structured information such as you get with an object defined in the metadata.  Objects and Functions and other things are dropped from the data supplied to AsciiDoc as attributes because they're not a String or Number.
+
+There is additional integration which CAN be done.  My experience with AsciiDoc is minimal, and it will take some time to explore its capabilities and see how to exploit them in AkashaCMS.
+
+AsciiDoc user manual: http://asciidoctor.org/docs/user-manual/
+

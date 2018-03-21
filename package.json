@@ -14,7 +14,7 @@
   "version": "0.6.1",
   "scripts": {
     "prebuild": "akasharender copy-assets config.js",
-    "build": "akasharender render config.js && npm run minify",
+    "build": "akasharender render config.js",
     "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out",
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
     "preview": "cd out && ../node_modules/.bin/hostr"

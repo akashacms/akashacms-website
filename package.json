@@ -32,7 +32,7 @@
     "akasharender": "akashacms/akasharender",
     "async": "^2.0.0-rc.4",
     "jquery": "*",
-    "bootstrap": "*",
+    "bootstrap": "3.3.7",
     "globfs": "*",
     "oembed": "^0.1.0",
     "html-minifier": "^3.1.1",

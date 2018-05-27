@@ -130,9 +130,9 @@ config
     .addStylesheet({
         href: "/vendor/bootstrap/css/bootstrap.min.css"
     })
-    .addStylesheet({
+    /* .addStylesheet({
         href: "/vendor/bootstrap/css/bootstrap-theme.min.css"
-    })
+    }) */
     .addStylesheet({
         href: "/readable.min.css"
     })

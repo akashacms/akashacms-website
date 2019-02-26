@@ -1,4 +1,4 @@
 ---
 layout: index-page.html.ejs
-title: News for August 2017
+title: News for February 2019
 ---

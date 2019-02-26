@@ -9,23 +9,69 @@ These are the known plugins for AkashaCMS.  We say "known" because the AkashaCMS
 
 See [the documentation on writing a plugin](/akasharender/plugins-writing.html) for more information.
 
-<ul class="list-group">
-<li class="list-group-item"><a href="built-in/index.html">AkashaCMS built-in</a> Provides foundation-level support for any HTML</li>
-<li class="list-group-item"><a href="base/index.html">AkashaCMS-base</a> Provides foundation-level support for building websites</li>
-<li class="list-group-item"><a href="booknav/index.html">AkashaCMS-booknav</a> Provides book-like navigation of content</li>
-<li class="list-group-item"><a href="blog-podcast/index.html">akashacms-blog-podcast</a> Provides a river-of-news presentation for blog posts</li>
-<li class="list-group-item"><a href="breadcrumbs/index.html">akashacms-breadcrumbs</a> Provides a breadcrumb trail to aid navigation</li>
-<li class="list-group-item"><a href="document-viewers/index.html">akashacms-document-viewers</a> Embeds documents (PDF, etc) in-line</li>
-<li class="list-group-item"><a href="embeddables/index.html">akashacms-embeddables</a> Assists with embedding content from other sites</li>
-<li class="list-group-item"><a href="external-links/index.html">akashacms-external-links</a> Useful manipulations to outbound links</li>
-<li class="list-group-item"><a href="footnotes/index.html">akashacms-footnotes</a> Adds footnote-style citations at the bottom of the page</li>
-<li class="list-group-item"><a href="tagged-content/index.html">akashacms-tagged-content</a> Categorizing content by adding tags.</li>
-<li class="list-group-item"><a href="theme-bootstrap/index.html">akashacms-theme-bootstrap</a> Use Twitter Bootstrap to improve website look and feel.</li>
-<li class="list-group-item"><a href="adblock-checker/index.html">Adblock Checker</a> Detect if advertising has been blocked, and display a message</li>
-<li class="list-group-item"><a href="akasharender-epub/index.html">AkashaEPUB</a> Convert rendered HTML for use in an EPUB</li>
-<li class="list-group-item"><a href="affiliates/index.html">Affiliate links</a> Simplify using affiliate links</li>
-</ul>
+Plugin | Description
+-------|-------------
+[AkashaCMS built-in](built-in/index.html) | Provides foundation-level support for any HTML
+[AkashaCMS-base](base/index.html) | Provides foundation-level support for building websites
+[AkashaCMS-booknav](booknav/index.html) | Provides book-like navigation of content
+[akashacms-blog-podcast](blog-podcast/index.html) | Provides a river-of-news presentation for blog posts
+[akashacms-breadcrumbs](breadcrumbs/index.html) | Provides a breadcrumb trail to aid navigation
+[akashacms-document-viewers](document-viewers/index.html) | Embeds documents (PDF, etc) in-line
+[akashacms-embeddables](embeddables/index.html) | Assists with embedding content from other sites
+[akashacms-external-links](external-links/index.html) | Useful manipulations to outbound links
+[akashacms-footnotes](footnotes/index.html) | Adds footnote-style citations at the bottom of the page
+[akashacms-tagged-content](tagged-content/index.html) | Categorizing content by adding tags
+[akashacms-theme-bootstrap](theme-bootstrap/index.html) | Use Twitter Bootstrap to improve website look and feel
+[Adblock Checker](adblock-checker/index.html) | Detect if advertising has been blocked, and display a message
+[AkashaEPUB](akasharender-epub/index.html) | Convert rendered HTML for use in an EPUB
+[Affiliate links](affiliates/index.html) | Simplify using affiliate links
 
+<!-- 
+<ul class="list-group">
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="built-in/index.html">
+        AkashaCMS built-in</a> Provides foundation-level support for any HTML</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="base/index.html">
+        AkashaCMS-base</a> Provides foundation-level support for building websites</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="booknav/index.html">
+        AkashaCMS-booknav</a> Provides book-like navigation of content</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="blog-podcast/index.html">
+        akashacms-blog-podcast</a> Provides a river-of-news presentation for blog posts</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="breadcrumbs/index.html">
+        akashacms-breadcrumbs</a> Provides a breadcrumb trail to aid navigation</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="document-viewers/index.html">
+        akashacms-document-viewers</a> Embeds documents (PDF, etc) in-line</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="embeddables/index.html">
+        akashacms-embeddables</a> Assists with embedding content from other sites</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="external-links/index.html">
+        akashacms-external-links</a> Useful manipulations to outbound links</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="footnotes/index.html">
+        akashacms-footnotes</a> Adds footnote-style citations at the bottom of the page</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="tagged-content/index.html">
+        akashacms-tagged-content</a> Categorizing content by adding tags.</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="theme-bootstrap/index.html">
+        akashacms-theme-bootstrap</a> Use Twitter Bootstrap to improve website look and feel.</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="adblock-checker/index.html">
+        Adblock Checker</a> Detect if advertising has been blocked, and display a message</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="akasharender-epub/index.html">
+        AkashaEPUB</a> Convert rendered HTML for use in an EPUB</li>
+<li class="list-group-item">
+    <a type="button" class="btn btn-link" href="affiliates/index.html">
+        Affiliate links</a> Simplify using affiliate links</li>
+</ul>
+-->
 
 ------------------------------------
 

@@ -55,11 +55,12 @@
   <section id="right" class="col-sm-2">
     <% if (typeof rightsidebar !== "undefined" && rightsidebar) { %><%- partial(rightsidebar) %><% } %>
     <partial file-name="sidebar.html.ejs"></partial>
+    <partial file-name="ebook-sidebar.html"/>
   </section>
 </div>
 
 <footer class="row" style="text-align: center; height: 100px;">
-<partial file-name="ebook-footer.html"/>
+<!-- partial file-name="ebook-footer.html"/ -->
 <partial file-name="footer.html.ejs"></partial>
 </footer>
 </div>

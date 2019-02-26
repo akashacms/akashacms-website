@@ -15,7 +15,15 @@ config
    .addAssetsDir({
         src: 'node_modules/jquery/dist',
         dest: 'vendor/jquery'
-    });
+    })
+    .addAssetsDir({
+         src: 'node_modules/popper.js/dist',
+         dest: 'vendor/popper.js'
+     })
+     .addAssetsDir({
+          src: 'node_modules/@fortawesome/fontawesome-free/',
+          dest: 'vendor/fontawesome-free'
+      });
 
 config
     .addLayoutsDir('layouts')
@@ -125,6 +133,9 @@ config
         href: "/vendor/jquery/jquery.min.js"
     })
     .addFooterJavaScript({
+        href: "/vendor/popper.js/umd/popper.min.js"
+    })
+    .addFooterJavaScript({
         href: "/vendor/bootstrap/js/bootstrap.min.js"
     })
     .addStylesheet({
@@ -134,10 +145,13 @@ config
         href: "/vendor/bootstrap/css/bootstrap-theme.min.css"
     }) */
     .addStylesheet({
-        href: "/readable.min.css"
+        href: "/pulse.min.css"
     })
     .addStylesheet({
         href: "/style.css"
+    })
+    .addStylesheet({
+        href: "/vendor/fontawesome-free/css/all.min.css"
     });
 
 config.setMahabhutaConfig({

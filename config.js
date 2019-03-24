@@ -129,30 +129,16 @@ config.plugin("akashacms-external-links")
     .setShowFavicons(config, "before");
 
 config
-    .addFooterJavaScript({
-        href: "/vendor/jquery/jquery.min.js"
-    })
-    .addFooterJavaScript({
-        href: "/vendor/popper.js/umd/popper.min.js"
-    })
-    .addFooterJavaScript({
-        href: "/vendor/bootstrap/js/bootstrap.min.js"
-    })
-    .addStylesheet({
-        href: "/vendor/bootstrap/css/bootstrap.min.css"
-    })
+    .addFooterJavaScript({ href: "/vendor/jquery/jquery.min.js" })
+    .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
+    .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
+    .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
     /* .addStylesheet({
         href: "/vendor/bootstrap/css/bootstrap-theme.min.css"
     }) */
-    .addStylesheet({
-        href: "/pulse.min.css"
-    })
-    .addStylesheet({
-        href: "/style.css"
-    })
-    .addStylesheet({
-        href: "/vendor/fontawesome-free/css/all.min.css"
-    });
+    .addStylesheet({ href: "/pulse.min.css" })
+    .addStylesheet({ href: "/style.css" })
+    .addStylesheet({ href: "/vendor/fontawesome-free/css/all.min.css" });
 
 config.setMahabhutaConfig({
     recognizeSelfClosing: true,

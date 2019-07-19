@@ -84,6 +84,16 @@ config
         src: 'node_modules/akashacms-external-links/guide',
         dest: 'plugins/external-links'
     })
+    /* TODO .addDocumentsDir({
+        src: 'node_modules/akashacms-external-links/guide-akashacms',
+        dest: 'plugins/external-links'
+    })
+    TODO for this we need a section for Mahabhuta plugins
+         so the navbar needs Plugs/AkashaCMS and Plugins/Mahabhuta
+    .addDocumentsDir({
+        src: 'node_modules/akashacms-external-links/guide-mahabhuta',
+        dest: 'plugins-mahabhuta/external-links'
+    }) */
     .addDocumentsDir({
         src: 'node_modules/akashacms-footnotes/guide',
         dest: 'plugins/footnotes'

@@ -18,17 +18,17 @@ Status:
 Plugin           | Version | Status
 -----------------|---------|---------
 `akashacms-builtin` | --- | Full support
-`akashacms-base` |   0.6.8 | Full support
-`akashacms-adblock-checker` |  --- | Partly updated TODO correctly initialize MahafuncArray
-`akashacms-affiliates` | --- | Not updated yet
-`akashacms-blog-podcast` | 0.6.7 | Not updated yet
-`akashacms-booknav` | 0.6.2 | Not updated yet
-`akashacms-breadcrumbs` | 0.6.4 | Not updated yet
-`akashacms-dlassets` |  --- | Partly updated TODO correctly initialize MahafuncArray
-`akashacms-document-viewers` | 0.6.1 | Not updated yet
-`akashacms-embeddables` | 0.6.11 | Not updated yet
+`akashacms-base` |   0.7.0 | Full support
+`akashacms-adblock-checker` |  --- | Full support
+`akashacms-affiliates` | 0.7.0 | Full support
+`akashacms-blog-podcast` | 0.7.0 | Full support
+`akashacms-booknav` | 0.7.0 | Full support
+`akashacms-breadcrumbs` | 0.7.0 | Full support
+`akashacms-dlassets` |  0.7.0 | Full support
+`akashacms-document-viewers` | 0.7.0 | Full support
+`akashacms-embeddables` | 0.7.0 | Full support
 `akashacms-external-links` | 0.6.0 | Full support TODO release this to npm
-`akashacms-footnotes` | 0.6.0 | Not updated yet
-`akashacms-tagged-content` | 0.6.4 | Not updated yet
-`akashacms-theme-bootstrap` | 0.6.4 | Not updated yet TODO release bootstrapv4 branch to npm
-`epub-website` | --- | Not updated yet  TODO move `config` object to `options`
+`akashacms-footnotes` | 0.7.0 | Full support
+`akashacms-tagged-content` | 0.7.0 | Full support
+`akashacms-theme-bootstrap` | 0.7.0 | Full support TODO release bootstrapv4 branch to npm
+`epub-website` | --- | Full support

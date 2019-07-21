@@ -6,6 +6,12 @@ const akasha  = require('akasharender');
 
 const config = new akasha.Configuration();
 
+config.findRendererName('.html.md')
+    .use(require('markdown-it-plantuml'), {
+        imageFormat: 'svg'
+    })
+    .use(require('markdown-it-highlightjs'), { auto: true, code: true });
+
 config
     .addAssetsDir('assets')
     .addAssetsDir({
@@ -23,7 +29,8 @@ config
      .addAssetsDir({
           src: 'node_modules/@fortawesome/fontawesome-free/',
           dest: 'vendor/fontawesome-free'
-      });
+      })
+      .addAssetsDir({ src: 'node_modules/highlight.js/styles/', dest: 'vendor/highlight.js' });
 
 config
     .addLayoutsDir('layouts')
@@ -123,7 +130,9 @@ config.rootURL("https://akashacms.com");
 
 config
     .use(require('akashacms-theme-bootstrap'))
-    .use(require('akashacms-base'))
+    .use(require('akashacms-base'), {
+        generateSitemapFlag: true
+    })
     .use(require('akashacms-breadcrumbs'))
     .use(require('akashacms-booknav'))
     .use(require('akashacms-embeddables'))
@@ -131,8 +140,6 @@ config
     .use(require('akashacms-footnotes'))
     .use(require('akashacms-blog-podcast'))
     .use(require('epub-website'));
-
-config.plugin("akashacms-base").generateSitemap(config, true);
 
 config.plugin("akashacms-external-links")
     .setTargetBlank(config, true)
@@ -148,7 +155,8 @@ config
     }) */
     .addStylesheet({ href: "/pulse.min.css" })
     .addStylesheet({ href: "/style.css" })
-    .addStylesheet({ href: "/vendor/fontawesome-free/css/all.min.css" });
+    .addStylesheet({ href: "/vendor/fontawesome-free/css/all.min.css" })
+    .addStylesheet({ href: "/vendor/highlight.js/atelier-cave-light.css" });
 
 config.setMahabhutaConfig({
     recognizeSelfClosing: true,

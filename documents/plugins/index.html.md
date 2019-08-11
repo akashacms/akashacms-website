@@ -13,6 +13,7 @@ Plugin | Description
 -------|-------------
 [AkashaCMS built-in](built-in/index.html) | Provides foundation-level support for any HTML
 [AkashaCMS-base](base/index.html) | Provides foundation-level support for building websites
+[@AkashaCMS/plugins-authors](authors/index.html) | Supports acknowledging authors with an author byline or author bio
 [AkashaCMS-booknav](booknav/index.html) | Provides book-like navigation of content
 [akashacms-blog-podcast](blog-podcast/index.html) | Provides a river-of-news presentation for blog posts
 [akashacms-breadcrumbs](breadcrumbs/index.html) | Provides a breadcrumb trail to aid navigation

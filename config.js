@@ -10,7 +10,10 @@ config.findRendererName('.html.md')
     .use(require('markdown-it-plantuml'), {
         imageFormat: 'svg'
     })
-    .use(require('markdown-it-highlightjs'), { auto: true, code: true });
+    .use(require('markdown-it-highlightjs'), { 
+        auto: true, 
+        code: true 
+    });
 
 config
     .addAssetsDir('assets')
@@ -23,14 +26,17 @@ config
         dest: 'vendor/jquery'
     })
     .addAssetsDir({
-         src: 'node_modules/popper.js/dist',
-         dest: 'vendor/popper.js'
-     })
-     .addAssetsDir({
-          src: 'node_modules/@fortawesome/fontawesome-free/',
-          dest: 'vendor/fontawesome-free'
-      })
-      .addAssetsDir({ src: 'node_modules/highlight.js/styles/', dest: 'vendor/highlight.js' });
+        src: 'node_modules/popper.js/dist',
+        dest: 'vendor/popper.js'
+    })
+    .addAssetsDir({
+        src: 'node_modules/@fortawesome/fontawesome-free/',
+        dest: 'vendor/fontawesome-free'
+    })
+    .addAssetsDir({ 
+        src: 'node_modules/highlight.js/styles/', 
+        dest: 'vendor/highlight.js' 
+    });
 
 config
     .addLayoutsDir('layouts')
@@ -66,6 +72,10 @@ config
     .addDocumentsDir({
         src: 'node_modules/akasharender/built-in-guide',
         dest: 'plugins/built-in'
+    })
+    .addDocumentsDir({
+        src: 'node_modules/@akashacms/plugins-authors/guide',
+        dest: 'plugins/authors'
     })
     .addDocumentsDir({
         src: 'node_modules/akashacms-booknav/guide',
@@ -138,7 +148,58 @@ config
     .use(require('akashacms-embeddables'))
     .use(require('akashacms-external-links'))
     .use(require('akashacms-footnotes'))
-    .use(require('akashacms-blog-podcast'))
+    .use(require('@akashacms/plugins-authors'), {
+        default: 'david',
+        authors: [
+            {
+                code: 'david',
+                fullname: 'David Herron',
+                url: '/about.html'
+            }
+        ]
+    })
+    .use(require('akashacms-blog-podcast'), {
+        bloglist: {
+            news: {
+                rss: {
+                    title: "AkashaCMS News",
+                    description: "Announcements and news about the AkashaCMS content management system",
+                    site_url: "http://akashacms.com/news/index.html",
+                    image_url: "http://akashacms.com/logo.gif",
+                    managingEditor: 'David Herron',
+                    webMaster: 'David Herron',
+                    copyright: '2015 David Herron',
+                    language: 'en',
+                    categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
+                },
+                rssurl: "/news/rss.xml",
+                rootPath: "news",
+                matchers: {
+                    layouts: [ "blog.html.ejs" ],
+                    path: /^news\//
+                }
+            },
+            howto: {
+                rss: {
+                    title: "AkashaCMS Tutorials",
+                    description: "Tutorials about using the AkashaCMS content management system",
+                    site_url: "http://akashacms.com/howto/index.html",
+                    image_url: "http://akashacms.com/logo.gif",
+                    managingEditor: 'David Herron',
+                    webMaster: 'David Herron',
+                    copyright: '2015 David Herron',
+                    language: 'en',
+                    categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
+                },
+                rssurl: "/howto/rss.xml",
+                rootPath: "howto",
+                matchers: {
+                    layouts: [ "blog.html.ejs" ],
+                    path: /^howto\//
+                }
+            }
+        }
+    })
     .use(require('epub-website'));
 
 config.plugin("akashacms-external-links")
@@ -162,48 +223,6 @@ config.setMahabhutaConfig({
     recognizeSelfClosing: true,
     recognizeCDATA: true
 });
-
-config.plugin('akashacms-blog-podcast')
-    .addBlogPodcast(config, "news", {
-        rss: {
-            title: "AkashaCMS News",
-            description: "Announcements and news about the AkashaCMS content management system",
-            site_url: "http://akashacms.com/news/index.html",
-            image_url: "http://akashacms.com/logo.gif",
-            managingEditor: 'David Herron',
-            webMaster: 'David Herron',
-            copyright: '2015 David Herron',
-            language: 'en',
-            categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
-        },
-        rssurl: "/news/rss.xml",
-        rootPath: "news",
-        matchers: {
-            layouts: [ "blog.html.ejs" ],
-            path: /^news\//
-        }
-    });
-
-config.plugin('akashacms-blog-podcast')
-    .addBlogPodcast(config, "howto", {
-        rss: {
-            title: "AkashaCMS Tutorials",
-            description: "Tutorials about using the AkashaCMS content management system",
-            site_url: "http://akashacms.com/howto/index.html",
-            image_url: "http://akashacms.com/logo.gif",
-            managingEditor: 'David Herron',
-            webMaster: 'David Herron',
-            copyright: '2015 David Herron',
-            language: 'en',
-            categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
-        },
-        rssurl: "/howto/rss.xml",
-        rootPath: "howto",
-        matchers: {
-            layouts: [ "blog.html.ejs" ],
-            path: /^howto\//
-        }
-    });
 
 // console.log('before prepare');
 // console.log(util.inspect(config));

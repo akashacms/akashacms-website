@@ -17,7 +17,7 @@
     "build": "akasharender render config.js",
     "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out",
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
-    "preview": "cd out && ../node_modules/.bin/hostr"
+    "preview": "cd out && ws --log.format dev"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.2",
@@ -33,7 +33,7 @@
     "akashacms-footnotes": "akashacms/akashacms-footnotes",
     "@akashacms/plugins-authors": "github:akashacms/akashacms-plugin-authors",
     "akashacms-tagged-content": "akashacms/akashacms-tagged-content",
-    "akashacms-theme-bootstrap": "akashacms/akashacms-theme-bootstrap#bootstrapv4",
+    "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap",
     "akasharender": "akashacms/akasharender",
     "akasharender-epub": "akashacms/akasharender-epub",
     "bootstrap": "^4.3.x",
@@ -42,7 +42,7 @@
     "epubtools": "epubtools/epubtools#akasharender",
     "globfs": "*",
     "highlight.js": "^9.15.8",
-    "hostr": "^2.x",
+    "local-web-server": "^3.0.7",
     "html-minifier": "^3.1.1",
     "jquery": "^3.3.x",
     "mahabhuta": "akashacms/mahabhuta",

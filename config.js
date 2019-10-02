@@ -139,7 +139,7 @@ config
 config.rootURL("https://akashacms.com");
 
 config
-    .use(require('akashacms-theme-bootstrap'))
+    .use(require('@akashacms/theme-bootstrap'))
     .use(require('akashacms-base'), {
         generateSitemapFlag: true
     })

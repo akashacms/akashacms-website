@@ -28,7 +28,7 @@
     "akashacms-affiliates": "akashacms/akashacms-affiliates",
     "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast",
     "@akashacms/plugins-booknav": "akashacms/akashacms-booknav",
-    "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs",
+    "@akashacms/plugins-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "akashacms-document-viewers": "akashacms/akashacms-document-viewers",
     "akashacms-embeddables": "akashacms/akashacms-embeddables",
     "akashacms-external-links": "akashacms/akashacms-external-links",

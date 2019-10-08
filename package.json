@@ -32,7 +32,7 @@
     "akashacms-document-viewers": "akashacms/akashacms-document-viewers",
     "akashacms-embeddables": "akashacms/akashacms-embeddables",
     "akashacms-external-links": "akashacms/akashacms-external-links",
-    "akashacms-footnotes": "akashacms/akashacms-footnotes",
+    "@akashacms/plugins-footnotes": "akashacms/akashacms-footnotes",
     "akashacms-tagged-content": "akashacms/akashacms-tagged-content",
     "akasharender": "akashacms/akasharender",
     "akasharender-epub": "akashacms/akasharender-epub",

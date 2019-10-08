@@ -70,7 +70,7 @@ config.use(require('akashacms-dlassets'), {
     });
 ```
 
-That is the `use` method now takes an optional second argument containing an options object.  The options object is defined by the Plugin, and will be documented in documentation for the Plugin.
+That is the `use` method now takes an optional second argument containing an options object.  The options object is defined by the Plugin, and will be documented by the Plugin.
 
 The second change is that the options data is stored in a Plugin field named `options`.  That means the Plugin implementation does not need to retrieve `config.pluginData` but can manipulate its options on its own.
 

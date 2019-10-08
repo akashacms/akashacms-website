@@ -20,7 +20,7 @@ Plugin | Description
 [akashacms-document-viewers](document-viewers/index.html) | Embeds documents (PDF, etc) in-line
 [akashacms-embeddables](embeddables/index.html) | Assists with embedding content from other sites
 [akashacms-external-links](external-links/index.html) | Useful manipulations to outbound links
-[akashacms-footnotes](footnotes/index.html) | Adds footnote-style citations at the bottom of the page
+[@akashacms/plugins-footnotes](footnotes/index.html) | Adds footnote-style citations at the bottom of the page
 [akashacms-tagged-content](tagged-content/index.html) | Categorizing content by adding tags
 [@akashacms/theme-bootstrap](theme-bootstrap/index.html) | Use Twitter Bootstrap to improve website look and feel
 [Adblock Checker](adblock-checker/index.html) | Detect if advertising has been blocked, and display a message

@@ -147,7 +147,7 @@ config
     .use(require('@akashacms/plugins-booknav'))
     .use(require('akashacms-embeddables'))
     .use(require('akashacms-external-links'))
-    .use(require('akashacms-footnotes'))
+    .use(require('@akashacms/plugins-footnotes'))
     .use(require('@akashacms/plugins-authors'), {
         default: 'david',
         authors: [

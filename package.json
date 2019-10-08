@@ -27,7 +27,7 @@
     "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
     "akashacms-affiliates": "akashacms/akashacms-affiliates",
     "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast",
-    "akashacms-booknav": "akashacms/akashacms-booknav",
+    "@akashacms/plugins-booknav": "akashacms/akashacms-booknav",
     "akashacms-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "akashacms-document-viewers": "akashacms/akashacms-document-viewers",
     "akashacms-embeddables": "akashacms/akashacms-embeddables",

@@ -26,7 +26,7 @@
     "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap",
     "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
     "akashacms-affiliates": "akashacms/akashacms-affiliates",
-    "akashacms-blog-podcast": "akashacms/akashacms-blog-podcast",
+    "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast",
     "@akashacms/plugins-booknav": "akashacms/akashacms-booknav",
     "@akashacms/plugins-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "@akashacms/plugins-document-viewers": "akashacms/akashacms-document-viewers",

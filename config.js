@@ -158,7 +158,7 @@ config
             }
         ]
     })
-    .use(require('akashacms-blog-podcast'), {
+    .use(require('@akashacms/plugins-blog-podcast'), {
         bloglist: {
             news: {
                 rss: {

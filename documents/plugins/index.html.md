@@ -15,10 +15,10 @@ Plugin | Description
 [@AkashaCMS/plugins-base](base/index.html) | Provides foundation-level support for building websites
 [@AkashaCMS/plugins-authors](authors/index.html) | Supports acknowledging authors with an author byline or author bio
 [@AkashaCMS/plugins-booknav](booknav/index.html) | Provides book-like navigation of content
-[akashacms-blog-podcast](blog-podcast/index.html) | Provides a river-of-news presentation for blog posts
+[@akashacms/plugins-blog-podcast](blog-podcast/index.html) | Provides a river-of-news presentation for blog posts
 [@akashacms/plugins-breadcrumbs](breadcrumbs/index.html) | Provides a breadcrumb trail to aid navigation
-[akashacms-document-viewers](document-viewers/index.html) | Embeds documents (PDF, etc) in-line
-[akashacms-embeddables](embeddables/index.html) | Assists with embedding content from other sites
+[@akashacms/plugins-document-viewers](document-viewers/index.html) | Embeds documents (PDF, etc) in-line
+[@akashacms/plugins-embeddables](embeddables/index.html) | Assists with embedding content from other sites
 [akashacms-external-links](external-links/index.html) | Useful manipulations to outbound links
 [@akashacms/plugins-footnotes](footnotes/index.html) | Adds footnote-style citations at the bottom of the page
 [akashacms-tagged-content](tagged-content/index.html) | Categorizing content by adding tags

@@ -29,7 +29,7 @@ The result of this is an HTML structure like:
 
 ```html
 <pre id='id'>
-<code lang='lang'>
+<code class='lang'>
 ... CONTENTS OF FILE
 </code>
 </pre>

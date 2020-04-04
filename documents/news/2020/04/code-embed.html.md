@@ -23,7 +23,7 @@ It also supports an `id` attribute if you need this for CSS markup.
 
 This is what it looks like:
 
-<code-embed file-name='code/foo.css'></code-embed>
+<code-embed lang='css' file-name='code/foo.css'></code-embed>
 
 The result of this is an HTML structure like:
 

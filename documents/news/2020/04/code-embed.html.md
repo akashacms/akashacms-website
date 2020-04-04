@@ -37,3 +37,5 @@ The result of this is an HTML structure like:
 
 This HTML structure was chosen for the purpose of using the Highlight.js library.  That library does in-browser Highlighting of text based on the programming language.  The result is an increase in usefulness of code snippets on AkashaCMS websites.
 
+The `code-embed` tag is part of the AkashaRender `built-in` plugin, meaning it will be available in every AkashaCMS project.
+

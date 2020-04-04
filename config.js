@@ -227,7 +227,8 @@ config
     .addStylesheet({ href: "/pulse.min.css" })
     .addStylesheet({ href: "/style.css" })
     .addStylesheet({ href: "/vendor/fontawesome-free/css/all.min.css" })
-    .addStylesheet({ href: "/vendor/highlight.js/styles/atelier-cave-light.css" });
+    .addStylesheet({ href: "/vendor/highlight.js/styles/tomorrow-night-blue.css" });
+    // .addStylesheet({ href: "/vendor/highlight.js/styles/atelier-cave-light.css" });
 
 config.setMahabhutaConfig({
     recognizeSelfClosing: true,

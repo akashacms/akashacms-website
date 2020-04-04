@@ -211,7 +211,15 @@ config
     .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
     .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
     .addFooterJavaScript({ href: "/vendor/highlight.js/lib/highlight.js" })
-    .addFooterJavaScript({ script: 'hljs.initHighlightingOnLoad();' })
+    // .addFooterJavaScript({ script: 'hljs.initHighlightingOnLoad();' })
+    .addFooterJavaScript({
+        script: `
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+              hljs.highlightBlock(block);
+            });
+        });
+        `})
     .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
     /* .addStylesheet({
         href: "/vendor/bootstrap/css/bootstrap-theme.min.css"

@@ -210,7 +210,7 @@ config
     .addFooterJavaScript({ href: "/vendor/jquery/jquery.min.js" })
     .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
     .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
-    .addFooterJavaScript({ href: "/vendor/highlight.js/lib/highlight.js" })
+    // .addFooterJavaScript({ href: "/vendor/highlight.js/lib/highlight.js" })
     // .addFooterJavaScript({ script: 'hljs.initHighlightingOnLoad();' })
     // .addFooterJavaScript({
     //    script: `

@@ -1,7 +1,7 @@
 ---
 layout: blog.html.ejs
 title: What is JAMStack and how does it differ from static website generators?
-publicationDate: June 27, 2020
+publicationDate: August 3, 2020
 blogtag: news
 teaser: |
     Two ideas, JAMStack and static website generators, are getting attention as a way to simplify website and web application development, while simultaneously being vague unclear marketing terms.  Both talk about static assets for website, but what does that really mean?  To help decode the vague marketing words, let's examine the technologies, see how they differ, and try to figure out if there's anything important to learn.

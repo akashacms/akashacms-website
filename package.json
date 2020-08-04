@@ -36,7 +36,7 @@
     "@akashacms/plugins-tagged-content": "akashacms/akashacms-tagged-content",
     "akasharender": "akashacms/akasharender",
     "akasharender-epub": "akashacms/akasharender-epub",
-    "bootstrap": "^4.3.x",
+    "bootstrap": "^4.5.x",
     "epub-guide": "akashacms/epub-guide",
     "epub-website": "akashacms/epub-website",
     "epubtools": "epubtools/epubtools#akasharender",
@@ -44,11 +44,11 @@
     "highlight.js": "^9.18.1",
     "local-web-server": "^3.0.7",
     "html-minifier": "^3.1.1",
-    "jquery": "^3.3.x",
+    "jquery": "^3.5.x",
     "mahabhuta": "akashacms/mahabhuta",
     "markdown-it-highlightjs": "^3.0.0",
     "markdown-it-plantuml": "^1.4.1",
     "oembed": "^0.1.0",
-    "popper.js": ">=1.14.x"
+    "popper.js": "^1.16.x"
   }
 }

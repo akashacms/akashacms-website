@@ -1,0 +1,30 @@
+<%
+if (typeof heroPicture !== 'undefined' && heroPicture) {
+    %>
+    <figure>
+        <img src="<%= heroPicture.url %>" class="heropicture" <%
+            if (typeof heroPicture.maxWidth !== "undefined"
+            && heroPicture.maxWidth) {
+                %>style="max-width: <%= heroPicture.maxWidth %>;"<%
+            }
+        %> />
+        <%
+        if (heroPicture.caption) {
+            %><figcaption><%= heroPicture.caption %></figcaption><%
+        }
+        %>
+    </figure>
+    <%
+} else if (typeof videoUrls !== "undefined" && videoUrls && videoUrls[0] && videoUrls[0].url) {
+    %>
+    <figure class="heropicture">
+        <embed-resource
+            template="embed-thumbnail.html.ejs"
+            width="100%"
+            href="<%= videoUrls[0].url %>"/>
+    </figure>
+    <%
+} else {
+    %><!-- no hero picture --><%
+}
+%>

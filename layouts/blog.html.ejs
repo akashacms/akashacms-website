@@ -51,6 +51,7 @@
 <div class="row">
   <article class="col-sm-10">
     <% if (typeof teaser  !== "undefined") { %><p><strong><ak-teaser></ak-teaser></strong></p> <% } %>
+    <partial file-name="hero-picture.html.ejs"/>
     <%- content %>
     <blog-next-prev maxentries="5"></blog-next-prev>
     <partial file-name='disqus.html'></partial>

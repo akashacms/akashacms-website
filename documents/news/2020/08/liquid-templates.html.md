@@ -61,7 +61,9 @@ The last thing to do is to explore other template engines.  As said earlier, one
 
 # Performance of Liquid templates in AkashaCMS
 
-I've created a workspace, `akashacms-perftest`, that is an AkashaCMS site that will render a thousand pages.  The idea is to have a significantly large workload to measure how long it will take to render a site with different software options.  It appears I've not published this workspace yet.
+I've created a workspace, `akashacms-perftest`, that is an AkashaCMS site that will render a thousand pages.  The idea is to have a significantly large workload to measure how long it will take to render a site with different software options.  
+
+The workspace is at:  https://github.com/akashacms/akashacms-perftest
 
 The timings were created by running the command:
 

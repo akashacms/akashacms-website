@@ -1,7 +1,7 @@
 ---
 layout: blog.html.ejs
 title: What is JAMStack and how does it differ from static website generators?
-publicationDate: August 3, 2020
+publicationDate: August 8, 2020
 blogtag: news
 teaser: |
     Two ideas, JAMStack and static website generators, are getting attention as a way to simplify website and web application development, while simultaneously being vague unclear marketing terms.  Both talk about static assets for website, but what does that really mean?  To help decode the vague marketing words, let's examine the technologies, see how they differ, and try to figure out if there's anything important to learn.
@@ -17,9 +17,9 @@ The story for both JAMStack and Static Website Generators is that there's a big 
 
 For me, both are a reaction to complicated dynamic CMS's, or complex custom micro-services deployed to cloud hosting.  Over the years of learning the intricacies of Drupal 6 and Wordpress, learning how to customize Blogger templates, and learning Docker and Docker Swarm, I came away with a distaste of the burden it is to host a complex content management system which dynamically generates pages.  At one time I was maintaining 10 or so Drupal instances for different websites, managing multiple VPS's, facing a never ending grind of updating modules on each site, and worrying how I would pay the hosting bill.
 
-As a result of those experiences I developed my own static website generator, AkashaCMS.  With it my sites use modern HTML, the content is edited in Markdown, there is a consistent look across the site and the freedom to use any layout on any page.  The hosting bill is minuscule, and the page load time for users of the websites is excellent.
+As a result of those experiences I developed my own static website generator, AkashaCMS.  With it the hosting bill is minuscule, and the page load time for users of the websites is excellent.
 
-The JAMStack and static website generator proponents are preaching a similar vision, so let's start with this question...
+The JAMStack and static website generator proponents are preaching a similar vision - modern HTML+CSS+JS - static assets for speed - simplified deployment - eliminating complexity - so let's start with this question...
 
 # What is JAMStack?
 
@@ -30,17 +30,17 @@ The JAMStack concept is defined as "_Fast and secure sites and apps delivered by
 * (**M**) Markup, both as HTML and HTML templates, are used to dynamically update pages using the JavaScript and retrieved data
 * (**STACK**) Because, well, every software product is described as a Stack, right?
 
-That's simple enough, static assets and fast page load times.  But it says "_sites or apps_" and requires deployment to a CDN.  Why do they explicitly call out those points?  Is there a real difference between JAMStack and a static website generator?
+That's simple enough, static assets and fast page load times.  But the JAMStack definition says "_sites or apps_" and requires deployment to a CDN.  Why do they explicitly call out those points?  Is there a real difference between JAMStack and a static website generator?
 
-In a system like AkashaCMS, the user edits Markdown or AsciiDoc files, then runs a tool to render those files to HTML+CSS+JS, and uses _rsync_ to deploy to a web server.  Like the JAMStack model, that is static assets uploaded to a hosting system.  A couple observations:
+In a system like AkashaCMS, the user edits Markdown or AsciiDoc files, then runs a tool to render those files to HTML+CSS+JS, and uses _rsync_ to deploy to a web server.  This is the JAMStack and statically generated website model, uploading static HTML+CSS+JS assets to a hosting system.  A couple observations:
 
-* A statically generated website does not require use of backend API's or DOM manipulation
+* A statically generated website does not **require** backend API's or DOM manipulation, but can include JS that calls backend API's and performs DOM manipulation, if needed
 * We can use modern HTML+CSS+JS in a statically generated website
-* The statically generated website certainly can include JS that calls backend API's and performs DOM manipulation, if needed
-* The statically generated website can be hosted on cheap shared web hosting that uses Apache or NGINX webservers
+* The statically generated website can be hosted on cheap shared web hosting that uses Apache or NGINX web-servers
+* Such websites can be hosted to a CDN to aid delivery to readers around the world
 * Why is there an insistence on deployment to a CDN?
 
-In other words - a JAMStack site is a subset of the statically generated websites.  In both cases pre-rendered HTML+CSS+JavaScript are deployed to a hosting location, and the hosting location does nothing other than deliver the files to web browsers.  The difference is the presence of JavaScript and API's and DOM Manipulation.
+In other words - a JAMStack site is a subset of the statically generated websites, since JAMStack is a statically generated website with additional constraints.  In both cases pre-rendered HTML+CSS+JavaScript are deployed to a hosting location, and the hosting location does nothing other than deliver the files to web browsers.  The difference is the reliance on JavaScript and API's and DOM Manipulation.
 
 With both, we skip a bunch of complexity and cost arising from using dynamically executed services to dynamically generate websites (e.g. Drupal or Wordpress).
 
@@ -50,11 +50,11 @@ But, why do JAMStack proponents insist on using a CDN?  **What is a CDN?** A CDN
 
 In the JAMStack literature the task of "managing a webserver" is described as a huge burden.  The CDN is described as being "serverless", which is described as a huge advantage.  Of course _serverless_ is rather silly because of course CDN's are built from zillions of servers.  What that really means is that the person deploying the code isn't involved with the overhead of provisioning and managing servers.  The customer doesn't have to configure the servers.  We just deploy our code, and the serverless service takes care of the rest.  With a CDN, you upload the files, and the CDN takes care of both the servers and distributing your HTML+CSS+JS assets around the world.
 
-The advantage for a CDN probably comes when you have a LOT of traffic.
+CDN's primary stated advantage is that the CDN guarantees similar performance anywhere in the world.  With traditional hosting from a single web server -- my sites are hosted on shared hosting rented from Dreamhost whose servers are in southern California -- the distance from that server affects speed of accessing the website.
 
-According to Google Analytics the page load speed for my websites (all hosted on simple shared Apache web hosting) is under 20 milliseconds.  Seems to me that 20 milliseconds is pretty close to _blazingly fast_.  The web hosting provider, Dreamhost, promises unlimited bandwidth.  But I imagine that if one of my sites were receiving 100,000 visitors a day, that I'd get emails about the load on their servers. 
+According to Google Analytics the page load speed for my websites (all hosted on simple shared Apache web hosting) is under 20 milliseconds.  Seems to me that 20 milliseconds is pretty close to _blazingly fast_.  I haven't tried hosting a site on a CDN and don't know of CDN's deliver content even more blazingly fast.  A reader of my sites in Uganda might see slower page loading times than a reader in Huntington Beach California.  But hosting a site on a CDN is supposed to equalize the two.
 
-CDN providers really do follow through on the _unlimited bandwidth_ promise, but you'll pay a fee for bandwidth consumption.    CDNs have performance guarantees that cannot be made by the traditional Apache-based web hosting provider.
+Additionally, CDN providers truly offer _unlimited bandwidth_ (at a fee).  The traditional shared hosting providers, like Dreamhost, offer unlimited bandwidth, but there is often an unstated usage level beyond which the hosting provider will start sending emails demanding your site move somewhere else.  CDNs have performance guarantees that cannot be made by the traditional Apache-based web hosting provider.
 
 # Where did JAMStack come from?
 
@@ -93,6 +93,10 @@ It's so simple that an individual (or small team) can:
 
 All with no complexity, and the ability to quickly develop/deploy a website or web application.  All the complexity is handled by serverless service providers.
 
+However, not all serverless services are equally simplified.  AWS Fargate is billed as a serverless version of AWS ECS or AWS EKS.  ECS is an AWS cloud service for hosting Docker containers, and EKS is the AWS service for running Kubernetes.  Fargate is _serverless_ in that you do not provision the servers involved in hosting the Docker containers, which does slightly simplify the task of hosting a Docker service.  But Fargate is still extremely complex.
+
+In the next section let's talk more concretely about JAMStack implementation.
+
 # That's nice theory, but what are JAMStack or static websites for real?
 
 All of that was rather abstract, so let's look at some concrete examples of JAMStack.
@@ -103,9 +107,9 @@ At the simplest, JAMStack is an HTML page, containing JavaScript, where it makes
 
 There were advantages to those dynamic CMS's.  For instance Wordpress and Drupal both integrate a native commenting system, and allow users to register with the website in order to leave comments.  It is possible to build a community via a website by allowing your readers to leave comments.  Why should we leave that and other features behind?
 
-The first step is to render the content of the website using a static website generator.  There are many such systems each with different behaviors.  In most cases content is written in Markdown and rendered through template to create the static HTML site.
+The first step is to render the content of the website using a static website generator.  There are many such systems each with different behaviors.  In most cases content is written in Markdown and rendered through templates to create the static HTML site.
 
-Then, for each page where you want comments, add some JavaScript to handle a commenting UI.  The JavaScript should be added to the template rather than the Markdown content.  In AkashaCMS, and some other systems, each content file declares the layout template, and therefore you add the JavaScript UI code to the appropriate templates.  The commenting UI would make calls to a back-end commenting system, and also render a user interface in a given location in the web page.  For example:
+Then, for each page where you want comments, add some JavaScript containing a commenting UI.  The JavaScript should be added to the template rather than the Markdown content, to simplify implementing comments across the website.  The commenting UI would make calls to a back-end commenting system, and also render a user interface in a given location in the web page.  For example:
 
 ```html
 <div id="disqus_thread"></div>
@@ -137,9 +141,21 @@ There are close to a zillion reasons any given site might have custom dynamic se
 
 My mind turns immediately to a function-as-a-service platform like AWS Lambda, and the promises of scalability, performance, and baked-in security.
 
-The JAMStack proponents would probably tell me to rewrite the presentation layer of this service in JavaScript UI, making a REST query to a hosted service, rendering the result in the browser.
+The JAMStack proponents would probably say to implement a custom service as:
 
-But what stops me is whether that would be indexable by search engines.  The HTML of the corresponding pages would have the JavaScript application, rather than the currently shown information.  How will search engines index the information supplied by that service?  In many cases, like mine, that information is a big value point of that website and many of the visitors are drawn to the site because of that information.  FWIW Vue.js claims to be indexable by search engines, so I might be overstating the issue.
+* A back-end offering a JSON/REST API
+* A JavaScript UI doing browser-side rendering of HTML for the user interface
+
+It is easy to generate a static bundle for the JavaScript UI for deployment through a CDN.  On [one of my other sites](https://techsparx.com/software-development/vue-js/getting-started/) I wrote a tutorial about doing just that with Vue.js.  Using Webpack to build the Vue.js application bundle gives a directory containing static assets that can be deployed with the rest of the static website.  You then include it in the HTML like so:
+
+```html
+<div id="app"></div>
+<script src="/dist/build.js"></script>
+```
+
+The JS code at the URL, in this case `/dist/build.js`, must be written to target the `div#app` element where it will initialize the application.
+
+One thing which stops me from doing this on my site is whether that would be indexable by search engines.  The HTML of the corresponding pages would have the JavaScript application, rather than the currently shown information.  How will search engines index the information supplied by that service?  In many cases, like mine, that information is a big value point of that website and many of the visitors are drawn to the site because of that information.
 
 Over on the JAMStack website is a corresponding issue.  Namely, the list of factors that are **NOT** JAMStack websites includes:
 
@@ -151,16 +167,8 @@ On that Wikipedia page, there is a discussion of the problem of search engines i
 
 > More predictable SEO and Site Indexing: In order to index content that JavaScript apps render on client-side, Googlebot must run those JavaScript apps inside a full browser environment and capture the rendered DOM. This involves complex browser compatibility issues. Also, because JavaScript apps can make AJAX requests for further rendering, Googlebot must have a policy that controls apps’ network access. These are why getting your JavaScript app indexed properly by Googlebot is still challenging.
 
-Suppose I decided to rewrite this as a Vue.js front end, and an AWS Lambda back-end.  I'd have to research the potential hosting cost for the Lambda function, first.  Then there's the issue of developing the Vue.js front end, and the least complex method of its deployment.  But, I already know that it's almost trivial to deploy a Vue.js application bundle as part of a statically generated website.  On [one of my other sites](https://techsparx.com/software-development/vue-js/getting-started/) I wrote a tutorial about doing just that.  
+Hence, I am justified in my concern about whether this would impact search engine visibility of my site.  FWIW Vue.js claims to be indexable by search engines, so I might be overstating the issue.
 
-Using Webpack to build the Vue.js application bundle gives a directory containing static assets that can be deployed with the rest of the static website.  You then include it in the HTML like so:
-
-```html
-<div id="app"></div>
-<script src="/dist/build.js"></script>
-```
-
-The JS code at the URL, in this case `/dist/build.js`, must be written to target the `div#app` element where it will initialize the application.
 
 ## Websites as applications
 
@@ -172,6 +180,7 @@ For back-end services, the UI would likely use a variety of 3rd party and custom
 
 Following those recommendations would make this a JAMStack site.  
 
+Such a site probably does not desire search engines to index the application.  Would a search engine find any indexable anything in a wordprocessor application UI like what we get on Google Docs?
 
 # Summary
 

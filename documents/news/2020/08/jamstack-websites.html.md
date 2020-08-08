@@ -6,7 +6,7 @@ blogtag: news
 teaser: |
     Two ideas, JAMStack and static website generators, are getting attention as a way to simplify website and web application development, while simultaneously being vague unclear marketing terms.  Both talk about static assets for website, but what does that really mean?  To help decode the vague marketing words, let's examine the technologies, see how they differ, and try to figure out if there's anything important to learn.
 heroPicture:
-    url: /news/2020/06/img/what-is-jamstack.jpg
+    url: /news/2020/08/img/what-is-jamstack.jpg
 ---
 
 In the beginning (of the web) websites were HTML files (and images) you uploaded to a web server using FTP.  That's it.  My first websites, in 1994-1995, were coded that way, and of course I used FTP.  A big advance was finding a programmers editor, that handled HTML syntax coloring, and which could directly edit files in remote directory structures.  That meant not having to upload using FTP, and the syntax coloring made it a little easier to edit the HTML.  Another advance was a feature called _Server Side Includes_, letting one have sidebar or header or footer "widgets" loaded as HTML snippets from a shared directory.  That simplified having a consistent look across the website.  Then came the variety of pseudo-WYSIWYG HTML editors where we could edit web pages visually, rather than guessing what the page looked like while editing raw HTML.  These editors didn't support server side includes, but there was a similar feature in Dreamweaver allowing one to have shared HTML snippets.

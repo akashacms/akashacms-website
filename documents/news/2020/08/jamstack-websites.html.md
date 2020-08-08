@@ -52,7 +52,7 @@ In the JAMStack literature the task of "managing a webserver" is described as a 
 
 CDN's primary stated advantage is that the CDN guarantees similar performance anywhere in the world.  With traditional hosting from a single web server -- my sites are hosted on shared hosting rented from Dreamhost whose servers are in southern California -- the distance from that server affects speed of accessing the website.
 
-According to Google Analytics the page load speed for my websites (all hosted on simple shared Apache web hosting) is under 20 milliseconds.  Seems to me that 20 milliseconds is pretty close to _blazingly fast_.  I haven't tried hosting a site on a CDN and don't know of CDN's deliver content even more blazingly fast.  A reader of my sites in Uganda might see slower page loading times than a reader in Huntington Beach California.  But hosting a site on a CDN is supposed to equalize the two.
+According to Google Analytics the page load speed for my websites (all hosted on simple shared Apache web hosting) is under 20 milliseconds.  Seems to me that 20 milliseconds is pretty close to _blazingly fast_.  I haven't tried hosting a site on a CDN and don't know if CDN's deliver content even more blazingly fast.  A reader of my sites in Uganda might see slower page loading times than a reader in Huntington Beach California.  Hosting on a CDN is supposed to equalize the two.
 
 Additionally, CDN providers truly offer _unlimited bandwidth_ (at a fee).  The traditional shared hosting providers, like Dreamhost, offer unlimited bandwidth, but there is often an unstated usage level beyond which the hosting provider will start sending emails demanding your site move somewhere else.  CDNs have performance guarantees that cannot be made by the traditional Apache-based web hosting provider.
 
@@ -78,7 +78,7 @@ On the right (with green text and arrows) we have a complex system deployed on c
 
 The JAMStack proponents praise CDN deployment, but what they should be praising is the _serverless_ concept.
 
-There are a lot of hugely complex systems available in today's computing world.  Some kinds of websites require that complexity, because of the intense number of services required to manage the service.
+There are a lot of hugely complex systems available in today's computing world.  Some kinds of websites require that complexity, because of the intense number of services to manage.
 
 To build and maintain a system that works across multiple availability zones, automatically handles service failure, that handles automatic localization and internationalization, and much more, requires multiple teams of highly skilled engineers.  Not everyone can afford the cost of hiring such a deep talent base.
 
@@ -155,13 +155,15 @@ It is easy to generate a static bundle for the JavaScript UI for deployment thro
 
 The JS code at the URL, in this case `/dist/build.js`, must be written to target the `div#app` element where it will initialize the application.
 
+## Search engines indexing JavaScript UI's
+
 One thing which stops me from doing this on my site is whether that would be indexable by search engines.  The HTML of the corresponding pages would have the JavaScript application, rather than the currently shown information.  How will search engines index the information supplied by that service?  In many cases, like mine, that information is a big value point of that website and many of the visitors are drawn to the site because of that information.
 
 Over on the JAMStack website is a corresponding issue.  Namely, the list of factors that are **NOT** JAMStack websites includes:
 
 > A single page app that uses isomorphic rendering to build views on the server at runtime.
 
-I'm not certain what that phrase means, but it's clearly talking about server-side rendering.  The [Wikipedia page on Isomorphic JavaScript](https://en.wikipedia.org/wiki/Isomorphic_JavaScript) talks about a hybrid situation with both server-side and client-side rendering.  Possibly the JAMStack website is saying it is best for all rendering to occur on the client side using data retrieved from servers.  But, I don't understand what's so horrid about rendering HTML on the server.
+I'm not certain what that phrase means, but it's clearly talking about server-side rendering.  The [Wikipedia page on Isomorphic JavaScript](https://en.wikipedia.org/wiki/Isomorphic_JavaScript) talks about a hybrid situation with both server-side and client-side rendering.  Possibly the JAMStack website is saying it is best for all rendering to occur on the client side using data retrieved from servers.
 
 On that Wikipedia page, there is a discussion of the problem of search engines indexing sites that have client side rendering.  Rather, since that page presents Isomorphic Rendering as a good thing, it gives this as one of the benefits:
 

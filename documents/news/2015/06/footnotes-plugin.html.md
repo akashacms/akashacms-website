@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Added akashacms-footnotes plugin - EPUB's can get footnotes
 publicationDate: June 7, 2015
 blogtag: news

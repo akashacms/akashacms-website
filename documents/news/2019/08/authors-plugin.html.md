@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: New AkashaCMS plugin to acknowledge authors on AkashaCMS documents
 publicationDate: August 11, 2019
 blogtag: news

@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: How to add a free shopping cart and sell products on an AkashaCMS website
 publicationDate: November 13, 2015
 blogtag: news

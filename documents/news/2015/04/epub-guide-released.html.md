@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: AkashaEPUB 0.4.6 released, Guidebook posted to eBook stores
 publicationDate: April 28, 2015
 blogtag: news

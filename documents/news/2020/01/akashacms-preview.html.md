@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Better HTML previewing of AkashaCMS project pages in Visual Studio Code
 publicationDate: January 27, 2020
 blogtag: news

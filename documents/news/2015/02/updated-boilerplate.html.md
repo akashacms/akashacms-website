@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Upgraded akashacms-theme-boilerplate to Boilerplate v5, AkashaCMS 0.4.x release imminent
 publicationDate: Feb 14, 2015
 blogtag: news

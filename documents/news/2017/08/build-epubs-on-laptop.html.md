@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Building EPUB electronic books and websites on your laptop, no server-side tools required
 publicationDate: August 6, 2017
 blogtag: news

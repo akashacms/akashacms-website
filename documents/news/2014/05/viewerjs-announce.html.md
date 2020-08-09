@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Viewer.js, a powerful pure-JavaScript document viewer to simplify your visitors document experience
 publicationDate: 2014-05-01 19:37
 blogtag: news

@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: AkashaCMS-Embeddables overhaul, huge simplification
 publicationDate: June 28, 2017
 blogtag: news

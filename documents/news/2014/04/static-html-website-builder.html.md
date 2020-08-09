@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Static HTML website builders (AkashaCMS, etc) slashes web hosting costs to the bone
 publicationDate:  2014-04-15 01:52
 blogtag: news

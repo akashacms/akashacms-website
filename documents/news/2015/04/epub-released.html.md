@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: AkashaEPUB 0.4.2 released, Guidebook written
 publicationDate: April 20, 2015
 blogtag: news

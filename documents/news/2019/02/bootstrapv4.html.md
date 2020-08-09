@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Updating an AkashaCMS site to use Bootstrap v4.3.x
 publicationDate: February 25, 2019
 blogtag: news

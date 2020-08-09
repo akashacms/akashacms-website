@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Collapsing figure/img tags into simplified fig-img tag
 publicationDate: August 11, 2017
 blogtag: news

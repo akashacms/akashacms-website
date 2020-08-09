@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Embed code snippets in AkashaCMS rendered HTML documents
 publicationDate: April 4, 2020
 blogtag: news

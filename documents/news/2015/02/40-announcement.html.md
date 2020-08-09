@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Announcing AkashaCMS 0.4.0 - server-side jQuery, streamlined rendering, and more
 publicationDate: Feb 14, 2015 12:07 PDT
 blogtag: news

@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Created skeleton for akashacms-blog-podcast
 publicationDate: September 27, 2015
 blogtag: news

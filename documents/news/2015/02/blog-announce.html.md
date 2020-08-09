@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Announcing the Blog & Podcast plugin
 publicationDate: Feb 10, 2015
 blogtag: news

@@ -175,7 +175,7 @@ config
                 rssurl: "/news/rss.xml",
                 rootPath: "news",
                 matchers: {
-                    layouts: [ "blog.html.ejs" ],
+                    layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
                     path: /^news\//
                 }
             },
@@ -194,7 +194,7 @@ config
                 rssurl: "/howto/rss.xml",
                 rootPath: "howto",
                 matchers: {
-                    layouts: [ "blog.html.ejs" ],
+                    layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
                     path: /^howto\//
                 }
             }

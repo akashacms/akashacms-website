@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Major change in AkashaCMS - new model for rendering content, and jQuery as a template engine
 publicationDate: 2014-05-27 14:47
 blogtag: news

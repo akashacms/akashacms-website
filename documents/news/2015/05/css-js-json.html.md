@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Pages can be JSON data, and can declare CSS and JS files
 publicationDate: May 9, 2015
 blogtag: news

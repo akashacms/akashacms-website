@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Looking forward to AkashaCMS 0.5.x work
 publicationDate: Feb 11, 2015 12:00 PDT
 blogtag: news

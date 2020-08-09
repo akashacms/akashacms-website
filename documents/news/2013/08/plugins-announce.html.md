@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Preparing AkashaCMS for 0.3.x, adding plugin support
 publicationDate: 2013-08-04 21:08
 blogtag: news

@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: AkashaEPUB received nearly complete rewrite - hugely simplified
 publicationDate: May 19, 2015
 blogtag: news

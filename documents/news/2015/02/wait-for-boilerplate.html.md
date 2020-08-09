@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: AkashaCMS 0.4.x release on hold for Boilerplate v5
 publicationDate: Feb 12, 2015
 blogtag: news

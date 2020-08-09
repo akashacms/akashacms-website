@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Massive change, AkashaCMS is gone, replaced with AkashaRender
 publicationDate: June 27, 2017
 blogtag: news

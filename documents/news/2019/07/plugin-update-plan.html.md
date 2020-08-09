@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: With 0.7, the AkashaCMS plugins need to be updated to reflect new API's
 publicationDate: July 17, 2019
 blogtag: news

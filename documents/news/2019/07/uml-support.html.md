@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: How to display UML diagrams inline on an AkashaCMS website
 publicationDate: July 19, 2019
 blogtag: news

@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Published 2nd edition Creating eBooks with Markdown and Open Source Tools
 publicationDate: August 5, 2017
 blogtag: news

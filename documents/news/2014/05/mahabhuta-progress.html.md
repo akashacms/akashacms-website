@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Progress on jQuery-style templates for AkashaCMS (Mahabhuta)
 publicationDate: 2014-06-01 16:43
 blogtag: news

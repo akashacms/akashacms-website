@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Published AkashaCMS-External-Links, adding "rel=nofollow" and icons to outbound links
 publicationDate: July 3, 2017
 blogtag: news

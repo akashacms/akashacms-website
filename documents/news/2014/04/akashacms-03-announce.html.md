@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: AkashaCMS v0.3.0 released - major rearchitecting, plugins, improvements, much more planned for v0.4.x
 publicationDate: 2014-04-15 00:44
 blogtag: news

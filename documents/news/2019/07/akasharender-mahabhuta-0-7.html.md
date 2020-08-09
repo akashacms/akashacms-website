@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Announcing 0.7 release of AkashaRender and Mahabhuta
 publicationDate: July 17, 2019
 blogtag: news

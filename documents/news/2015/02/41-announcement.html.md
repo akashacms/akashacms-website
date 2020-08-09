@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more
 publicationDate: Feb 25, 2015 12:07 PDT
 blogtag: news

@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Major upgrade to Mahabhuta, the server-side DOM processing engine in AkashaCMS
 publicationDate: September 15, 2016
 blogtag: news

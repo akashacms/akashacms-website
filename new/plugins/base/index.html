@@ -1,0 +1,169 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AskashaCMS &quot;base&quot; plugin documentation - Foundational support for website construction</title>
+<meta name="pagename" content="AskashaCMS &quot;base&quot; plugin documentation - Foundational support for website construction">
+<meta name="date" content="Mon May 15 2017 12:40:44 GMT-0700 (PDT)">
+<meta name="DC.title" content="AskashaCMS &quot;base&quot; plugin documentation - Foundational support for website construction">
+<meta name="og:title" content="AskashaCMS &quot;base&quot; plugin documentation - Foundational support for website construction">
+<meta name="og:url" content="https://akashacms.com/new/plugins/base/index.html">
+<link rel="canonical" href="https://akashacms.com/new/plugins/base/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/new/plugins/base/index.html">
+<meta name="twitter:title" content="AskashaCMS &quot;base&quot; plugin documentation - Foundational support for website construction">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AskashaCMS &quot;base&quot; plugin documentation - Foundational support for website construction</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/new/index.html">AkashaCMS - the powerful static file CMS to build your dream website NEW SITE</a> </li> <li> <a href="/new/plugins/index.html">AkashaCMS plugin directory</a> </li> <li> <a href="/new/plugins/base/index.html">AskashaCMS &quot;base&quot; plugin documentation - Foundational support for website construction</a> </li>
+</ol>
+</div>
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p>The <code>akashacms-base</code> plugin provides foundation-level support for building websites. This includes useful partials, and a long list of Mahabhuta tags. They work together to provide a comprehensive base for presenting website content.</p>
+<h1>Installation</h1>
+<p>With an AkashaCMS website setup, add the following to <code>package.json</code></p>
+<pre><code>  &quot;dependencies&quot;: {
+    ...
+    &quot;akashacms-base&quot;: &quot;akashacms/akashacms-base#akasharender&quot;,
+    ...
+  }
+</code></pre>
+<p>The AkashaRender version of <code>akashacms-base</code> has not been published to <code>npm</code> yet, and therefore must be referenced this way.</p>
+<p>Once added to <code>package.json</code> run: <code>npm install</code></p>
+<h1>Configuration</h1>
+<p>In <code>config.js</code> for the website:</p>
+<pre><code>config.use(require(&apos;akashacms-base&apos;));
+
+config.plugin(&quot;akashacms-base&quot;).generateSitemap(config, true);
+</code></pre>
+<p>The latter causes an XML Sitemap to be generated in the file <code>/sitemap.xml</code>. See the XML Sitemaps section below.</p>
+<h1>Custom tags</h1>
+<h4>Metadata in page header</h4>
+<p>There&apos;s a lot of metadata, Open Graph etc, that can be put into the <code>&lt;head&gt;</code> section. These tags are useful for customizing the presentation in search engines or on social media websites.</p>
+<p>The <code>&lt;ak-header-metatags&gt;</code> tag generates most of these tags using page metadata.</p>
+<p>This tag renders through the <code>ak_headermeta.html.ejs</code> partial. Consult that file for details.</p>
+<h4>Generating link rel= tags in header</h4>
+<p>Header tags of the pattern <code>&lt;link rel=&quot;...&quot; href=&quot;...&quot;/&gt;</code> are used for many purposes. AkashaCMS-Base supports simplified method to generate these tags</p>
+<p>The <code>&lt;ak-header-linkreltags&gt;</code> tag generates the tags from data provided in the site configuration.</p>
+<p>For site-wide link/rel tags use this in <code>config.js</code>:</p>
+<pre><code>config.plugin(&quot;akashacms-base&quot;)
+    .addLinkRelTag(config, { relationship: &quot;...&quot;, url: &quot;..&quot; })
+    .addLinkRelTag(config, { relationship: &quot;...&quot;, url: &quot;..&quot; });
+</code></pre>
+<p>For per-page link/rel tags, use this in the frontmatter:</p>
+<pre><code>---
+...
+akbaseLinkRelTags:
+  - relationship: &quot;...&quot;
+    url: &quot;...&quot;
+  - relationship: &quot;...&quot;
+    url: &quot;...&quot;
+...
+---
+</code></pre>
+<h4>Generate a canonical URL in header</h4>
+<p>The <code>canonical</code> link tag defines the most correct official URL for the page. It&apos;s used by search engines to disambiguate pages that might appear under multiple URL&apos;s.</p>
+<p>The <code>&lt;ak-header-canonical-url&gt;</code> tag generates this tag using the <code>ak_linkreltag.html.ejs</code> partial.</p>
+<h4>Show the Publication Date on the page</h4>
+<p>It&apos;s often desirable to show the publication date for a page. It&apos;s often desirable for the page metadata to include the <code>publicationDate</code> for a variety of purposes. For example the <code>akashacms-blog-podcast</code> plugin uses the publicationDate to sort content.</p>
+<p>The page can include <code>publicationDate</code> in its metadata. If missing, AkashaRender substitutes in the last modification date of the content file.</p>
+<p>The tag <code>&lt;publication-date&gt;</code> formats that date through the <code>ak_publdate.html.ejs</code> partial.</p>
+<h4>Promote images with OpenGraph tags</h4>
+<p>The the banner image in social media website posts is derived from images listed in OpenGraph tags. We all want our web content to have a good appearance on social media sites. Having a good quality image is key to that goal.</p>
+<p>The <code>&lt;open-graph-promote-images&gt;</code> tag causes a process to occur which searches for <code>&lt;img&gt;</code> tags. The URL&apos;s are collected and added to the header as OpenGraph meta tags.</p>
+<p>By default the search is conducted over the entire page. This is likely undesired, since it will scoop up every last image. Instead you probably want to constrain the search to the area of the page containing its primary content. The <code>root=</code> attribute can contain a jQuery selector that will constrain the search.</p>
+<p>For example if your primary content is within an <code>article</code> tag (as it should be), you would use:</p>
+<pre><code>&lt;open-graph-promote-images root=&quot;article&quot;&gt;&lt;/open-graph-promote-images&gt;
+</code></pre>
+<h1>XML Sitemaps</h1>
+<p>The sitemap will list any file rendered using HTMLRenderer. See <a href="https://www.sitemaps.org/index.html">https://www.sitemaps.org/index.html</a> for information about XML Sitemaps.</p>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

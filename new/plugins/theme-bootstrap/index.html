@@ -1,0 +1,160 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AskashaCMS Bootstrap Theme plugin documentation</title>
+<meta name="pagename" content="AskashaCMS Bootstrap Theme plugin documentation">
+<meta name="date" content="Mon May 15 2017 12:40:44 GMT-0700 (PDT)">
+<meta name="DC.title" content="AskashaCMS Bootstrap Theme plugin documentation">
+<meta name="og:title" content="AskashaCMS Bootstrap Theme plugin documentation">
+<meta name="og:url" content="https://akashacms.com/new/plugins/theme-bootstrap/index.html">
+<link rel="canonical" href="https://akashacms.com/new/plugins/theme-bootstrap/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/new/plugins/theme-bootstrap/index.html">
+<meta name="twitter:title" content="AskashaCMS Bootstrap Theme plugin documentation">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AskashaCMS Bootstrap Theme plugin documentation</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/new/index.html">AkashaCMS - the powerful static file CMS to build your dream website NEW SITE</a> </li> <li> <a href="/new/plugins/index.html">AkashaCMS plugin directory</a> </li> <li> <a href="/new/plugins/theme-bootstrap/index.html">AskashaCMS Bootstrap Theme plugin documentation</a> </li>
+</ol>
+</div>
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p>The Bootstrap framework contains many useful responsive HTML5 goodies that can improve the look of your website.</p>
+<p>It provides some Bootstrap-centric overrides to partial&apos;s provided by other plugins. Hence, you get a &quot;quick win&quot; just by installing the theme.</p>
+<p>The next primary usage is to use the Bootstrap CSS grid for page layout in your templates.</p>
+<h1>Installation</h1>
+<p>Add the following to <code>package.json</code></p>
+<pre><code>&quot;dependencies&quot;: {
+    ...
+    &quot;akashacms-theme-bootstrap&quot;: &quot;akashacms/akashacms-theme-bootstrap#akasharender&quot;,
+    ...
+    &quot;bootstrap&quot;: &quot;^3.3.7&quot;,
+    &quot;jquery&quot;: &quot;^3.1.1&quot;,
+    ...
+}
+</code></pre>
+<p>The AkashaRender version of <code>akashacms-theme-bootstrap</code> has not been published to <code>npm</code> yet, and therefore must be referenced this way.</p>
+<p>The <code>bootstrap</code> and <code>jquery</code> modules don&apos;t provide any Node.js functionality, but are a quick way to access the Bootstrap and jQuery libraries. Both of them can be retrieved using the corresponding CDN URL&apos;s, if you prefer.</p>
+<p>Once added to <code>package.json</code> run: <code>npm install</code></p>
+<h1>Configuration</h1>
+<p>Add the following to <code>config.js</code></p>
+<pre><code>config
+    .addAssetsDir({
+        src: &apos;node_modules/bootstrap/dist&apos;,
+        dest: &apos;vendor/bootstrap&apos;
+    })
+   .addAssetsDir({
+        src: &apos;node_modules/jquery/dist&apos;,
+        dest: &apos;vendor/jquery&apos;
+    })
+</code></pre>
+<p>This first section mounts the jQuery and Bootstrap distribution into your website. The files you would have accessed via the corresponding CDN&apos;s are available in <code>/vendor/jquery</code> and <code>/vendor/bootstrap</code> within the rendered site.</p>
+<pre><code>config
+    ...
+    .use(require(&apos;akashacms-theme-bootstrap&apos;))
+    ...
+</code></pre>
+<p>This adds the AkashaCMS plugin to your configuration.</p>
+<pre><code>config
+    .addFooterJavaScript({ href: &quot;/vendor/jquery/jquery.min.js&quot; })
+    .addFooterJavaScript({ href: &quot;/vendor/bootstrap/js/bootstrap.min.js&quot;  })
+    .addStylesheet({       href: &quot;/vendor/bootstrap/css/bootstrap.min.css&quot; })
+    .addStylesheet({       href: &quot;/vendor/bootstrap/css/bootstrap-theme.min.css&quot; })
+</code></pre>
+<p>This adds the JavaScript and CSS files to every page of your website. Adding a custom Bootstrap theme is as simple as this:</p>
+<pre><code>config
+    .addStylesheet({       href: &quot;/vendor/bootswatch-readable/bootstrap.min.css&quot; })
+    .addStylesheet({       href: &quot;/style.css&quot; });
+</code></pre>
+<h1>Custom Tags</h1>
+<p>TODO - Have not written this yet. Study the source code for clues.</p>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

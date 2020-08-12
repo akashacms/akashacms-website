@@ -1,0 +1,537 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Detailed walk-through an embedding EPUB content in an AkashaCMS website</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Detailed walk-through an embedding EPUB content in an AkashaCMS website">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Detailed walk-through an embedding EPUB content in an AkashaCMS website">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Detailed walk-through an embedding EPUB content in an AkashaCMS website">
+
+<meta name="og:url" content="https://akashacms.com/epubtools/6aa-epub-website.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/epubtools/6aa-epub-website.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="../akasharender/toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+        <li class="dropdown-item"><a id="introduction" href="1-introduction.html" title="Introduction to AkashaEPUB">Introduction to AkashaEPUB</a></li>
+        <li class="dropdown-item"><a id="installation" href="2-installation.html" title="Installing the AkashaEPUB toolchain">Installing the AkashaEPUB toolchain</a></li>
+        <li class="dropdown-item"><a id="creating-content" href="3-creating-content.html" title="Creating book content">Creating book content</a>
+            <ol>
+                <li><a id="chap-3c-content-markup" href="3c-content-markup.html" title="Content markup formats">Content markup formats</a></li>
+                <li><a id="chap-3d-rendering" href="3d-rendering.html" title="The AkashaCMS rendering process">The AkashaCMS rendering process</a></li>
+                <li><a id="chap-3da-css" href="3da-css.html" title="CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s">CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</a></li>
+                <li><a id="chap-3e-html5-structure" href="3e-html5-structure.html" title="Summary of HTML5 markup in AkashaEPUB Documents">Summary of HTML5 markup in AkashaEPUB Documents</a></li>
+                <li><a id="chap-3e-internal-links" href="3e-internal-links.html" title="LINK, IMG tags and the requirement for relative URL&apos;s">LINK, IMG tags and the requirement for relative URL&apos;s</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="configuration" href="4-configuration.html" title="Configuration files for AkashaEPUB projects">Configuration files for AkashaEPUB projects</a>
+            <ol>
+                <li><a id="chap-4a-akasharender-epub" href="4a-akasharender-epub.html" title="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="structure" href="5-structure.html" title="Structuring your book">Structuring your book</a></li>
+        <li class="dropdown-item"><a id="building-EPUB" href="6-building-EPUB.html" title="Building an EPUB with AkashaEPUB">Building an EPUB with AkashaEPUB</a>
+            <ol>
+                <li><a id="chap-6aa-epub-website" href="6aa-epub-website.html" title="Detailed walk-through an embedding EPUB content in an AkashaCMS website">Detailed walk-through an embedding EPUB content in an AkashaCMS website</a></li>
+                <li><a id="chap-6b-validation" href="6b-validation.html" title="Validating EPUB files built by AkashaEPUB">Validating EPUB files built by AkashaEPUB</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="akashacms-project" href="7-akashacms-project.html" title="The AkashaCMS Open Source Project">The AkashaCMS Open Source Project</a></li>
+        <li class="dropdown-item"><a id="about" href="8-about.html" title="About the author, David Herron">About the author, David Herron</a></li>
+        <li class="dropdown-item"><a id="references" href="9-references.html" title="References">References</a></li>
+        <li class="dropdown-item"><a id="copyright" href="0a-copyright.html" title="Copyright Notice">Copyright Notice</a></li>
+    </ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="6-building-EPUB.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Detailed walk-through an embedding EPUB content in an AkashaCMS website</h1>
+
+<a href="6b-validation.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>There are several 3rd party services letting you publish an electronic book on-line.  By correct use of AkashaCMS plugins you can achieve the same effect on your own website.  It requires building the website with AkashaCMS, building the EPUB with AkashaEPUB, and appropriate configuration settings and workflow.</p>
+<p>The result allows you to publish the same content as either an EPUB and/or as part of a website.</p>
+<p>Examples:</p>
+<ul>
+<li>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=akasharender.com" style="display: inline-block; padding-right: 2px;" alt="(akasharender.com)">
+                    <a href="https://akasharender.com/akasharender/toc.html" rel="nofollow" target="_blank">https://akasharender.com/akasharender/toc.html</a> -- The official guide for AkashaRender.  It has not been published independently as an EPUB, but it could be.</li>
+<li>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=akasharender.com" style="display: inline-block; padding-right: 2px;" alt="(akasharender.com)">
+                    <a href="https://akasharender.com/mahabhuta/toc.html" rel="nofollow" target="_blank">https://akasharender.com/mahabhuta/toc.html</a> -- Ditto, but for the Mahabhuta engine</li>
+<li>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=akasharender.com" style="display: inline-block; padding-right: 2px;" alt="(akasharender.com)">
+                    <a href="https://akasharender.com/epubtools/toc.html" rel="nofollow" target="_blank">https://akasharender.com/epubtools/toc.html</a> -- This guidebook that you&apos;re reading.  By the time you read this, it will have been published as an EPUB.</li>
+<li>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=greentransportation" style="display: inline-block; padding-right: 2px;" alt="(greentransportation)">
+                    <a href="https://greentransportation/ev-charging/toc.html" rel="nofollow" target="_blank">https://greentransportation/ev-charging/toc.html</a> -- A best-practices guidebook for electric car charging.  The content is available both on the website and as a Kindle book.</li>
+<li>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=greentransportation.info" style="display: inline-block; padding-right: 2px;" alt="(greentransportation.info)">
+                    <a href="https://greentransportation.info/fossil-fuels/toc.html" rel="nofollow" target="_blank">https://greentransportation.info/fossil-fuels/toc.html</a> -- An incomplete guidebook documenting the fossil fuel energy system.</li>
+<li>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=greentransportation.info" style="display: inline-block; padding-right: 2px;" alt="(greentransportation.info)">
+                    <a href="https://greentransportation.info/energy-transportation/toc.html" rel="nofollow" target="_blank">https://greentransportation.info/energy-transportation/toc.html</a> -- An incomplete guidebook discussing the Energy system and the Transportation system</li>
+</ul>
+<p>The system for publishing these eBooks both on a website and as a standalone EPUB is very straight-forward.  Anybody could implement the same on their own website.  Once you have it configured, publishing updates to both the website and EPUB is simple:  a) Run the corresponding build processes, b) Deploy the website to the webserver, c) Upload the EPUB to corresponding marketplaces.</p>
+<p>The result is a low cost system.  Your website is can be hosted on any cheap shared hosting plan, while using leading edge web design techniques.  Your EPUB can, if you like, be sold via any online eBook marketplace or through your own distribution/sales channel.</p>
+<h1>Making an online electronic book feel like a book</h1>
+<p>Before we get into the details, let&apos;s take a step back and consider the goal.  You may have a different conceptualization of the correct way to publish an eBook on a website.  Changing the presentation is largely a matter of using different layout templates than the ones we&apos;ll show you.</p>
+<p>For this feature I considered that to <em>feel like</em> an electronic book, it should have</p>
+<ul>
+<li>Navigation centering on the Table of Contents</li>
+<li>Should read from chapter-to-chapter in order by a metaphoric flipping of the page</li>
+<li>Perhaps a fixed layout with a fixed header containing the ToC navigation tool</li>
+</ul>
+<p>Spend some time with an EPUB reader before committing to how you&apos;ll present your EPUB on a website.  Ponder how the EPUB reader presents the content, and how you implement what you like or don&apos;t like in an online reading experience.</p>
+<h1>The <code>epub-website</code> and <code>akasharender-epub</code> plugins</h1>
+<p>The <code>epub-website</code> contains the magic incantations required to massage EPUB content into an AkashaCMS website.</p>
+<p>In the Configuration file for your website add this:</p>
+<pre><code class="hljs"><span class="hljs-built_in">config</span>.use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;epub-website&apos;</span>));
+</code></pre>
+<p>And in the <code>package.json</code> add these dependencies:</p>
+<pre><code class="hljs"><span class="hljs-string">&quot;epub-website&quot;</span>: <span class="hljs-string">&quot;akashacms/epub-website&quot;</span>,
+<span class="hljs-string">&quot;akasharender-epub&quot;</span>: <span class="hljs-string">&quot;akashacms/akasharender-epub&quot;</span>,
+</code></pre>
+<p>The <code>epub-website</code> plugin handles formatting EPUB content for a website, and the <code>akasharender-epub</code> handles formatting the content for an EPUB.  Neither have been published to the npm repository, and can be installed in this fashion from the Github repository.</p>
+<p>The <code>epub-website</code> plugin provides:</p>
+<ul>
+<li>A PartialsDir containing templates for an eBook header, a &quot;nameplate&quot;, and a dropdown list for the Table of Contents</li>
+<li>An AssetsDir containing a stylesheet (CSS)</li>
+<li>A set of Mahabhuta functions</li>
+</ul>
+<h1>Content metadata and using multiple DocumentDirs</h1>
+<p>The <code>epub-website</code> plugin relies on some metadata to retrieve the Table of Contents and other data.</p>
+<p>The simplest way is to use multiple DocumentDir&apos;s, one for the website content, and one for each eBook.  The 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms-website/blob/master/config.js" rel="nofollow" target="_blank">Configuration file for akashacms.com</a> contains a fairly complex configuration.  It can be instructive to study how <a href="http://AkashaCMS.com" rel="nofollow" target="_blank">AkashaCMS.com</a> is structured, since you can learn much about how the Configuration object works.  It pulls together content from every plugin using multiple Documents directories.  But that site is so complex it will only hinder our discussion.  Let&apos;s go over a simplified version.</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">config</span>
+    <span class="hljs-selector-class">.addAssetsDir</span>(<span class="hljs-string">&apos;assets&apos;</span>)
+    <span class="hljs-selector-class">.addAssetsDir</span>({
+        <span class="hljs-attribute">src</span>: <span class="hljs-string">&apos;node_modules/bootstrap/dist&apos;</span>,
+        <span class="hljs-attribute">dest</span>: <span class="hljs-string">&apos;vendor/bootstrap&apos;</span>
+    })
+   <span class="hljs-selector-class">.addAssetsDir</span>({
+        <span class="hljs-attribute">src</span>: <span class="hljs-string">&apos;node_modules/jquery/dist&apos;</span>,
+        <span class="hljs-attribute">dest</span>: <span class="hljs-string">&apos;vendor/jquery&apos;</span>
+    })
+    <span class="hljs-selector-class">.addLayoutsDir</span>(<span class="hljs-string">&apos;layouts&apos;</span>)
+    <span class="hljs-selector-class">.addDocumentsDir</span>(<span class="hljs-string">&apos;documents&apos;</span>)
+    <span class="hljs-selector-class">.addDocumentsDir</span>({
+        <span class="hljs-attribute">src</span>: <span class="hljs-string">&apos;documents-e-book&apos;</span>,
+        <span class="hljs-attribute">dest</span>: <span class="hljs-string">&apos;e-book&apos;</span>,
+        <span class="hljs-attribute">baseMetadata</span>: {
+            <span class="hljs-attribute">bookHomeURL</span>: <span class="hljs-string">&quot;/e-book/toc.html&quot;</span>
+        }
+    })
+    <span class="hljs-selector-class">.addPartialsDir</span>(<span class="hljs-string">&apos;partials&apos;</span>);
+</code></pre>
+<p>Except for the two <code>addDocumentsDir</code> calls this is a normal AkashaCMS website configuration.  It includes the normal <code>assets</code>, <code>layouts</code>, and <code>partials</code> directories.  Let&apos;s focus on the two documents directories.</p>
+<p>The first, <code>documents</code>, refers to the regular website content.  The content in this directory doesn&apos;t require anything special, so we just list it this way.</p>
+<p>The second refers to the eBook content.  The <code>addDocumentsDir</code> function can take an object like this.  This object says the files in the directory <code>documents-e-book</code> are rendered into the <code>e-book</code> subdirectory of the RenderDestination.  The <code>baseMetadata</code> segment adds to the metadata used with each document.  In this case <code>bookHomeURL</code> is specific to the <code>epub-website</code> plugin.</p>
+<p>With multiple eBook&apos;s simply repeat this <code>addDocumentsDir</code> function as many times as necessary.</p>
+<p>The stylesheet named here is visible at: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/epub-website/blob/master/assets/akasha/epub-website/style.css" rel="nofollow" target="_blank">https://github.com/akashacms/epub-website/blob/master/assets/akasha/epub-website/style.css</a>  It&apos;s purpose is layout of the eBook pages.</p>
+<p>A second configuration file describes how the e-Book is structured.</p>
+<pre><code class="hljs">config
+    .add<span class="hljs-constructor">AssetsDir(&apos;<span class="hljs-params">assets</span>-<span class="hljs-params">ebook</span>&apos;)</span>
+    .add<span class="hljs-constructor">LayoutsDir(&apos;<span class="hljs-params">layouts</span>-<span class="hljs-params">ebook</span>&apos;)</span>
+    .add<span class="hljs-constructor">DocumentsDir(&apos;<span class="hljs-params">documents</span>-<span class="hljs-params">e</span>-<span class="hljs-params">book</span>&apos;)</span>
+    .add<span class="hljs-constructor">PartialsDir(&apos;<span class="hljs-params">partials</span>-<span class="hljs-params">ebook</span>&apos;)</span>
+    .set<span class="hljs-constructor">RenderDestination(&apos;<span class="hljs-params">out</span>-<span class="hljs-params">e</span>-<span class="hljs-params">book</span>&apos;)</span>;
+</code></pre>
+<p>Notice that the AssetsDir, LayoutsDir, PartialsDir, and RenderDestination directories are all different.  This is so the book formatting is different than the website formatting.  The eBook cannot use all the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=greentransportation.info" style="display: inline-block; padding-right: 2px;" alt="(greentransportation.info)">
+                    <a href="http://greentransportation.info" rel="nofollow" target="_blank">greentransportation.info</a> navigation elements, and the eBook also must fit certain constraints from the EPUB spec.  For example one page in the eBook has an embedded YouTube video, and on the website an embedded YouTube video player is perfectly what is required, but in the eBook all that can be used is the thumbnail image.</p>
+<p>Also notice that <code>documents-e-book</code> is the only DocumentsDir.  The entirety of the e-book content is in that directory, and therefore it is the only content included when rendering the eBook.</p>
+<p>Finally, the RenderDestination is set so that the eBook renders into its own directory.  In the website configuration file, this value was not set and therefore the default value of <code>out</code> is used.  For the eBook, this other directory is used so the two do not interfere with each other.</p>
+<h2>The <code>bookHomeURL</code> metadata</h2>
+<p>This metadata item identifies the file containing the Table of Contents.  The Navigation Document, in other words.  The Navigation Document&apos;s location is used by the <code>epub-website</code> tool to locate necessary metadata.</p>
+<p>This value must be a relative path within the rendered website naming the Navigation Document&apos;s file.  The content of this file is used by the Partials and Mahabhuta tags in <code>epub-website</code>.</p>
+<h1>Partials and Mahabhuta tags</h1>
+<h2>The <code>&lt;ebook-page-header&gt;</code> tag</h2>
+<p>This and its corresponding Partial, <code>ebook-header.html.ejs</code>, serves as the header of an eBook page.  It looks for these metadata items in the file referred to by <code>bookHomeURL</code>.</p>
+<ul>
+<li><code>logoImage</code>: The URL for a logo image corresponding to the eBook</li>
+<li><code>logoHeight</code>, <code>headerHeight</code>: The width and height of the eBook&apos;s logo image</li>
+<li><code>siteLogoImage</code>, <code>siteLogoWidth</code>: The URL and size for a logo image corresponding to the website</li>
+<li><code>bookTitle</code>, <code>bookSubTitle</code>: The title and sub-title for the eBook</li>
+<li><code>bookAuthor</code>: The author name for the eBook</li>
+</ul>
+<h2>The <code>&lt;ebook-navigation-header&gt;</code> tag</h2>
+<p>This and its corresponding Partial, <code>ebook-navigation-header.html.ejs</code>, constructs a dropdown menu from the Table of Contents in the file named in <code>bookHomeURL</code>.</p>
+<p>It reads the Table of Contents file.  The contents of the <code>&lt;nav&gt;</code> element are copied into a dropdown menu contained within that Partial.</p>
+<h2>The <code>&lt;ebook-nameplate-block&gt;</code> tag</h2>
+<p>This and its corresponding Partial, <code>ebook-nameplate-block.html.ejs</code>, is meant to present something like the Nameplate page in a printed book.</p>
+<h1>Page layout and Layout templates</h1>
+<p>There are one or more page layouts to use:</p>
+<ol>
+<li><code>ebook-toc-page.html.ejs</code> Layout for the Table of Contents page</li>
+<li><code>ebook-page.html.ejs</code> Layout for other pages</li>
+</ol>
+<p>It&apos;s of course possible to have other page layouts if required by your book.</p>
+<p>An example for the Table of Contents template is:</p>
+<pre><code class="hljs"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --&gt;</span>
+<span class="hljs-comment">&lt;!--[if lt IE 7]&gt; &lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;</span>
+<span class="hljs-comment">&lt;!--[if IE 7]&gt;    &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;</span>
+<span class="hljs-comment">&lt;!--[if IE 8]&gt;    &lt;html class=&quot;no-js lt-ie9&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;</span>
+<span class="hljs-comment">&lt;!-- Consider adding a manifest.appcache: h5bp.com/d/Offline --&gt;</span>
+<span class="hljs-comment">&lt;!--[if gt IE 8]&gt;&lt;!--&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;no-js&quot;</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span> <span class="hljs-comment">&lt;!--&lt;![endif]--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge,chrome=1&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;favicon.html&quot;</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">title</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-header-metatags</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-header-metatags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">xml-sitemap</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">xml-sitemap</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">site-verification</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">site-verification</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-header-linkreltags</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-header-linkreltags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-stylesheets</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-stylesheets</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-headerJavaScript</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-headerJavaScript</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">open-graph-promote-images</span> <span class="hljs-attr">root</span>=<span class="hljs-string">&quot;article&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">open-graph-promote-images</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ebook-toc-page&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;navbar.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">partial</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;main&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ebook-page-header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-12&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ebook-page-header</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel panel-default&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel-body&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ebook-nameplate-block</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ebook-nameplate-block</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ebook-toc-page-toc&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">content</span> %&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-4&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&lt;%= coverImage %&gt;&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;100%&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align: center; height: 100px;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;site-footer.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">partial</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-footerJavaScript</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-footerJavaScript</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>This template uses Bootstrap responsive classes to produce a usable Table of Contents page.  It includes the <em>nameplate</em> block, the Table of Contents, and a <em>coverImage</em>.</p>
+<p>An example for regular eBook pages:</p>
+<pre><code class="hljs"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ebook-page ebook-page-flex&quot;</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge,chrome=1&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;favicon.html&quot;</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">title</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-header-metatags</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-header-metatags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">xml-sitemap</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">xml-sitemap</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">site-verification</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">site-verification</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-header-linkreltags</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-header-linkreltags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-stylesheets</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-stylesheets</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-headerJavaScript</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-headerJavaScript</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">open-graph-promote-images</span> <span class="hljs-attr">root</span>=<span class="hljs-string">&quot;#book-page-content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">open-graph-promote-images</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ebook-page ebook-page-flex&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;navbar.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">partial</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span> <span class="hljs-comment">&lt;!--  class=&quot;panel panel-default&quot; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ebook-page-header</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;ebook-masthead&quot;</span> <span class="hljs-attr">header-height</span>=<span class="hljs-string">&quot;60px&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel panel-default&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ebook-navigation-header</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;ebook-navigation&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel-heading&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;book-page-content&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel-body&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> <span class="hljs-attr">if</span> (<span class="hljs-attr">typeof</span> <span class="hljs-attr">teaser</span>  !== <span class="hljs-string">&quot;undefined&quot;</span>) { %&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;jumbotron&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;lead&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">teaser</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> } %&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">%-</span> <span class="hljs-attr">content</span> %&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> <span class="hljs-attr">if</span> (<span class="hljs-attr">typeof</span> <span class="hljs-attr">copyrightPartial</span> !== <span class="hljs-string">&quot;undefined&quot;</span>) { %&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;&lt;%= copyrightPartial %&gt;&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">%</span> } %&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ebook-navigation-header</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;ebook-navigation-bottom&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;panel-heading&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;footer-row&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;site-footer.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">partial</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-footerJavaScript</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-footerJavaScript</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>This template handles other page layouts.  It does not use Bootstrap classes for layout, and instead presumes your CSS handles the page layout.</p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="6-building-EPUB.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Detailed walk-through an embedding EPUB content in an AkashaCMS website</h1>
+
+<a href="6b-validation.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

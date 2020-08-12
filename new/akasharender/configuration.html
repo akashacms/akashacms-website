@@ -1,0 +1,400 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>Configuring an AkashaCMS/AkashaRender project</title>
+<meta name="pagename" content="Configuring an AkashaCMS/AkashaRender project">
+<meta name="date" content="Mon May 15 2017 13:48:38 GMT-0700 (PDT)">
+<meta name="DC.title" content="Configuring an AkashaCMS/AkashaRender project">
+<meta name="og:title" content="Configuring an AkashaCMS/AkashaRender project">
+<meta name="og:url" content="https://akashacms.com/new/akasharender/configuration.html">
+<link rel="canonical" href="https://akashacms.com/new/akasharender/configuration.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<style>
+html, body {
+    height:100%;
+    max-height:100%;
+    margin:0;
+}
+
+#page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#site-navbar {
+    display: none;
+    flex-shrink: 0;
+    height: 30px;
+}
+
+#ebook-masthead {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#ebook-masthead h2 {
+    font-size: 22px;
+    margin-top: 0px;
+}
+
+#ebook-navigation {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#book-page-content {
+    flex-grow: 1;
+    overflow: auto;
+    min-height: 2em;
+}
+
+#footer-row {
+    display: none;
+    flex-shrink: 0;
+    height: 50px;
+    background-color: grey;
+}
+</style>
+</head>
+<body class="ebook-page">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div id="page-container">
+<header class="epub-website-ebook-masthead" id="ebook-masthead">
+<table border="0"><tr>
+<td class="epub-website-ebook-masthead-title">
+<a href="/new/akasharender/toc.html"><h2 align="center">AkashaRender User Guide</h2></a><em>By David Herron</em>
+</td>
+</tr></table>
+</header>
+<div class="panel panel-default">
+<div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+<div class="epub-website-ebook-logo-area">
+<div class="btn-group">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+Table of Contents
+<span class="caret"></span>
+</button>
+<ol type="1" start="1" class="dropdown-menu">
+<li><a href="index.html" id="index" title="AkashaRender">AkashaRender</a></li>
+<li><a href="2-setup.html" id="setup" title="Project Setup">Project Setup</a></li>
+<li><a href="3-create-content.html" id="create-content" title="Creating content with AkashaRender">Creating content with AkashaRender</a></li>
+<li><a href="configuration.html" id="configuration" title="Configuring an AkashaCMS/AkashaRender project">Configuring an AkashaCMS/AkashaRender project</a></li>
+</ol>
+</div>
+</div>
+<div class="epub-website-ebook-chapter-area">
+<a href="3-create-content.html">
+<span class="epub-website-ebook-chevron-left glyphicon glyphicon-chevron-left" aria-hidden="true" style=""></span>
+</a>
+<h1 class="panel-title" align="center" style="">Configuring an AkashaCMS/AkashaRender project</h1>
+<a href="index.html">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+</div>
+<div id="book-page-content" class="panel-body">
+<div id="book-page-content" class="panel-body"><p>The <code>Configuration</code> object contains everything AkashaRender requires to render an AkashaCMS project. The project creator uses the Configuration API to create this object. It is intended this object is created in a Node.js module, and that the filename for that module is passed on the <code>akasharender</code> command-line.</p>
+<p>For example, the <code>package.json</code> for the project can include these <code>script</code> tags:</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;prebuild&quot;: &quot;akasharender copy-assets config.js&quot;,
+    &quot;build&quot;: &quot;akasharender render config.js&quot;,
+    ...
+}
+</code></pre>
+<p>Upon running <code>npm run build</code>, it first runs <code>copy-assets</code> to copy the asset files to the destination directory, and then uses <code>render</code> to render the documents to the destination directory. The same configuration file, <code>config.js</code>, is passed in each case.</p>
+<p>One can of course have multiple configuration files for the same project. For example it&apos;s possible for a subsection of a website to also be used to create an EPUB eBook. In that case, one configuration file describes building the website, and the second configuration describes using a portion of the website content to build the EPUB.</p>
+<h1>Configuration file</h1>
+<p>We briefly touched on the Configuration object in <a href="2-setup.html" title="Project Setup">Project Setup</a>, so let&apos;s go deeper.</p>
+<pre><code>&apos;use strict&apos;;
+
+const akasha  = require(&apos;akasharender&apos;);
+
+const config = new akasha.Configuration();
+
+config.rootURL(&quot;http://example.com&quot;);
+
+config
+    .addAssetsDir(&apos;assets&apos;)
+    .addLayoutsDir(&apos;layouts&apos;)
+    .addDocumentsDir(&apos;documents&apos;)
+    .addPartialsDir(&apos;partials&apos;);
+
+config.setMahabhutaConfig({
+    recognizeSelfClosing: true,
+    recognizeCDATA: true
+});
+
+config.prepare();
+
+module.exports = config;
+</code></pre>
+<p>This is just a normal every-day Node.js module. At the top we create a <code>Configuration</code> object, in the middle we call methods on that object to make settings, at the bottom we call <code>config.prepare()</code> and then assign the Configuration object to <code>module.exports</code>. That last step makes the Configuration object available to AkashaRender.</p>
+<h1>Project rootURL</h1>
+<p>The <code>rootURL</code> method declares the base URL of the project. This is necessary for website projects, so that AkashaRender can generate correct URL&apos;s in certain circumstances.</p>
+<h1>Input directories and the Output directory</h1>
+<p>AkashaRender&apos;s model is to take files and data from various input sources, and to produce an output directory tree that is the rendered project. Typically that&apos;s a website or EPUB or other HTML-oriented thing. Maybe it could be used to render other sorts of things, but that hasn&apos;t been tested.</p>
+<p>The output directory is declared as so:</p>
+<pre><code>config.setRenderDestination(&apos;out-range-confidence&apos;);
+</code></pre>
+<p>If not specified, <code>out</code> is used. It is intended that this directory be directly useful as the webroot for a web server, or in the case of an EPUB that <code>epubtools</code> be able to use the directory to create EPUB3 metadata files and then bundle the EPUB.</p>
+<h2>Assets directories</h2>
+<p>Asset directories contain files which are copied verbatim with no processing. Any number of asset directories can be declared. The files are copied in the order in which they&apos;re declared in the configuration. The directory structure in the output directory is copied verbatim from the directory structure of the asset directories.</p>
+<p>It is not necessary to declare any asset directories. Any file in a Documents directory that isn&apos;t recognized for processing will be copied verbatim. But it may be useful to separate the asset directories from documents directories.</p>
+<p>The asset files are copied using this command:</p>
+<pre><code>$ akasharender copy-assets config.js
+</code></pre>
+<p>Specifying multiple asset directories is simple:</p>
+<pre><code>config
+    .addAssetsDir(&apos;assets1&apos;)
+    .addAssetsDir(&apos;assets2&apos;)
+    .addAssetsDir(&apos;assets3&apos;)
+</code></pre>
+<p>In addition to declaring the assets directory with a String, you can use an Object to declare where the asset files should land in the output directory.</p>
+<pre><code>config.addAssetsDir({
+        src: &apos;/path/to/shared/fonts/archive&apos;,
+        dest: &apos;vendor/fonts&apos;
+    });
+</code></pre>
+<p>Or</p>
+<pre><code>config
+    .addAssetsDir({
+        src: &apos;node_modules/bootstrap/dist&apos;,
+        dest: &apos;vendor/bootstrap&apos;
+    })
+   .addAssetsDir({
+        src: &apos;node_modules/jquery/dist&apos;,
+        dest: &apos;vendor/jquery&apos;
+    })
+</code></pre>
+<p>The first allows you to share a set of fonts between multiple projects. Whatever is in the fonts archive directory is then copied into the <code>vendor/fonts</code> directory within the output directory.</p>
+<p>The second case shows a simple way to include Bootstrap and jQuery files in the output directory. First you list the <code>bootstrap</code> and <code>jquery</code> modules in <code>package.json</code>. Those packages do not provide Node.js functionality, but simply bring down the browser-side code for the corresponding packages. The <code>dist</code> directories in each case include the files you&apos;d need to deploy to your website. With these declarations, the files then land in <code>vendor/bootstrap</code> and <code>vendor/jquery</code> in the output directory. Once the jQuery and Bootstrap code is in your website, your rendered HTML must use those files, and we present one method later.</p>
+<h2>Documents directories</h2>
+<p>Documents directories contain files which might be processed and rendered into the output directory. The processing that&apos;s performed depends on the Rendering objects. We go over the rendering process elsewhere (TODO: need to document the Rendering process in more depth), so for this discussion simply consider that the contents of the Documents directories may be rendered, or may be copied verbatim.</p>
+<p>A single documents directory is declared as so:</p>
+<pre><code>config.addDocumentsDir(&apos;documents&apos;);
+</code></pre>
+<p>As with assets directories, you call this method multiple times to specify multiple documents directories.</p>
+<pre><code>config.addDocumentsDir(&apos;documents1&apos;);
+config.addDocumentsDir(&apos;documents2&apos;);
+config.addDocumentsDir(&apos;documents3&apos;);
+</code></pre>
+<p>In addition to declaring a documents directory using a String, you can pass an Object declaring where the documents are rendered in the output directory.</p>
+<pre><code>config.addDocumentsDir(&apos;documents&apos;);
+config.addDocumentsDir({
+    src: &apos;archive&apos;,
+    dest: &apos;archive&apos;,
+    baseMetadata: {
+        meaningOfLife: &quot;42&quot;,
+        me: &quot;Ashildr Einarrsdottir&quot;
+    }
+});
+</code></pre>
+<p>This says the <code>archive</code> directory is rendered into the <code>archive</code> subdirectory of the output directory. Additionally the given metadata is used for files within that hierarchy.</p>
+<p>Earlier we said it&apos;s possible to use a portion of your website either as website content, or too generate an EPUB.</p>
+<p>One method is to store the EPUB content in a separate directory and in in the website configuration file declare it as so:</p>
+<pre><code>config.addDocumentsDir({
+    src: &apos;documents-epub&apos;,
+    dest: &apos;path/to/epub&apos;
+});
+</code></pre>
+<p>The other method is to store the EPUB content within the website. In the EPUB configuration file, declare it as so:</p>
+<pre><code>config.addDocumentsDir(&apos;documents/path/to/epub&apos;);
+</code></pre>
+<p>Everything under that path is rendered to the output directory.</p>
+<h2>Layouts directories</h2>
+<p>The layouts directories contain page layouts.</p>
+<p>In AkashaCMS the content files we edit are simply the content, and not the whole page layout. It&apos;s assumed you&apos;ll have a few standardized page layouts used on multiple pages. Hence, page layouts should be reusable.</p>
+<p>Remember that the page layout is specified in the metadata:</p>
+<pre><code>---
+..
+layout: page.html.ejs
+..
+---
+content
+</code></pre>
+<p>We find templates by looking in directories specified in the configuration object:</p>
+<pre><code>config.addLayoutsDir(&apos;layouts&apos;);
+</code></pre>
+<p>We can use multiple <code>addLayoutsDir</code> declarations, and AkashaRender will consult each directory in order. When searching for a specific layout file, it stops at the first matching file. In this case, with a single directory to search, the matching file would be <code>layouts/page.html.ejs</code>.</p>
+<p>It&apos;s quite easy to have multiple page layouts available. Simply put as many layout templates as desired in these directories, and specify the appropriate template in the metadata for each file.</p>
+<p>In this case there isn&apos;t an option for using an Object to specify a layouts directory.</p>
+<h2>Partials directories</h2>
+<p>Partials are little snippets of template, which can be rendered into any location of any template using the <code>partial</code> function. They are the first stage of implementing arbitrary page layouts. Because the partials are available to all page layouts, this is an excellent way to implement common elements that are shared between different page layouts.</p>
+<p>An example is</p>
+<pre><code>&lt;%- partial(&apos;helloworld.html&apos;) %&gt;
+</code></pre>
+<p>Because this is a simple <code>.html</code> file, its content is simply copied verbatim into the rendering.</p>
+<p>You can pass data to a partial as so:</p>
+<pre><code>&lt;%- partial(&apos;listrender.html.ejs&apos;,
+    {
+        items: {
+            &quot;item 1&quot;: &quot;item text 1&quot;,
+            &quot;item 2&quot;: &quot;item text 2&quot;,
+            &quot;item 3&quot;: &quot;item text 3&quot;,
+            &quot;item 4&quot;: &quot;item text 4&quot;
+        }
+    })
+%&gt;
+</code></pre>
+<p>The named partial template is searched for in the directories named in the configuration object.</p>
+<pre><code>config.addPartialsDir(&apos;partials&apos;)
+</code></pre>
+<p>As for layout templates, you can have multiple <code>.addPartialsDir</code> directories. The partials directories are searched in order, with the first matching file being the one that&apos;s used. The filename selects a Renderer for rendering the partial. Whether the partial renders the data it is given depends on the Renderer corresponding to the filename.</p>
+<h1>Stylesheets and JavaScript</h1>
+<p>Websites and EPUB&apos;s usually have Stylesheets and JavaScript. Well, JavaScript isn&apos;t that useful in an EPUB, but is certainly useful in a website.</p>
+<p>An example is:</p>
+<pre><code>config
+    .addFooterJavaScript({ href: &quot;/vendor/jquery/jquery.min.js&quot; })
+    .addFooterJavaScript({ href: &quot;/vendor/bootstrap/js/bootstrap.min.js&quot;  })
+    .addStylesheet({       href: &quot;/vendor/bootstrap/css/bootstrap.min.css&quot; })
+    .addStylesheet({       href: &quot;/vendor/bootstrap/css/bootstrap-theme.min.css&quot; })
+    .addStylesheet({       href: &quot;/style.css&quot; });
+</code></pre>
+<p>The difference between FooterJavaScript and HeaderJavaScript is whether the code is placed in the <code>&lt;head&gt;</code> section, or just before the closing <code>&lt;/body&gt;</code> tag. Some recommend that JavaScript be placed at the bottom of the page, and this allows you to do so.</p>
+<p>The declarations shown here correspond to the asset directory declarations shown earlier. Together they are a method to initialize jQuery and Bootstrap on your site. Then the last, <code>/style.css</code>, gives you the opportunity for your customizations.</p>
+<h1>Mahabhuta functions</h1>
+<p>An AkashaCMS project might have its own Mahabhuta functions. There are several ways to do this, the most straightforward being to declare this in the configuration file:</p>
+<pre><code>config.addMahabhuta(require(&apos;./mahafuncs&apos;));
+</code></pre>
+<p>Then in that module you have code like:</p>
+<pre><code>`use strict`
+...
+const mahabhuta = require(&apos;mahabhuta&apos;);
+...
+module.exports = new mahabhuta.MahafuncArray(&quot;example.com website&quot;, {});
+</code></pre>
+<p>Then you add Mahabhuta custom element classes to that object.</p>
+<h1>Plugins</h1>
+<p>Plugins extend the capabilities of AkashaRender. We can loosely define AkashaCMS as the result of combining AkashaRender with the various plugins.</p>
+<p>A plugin is a Node.js module that hooks into the AkashaRender API&apos;s, providing partials or layouts or custom Mahabhuta elements or other custom processing. We&apos;ll discuss writing plugins elsewhere. (TODO Document this elsewhere)</p>
+<p>To use a plugin requires two steps. First, you declare the plugin in the <code>package.json</code> dependencies so that its module gets installed.</p>
+<p>Second, in the configuration you declare the plugin as so:</p>
+<pre><code>config
+    .use(require(&apos;akashacms-theme-bootstrap&apos;))
+    .use(require(&apos;akashacms-base&apos;))
+    .use(require(&apos;akashacms-breadcrumbs&apos;))
+    .use(require(&apos;akashacms-booknav&apos;))
+    .use(require(&apos;akashacms-embeddables&apos;))
+    .use(require(&apos;akashacms-footnotes&apos;))
+    .use(require(&apos;akashacms-blog-podcast&apos;))
+    .use(require(&apos;akashacms-tagged-content&apos;));
+</code></pre>
+<p>Notice that we use the Node.js <code>require</code> function. Simply ensure the module lands in the <code>node_modules</code> directory and this will work.</p>
+<p>Built-in to AkashaRender is one additional plugin, called <code>built-in</code>, that provides some common universally useful functionality. It is installed behind the scenes as the very last plugin.</p>
+<h2>Plugins add Layouts, Partials, Mahabhuta, Stylesheets, JavaScript, etc</h2>
+<p>Plugins typically call the <code>addPartialsDir</code> and other similar methods we&apos;ve just discussed. This way a Plugin can provide partials and other functionality.</p>
+<h2>Plugin Configuration</h2>
+<p>Some plugins offer methods to configure their behavior. You access them using this pattern:</p>
+<pre><code>config.plugin(&quot;akashacms-base&quot;).generateSitemap(config, true);
+</code></pre>
+<p>The <code>config.plugin(&quot;plugin-name&quot;)</code> method returns the Plugin object, and then you can call its methods as shown. You should consult the documentation of each plugin for further details.</p>
+<h2>Plugin data</h2>
+<p>The Configuration object can be used to store data for a given plugin. This data isn&apos;t stored in the Plugin object in case there are multiple Configuration objects being used.</p>
+<p>The <code>config.pluginData(&quot;plugin-name&quot;)</code> method returns an Array that&apos;s maintained for each plugin. The plugin will store whatever it needs in that array.</p>
+<h1>The Overridability Principle</h1>
+<p>A key principle in AkashaCMS is that a project or Plugin can override functionality provided by a Plugin.</p>
+<p>All these lists, the Partials, Layouts, etc directories, are constructed such that content in a directory declared early override matching content in a later directory. An example is that the <code>akashacms-theme-bootstrap</code> plugin provides Bootstrap-friendly implementations of Partial&apos;s implemented by other Plugins.</p>
+<p>The <code>partials</code> directory in that plugin contains several partials with the same file name as provided by other plugins. For example, the <code>akashacms-booknav</code> module provides a partial named <code>booknav-child-tree.html.ejs</code>, which is also provided by <code>akashacms-theme-bootstrap</code>. The two are similar, but the latter uses Bootstrap classes for a nicer presentation.</p>
+<p>So long as <code>use(require(&apos;akashacms-theme-bootstrap&apos;))</code> appears before <code>use(require(&apos;akashacms-booknav&apos;))</code>, the Partial in <code>akashacms-theme-bootstrap</code> will take precedence. How does this work?</p>
+<p>When AkashaRender is looking for a Document, Layout or Partial, it searches the directories in the corresponding list in order. The first match it finds is what&apos;s used. Because both <code>akashacms-theme-bootstrap</code> and <code>akashacms-booknav</code> calls <code>addPartialsDir(&apos;partials&apos;)</code> (as do the other Plugins), the list of Partials directories includes each participating Plugin.</p>
+<p>When <code>booknav-child-tree.html.ejs</code> is used, AkashaRender searches in order, and so long as the <code>use()</code> calls are as shown above, the version in <code>akashacms-theme-bootstrap</code> will be used. A particular project can additionally override that template by including its own version in its own Partials directory.</p>
+<h2>How to override stylesheets, JavaScript or Mahabhuta?</h2>
+<p>These things do not get overridden in the same way. For Documents, Layouts or Partials, the fact that AkashaRender searches through directories gives an easy method to override the matching file. For these other objects, overriding is not clear-cut.</p>
+<p><strong>Stylesheets</strong> Every CSS file ends up being listed in order in rendered HTML files. You can override a given CSS declaration by putting a matching CSS declaration in a later file. That&apos;s because of how CSS works.</p>
+<p><strong>JavaScript</strong> Every JavaScript file ends up being listed, in order, in the rendered HTML. There&apos;s no method to override functions in one JavaScript by a function in another JavaScript file.</p>
+<p><strong>Mahabhuta</strong> Every Mahafunc ends up in the array of Mahafunc&apos;s that are executed. There&apos;s no method to override anything, since all Mahafunc&apos;s are executed.</p>
+<h1>Preparing the Configuration</h1>
+<p>We close off the configuration file this way:</p>
+<pre><code>config.prepare();
+module.exports = config;
+</code></pre>
+<p>The <code>prepare</code> method is what fills in defaults for missing declarations and so forth.</p>
+<p>The last line exports the configuration object so that AkashaRender can access it.</p>
+</div>
+<div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+<div class="epub-website-ebook-logo-area">
+<div class="btn-group">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+Table of Contents
+<span class="caret"></span>
+</button>
+<ol type="1" start="1" class="dropdown-menu">
+<li><a href="index.html" id="index" title="AkashaRender">AkashaRender</a></li>
+<li><a href="2-setup.html" id="setup" title="Project Setup">Project Setup</a></li>
+<li><a href="3-create-content.html" id="create-content" title="Creating content with AkashaRender">Creating content with AkashaRender</a></li>
+<li><a href="configuration.html" id="configuration" title="Configuring an AkashaCMS/AkashaRender project">Configuring an AkashaCMS/AkashaRender project</a></li>
+</ol>
+</div>
+</div>
+<div class="epub-website-ebook-chapter-area">
+<a href="3-create-content.html">
+<span class="epub-website-ebook-chevron-left glyphicon glyphicon-chevron-left" aria-hidden="true" style=""></span>
+</a>
+<h1 class="panel-title" align="center" style="">Configuring an AkashaCMS/AkashaRender project</h1>
+<a href="index.html">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+<footer id="footer-row" class="container">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

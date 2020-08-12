@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"><link rel="stylesheet" type="text/css" href="/pulse.min.css"><link rel="stylesheet" type="text/css" href="/style.css"><link rel="stylesheet" type="text/css" href="/vendor/fontawesome-free/css/all.min.css">
+    <!-- Our Custom CSS -->
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <style>
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+nav {
+  /* background-color: steelblue; */
+}
+
+main {
+  background-color: wheat;
+}
+
+.fa {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.collapse.show {
+  visibility: visible;
+}
+.collapsing {
+  visibility: visible;
+  height: 0;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: 100%;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+    </style>
+</head>
+
+<body>
+
+        <nav class="navbar navbar-dark fixed-top bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span> Show navigation
+                </button>
+              </nav>
+
+<div class="container-fluid">
+
+        <div class="pos-f-t">
+                <div class="collapse" id="navbarToggleExternalContent">
+                  <div class="bg-dark p-4">
+
+                        <ol type="1" start="1" class="navbar-nav mr-auto">
+                                <li  class="nav-item"><a id="chapter1" class="text-light " href="chap1/index.html" title="Range Confidence: Charge Fast, Drive Far, on Electricity">Range Confidence: Charge Fast, Drive Far, on Electricity</a>
+                                <ol>
+                                <li class="nav-item"><a id="chapter1-limit" href="chap1/1-limiting-story.html"  title="The Range Anxiety story which would limit us">The Range Anxiety story which would limit us</a></li>
+                                <li class="nav-item"><a id="chapter1-brief-history" href="chap1/1-brief-history-range-anxiety.html"  title="A brief history of Range Anxiety">A brief history of Range Anxiety</a></li>
+                                </ol>
+                                </li>
+                                <li  class="nav-item">
+                                    <a id="chapter2-range-confidence" href="chap2-range-confidence.html"   title="Learning Range Confidence">Learning Range Confidence</a>
+                                    <ol>
+                                    <li><a id="chapter-rc-1" href="chap2-range-confidence.html#step1">Step 1 - Map your trips to know how far you need to drive</a></li>
+                                    <li><a id="chapter-rc-2" href="chap2-range-confidence.html#step2">Step 2 - Know your local EV charging terrain</a></li>
+                                    <li><a id="chapter-rc-3" href="chap2-range-confidence.html#step3">Step 3 - Getting around town with your electric vehicle</a></li>
+                                    <li><a id="chapter-rc-4" href="chap2-range-confidence.html#step4">Step 4 - Set up charging at home, at work, or nearby</a></li>
+                                    <li><a id="chapter-rc-5" href="chap2-range-confidence.html#step5">Step 5 - Prefer electric cars with fast charging</a></li>
+                                    <li><a id="chapter-rc-6" href="chap2-range-confidence.html#step6">Step 6 - Charging station network memberships and smart phone apps</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="chapter3" href="chap3/index.html" title="Daily Driving and longer trips on electricity - putting range confidence into practice">Daily Driving and longer trips on electricity - putting range confidence into practice</a>
+                                    <ol>
+                                    <li><a id="chapter3-average-commute" href="chap3/3-average-commute.html" title="Typical daily driving needs, on electricity">Typical daily driving needs, on electricity</a></li>
+                                    <li><a id="chapter3-ev-charging-scenarios" href="chap3/3-ev-charging-scenarios.html" title="Electric vehicle charging scenarios">Electric vehicle charging scenarios</a></li>
+                                    <li><a id="chapter3-charge-away-from-home" href="chap3/3-charge-away-from-home.html" title="How do I charge away from home?">How do I charge away from home?</a></li>
+                                    <li><a id="chapter3-ringing-the-bay" href="chap3/ringing-the-bay.html" title="Example: Circling SF Bay three times in one weekend">Example: Circling SF Bay three times in one weekend</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="autonomy" href="5-autonomy.html" title="Autonomy and electric driving freedom">Autonomy and electric driving freedom</a></li>
+                                <li  class="nav-item"><a id="charging-etiquette" href="charging-etiquette.html" title="Charging station etiquette - effectively sharing limited resources">Charging station etiquette - effectively sharing limited resources</a>
+                                    <ol>
+                                    <li><a id="ev-drivers-bill-of-rights" href="bill-of-rights.html"  title="Electric vehicle drivers Bill of Rights">Electric vehicle drivers Bill of Rights</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="chap5-ev-range" href="chap5-ev-range/index.html"title="Understanding electric vehicle range">Understanding electric vehicle range</a>
+                                    <ol>
+                                    <li><a id="chap5-energy-consumption" href="chap5-ev-range/energy-consumption.html" title="Energy storage and driving range">Energy storage and driving range</a></li>
+                                    <li><a id="chap5-driving-habits" href="chap5-ev-range/driving-habits.html" title="Driving habits, energy consumption, and driving range">Driving habits, energy consumption, and driving range</a></li>
+                                    <li><a id="chap5-range-extension" href="chap5-ev-range/range-extension.html" title="Range Extension &amp; total driving range">Range Extension &amp; total driving range</a></li>
+                                    <li><a id="chap5-city-no-chargers" href="chap5-ev-range/city-with-no-chargers.html" title="What happens if an electric vehicle runs out of power in a city with no charging stations?">What happens if an electric vehicle runs out of power in a city with no charging stations?</a></li>
+                                    <li><a id="chap5-dashboard-estimate" href="chap5-ev-range/dashboard-estimate.html" title="Why doesn&apos;t the dashboard show accurate range?">Why doesn&apos;t the dashboard show accurate range?</a></li>
+                                    <li><a id="chap5-capacity-loss" href="chap5-ev-range/capacity-loss.html" title="Battery pack age, and capacity loss">Battery pack age, and capacity loss</a></li>
+                                    <li><a id="chap5-epa-estimates" href="chap5-ev-range/epa-estimates.html" title="How does EPA estimate electric car driving range?">How does EPA estimate electric car driving range?</a></li>
+                                    <li><a id="chap5-epa-label" href="chap5-ev-range/epa-label.html" title="Understanding the EPA ratings label for electric cars">Understanding the EPA ratings label for electric cars</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="chapter4" href="chap4-charging/index.html" title="Charging electric cars in public">Charging electric cars in public</a>
+                                    <ol>
+                                    <li><a id="chapter4-charging-rate" href="chap4-charging/4-charging-rates.html" title="Understanding charging rates and effective trip speed">Understanding charging rates and effective trip speed</a></li>
+                                    <li><a id="chapter4-charge-rate-needed" href="chap4-charging/4-charge-rate-needed.html"title="What charging rate do we need? &#x201C;As fast as possible&#x201D; isn&#x2019;t always what&#x2019;s needed">What charging rate do we need? &#x201C;As fast as possible&#x201D; isn&#x2019;t always what&#x2019;s needed</a></li>
+                                    <li><a id="chapter4-drive-beyond-charging-networks" href="chap4-charging/drive-beyond-charging-networks.html" title="Can you drive an electric car away from charging network coverage areas?">Can you drive an electric car away from charging network coverage areas?</a></li>
+                                    <li><a id="chapter4-plugshare-charging-network" href="chap4-charging/4-plugshare-charging-network.html" title="What charging networks exist?  ChargePoint?  Plugshare?">What charging networks exist?  ChargePoint?  Plugshare?</a></li>
+                                    <li><a id="chapter4-evse-field-guide" href="chap4-charging/4-evse-field-guide.html"title="A Field Guide to electric vehicle service equipment (EVSE&apos;s)">A Field Guide to electric vehicle service equipment (EVSE&apos;s)</a></li>
+                                    <li><a id="chapter4-pay-for-charging" href="chap4-charging/4-pay-for-charging.html" title="How do I pay for energy consumed in charging my electric vehicle?">How do I pay for energy consumed in charging my electric vehicle?</a></li>
+                                    <li><a id="chapter4-business-model" href="chap4-charging/making-money.html"  title="How do electric car charging station networks make money?">How do electric car charging station networks make money?</a></li>
+                                    <li><a id="chapter4-fast-charging-ubiquity" href="chap4-charging/fast-charging-ubiquity.html" title="Non-standard fast charging limits needed fast charging ubiquity">Non-standard fast charging limits needed fast charging ubiquity</a></li>
+                                    <li><a id="chapter4-known-charging-apps" href="chap4-charging/known-charging-apps.html" title="Smart-phone apps for finding electric car charging station networks">Smart-phone apps for finding electric car charging station networks</a></li>
+                                    <li><a id="chapter4-known-charging-networks" href="chap4-charging/known-charging-networks.html"  title="Known electric car charging networks around the world">Known electric car charging networks around the world</a></li>
+                                    <li><a id="chapter4-fix-stuck-charging-cord" href="chap4-charging/4-fix-stuck-charging-cord.html" title="What to do if the charging cord is stuck, cannot be removed">What to do if the charging cord is stuck, cannot be removed</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="chap6-home-charging" href="chap6-home-charging/index.html" title="Getting and installing at home electric car charging equipment">Getting and installing at home electric car charging equipment</a>
+                                    <ol>
+                                    <li><a id="chap6-cheapest-home-charging" href="chap6-home-charging/cheapest-home-charging.html"  title="Installing cheap/inexpensive electric car charging at home">Installing cheap/inexpensive electric car charging at home</a></li>
+                                    <li><a id="chap6-planning" href="chap6-home-charging/planning.html" title="How to plan for and install 240 volt circuit to charge an electric car/vehicle?">How to plan for and install 240 volt circuit to charge an electric car/vehicle?</a></li>
+                                    <li><a id="chap6-fast-charging-at-home" href="chap6-home-charging/fast-charging-at-home.html"  title="Fast charging your electric car at home">Fast charging your electric car at home</a></li>
+                                    <li><a id="chap6-apartment-dwellers" href="chap6-home-charging/apartment-dwellers.html" title="Apartment/Condo dwellers - what to do if you cannot charge at home">Apartment/Condo dwellers - what to do if you cannot charge at home</a></li>
+                                    <li><a id="chap6-quick-220" href="chap6-home-charging/quick-220.html" title="How-to: 240 volts when all you have is 120 volt outlets">How-to: 240 volts when all you have is 120 volt outlets</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="chap6a-evse-catalog" href="chap-6a-evse-catalog.html" title="The best electric car charging stations for home charging or on trips">The best electric car charging stations for home charging or on trips</a></li>
+                                <li  class="nav-item"><a id="chapter7" href="chap7-ev-economics/index.html" title="A brief study of EV Ownership Economics">A brief study of EV Ownership Economics</a>
+                                    <ol>
+                                    <li><a id="chapter7-fuel-cost" href="chap7-ev-economics/index.html#fuel-cost">Fuel cost per mile</a></li>
+                                    <li><a id="chapter7-tip-balance" href="chap7-ev-economics/index.html#tip-balance">Tipping the economic balance in favor of electricity</a></li>
+                                    <li><a id="chapter7-cost-home-public-charging" href="chap7-ev-economics/index.html#cost-home-public-charging">Charging cost at home versus in public</a></li>
+                                    <li><a id="chapter7-free-charging" href="chap7-ev-economics/index.html#free-charging">The high cost of free charging</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="ev-charging-standards" href="chap8-tech/standards-unity.html">
+                                Electric Car Charging standards, unity, disunity, and the need for unity
+                                </a>
+                                    <ol>
+                                    <li><a id="chapter4-charging-levels" href="chap4-charging/4-charging-levels.html"title="Charging levels - Level 1, Level 2, DC Fast Charging, etc">Charging levels - Level 1, Level 2, DC Fast Charging, etc</a></li>
+                                    <li><a id="chapter8-fast-charge-protocols" href="chap8-tech/ev-dc-fast-charging-standards-chademo-ccs-sae-combo-tesla-supercharger-etc.html"title="EV DC Fast Charging standards &#x2013; CHAdeMO, CCS, SAE Combo, Tesla Supercharger, etc">EV DC Fast Charging standards &#x2013; CHAdeMO, CCS, SAE Combo, Tesla Supercharger, etc</a></li>
+                                    <li><a id="chapter8-ac-fast-charging" href="chap8-tech/ac-fast-charging.html" title="EV AC Fast Charging Systems &#x2013; Renault ZOE, Smart ED">EV AC Fast Charging Systems &#x2013; Renault ZOE, Smart ED</a></li>
+                                    <li><a id="chapter8-fast-charge-adapters" href="chap8-tech/fast-charge-adapters.html" title="Fast charge adapters are possible, but how many really need CHAdeMO-CCS adapters?">Fast charge adapters are possible, but how many really need CHAdeMO-CCS adapters?</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="ev-charging-tech" href="chap8-tech/tech-introduction.html" title="Electric car charging technology">Electric car charging technology</a>
+                                    <ol>
+                                    <li><a id="chapter8-battery-charging-time" href="chap8-tech/battery-charging-time.html" title="Why does charging a battery take so long? Hint: reversible electrochemical reactions cannot be rushed">Why does charging a battery take so long? Hint: reversible electrochemical reactions cannot be rushed</a></li>
+                                    <li><a id="chapter8-battery-swapping" href="chap8-tech/battery-swapping.html"  title="Wouldn&apos;t battery swapping be preferable over waiting to recharge?">Wouldn&apos;t battery swapping be preferable over waiting to recharge?</a></li>
+                                    <li><a id="chapter8-charge-while-driving" href="chap8-tech/charge-while-driving.html" title="Can an electric car be charged while driving?  Such as a battery pack in a trailer?">Can an electric car be charged while driving?  Such as a battery pack in a trailer?</a></li>
+                                    <li><a id="chapter8-charge-faster-than-gas" href="chap8-tech/charge-faster-than-gas.html" title="When will electric cars charge faster than it takes to fill-up an equivalent gasoline car?">When will electric cars charge faster than it takes to fill-up an equivalent gasoline car?</a></li>
+                                    <li><a id="chapter8-charge-rate-limitations" href="chap8-tech/charge-rate-limitations.html" title="What is the technical limitations on maximum electric car charging rate, why is the Tesla Supercharger limited to 120 kW?">What is the technical limitations on maximum electric car charging rate, why is the Tesla Supercharger limited to 120 kW?</a></li>
+                                    <li><a id="chapter8-electric-car-extension-cords" href="chap8-tech/electric-car-extension-cords.html" title="Safely use Extension Cords when charging an electric car or electric motorcycle">Safely use Extension Cords when charging an electric car or electric motorcycle</a></li>
+                                    <li><a id="chapter8-formal-informal" href="chap8-tech/formal-informal.html" type="button"  title="Informal electric car charging at any power outlet, versus a regular charging station">Informal electric car charging at any power outlet, versus a regular charging station</a></li>
+                                    <li><a id="chapter8-extension-cord-required" href="chap8-tech/extension-cord-required.html"  title="When are electric car extension cords required?">When are electric car extension cords required?</a></li>
+                                    <li><a id="chapter8-electrical-code-outlets" href="chap8-tech/electrical-code-outlets.html"  title="Electric car charging within electrical code and power outlet limits">Electric car charging within electrical code and power outlet limits</a></li>
+                                    <li><a id="chapter4-charge-in-the-rain" href="chap4-charging/4-charge-in-rain.html"  title="Is it safe to charge an electric car in the rain?">Is it safe to charge an electric car in the rain?</a></li>
+                                    <li><a id="chapter8-small-onboard-genset" href="chap8-tech/small-onboard-genset.html"  title="Why do all-electric cars not have a small (efficient) generator for a limp home to ease range anxiety?">Why do all-electric cars not have a small (efficient) generator for a limp home to ease range anxiety?</a></li>
+                                    <li><a id="chapter8-charge-12v-battery" href="chap8-tech/charge-12v-battery.html"  title="Why is there a 12 volt lead-acid battery, and how is it charged in an electric car?">Why is there a 12 volt lead-acid battery, and how is it charged in an electric car?</a></li>
+                                    </ol>
+                                </li>
+                                <li  class="nav-item"><a id="chap9-fast-charging-required" href="chap9-fast-charging-required.html"  title="Long range electric cars, sales rate, the need for more fast charging">Long range electric cars, sales rate, the need for more fast charging</a></li>
+                                <li  class="nav-item"><a id="about" href="../about.html" title="About the Author - David Herron">About the Author - David Herron</a></li>
+                                <li  class="nav-item"><a id="copyright" href="../copyright.html"  title="Copyright">Copyright</a></li>
+                                </ol>
+                    <!-- <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                                <ul class="collapse list-unstyled" id="homeSubmenu">
+                                    <li>
+                                        <a href="#">Home 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Home 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Home 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                                <a  class="nav-link"href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu">
+                                    <li>
+                                        <a href="#">Page 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu">
+                                    <li>
+                                        <a href="#">Page 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu">
+                                    <li>
+                                        <a href="#">Page 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="#">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu">
+                                    <li>
+                                        <a href="#">Page 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul> -->
+                  </div>
+                </div>
+              </div>
+
+
+<div class="row d-flex">
+    <main class="col-xs-12">
+    <i class="fa fa-times" data-toggle="collapse" data-target="#sidebar" aria-hidden="true" aria-expanded="false" aria-controls="sidebar"></i>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info " data-toggle="collapse" data-target="#sidebar" aria-hidden="true" aria-expanded="false" aria-controls="sidebar">
+                <i class="fas fa-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+        </div>
+    </nav>
+
+
+<h2>Collapsible Sidebar Using Bootstrap 4</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h3>Lorem Ipsum Dolor</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h3>Lorem Ipsum Dolor</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h3>Lorem Ipsum Dolor</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h3>Lorem Ipsum Dolor</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<div class="line"></div>
+
+<h3>Lorem Ipsum Dolor</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<!-- Dark Overlay element -->
+    </main>
+</div>
+</div>
+
+
+
+    <script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/popper.js/umd/popper.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+</body>
+
+</html>

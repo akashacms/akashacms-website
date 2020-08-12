@@ -1,0 +1,169 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML</title>
+<meta name="pagename" content="AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML">
+<meta name="date" content="Tue Apr 04 2017 23:04:23 GMT-0700 (PDT)">
+<meta name="DC.title" content="AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML">
+<meta name="og:title" content="AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML">
+<meta name="og:url" content="https://akashacms.com/new/plugins/built-in/index.html">
+<link rel="canonical" href="https://akashacms.com/new/plugins/built-in/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/new/plugins/built-in/index.html">
+<meta name="twitter:title" content="AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/new/index.html">AkashaCMS - the powerful static file CMS to build your dream website NEW SITE</a> </li> <li> <a href="/new/plugins/index.html">AkashaCMS plugin directory</a> </li> <li> <a href="/new/plugins/built-in/index.html">AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML</a> </li>
+</ol>
+</div>
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p>AkashaRender includes a &quot;built-in&quot; plugin with custom tags useful for any target use. The AkashaCMS toolchain supports rendering both websites and EPUB&apos;s, and could support rendering for other target uses of HTML. The EPUB format includes constraints where, while EPUB3 uses HTML5, a sizeable list of HTML5 features are not allowed. Both the built-in plugin and the <code>akashacms-base</code> plugin both aspire to provide features useful to everyone, the latter includes those features useful only for websites, whereas the built-in plugin features are useful for everyone.</p>
+<h1>Installation and Configuration</h1>
+<p>There&apos;s nothing to do, the built-in plugin is, well, built-in to AkashaRender.</p>
+<h1>Stylesheets</h1>
+<p>The <code>&lt;ak-stylesheets&gt;</code> tag generates links to CSS stylesheets, as declared in <code>config.js</code> or in the document metadata.</p>
+<p>In <code>config.js</code> add something like this:</p>
+<pre><code>config
+    .addStylesheet({ href: &quot;/vendor/bootstrap/css/bootstrap.min.css&quot; })
+    .addStylesheet({ href: &quot;/vendor/bootstrap/css/bootstrap-theme.min.css&quot; })
+    .addStylesheet({ href: &quot;/vendor/bootswatch-readable/bootstrap.min.css&quot; })
+    .addStylesheet({ href: &quot;/style.css&quot; });
+</code></pre>
+<p>The options include the <code>href</code> option shown here, and <code>media</code> to declare the media type. These correspond to these attributes</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;${style.href}&quot; media=&quot;${style.media}&quot;/&gt;
+</code></pre>
+<p>In document metadata include this for per-page stylesheets:</p>
+<pre><code>---
+...
+headerStylesheetsAdd:
+  - href: &quot;/vendor/bootstrap/css/bootstrap.min.css&quot;
+  - href: &quot;/style-for-this-page.css&quot;
+...
+---
+</code></pre>
+<h1>JavaScript</h1>
+<p>JavaScript tags can be added either at the top of the page, in the <code>&lt;head&gt;</code> section, or at the bottom of the page, depending on your preferences. AkashaRender supports declaring the JavaScript files to be put in which section.</p>
+<p>Place the <code>&lt;ak-headerJavaScript&gt;</code> tag where you want header JavaScript to appear, and the <code>&lt;ak-footerJavaScript&gt;</code> tag where you want the footer JavaScript to appear.</p>
+<p>In <code>config.js</code> add something like this:</p>
+<pre><code>config
+    .addFooterJavaScript({ href: &quot;/vendor/jquery/jquery.min.js&quot; })
+    .addFooterJavaScript({ href: &quot;/vendor/bootstrap/js/bootstrap.min.js&quot;  })
+</code></pre>
+<p>Substitute <code>Header</code> for <code>Footer</code> and the JavaScript will appear in the <code>&lt;head&gt;</code> section.</p>
+<p>The object can contain these fields:</p>
+<ul>
+<li><code>lang</code> (optional) specifies the language of the script, corresponding to the <code>type=</code> attribute</li>
+<li><code>href</code> corresponds to the <code>src=</code> attribute</li>
+<li><code>script</code> becomes an in-line JavaScript placed within the <code>&lt;script&gt;..&lt;/script&gt;</code> tag</li>
+</ul>
+<p>It is not allowed to have both <code>href</code> and <code>script</code> fields.</p>
+<p>To specify these on a per-document basis in the metadata:</p>
+<pre><code>---
+...
+headerJavaScriptAddTop:
+  - href: &quot;/vendor/jquery/jquery.min.js&quot;
+  - href: &quot;/vendor/bootstrap/js/bootstrap.min.js&quot;
+...
+---
+</code></pre>
+<p>This specifies JavaScript at the top of the page, use <code>headerJavaScriptAddBottom</code> for JavaScript at the bottom of the page.</p>
+<h1>Teaser content</h1>
+<p>Some writers swear by creating a <em>teaser</em> for every document. The idea is a small bit of text <em>teasing</em> the reader to go ahead and read the whole document.</p>
+<p>The <code>&lt;ak-teaser&gt;</code> tag supports inserting the content of a <code>teaser</code> metadata object. It uses the <code>ak_teaser.html.ejs</code> partial to do so.</p>
+<h1>Anchor tag cleanups</h1>
+<p>This feature automagically fixes <code>&lt;a&gt;</code> tags, referencing a local document, and which lack text or an image. Normally an empty tag would show up as nothing in the web browser. AkashaRender makes it into something useful.</p>
+<p>It reads the metadata of the referenced document, and inserts that documents title as the anchor text.</p>
+<p>For example the code <code>&lt;a href=&quot;/hello-world.html&quot;&gt;&lt;/a&gt;</code> might be rewritten to: <code>&lt;a href=&quot;/hello-world.html&quot;&gt;Hello, world!&lt;/a&gt;</code>. If you&apos;re using Markdown the equivalent works: <code>[](/hello-world.html)</code> because Markdown converts that to a normal <code>&lt;a&gt;</code> tag.</p>
+<p>The URL passed in the <code>href</code> attribute should of course be the URL of the rendered file. You might have created a file <code>hello-world.html.md</code> which is then rendered to <code>hello-world.html</code>. The link of course needs to reference the rendered file even though the metadata is in the source file. AkashaRender figures out which is which under the covers.</p>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

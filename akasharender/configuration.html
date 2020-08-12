@@ -1,0 +1,563 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Configuring an AkashaCMS/AkashaRender project</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Configuring an AkashaCMS/AkashaRender project">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Configuring an AkashaCMS/AkashaRender project">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Configuring an AkashaCMS/AkashaRender project">
+
+<meta name="og:url" content="https://akashacms.com/akasharender/configuration.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/akasharender/configuration.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="../epubtools/toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+    <li class="dropdown-item"><a href="index.html" id="index" title="AkashaRender">AkashaRender</a></li>
+    <li class="dropdown-item"><a href="2-setup.html" id="setup" title="Project Setup">Project Setup</a></li>
+    <li class="dropdown-item"><a href="3-create-content.html" id="create-content" title="Creating content with AkashaRender">Creating content with AkashaRender</a></li>
+    <li class="dropdown-item"><a href="configuration.html" id="configuration" title="Configuring an AkashaCMS/AkashaRender project">Configuring an AkashaCMS/AkashaRender project</a></li>
+    <li class="dropdown-item"><a href="projects.html" id="projects" title="AkashaRender Projects, package.json, build process">AkashaRender Projects, package.json, build process</a></li>
+    <li class="dropdown-item"><a href="layouts-partials.html" id="layouts-partials" title="Page layout, and shared code snippets using partials or Mahabhuta custom tags">Page layout, and shared code snippets using partials or Mahabhuta custom tags</a>
+        <ol>
+            <li><a href="css-less.html" id="css-less" title="Using CSS and LESS and JS files">Using CSS and LESS and JS files</a></li>
+                <li><a href="theming.html" id="theming" title="Theming an AkashaRender Project">Theming an AkashaRender Project</a></li>
+        </ol>
+    </li>
+    <li class="dropdown-item"><a href="plugins-using.html" id="plugins-using" title="Using AkashaCMS plugins in AkashaRender projects">Using AkashaCMS plugins in AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="plugins-writing.html" id="plugins-writing" title="Writing AkashaCMS plugins for use by AkashaRender projects">Writing AkashaCMS plugins for use by AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="rendering-engines.html" id="rendering-engines" title="AkashaRender Rendering Engines - usage and implementation">AkashaRender Rendering Engines - usage and implementation</a></li>
+    <li class="dropdown-item"><a href="advanced.html" id="advanced" title="Advanced AkashaRender usage patterns">Advanced AkashaRender usage patterns</a></li>
+    <!-- <li>API
+        <ol>
+        <li><a href="api/built-in.js.html" id="built-in">Built-in Plugin</a></li>
+        <li><a href="api/caching.js.html" id="caching">Caching</a></li>
+        <li><a href="api/Configuration.js.html" id="Configuration">Configuration</a></li>
+        <li><a href="api/documents.js.html" id="documents">Documents</a></li>
+        <li><a href="api/filez.js.html" id="filez"></a>filez</li>
+        <li><a href="api/HTMLRenderer.js.html" id="HTMLRenderer">HTMLRenderer</a></li>
+        <li><a href="api/index.js.html" id="index">index</a></li>
+        <li><a href="api/Plugin.js.html" id="Plugin">Plugin</a></li>
+        <li><a href="api/render-cssless.js.html" id="render-cssless">render-cssless</a></li>
+        <li><a href="api/render-ejs.js.html" id="render-ejs">render-ejs</a></li>
+        <li><a href="api/render-md.js.html" id="render-md">render-md</a></li>
+        <li><a href="api/render.js.html" id="render">render</a></li>
+        <li><a href="api/Renderer.js.html" id="Renderer">Renderer</a></li>
+        </ol>
+    </li> -->
+</ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="3-create-content.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Configuring an AkashaCMS/AkashaRender project</h1>
+
+<a href="projects.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>The <code>Configuration</code> object contains everything AkashaRender requires to render an AkashaCMS project.  The project creator uses the Configuration API to create this object.  It is intended this object is created in a Node.js module, and that the filename for that module is passed on the <code>akasharender</code> command-line.</p>
+<p>For example, the <code>package.json</code> for the project can include these <code>script</code> tags:</p>
+<pre><code class="hljs"><span class="hljs-string">&quot;scripts&quot;</span>: {
+    <span class="hljs-string">&quot;prebuild&quot;</span>: <span class="hljs-string">&quot;akasharender copy-assets config.js&quot;</span>,
+    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;akasharender render config.js&quot;</span>,
+    <span class="hljs-string">...</span>
+}
+</code></pre>
+<p>Upon running <code>npm run build</code>, it first runs <code>copy-assets</code> to copy the asset files to the destination directory, and then uses <code>render</code> to render the documents to the destination directory.  The same configuration file, <code>config.js</code>, is passed in each case.</p>
+<p>One can of course have multiple configuration files for the same project.  For example it&apos;s possible for a subsection of a website to also be used to create an EPUB eBook.  In that case, one configuration file describes building the website, and the second configuration describes using a portion of the website content to build the EPUB.</p>
+<h1>Configuration file</h1>
+<p>We briefly touched on the Configuration object in <a href="2-setup.html" title="Project Setup">Project Setup</a>, so let&apos;s go deeper.</p>
+<pre><code class="hljs language-js"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">const</span> akasha  = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akasharender&apos;</span>);
+
+<span class="hljs-keyword">const</span> config = <span class="hljs-keyword">new</span> akasha.Configuration();
+
+config.rootURL(<span class="hljs-string">&quot;http://example.com&quot;</span>);
+
+config.configDir = __dirname;
+
+config
+    .addAssetsDir(<span class="hljs-string">&apos;assets&apos;</span>)
+    .addLayoutsDir(<span class="hljs-string">&apos;layouts&apos;</span>)
+    .addDocumentsDir(<span class="hljs-string">&apos;documents&apos;</span>)
+    .addPartialsDir(<span class="hljs-string">&apos;partials&apos;</span>);
+
+config.setMahabhutaConfig({
+    <span class="hljs-attr">recognizeSelfClosing</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">recognizeCDATA</span>: <span class="hljs-literal">true</span>
+});
+
+config.prepare();
+
+<span class="hljs-built_in">module</span>.exports = config;
+</code></pre>
+<p>This is just a normal every-day Node.js module.  At the top we create a <code>Configuration</code> object, in the middle we call methods on that object to make settings, at the bottom we call <code>config.prepare()</code> and then assign the Configuration object to <code>module.exports</code>.  That last step makes the Configuration object available to AkashaRender.</p>
+<h1>Project rootURL</h1>
+<p>The <code>rootURL</code> method declares the base URL of the project.  This is necessary for website projects, so that AkashaRender can generate correct URL&apos;s in certain circumstances.</p>
+<h1>Project Configuration Directory</h1>
+<p>It&apos;s useful to inform the Configuration the directory containing the project.</p>
+<pre><code class="hljs language-js">config.configDir = __dirname;
+</code></pre>
+<p>With this setting, when you add a directory (as shown below) the Configuration automatically converts it into an absolute path spec.  That is:</p>
+<pre><code class="hljs language-js">config.addAssetsDir(<span class="hljs-string">&apos;assets1&apos;</span>)
+</code></pre>
+<p>Ends up adding <code>/path/to/configuration/directory/assets1</code> to the AssetsDir array.</p>
+<h1>Input directories and the Output directory</h1>
+<p>AkashaRender&apos;s model is to take files and data from various input sources, and to produce an output directory tree that is the rendered project.  Typically that&apos;s a website or EPUB or other HTML-oriented thing.  Maybe it could be used to render other sorts of things, but that hasn&apos;t been tested.</p>
+<p>The output directory is declared as so:</p>
+<pre><code class="hljs language-js">config.setRenderDestination(<span class="hljs-string">&apos;out-range-confidence&apos;</span>);
+</code></pre>
+<p>If not specified, <code>out</code> is used.  It is intended that this directory be directly useful as the webroot for a web server, or in the case of an EPUB that <code>epubtools</code> be able to use the directory to create EPUB3 metadata files and then bundle the EPUB.</p>
+<h2>Assets directories</h2>
+<p>Asset directories contain files which are copied verbatim with no processing.  Any number of asset directories can be declared.  The files are copied in the order in which they&apos;re declared in the configuration.  The directory structure in the output directory is copied verbatim from the directory structure of the asset directories.</p>
+<p>It is not necessary to declare any asset directories.  Any file in a Documents directory that isn&apos;t recognized for processing will be copied verbatim.  But it may be useful to separate the asset directories from documents directories.</p>
+<p>The asset files are copied using this command:</p>
+<pre><code class="hljs">$ akasharender <span class="hljs-keyword">copy</span><span class="bash">-assets config.js</span>
+</code></pre>
+<p>Specifying multiple asset directories is simple:</p>
+<pre><code class="hljs language-js">config
+    .addAssetsDir(<span class="hljs-string">&apos;assets1&apos;</span>)
+    .addAssetsDir(<span class="hljs-string">&apos;assets2&apos;</span>)
+    .addAssetsDir(<span class="hljs-string">&apos;assets3&apos;</span>)
+</code></pre>
+<p>In addition to declaring the assets directory with a String, you can use an Object to declare where the asset files should land in the output directory.</p>
+<pre><code class="hljs language-js">config.addAssetsDir({
+        <span class="hljs-attr">src</span>: <span class="hljs-string">&apos;/path/to/shared/fonts/archive&apos;</span>,
+        <span class="hljs-attr">dest</span>: <span class="hljs-string">&apos;vendor/fonts&apos;</span>
+    });
+</code></pre>
+<p>Or</p>
+<pre><code class="hljs language-js">config
+    .addAssetsDir({
+        <span class="hljs-attr">src</span>: <span class="hljs-string">&apos;node_modules/bootstrap/dist&apos;</span>,
+        <span class="hljs-attr">dest</span>: <span class="hljs-string">&apos;vendor/bootstrap&apos;</span>
+    })
+   .addAssetsDir({
+        <span class="hljs-attr">src</span>: <span class="hljs-string">&apos;node_modules/jquery/dist&apos;</span>,
+        <span class="hljs-attr">dest</span>: <span class="hljs-string">&apos;vendor/jquery&apos;</span>
+    })
+</code></pre>
+<p>The first allows you to share a set of fonts between multiple projects.  Whatever is in the fonts archive directory is then copied into the <code>vendor/fonts</code> directory within the output directory.</p>
+<p>The second case shows a simple way to include Bootstrap and jQuery files in the output directory.  First you list the <code>bootstrap</code> and <code>jquery</code> modules in <code>package.json</code>.  Those packages do not provide Node.js functionality, but simply bring down the browser-side code for the corresponding packages.  The <code>dist</code> directories in each case include the files you&apos;d need to deploy to your website.  With these declarations, the files then land in <code>vendor/bootstrap</code> and <code>vendor/jquery</code> in the output directory.  Once the jQuery and Bootstrap code is in your website, your rendered HTML must use those files, and we present one method later.</p>
+<h2>Documents directories</h2>
+<p>Documents directories contain files which might be processed and rendered into the output directory.  The processing that&apos;s performed depends on the Rendering objects.  We go over the rendering process elsewhere (TODO: need to document the Rendering process in more depth), so for this discussion simply consider that the contents of the Documents directories may be rendered, or may be copied verbatim.</p>
+<p>A single documents directory is declared as so:</p>
+<pre><code class="hljs language-js">config.addDocumentsDir(<span class="hljs-string">&apos;documents&apos;</span>);
+</code></pre>
+<p>As with assets directories, you call this method multiple times to specify multiple documents directories.</p>
+<pre><code class="hljs language-js">config.addDocumentsDir(<span class="hljs-string">&apos;documents1&apos;</span>);
+config.addDocumentsDir(<span class="hljs-string">&apos;documents2&apos;</span>);
+config.addDocumentsDir(<span class="hljs-string">&apos;documents3&apos;</span>);
+</code></pre>
+<p>In addition to declaring a documents directory using a String, you can pass an Object declaring where the documents are rendered in the output directory.</p>
+<pre><code class="hljs language-js">config.addDocumentsDir(<span class="hljs-string">&apos;documents&apos;</span>);
+config.addDocumentsDir({
+    <span class="hljs-attr">src</span>: <span class="hljs-string">&apos;archive&apos;</span>,
+    <span class="hljs-attr">dest</span>: <span class="hljs-string">&apos;archive&apos;</span>,
+    <span class="hljs-attr">baseMetadata</span>: {
+        <span class="hljs-attr">meaningOfLife</span>: <span class="hljs-string">&quot;42&quot;</span>,
+        <span class="hljs-attr">me</span>: <span class="hljs-string">&quot;Ashildr Einarrsdottir&quot;</span>
+    }
+});
+</code></pre>
+<p>This says the <code>archive</code> directory is rendered into the <code>archive</code> subdirectory of the output directory.  Additionally the given metadata is used for files within that hierarchy.</p>
+<p>Earlier we said it&apos;s possible to use a portion of your website either as website content, or too generate an EPUB.</p>
+<p>One method is to store the EPUB content in a separate directory and in in the website configuration file declare it as so:</p>
+<pre><code class="hljs language-js">config.addDocumentsDir({
+    <span class="hljs-attr">src</span>: <span class="hljs-string">&apos;documents-epub&apos;</span>,
+    <span class="hljs-attr">dest</span>: <span class="hljs-string">&apos;path/to/epub&apos;</span>
+});
+</code></pre>
+<p>The other method is to store the EPUB content within the website.  In the EPUB configuration file, declare it as so:</p>
+<pre><code class="hljs language-js">config.addDocumentsDir(<span class="hljs-string">&apos;documents/path/to/epub&apos;</span>);
+</code></pre>
+<p>Everything under that path is rendered to the output directory.</p>
+<h2>Layouts directories</h2>
+<p>The layouts directories contain page layouts.</p>
+<p>In AkashaCMS the content files we edit are simply the content, and not the whole page layout.  It&apos;s assumed you&apos;ll have a few standardized page layouts used on multiple pages.  Hence, page layouts should be reusable.</p>
+<p>Remember that the page layout is specified in the metadata:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-string">..</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">page.html.ejs</span>
+<span class="hljs-string">..</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">content</span>
+</code></pre>
+<p>We find templates by looking in directories specified in the configuration object:</p>
+<pre><code class="hljs language-js">config.addLayoutsDir(<span class="hljs-string">&apos;layouts&apos;</span>);
+</code></pre>
+<p>We can use multiple <code>addLayoutsDir</code> declarations, and AkashaRender will consult each directory in order.  When searching for a specific layout file, it stops at the first matching file.   In this case, with a single directory to search, the matching file would be <code>layouts/page.html.ejs</code>.</p>
+<p>It&apos;s quite easy to have multiple page layouts available.  Simply put as many layout templates as desired in these directories, and specify the appropriate template in the metadata for each file.</p>
+<p>In this case there isn&apos;t an option for using an Object to specify a layouts directory.</p>
+<h2>Partials directories</h2>
+<p>Partials are little snippets of template, which can be rendered into any location of any template using the <code>partial</code> function.  They are the first stage of implementing arbitrary page layouts.  Because the partials are available to all page layouts, this is an excellent way to implement common elements that are shared between different page layouts.</p>
+<p>An example is</p>
+<pre><code class="hljs">&lt;<span class="hljs-meta">%</span>- partial<span class="hljs-comment">(&apos;helloworld.html&apos;)</span> <span class="hljs-meta">%</span>&gt;
+</code></pre>
+<p>Because this is a simple <code>.html</code> file, its content is simply copied verbatim into the rendering.</p>
+<p>You can pass data to a partial as so:</p>
+<pre><code class="hljs">&lt;%- partial(<span class="hljs-string">&apos;listrender.html.ejs&apos;</span>,
+    {
+        items: {
+            <span class="hljs-string">&quot;item 1&quot;</span>: <span class="hljs-string">&quot;item text 1&quot;</span>,
+            <span class="hljs-string">&quot;item 2&quot;</span>: <span class="hljs-string">&quot;item text 2&quot;</span>,
+            <span class="hljs-string">&quot;item 3&quot;</span>: <span class="hljs-string">&quot;item text 3&quot;</span>,
+            <span class="hljs-string">&quot;item 4&quot;</span>: <span class="hljs-string">&quot;item text 4&quot;</span>
+        }
+    })
+%&gt;
+</code></pre>
+<p>The named partial template is searched for in the directories named in the configuration object.</p>
+<pre><code class="hljs language-js">config.addPartialsDir(<span class="hljs-string">&apos;partials&apos;</span>)
+</code></pre>
+<p>As for layout templates, you can have multiple <code>.addPartialsDir</code> directories.  The partials directories are searched in order, with the first matching file being the one that&apos;s used.  The filename selects a Renderer for rendering the partial.  Whether the partial renders the data it is given depends on the Renderer corresponding to the filename.</p>
+<h1>Stylesheets and JavaScript</h1>
+<p>Websites and EPUB&apos;s usually have Stylesheets and JavaScript.  Well, JavaScript isn&apos;t that useful in an EPUB, but is certainly useful in a website.</p>
+<p>An example is:</p>
+<pre><code class="hljs language-js">config
+    .addFooterJavaScript({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/jquery/jquery.min.js&quot;</span> })
+    .addFooterJavaScript({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/js/bootstrap.min.js&quot;</span>  })
+    .addStylesheet({       <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap.min.css&quot;</span> })
+    .addStylesheet({       <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap-theme.min.css&quot;</span> })
+    .addStylesheet({       <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/style.css&quot;</span> });
+</code></pre>
+<p>The difference between FooterJavaScript and HeaderJavaScript is whether the code is placed in the <code>&lt;head&gt;</code> section, or just before the closing <code>&lt;/body&gt;</code> tag.  Some recommend that JavaScript be placed at the bottom of the page, and this allows you to do so.</p>
+<p>The declarations shown here correspond to the asset directory declarations shown earlier.  Together they are a method to initialize jQuery and Bootstrap on your site.  Then the last, <code>/style.css</code>, gives you the opportunity for your customizations.</p>
+<h1>Mahabhuta functions</h1>
+<p>An AkashaCMS project might have its own Mahabhuta functions.  There are several ways to do this, the most straightforward being to declare this in the configuration file:</p>
+<pre><code class="hljs language-js">config.addMahabhuta(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./mahafuncs&apos;</span>));
+</code></pre>
+<p>Then in that module you have code like:</p>
+<pre><code class="hljs language-js"><span class="hljs-string">`use strict`</span>
+...
+const mahabhuta = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mahabhuta&apos;</span>);
+...
+module.exports = <span class="hljs-keyword">new</span> mahabhuta.MahafuncArray(<span class="hljs-string">&quot;example.com website&quot;</span>, {});
+</code></pre>
+<p>Then you add Mahabhuta custom element classes to that object.</p>
+<h1>Plugins</h1>
+<p>Plugins extend the capabilities of AkashaRender.  We can loosely define AkashaCMS as the result of combining AkashaRender with the various plugins.</p>
+<p>A plugin is a Node.js module that hooks into the AkashaRender API&apos;s, providing partials or layouts or custom Mahabhuta elements or other custom processing.  We&apos;ll discuss writing plugins elsewhere.  (TODO Document this elsewhere)</p>
+<p>To use a plugin requires two steps.  First, you declare the plugin in the <code>package.json</code> dependencies so that its module gets installed.</p>
+<p>Second, in the configuration you declare the plugin as so:</p>
+<pre><code class="hljs language-js">config
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-theme-bootstrap&apos;</span>))
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-base&apos;</span>))
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-breadcrumbs&apos;</span>))
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-booknav&apos;</span>))
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-embeddables&apos;</span>))
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-footnotes&apos;</span>))
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-blog-podcast&apos;</span>))
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-tagged-content&apos;</span>));
+</code></pre>
+<p>Notice that we use the Node.js <code>require</code> function.  Simply ensure the module lands in the <code>node_modules</code> directory and this will work.</p>
+<p>Built-in to AkashaRender is one additional plugin, called <code>built-in</code>, that provides some common universally useful functionality.  It is installed behind the scenes as the very last plugin.</p>
+<h2>Plugins add Layouts, Partials, Mahabhuta, Stylesheets, JavaScript, etc</h2>
+<p>Plugins typically call the <code>addPartialsDir</code> and other similar methods we&apos;ve just discussed.  This way a Plugin can provide partials and other functionality.</p>
+<h2>Plugin Configuration</h2>
+<p>Some plugins offer methods to configure their behavior.</p>
+<p>You can pass a configuration object while adding the plugin to the configuration.  That works like so:</p>
+<pre><code class="hljs language-js">config.use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;akashacms-base&apos;</span>), {
+    <span class="hljs-attr">generateSitemapFlag</span>: <span class="hljs-literal">true</span>
+})
+</code></pre>
+<p>Some plugins also offer an API, that can be accessed using this pattern:</p>
+<pre><code class="hljs language-js">config.plugin(<span class="hljs-string">&quot;akashacms-base&quot;</span>).generateSitemap(config, <span class="hljs-literal">true</span>);
+</code></pre>
+<p>The <code>config.plugin(&quot;plugin-name&quot;)</code> method returns the Plugin object, and then you can call its methods as shown.  You should consult the documentation of each plugin for further details.</p>
+<h2>Plugin data</h2>
+<p>The options object that&apos;s passed when adding the plugin to the configuration is available via the <code>options</code> method.  That object should also be passed to any MahafuncArray associated to the plugin.</p>
+<p>In methods on the plugin object, the <code>options</code> object is accessed this way:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">this</span>.options
+</code></pre>
+<p>In Mahafunc methods the <code>options</code> object is accessed this way:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">this</span>.array.options
+</code></pre>
+<p>Outside of either it can be accessed this way:</p>
+<pre><code class="hljs language-js">config.plugin(<span class="hljs-string">&quot;plugin-name&quot;</span>).options
+</code></pre>
+<h1>Markdown plugins</h1>
+<p>The <em>markdown-it</em> engine used to render Markdown files supports plugins, and quite a long list of plugins are available via NPM.  It is fairly easy to add a Markdown plugin to the configuration.</p>
+<pre><code class="hljs language-js">config.findRendererName(<span class="hljs-string">&apos;.html.md&apos;</span>)
+    .use(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;markdown-it-plantuml&apos;</span>), {
+        <span class="hljs-attr">imageFormat</span>: <span class="hljs-string">&apos;svg&apos;</span>
+    });
+</code></pre>
+<p>With <code>config.findRendererName(&apos;.html.md&apos;)</code> we are looking up the Markdown renderer, by name.</p>
+<p>The Markdown renderer has a <code>use</code> function that is used as so.  The first argument is the module object for the Markdown plugin.  The second argument is any configuration object required by the Markdown plugin.</p>
+<p>The example shown here shows how to implement the PlantUML so that AkashaCMS documents can have embedded UML diagrams.</p>
+<h1>The Overridability Principle</h1>
+<p>A key principle in AkashaCMS is that a project or Plugin can override functionality provided by a Plugin.</p>
+<p>All these lists, the Partials, Layouts, etc directories, are constructed such that content in a directory declared early override matching content in a later directory.  An example is that the <code>akashacms-theme-bootstrap</code> plugin provides Bootstrap-friendly implementations of Partial&apos;s implemented by other Plugins.</p>
+<p>The <code>partials</code> directory in that plugin contains several partials with the same file name as provided by other plugins.  For example, the <code>akashacms-booknav</code> module provides a partial named <code>booknav-child-tree.html.ejs</code>, which is also provided by <code>akashacms-theme-bootstrap</code>.  The two are similar, but the latter uses Bootstrap classes for a nicer presentation.</p>
+<p>So long as <code>use(require(&apos;akashacms-theme-bootstrap&apos;))</code> appears before <code>use(require(&apos;akashacms-booknav&apos;))</code>, the Partial in <code>akashacms-theme-bootstrap</code> will take precedence.  How does this work?</p>
+<p>When AkashaRender is looking for a Document, Layout or Partial, it searches the directories in the corresponding list in order.  The first match it finds is what&apos;s used.  Because both <code>akashacms-theme-bootstrap</code> and <code>akashacms-booknav</code> calls <code>addPartialsDir(&apos;partials&apos;)</code> (as do the other Plugins), the list of Partials directories includes each participating Plugin.</p>
+<p>When <code>booknav-child-tree.html.ejs</code> is used, AkashaRender searches in order, and so long as the <code>use()</code> calls are as shown above, the version in <code>akashacms-theme-bootstrap</code> will be used.  A particular project can additionally override that template by including its own version in its own Partials directory.</p>
+<h2>How to override stylesheets, JavaScript or Mahabhuta?</h2>
+<p>These things do not get overridden in the same way.  For Documents, Layouts or Partials, the fact that AkashaRender searches through directories gives an easy method to override the matching file.  For these other objects, overriding is not clear-cut.</p>
+<p><strong>Stylesheets</strong> Every CSS file ends up being listed in order in rendered HTML files.  You can override a given CSS declaration by putting a matching CSS declaration in a later file.  That&apos;s because of how CSS works.</p>
+<p><strong>JavaScript</strong> Every JavaScript file ends up being listed, in order, in the rendered HTML.  There&apos;s no method to override functions in one JavaScript by a function in another JavaScript file.</p>
+<p><strong>Mahabhuta</strong> Every Mahafunc ends up in the array of Mahafunc&apos;s that are executed.  There&apos;s no method to override anything, since all Mahafunc&apos;s are executed.</p>
+<h1>Preparing the Configuration</h1>
+<p>We close off the configuration file this way:</p>
+<pre><code class="hljs language-js">config.prepare();
+<span class="hljs-built_in">module</span>.exports = config;
+</code></pre>
+<p>The <code>prepare</code> method is what fills in defaults for missing declarations and so forth.</p>
+<p>The last line exports the configuration object so that AkashaRender can access it.</p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="3-create-content.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Configuring an AkashaCMS/AkashaRender project</h1>
+
+<a href="projects.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

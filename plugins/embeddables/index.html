@@ -1,0 +1,506 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>AskashaCMS Embeddables plugin documentation</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="AskashaCMS Embeddables plugin documentation">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="AskashaCMS Embeddables plugin documentation">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="AskashaCMS Embeddables plugin documentation">
+
+<meta name="og:url" content="https://akashacms.com/plugins/embeddables/index.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/plugins/embeddables/index.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../../pulse.min.css"><link rel="stylesheet" type="text/css" href="../../style.css"><link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+
+<!-- Facebook app for AkashaCMS fan page -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<!-- Twitter summary card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+
+<meta name="twitter:url" content="https://akashacms.com/plugins/embeddables/index.html">
+
+
+<meta name="twitter:title" content="AskashaCMS Embeddables plugin documentation">
+
+
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav navbar-rights">
+          <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../akasharender/toc.html">AkashaRender</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../index.html">Plugins</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../mahabhuta/toc.html">Mahabhuta</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../epubtools/toc.html">EPUB Tools</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../howto/index.html">How To</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../news/index.html">News</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../about.html">About</a>
+          </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+  <div class="row">
+    <span class="col-md-8" style="text-align: center;">
+      <a href="../../index.html"><img src="../../logo.gif" align="left"></a>
+      <h1 align="center">AskashaCMS Embeddables plugin documentation</h1>
+    </span>
+    <span class="col-md-4">
+      <form action="//www.google.com" id="cse-search-box">
+        <div>
+          <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input type="text" name="q" size="30">
+          <input type="submit" name="sa" value="Search">
+        </div>
+      </form>
+      <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+      // Not empty
+      </script>
+      <br>
+
+    </span>
+  </div>
+
+</header>
+
+</div>
+
+<div class="row">
+
+<div class="row">
+  <section id="breadcrumb" class="col-sm-12">
+    <nav aria-label="breadcrumb" id="breadcrumbTrail">
+    <ol class="breadcrumb">
+     <li class="breadcrumb-item "> <a href="../../index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li class="breadcrumb-item "> <a href="../index.html">AkashaCMS plugin directory</a> </li> <li class="breadcrumb-item "> <a href="index.html">AskashaCMS Embeddables plugin documentation</a> </li>
+    </ol>
+</nav>
+
+  </section>
+</div>
+
+<div class="row">
+  <article class="col-sm-10">
+    
+    <p>All around the Internet are sites allowing their content to be embedded into other websites.  For example, YouTube videos are easy to embed on other sites, just by pasting in a snippet of code.  Embedding this content can add value to your site.  Maybe your story involves tracking a series of tweets, or showing an archive of videos on specific topics, or any of a number of other things.</p>
+<p>It can be tedious to manually go to sites to fetch the embed code.  The <code>akashacms-embeddables</code> plugin simplifies embedding content from other sites, while retrieving extra data from OpenGraph or Twitter Card tags.</p>
+<h1>Installation</h1>
+<p>Add the following to <code>package.json</code></p>
+<pre><code class="hljs"><span class="hljs-string">&quot;dependencies&quot;</span>: {
+      <span class="hljs-string">...</span>
+      <span class="hljs-string">&quot;akashacms-embeddables&quot;</span>: <span class="hljs-string">&quot;&gt;=0.6&quot;</span>,
+      <span class="hljs-string">...</span>
+}
+</code></pre>
+<p>Once added to <code>package.json</code> run: <code>npm install</code></p>
+<h1>Configuration</h1>
+<p>Add the following to <code>config.js</code></p>
+<pre><code class="hljs">config
+    <span class="hljs-params">...</span>
+    .use(<span class="hljs-keyword">require</span>(<span class="hljs-string">&apos;akashacms-embeddables&apos;</span>))
+    <span class="hljs-params">...</span>
+</code></pre>
+<h1>Custom Tags</h1>
+<h2><code>embed-resource</code></h2>
+<pre><code class="hljs">&lt;embed-resource href=<span class="hljs-string">&quot;URL&quot;</span> <span class="hljs-keyword">template</span>=<span class="hljs-string">&quot;TEMPLATE&quot;</span> class=<span class="hljs-string">&quot;CLASS-NAME&quot;</span> style=<span class="hljs-string">&quot;STYLE&quot;</span> title=<span class="hljs-string">&quot;TITLE TO OVERRIDE&quot;</span> <span class="hljs-built_in">width</span>=<span class="hljs-string">&quot;WIDTH&quot;</span>&gt;
+   Descriptive <span class="hljs-built_in">text</span> <span class="hljs-keyword">if</span> appropriate
+&lt;/embed-resource&gt;
+</code></pre>
+<p>This looks up oEmbed, OpenGraph and Twitter Card data about the page at <code>URL</code>.  The data is provided to the named template as are the named attributes.  The default template, <code>embed-resource.html.ejs</code>, simply displays the content of <code>embedCode</code> (wrapped by a <code>&lt;div&gt;</code>).</p>
+<p>The <code>template=</code> attribute specifies how to handle/display the embedded resource.</p>
+<p>The data provided is:</p>
+<ul>
+<li><code>embedData</code> -- The full data retrieved using oEmbed, OpenGraph and Twitter Card (more on this below)</li>
+<li><code>embedCode</code> -- The HTML snippet supplied</li>
+<li><code>title</code> -- The <em>title</em> supplied either in the attributes or from queries</li>
+<li><code>embedHref</code> -- The <em>href</em> supplied in the attributes</li>
+<li><code>embedUrl</code> -- The URL for the author of the embedded resource</li>
+<li><code>embedSource</code> -- The author name for the embedded resource</li>
+<li><code>embedClass</code> -- The <code>class</code> name to use on the outermost element of emitted HTML</li>
+<li><code>width</code> -- The <code>width</code> attribute to use on that outermost element</li>
+<li><code>style</code> -- The <code>style</code> attribute to use on that outermost element</li>
+<li><code>align</code> -- The <code>align</code> attribute to use on that outermost element</li>
+<li><code>description</code> -- Any descriptive metadata that can be found</li>
+<li><code>imageUrl</code> -- An image associated with the resource from its metadata</li>
+</ul>
+<p>Provided templates are:</p>
+<ul>
+<li><code>embed-resource.html.ejs</code> -- This default template simply emits <code>embedCode</code> within a wrapper <code>&lt;div&gt;</code></li>
+<li><code>embed-thumbnail.html.ejs</code> -- Emits an <code>&lt;img&gt;</code> for <code>imageUrl</code></li>
+<li><code>embed-resource-framed.html.ejs</code> -- Emits a block of HTML using the <em>title</em>, <em>description</em>, <em>embedSource</em> and other data</li>
+<li><code>embed-resource-promote-images.html.ejs</code> -- Creates OpenGraph <code>meta</code> tags in the header for any images retrieved in the data (<code>embedData.thumbnail_url</code>, <code>embedData.metadata.ogImage</code> and <code>embedData.metadata.twitterImage</code>)</li>
+</ul>
+<p>The <code>embedData</code> primarily contains oEmbed data (oEmbed spec: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=oembed.com" style="display: inline-block; padding-right: 2px;" alt="(oembed.com)">
+                    <a href="http://oembed.com/" rel="nofollow" target="_blank">http://oembed.com/</a>).  Any additional information is available via OpenGraph or Twitter Cards is available as <code>embedData.metadata</code>.</p>
+<p>An example of the available data for 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.youtube.com" style="display: inline-block; padding-right: 2px;" alt="(www.youtube.com)">
+                    <a href="https://www.youtube.com/watch?v=QweNsLesMrM" rel="nofollow" target="_blank">https://www.youtube.com/watch?v=QweNsLesMrM</a> is:</p>
+<pre><code class="hljs">{ <span class="hljs-attribute">version</span>: <span class="hljs-string">&apos;1.0&apos;</span>,
+  <span class="hljs-attribute">thumbnail_url</span>: <span class="hljs-string">&apos;https://i.ytimg.com/vi/QweNsLesMrM/hqdefault.jpg&apos;</span>,
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">480</span>,
+  <span class="hljs-attribute">author_url</span>: <span class="hljs-string">&apos;https://www.youtube.com/user/charlieebrown100&apos;</span>,
+  <span class="hljs-attribute">html</span>: <span class="hljs-string">&apos;&lt;iframe width=&quot;480&quot; height=&quot;270&quot; src=&quot;https://www.youtube.com/embed/QweNsLesMrM?feature=oembed&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&apos;</span>,
+  <span class="hljs-attribute">provider_name</span>: <span class="hljs-string">&apos;YouTube&apos;</span>,
+  <span class="hljs-attribute">type</span>: <span class="hljs-string">&apos;video&apos;</span>,
+  <span class="hljs-attribute">provider_url</span>: <span class="hljs-string">&apos;https://www.youtube.com/&apos;</span>,
+  <span class="hljs-attribute">thumbnail_width</span>: <span class="hljs-number">480</span>,
+  <span class="hljs-attribute">title</span>: <span class="hljs-string">&apos;Tesla Model S: &quot;Gallons of Light&quot; Commercial&apos;</span>,
+  <span class="hljs-attribute">thumbnail_height</span>: <span class="hljs-number">360</span>,
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">270</span>,
+  <span class="hljs-attribute">author_name</span>: <span class="hljs-string">&apos;Jordan Bloch&apos;</span>,
+  <span class="hljs-attribute">metadata</span>:
+   { <span class="hljs-attribute">host</span>: <span class="hljs-string">&apos;www.youtube.com&apos;</span>,
+     <span class="hljs-attribute">path</span>: <span class="hljs-string">&apos;/watch?v=QweNsLesMrM&apos;</span>,
+     <span class="hljs-attribute">title</span>: <span class="hljs-string">&apos;Tesla Model S: &quot;Gallons of Light&quot; Commercial - YouTube&apos;</span>,
+     <span class="hljs-attribute">description</span>: <span class="hljs-string">&apos;Go behind the scenes at: http://www.gallonsoflight.com On January 3rd, the Knapp family took a road trip in their new Tesla Model S. Using free, solar-powere...&apos;</span>,
+     <span class="hljs-attribute">keywords</span>: <span class="hljs-string">&apos;elon musk, tesla, tesla model s, solar, solar city, electric car, ev, Electric Vehicle (Industry), Solar Energy (Industry), spacex, tesla motors, jordan bloc...&apos;</span>,
+     <span class="hljs-string">&apos;theme-color&apos;</span>: <span class="hljs-string">&apos;#e62117&apos;</span>,
+     <span class="hljs-attribute">ogSiteName</span>: <span class="hljs-string">&apos;YouTube&apos;</span>,
+     <span class="hljs-attribute">ogUrl</span>: <span class="hljs-string">&apos;https://www.youtube.com/watch?v=QweNsLesMrM&apos;</span>,
+     <span class="hljs-attribute">ogTitle</span>: <span class="hljs-string">&apos;Tesla Model S: &quot;Gallons of Light&quot; Commercial&apos;</span>,
+     <span class="hljs-attribute">ogImage</span>: <span class="hljs-string">&apos;https://i.ytimg.com/vi/QweNsLesMrM/maxresdefault.jpg&apos;</span>,
+     <span class="hljs-attribute">ogDescription</span>: <span class="hljs-string">&apos;Go behind the scenes at: http://www.gallonsoflight.com On January 3rd, the Knapp family took a road trip in their new Tesla Model S. Using free, solar-powere...&apos;</span>,
+     <span class="hljs-attribute">ogType</span>: <span class="hljs-string">&apos;video&apos;</span>,
+     <span class="hljs-attribute">ogVideoUrl</span>: <span class="hljs-string">&apos;https://www.youtube.com/embed/QweNsLesMrM&apos;</span>,
+     <span class="hljs-attribute">ogVideoSecureUrl</span>: <span class="hljs-string">&apos;https://www.youtube.com/embed/QweNsLesMrM&apos;</span>,
+     <span class="hljs-attribute">ogVideoType</span>: <span class="hljs-string">&apos;text/html&apos;</span>,
+     <span class="hljs-attribute">ogVideoWidth</span>: <span class="hljs-string">&apos;1280&apos;</span>,
+     <span class="hljs-attribute">ogVideoHeight</span>: <span class="hljs-string">&apos;720&apos;</span>,
+     <span class="hljs-attribute">ogVideoTag</span>: <span class="hljs-string">&apos;elon musk&apos;</span>,
+     <span class="hljs-attribute">twitterCard</span>: <span class="hljs-string">&apos;player&apos;</span>,
+     <span class="hljs-attribute">twitterSite</span>: <span class="hljs-string">&apos;@youtube&apos;</span>,
+     <span class="hljs-attribute">twitterUrl</span>: <span class="hljs-string">&apos;https://www.youtube.com/watch?v=QweNsLesMrM&apos;</span>,
+     <span class="hljs-attribute">twitterTitle</span>: <span class="hljs-string">&apos;Tesla Model S: &quot;Gallons of Light&quot; Commercial&apos;</span>,
+     <span class="hljs-attribute">twitterDescription</span>: <span class="hljs-string">&apos;Go behind the scenes at: http://www.gallonsoflight.com On January 3rd, the Knapp family took a road trip in their new Tesla Model S. Using free, solar-powere...&apos;</span>,
+     <span class="hljs-attribute">twitterImage</span>: <span class="hljs-string">&apos;https://i.ytimg.com/vi/QweNsLesMrM/maxresdefault.jpg&apos;</span>,
+     <span class="hljs-attribute">twitterAppNameIphone</span>: <span class="hljs-string">&apos;YouTube&apos;</span>,
+     <span class="hljs-attribute">twitterAppIdIphone</span>: <span class="hljs-string">&apos;544007664&apos;</span>,
+     <span class="hljs-attribute">twitterAppNameIpad</span>: <span class="hljs-string">&apos;YouTube&apos;</span>,
+     <span class="hljs-attribute">twitterAppIdIpad</span>: <span class="hljs-string">&apos;544007664&apos;</span>,
+     <span class="hljs-attribute">twitterAppUrlIphone</span>: <span class="hljs-string">&apos;vnd.youtube://www.youtube.com/watch?v=QweNsLesMrM&amp;feature=applinks&apos;</span>,
+     <span class="hljs-attribute">twitterAppUrlIpad</span>: <span class="hljs-string">&apos;vnd.youtube://www.youtube.com/watch?v=QweNsLesMrM&amp;feature=applinks&apos;</span>,
+     <span class="hljs-attribute">twitterAppNameGoogleplay</span>: <span class="hljs-string">&apos;YouTube&apos;</span>,
+     <span class="hljs-attribute">twitterAppIdGoogleplay</span>: <span class="hljs-string">&apos;com.google.android.youtube&apos;</span>,
+     <span class="hljs-attribute">twitterAppUrlGoogleplay</span>: <span class="hljs-string">&apos;https://www.youtube.com/watch?v=QweNsLesMrM&apos;</span>,
+     <span class="hljs-attribute">twitterPlayer</span>: <span class="hljs-string">&apos;https://www.youtube.com/embed/QweNsLesMrM&apos;</span>,
+     <span class="hljs-attribute">twitterPlayerWidth</span>: <span class="hljs-string">&apos;1280&apos;</span>,
+     <span class="hljs-attribute">twitterPlayerHeight</span>: <span class="hljs-string">&apos;720&apos;</span>,
+     <span class="hljs-attribute">images</span>: Set { <span class="hljs-string">&apos;https://www.youtube.com/yts/img/pixel-vfl3z5WfW.gif&apos;</span> } } }
+</code></pre>
+<p>For a Facebook post at 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.facebook.com" style="display: inline-block; padding-right: 2px;" alt="(www.facebook.com)">
+                    <a href="https://www.facebook.com/joseph.romm/posts/10153908777222475" rel="nofollow" target="_blank">https://www.facebook.com/joseph.romm/posts/10153908777222475</a></p>
+<pre><code class="hljs">{ author_name: <span class="hljs-symbol">&apos;Josep</span>h&apos;,
+  author_url: <span class="hljs-symbol">&apos;https</span>:<span class="hljs-comment">//www.facebook.com/joseph.romm&apos;,</span>
+  provider_url: <span class="hljs-symbol">&apos;https</span>:<span class="hljs-comment">//www.facebook.com&apos;,</span>
+  provider_name: <span class="hljs-symbol">&apos;Faceboo</span>k&apos;,
+  success: <span class="hljs-literal">true</span>,
+  height: <span class="hljs-literal">null</span>,
+  html: &apos;&lt;div id=<span class="hljs-string">&quot;fb-root&quot;</span>&gt;&lt;/div&gt;\n&lt;script&gt;(function(d, s, id) {\n  <span class="hljs-keyword">var</span> js, fjs = d.getElementsByTagName(s)[<span class="hljs-number">0</span>];\n  <span class="hljs-keyword">if</span> (d.getElementById(id)) <span class="hljs-keyword">return</span>;\n  js = d.createElement(s); js.id = id;\n  js.src = <span class="hljs-string">&quot;//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.3&quot;</span>;\n  fjs.parentNode.insertBefore(js, fjs);\n}(document, \<span class="hljs-symbol">&apos;script</span>\&apos;, \<span class="hljs-symbol">&apos;facebook</span>-jssdk\&apos;));&lt;/script&gt;&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;fb-post&quot;</span> data-href=<span class="hljs-string">&quot;https://www.facebook.com/joseph.romm/posts/10153908777222475&quot;</span> data-width=<span class="hljs-string">&quot;552&quot;</span>&gt;&lt;blockquote cite=<span class="hljs-string">&quot;https://www.facebook.com/joseph.romm/posts/10153908777222475&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;fb-xfbml-parse-ignore&quot;</span>&gt;&lt;p&gt;<span class="hljs-type">Humanity</span> is on very thin ice....\n&lt;/p&gt;<span class="hljs-type">Posted</span> by &lt;a href=<span class="hljs-string">&quot;https://www.facebook.com/joseph.romm&quot;</span>&gt;<span class="hljs-type">Joseph</span> <span class="hljs-type">Romm</span>&lt;/a&gt; on&amp;nbsp;&lt;a href=<span class="hljs-string">&quot;https://www.facebook.com/joseph.romm/posts/10153908777222475&quot;</span>&gt;<span class="hljs-type">Monday</span>, <span class="hljs-type">September</span> <span class="hljs-number">12</span>, <span class="hljs-number">2016</span>&lt;/a&gt;&lt;/blockquote&gt;&lt;/div&gt;&apos;,
+  <span class="hljs-class"><span class="hljs-keyword">type</span></span>: <span class="hljs-symbol">&apos;ric</span>h&apos;,
+  version: <span class="hljs-symbol">&apos;1</span><span class="hljs-number">.0</span>&apos;,
+  url: <span class="hljs-symbol">&apos;https</span>:<span class="hljs-comment">//www.facebook.com/joseph.romm/posts/10153908777222475&apos;,</span>
+  width: <span class="hljs-number">552</span>,
+  metadata:
+   { host: <span class="hljs-symbol">&apos;www</span>.facebook.com&apos;,
+     path: &apos;/joseph.romm/posts/<span class="hljs-number">10153908777222475</span>&apos;,
+     title: <span class="hljs-symbol">&apos;Joseph</span> <span class="hljs-type">Romm</span> - <span class="hljs-type">Humanity</span> is on very thin ice....| <span class="hljs-type">Facebook</span>&apos;,
+     charset: <span class="hljs-symbol">&apos;utf</span><span class="hljs-number">-8</span>&apos;,
+     description: <span class="hljs-symbol">&apos;Humanity</span> is on very thin ice....\n&apos;,
+     ogTitle: <span class="hljs-symbol">&apos;Joseph</span> <span class="hljs-type">Romm</span>&apos;,
+     ogDescription: <span class="hljs-symbol">&apos;Humanity</span> is on very thin ice....\n&apos;,
+     ogImage: <span class="hljs-symbol">&apos;https</span>:<span class="hljs-comment">//external.xx.fbcdn.net/safe_image.php?d=AQA2eSy-YaComhu4&amp;w=400&amp;h=400&amp;url=https%3A%2F%2Fcdn-images-1.medium.com%2Ffocal%2F581%2F306%2F58%2F58%2F1%2Acw5wTIwpPJtbhxPNZgD-qA.jpeg&amp;cfs=1&amp;_nc_hash=AQBKu5au7R1XF53H&apos;,</span>
+     ogUrl: <span class="hljs-symbol">&apos;https</span>:<span class="hljs-comment">//www.facebook.com/joseph.romm/posts/10153908777222475&apos;,</span>
+     images: <span class="hljs-type">Set</span> { <span class="hljs-symbol">&apos;https</span>:<span class="hljs-comment">//cs.atdmt.com/event?t=FB+Public+Story+Page+Visit&apos; } } }</span>
+</code></pre>
+<p>And a Slideshare presentation 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.slideshare.net" style="display: inline-block; padding-right: 2px;" alt="(www.slideshare.net)">
+                    <a href="https://www.slideshare.net/technosanity/kia-soul-ev-for-bayleafs-meeting" rel="nofollow" target="_blank">https://www.slideshare.net/technosanity/kia-soul-ev-for-bayleafs-meeting</a></p>
+<pre><code class="hljs">{ <span class="hljs-attribute">html</span>: <span class="hljs-string">&apos;&lt;iframe src=&quot;https://www.slideshare.net/slideshow/embed_code/key/uWsjJ8e4e6Cemu&quot; width=&quot;427&quot; height=&quot;356&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;strong&gt; &lt;a href=&quot;https://www.slideshare.net/technosanity/kia-soul-ev-for-bayleafs-meeting&quot; title=&quot;Kia Soul EV for BayLEAF&amp;#x27;s meeting - 2014-11&quot; target=&quot;_blank&quot;&gt;Kia Soul EV for BayLEAF&amp;#x27;s meeting - 2014-11&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://www.slideshare.net/technosanity&quot;&gt;David Herron&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;\n\n&apos;</span>,
+  <span class="hljs-attribute">conversion_version</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attribute">version_no</span>: <span class="hljs-string">&apos;1415551458&apos;</span>,
+  <span class="hljs-attribute">provider_url</span>: <span class="hljs-string">&apos;https://www.slideshare.net/&apos;</span>,
+  <span class="hljs-attribute">provider_name</span>: <span class="hljs-string">&apos;SlideShare&apos;</span>,
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">355</span>,
+  <span class="hljs-attribute">total_slides</span>: <span class="hljs-number">11</span>,
+  <span class="hljs-attribute">slideshow_id</span>: <span class="hljs-number">41326227</span>,
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">425</span>,
+  <span class="hljs-attribute">version</span>: <span class="hljs-string">&apos;1.0&apos;</span>,
+  <span class="hljs-attribute">thumbnail</span>: <span class="hljs-string">&apos;//cdn.slidesharecdn.com/ss_thumbnails/5fl8p5l9rzgj7yqvvmcy-signature-72b6f4e5f6e40e4962df1c5e88b99daeb297c1a67b454cb8b7cc483e28b1e940-poli-141109164136-conversion-gate02-thumbnail.jpg?cb=1415551458&apos;</span>,
+  <span class="hljs-attribute">slide_image_baseurl</span>: <span class="hljs-string">&apos;//image.slidesharecdn.com/5fl8p5l9rzgj7yqvvmcy-signature-72b6f4e5f6e40e4962df1c5e88b99daeb297c1a67b454cb8b7cc483e28b1e940-poli-141109164136-conversion-gate02/95/slide-&apos;</span>,
+  <span class="hljs-attribute">title</span>: <span class="hljs-string">&apos;Kia Soul EV for BayLEAF\&apos;</span>s meeting - <span class="hljs-number">2014</span>-<span class="hljs-number">11</span>&apos;,
+  <span class="hljs-attribute">type</span>: <span class="hljs-string">&apos;rich&apos;</span>,
+  <span class="hljs-attribute">author_url</span>: <span class="hljs-string">&apos;https://www.slideshare.net/technosanity&apos;</span>,
+  <span class="hljs-attribute">thumbnail_url</span>: <span class="hljs-string">&apos;https://cdn.slidesharecdn.com/ss_thumbnails/5fl8p5l9rzgj7yqvvmcy-signature-72b6f4e5f6e40e4962df1c5e88b99daeb297c1a67b454cb8b7cc483e28b1e940-poli-141109164136-conversion-gate02-thumbnail.jpg?cb=1415551458&apos;</span>,
+  <span class="hljs-attribute">slide_image_baseurl_suffix</span>: <span class="hljs-string">&apos;-1024.jpg&apos;</span>,
+  <span class="hljs-attribute">thumbnail_width</span>: <span class="hljs-number">170</span>,
+  <span class="hljs-attribute">thumbnail_height</span>: <span class="hljs-number">128</span>,
+  <span class="hljs-attribute">author_name</span>: <span class="hljs-string">&apos;David Herron&apos;</span>,
+  <span class="hljs-attribute">metadata</span>:
+   { <span class="hljs-attribute">host</span>: <span class="hljs-string">&apos;www.slideshare.net&apos;</span>,
+     <span class="hljs-attribute">path</span>: <span class="hljs-string">&apos;/technosanity/kia-soul-ev-for-bayleafs-meeting&apos;</span>,
+     <span class="hljs-attribute">title</span>: <span class="hljs-string">&apos;Kia Soul EV for BayLEAF\&apos;</span>s meeting - <span class="hljs-number">2014</span>-<span class="hljs-number">11</span>&apos;,
+     <span class="hljs-attribute">charset</span>: <span class="hljs-string">&apos;utf-8&apos;</span>,
+     <span class="hljs-attribute">description</span>: <span class="hljs-string">&apos;Kia Soul EV overview, comparing against other electric cars.  The Soul EV is brand new to the market, facing entrenched competition from the Nissan Leaf and Te&#x2026;&apos;</span>,
+     <span class="hljs-attribute">ogDescription</span>: <span class="hljs-string">&apos;Kia Soul EV overview, comparing against other electric cars.  The Soul EV is brand new to the market, facing entrenched competition from the Nissan Leaf and Te&#x2026;&apos;</span>,
+     <span class="hljs-attribute">twitterCard</span>: undefined,
+     <span class="hljs-attribute">twitterSite</span>: undefined,
+     <span class="hljs-attribute">twitterPlayer</span>: undefined,
+     <span class="hljs-attribute">twitterPlayerWidth</span>: undefined,
+     <span class="hljs-attribute">twitterPlayerHeight</span>: undefined,
+     <span class="hljs-attribute">twitterTitle</span>: undefined,
+     <span class="hljs-attribute">twitterImage</span>: undefined,
+     <span class="hljs-attribute">twitterAppNameGoogleplay</span>: <span class="hljs-string">&apos;SlideShare Android&apos;</span>,
+     <span class="hljs-attribute">twitterAppIdGoogleplay</span>: <span class="hljs-string">&apos;net.slideshare.mobile&apos;</span>,
+     <span class="hljs-attribute">twitterAppUrlGoogleplay</span>: <span class="hljs-string">&apos;https://www.slideshare.net/technosanity/kia-soul-ev-for-bayleafs-meeting&apos;</span>,
+     <span class="hljs-attribute">twitterAppNameIphone</span>: <span class="hljs-string">&apos;SlideShare iOS&apos;</span>,
+     <span class="hljs-attribute">twitterAppIdIphone</span>: <span class="hljs-string">&apos;917418728&apos;</span>,
+     <span class="hljs-attribute">twitterAppUrlIphone</span>: <span class="hljs-string">&apos;slideshare-app://ss/41326227&apos;</span>,
+     <span class="hljs-attribute">twitterAppNameIpad</span>: <span class="hljs-string">&apos;SlideShare iOS&apos;</span>,
+     <span class="hljs-attribute">twitterAppIdIpad</span>: <span class="hljs-string">&apos;917418728&apos;</span>,
+     <span class="hljs-attribute">twitterAppUrlIpad</span>: <span class="hljs-string">&apos;slideshare-app://ss/41326227&apos;</span>,
+     <span class="hljs-attribute">images</span>:
+      Set {
+        <span class="hljs-string">&apos;https://public.slidesharecdn.com/b/images/logo/linkedin-ss/SS_Logo_White_Large.png?6d1f7a78a6&apos;</span>,
+        <span class="hljs-string">&apos;https://image.slidesharecdn.com/5fl8p5l9rzgj7yqvvmcy-signature-72b6f4e5f6e40e4962df1c5e88b99daeb297c1a67b454cb8b7cc483e28b1e940-poli-141109164136-conversion-gate02/95/kia-soul-ev-for-bayleafs-meeting-201411-1-638.jpg?cb=1415551458&apos;</span>,
+        <span class="hljs-string">&apos;https://cdn.slidesharecdn.com/profile-photo-technosanity-48x48.jpg?cb=1498276261&apos;</span>,
+        <span class="hljs-string">&apos;https://public.slidesharecdn.com/b/images/user-48x48.png&apos;</span>,
+        <span class="hljs-string">&apos;https://public.slidesharecdn.com/b/images/thumbnail.png&apos;</span>,
+        <span class="hljs-string">&apos;https://www.bizographics.com/collect/?pid=870&amp;fmt=gif&apos;</span> } } }
+</code></pre>
+<h2><code>embed-youtube</code></h2>
+<pre><code class="hljs">&lt;embed-youtube <span class="hljs-attribute">code</span>=<span class="hljs-string">&quot;CODE&quot;</span> <span class="hljs-attribute">template</span>=<span class="hljs-string">&quot;TEMPLATE&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">&quot;CLASS&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-string">&quot;STYLE&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-string">&quot;TITLE&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-string">&quot;ID&quot;</span> <span class="hljs-attribute">autoplay</span>=<span class="hljs-string">&quot;AUTOPLAY&quot;</span> <span class="hljs-attribute">description</span>=<span class="hljs-string">&quot;DESCRIPTION&quot;</span>&gt;&lt;/embed-youtube&gt;
+</code></pre>
+<p>This does not use any API to retrieve data.  Instead it directly uses the documented <code>iframe</code> tag for YouTube to set up a player.  Therefore this renders more quickly, by not requiring a network request.</p>
+<p>The <code>CODE</code> is the video code in the YouTube URL.  Otherwise the attributes are as described for <code>embed-resource</code>.</p>
+<p>The default template is <code>embed-youtube.html.ejs</code></p>
+<p>For every <code>embed-youtube</code> an OpenGraph image is promoted using the <code>opengraph-image</code> tag.</p>
+<h2><code>video-players-from-videourls</code> and <code>video-thumbnail-from-videourls</code></h2>
+<p>This allows for an array of embeddable resources to be put in the document frontmatter.  That array is then rendered into the output.</p>
+<p>In each case a <code>template=&quot;TEMPLATE&quot;</code> tag is available to override the default template.</p>
+<p>There are two possible arrays: <code>videoUrls</code> and <code>youtubeUrls</code>.  The first uses <code>embed-resource</code> to render the players, while the second uses <code>embed-youtube</code>.</p>
+<p>The fields in the array entries are:</p>
+<ul>
+<li><code>url</code>: The URL for the embeddable resource</li>
+<li><code>code</code>: For <code>embed-youtube</code> the code from the YouTube URL</li>
+<li><code>title</code>: The title string to use in displaying the video</li>
+<li><code>description</code>: The descriptive text to use along with the video</li>
+</ul>
+<p>Of course for <code>videoUrls</code> the default for title and description is retrieved by querying the corresponding service over the Internet.  For <code>youtubeUrls</code> no queries are sent over the Internet, so if you want a title and description you&apos;ll have to insert those yourself.</p>
+<p>For every entry in <code>youtubeUrls</code> an OpenGraph image is promoted using the <code>opengraph-image</code> tag.</p>
+<p>The default templates are:</p>
+<ul>
+<li><code>video-players-from-videourls.html.ejs</code></li>
+<li><code>video-thumbnail-from-videourls.html.ejs</code></li>
+</ul>
+<p>For <code>video-thumbnail-from-videourls</code>, the tag looks for the first entry in the <code>videoUrls</code> array, and then constructs an <code>embed-resource</code> tag using the <code>embed-thumbnail.html.ejs</code> template.  The effect of this is to promote the thumbnail corresponding to the first video as the thumbnail image for the article.</p>
+<p>Example:</p>
+<pre><code class="hljs"><span class="hljs-attribute">youtubeUrls</span>:
+  - <span class="hljs-attribute">url</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//www.youtube.com/watch?v=3g7cgUm7o9k</span>
+    <span class="hljs-attribute">code</span>: <span class="hljs-number">3</span>g7cgUm7o9k
+    <span class="hljs-attribute">title</span>: GM EV1 TV Commercial <span class="hljs-number">1</span>
+
+  - <span class="hljs-attribute">url</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//www.youtube.com/watch?v=QaRtNdVx0b4</span>
+    <span class="hljs-attribute">code</span>: QaRtNdVx0b4
+    <span class="hljs-attribute">title</span>: GM EV1 TV Commercial <span class="hljs-number">2</span>
+
+  - <span class="hljs-attribute">url</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//www.youtube.com/watch?v=aPKxsLlU6Co</span>
+    <span class="hljs-attribute">code</span>: aPKxsLlU6Co
+    <span class="hljs-attribute">title</span>: GM EV1 TV Commercial <span class="hljs-number">3</span>
+
+  - <span class="hljs-attribute">url</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//www.youtube.com/watch?v=TRB14_OyWGM</span>
+    <span class="hljs-attribute">code</span>: TRB14_OyWGM
+    <span class="hljs-attribute">title</span>: GM EV1 TV Commercial <span class="hljs-number">4</span>
+</code></pre>
+<p>In this case we&apos;ve used <code>youtubeUrls</code>.  For that array, the URL attribute is ignored but by putting it here it&apos;s possible to easily switch to <code>videoUrls</code> if desired.  As a <code>title</code> is specified, the video player will have a header text above it, but as no <code>description</code> is supplied there will be no text below the player.</p>
+
+  </article>
+  <section id="right" class="col-sm-2">
+    
+    
+<ul class="list-group">
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+    </li>
+
+</ul>
+  </section>
+</div>
+
+</div>
+
+<footer class="row" style="text-align: center; height: 100px;">
+<!-- partial file-name="ebook-footer.html"/ -->
+
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+</footer>
+</div>
+
+<script src="../../vendor/jquery/jquery.min.js"></script><script src="../../vendor/popper.js/umd/popper.min.js"></script><script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

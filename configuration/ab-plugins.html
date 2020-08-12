@@ -1,0 +1,322 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AkashaCMS plugins</title>
+<meta name="pagename" content="AkashaCMS plugins">
+<meta name="date" content="Wed May 11 2016 23:12:46 GMT-0700 (PDT)">
+<meta name="DC.title" content="AkashaCMS plugins">
+<meta name="og:title" content="AkashaCMS plugins">
+<meta name="og:url" content="https://akashacms.com/configuration/ab-plugins.html">
+<link rel="canonical" href="https://akashacms.com/configuration/ab-plugins.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/configuration/ab-plugins.html">
+<meta name="twitter:title" content="AkashaCMS plugins">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/configuration/index.html">Configuration</a></li>
+<li><a href="/documents/index.html">Documents</a></li>
+<li><a href="/plugins/index.html">Plugins</a></li>
+<li><a href="/plugins/epub.html">AkashaEPUB</a></li>
+<li><a href="/layout/index.html">Layouts</a></li>
+<li><a href="/theming/index.html">Theming</a></li>
+<li><a href="/deployment/index.html">Deployment</a></li>
+<li><a href="/command-line/index.html">Command Line</a></li>
+<li><a href="/howto/index.html">Tutorials</a></li>
+<li><a href="/news/index.html">Blog</a></li>
+<li><a href="/about.html">About</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AkashaCMS plugins</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="col-md-10">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/configuration/index.html">Configuring an AkashaCMS website</a> </li> <li> <a href="/configuration/ab-plugins.html">AkashaCMS plugins</a> </li>
+</ol>
+</div>
+</section>
+<section id="category-tags" class="col-sm-12">
+By: <author-link></author-link> Date: Jan 1, 2015
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p>AkashaCMS can be extended using a flexible plugin system. Consult the <a href="../plugins/index.html">directory of known plugins</a> to see if the one you desire has already been built. If not, Plugins are easy to implement and can do a wide range of things including</p>
+<ul>
+<li>Provide page layouts</li>
+<li>Provide assets contents</li>
+<li>Provide partials</li>
+<li>Provide template functions</li>
+<li>Listen to, and react to, events emitted by AkashaCMS during processing</li>
+</ul>
+<h1>Configuring plugins for a site</h1>
+<p>In the site config file, plugins are invoked this way:</p>
+<pre><code>config: function(akasha) {
+    akasha.registerPlugins([
+        { name: &apos;akashacms-theme-bootstrap&apos;, plugin: require(&apos;akashacms-theme-bootstrap&apos;) },
+        { name: &apos;akashacms-breadcrumbs&apos;, plugin: require(&apos;akashacms-breadcrumbs&apos;) },
+        { name: &apos;akashacms-booknav&apos;, plugin: require(&apos;akashacms-booknav&apos;) },
+        { name: &apos;akashacms-embeddables&apos;, plugin: require(&apos;akashacms-embeddables&apos;) },
+        { name: &apos;akashacms-social-buttons&apos;, plugin: require(&apos;akashacms-social-buttons&apos;) },
+        { name: &apos;akashacms-tagged-content&apos;, plugin: require(&apos;akashacms-tagged-content&apos;) },
+        { name: &apos;akashacms-base&apos;, plugin: require(&apos;akashacms-base&apos;) }
+    ]);
+}
+</code></pre>
+<p>Each entry in the array is an object describing the plugin. The module reference is require&apos;d inside the config file so that it is resolved relative to the config file. If desired the module reference can be a string instead, but in that case it is AkashaCMS which require&apos;s the module, and the module location is resolved relative to where AkashaCMS is installed.</p>
+<p>A plugin can override behavior (functions) or templates (layouts, or partials) defined by a plugin farther down the list. In this plugin config, we&apos;ve placed <code>akashacms-theme-bootstrap</code> first because some of its partials override partials defined in other plugins. Those partials have bootstrap-specific markup and should make a site look better.</p>
+<p>The general rule is a plugin overrides things defined in plugins further down this list. We&apos;ll see in a minute how this is done.</p>
+<p>One effect is that <code>akashacms-base</code> is designed to be the last plugin on the list, so that other plugins can override it.</p>
+<h1>Coding a plugin</h1>
+<p>An AkashaCMS plugin is simply a Node.js module that has a function with this signature:</p>
+<pre><code>module.exports.config = function(akasha, config) {
+    ... config function
+}
+</code></pre>
+<p>The <code>config</code> function is called while initializing AkashaCMS. The <code>akasha</code> object provided is the <code>akashacms</code> module, while the <code>config</code> object is the configuration file.</p>
+<p>A common task is to add a directory to <code>root_assets</code>, <code>root_layouts</code> or <code>root_partials</code>, when the plugin wants to provide files of its own.</p>
+<pre><code>module.exports.config = function(akasha, config) {
+    config.root_partials.push(path.join(__dirname, &apos;partials&apos;));
+    config.root_layouts.push(path.join(__dirname, &apos;layout&apos;));
+    config.root_assets.unshift(path.join(__dirname, &apos;assets&apos;));
+    ...
+}
+</code></pre>
+<p>Remember that AkashaCMS searches these arrays to find files. By adding its own directories to these arrays, a plugin provides its own files for use in rendering a website.</p>
+<p>There&apos;s a careful dance played in whether a directory is pushed or unshifted into an array. Remember that the goal is for a plugin that&apos;s early in the list to override plugins later in the list. Remember that <code>push</code> inserts items on the end of the array, while <code>unshift</code> inserts items at the beginning. This seemingly minor point is important for maintaining the correct idea of which plugin is first.</p>
+<p>What&apos;s different is that</p>
+<ul>
+<li>for <code>root_partials</code> and <code>root_layouts</code>, AkashaCMS searches for the first matching file, stopping when it finds one. For a layout or partial template in one plugin to override one in another plugin, the plugin has to be scanned first.</li>
+<li>for <code>root_assets</code>, AkashaCMS copies the file tree of each named directory in turn. For a file in a plugin asset directory to override an identically-named file in another plugin, the plugin&apos;s assets directory has to be copied second.</li>
+</ul>
+<p>If you&apos;re unclear about the order of entries in these arrays, this command prints out the configuration data:</p>
+<pre><code>$ akashacms config
+</code></pre>
+<p>That is... for any website with a few plugins, the content of the <code>root_partials</code> and <code>root_layouts</code> arrays will be something like</p>
+<pre><code>[ site, P1, P2, P3, P4, ... ]
+</code></pre>
+<p>AkashaCMS, searching for a partial named <code>reddit-this.html.ejs</code> will look in these directories in order</p>
+<pre><code>site/partials/reddit-this.html.ejs
+/path/to/P1/partials/reddit-this.html.ejs
+/path/to/P2/partials/reddit-this.html.ejs
+/path/to/P3/partials/reddit-this.html.ejs
+/path/to/P4/partials/reddit-this.html.ejs
+...
+</code></pre>
+<p>Suppose both <code>site/partials/reddit-this.html.ejs</code> and <code>P3/partials/reddit-this.html.ejs</code> exist. The first one on the list, <code>site/partials/reddit-this.html.ejs</code>, will be used because AkashaCMS will find it first.</p>
+<h2>API to access a plugin module</h2>
+<p>While the primary purpose for plugins is to provide partials or Mahabhuta functions, they can also provide functions. That requires accessing the plugin module.</p>
+<pre><code>akasha.plugin(&apos;plugin-name&apos;).pluginFunction(...arguments...);
+</code></pre>
+<p>The <code>plugin-name</code> of course must be the same as a registered plugin name, as seen above.</p>
+<p>The plugin would have a function like so:</p>
+<pre><code>module.exports.helloWorld = function() {
+   return &quot;Hello, World!&quot;;
+};
+</code></pre>
+<p>Then calling <code>akasha.plugin(&apos;plugin-name&apos;).helloWorld()</code> returns the string shown above.</p>
+<p>Additionally, in an EJS template the <code>plugin</code> function is available so you can do this:</p>
+<pre><code>&lt;%= plugin(&apos;plugin-name&apos;).helloWorld() %&gt;
+</code></pre>
+<h2>Per-site plugin configuration data</h2>
+<p>In some cases plugins will need some data to configure plugin behavior. For example, the <code>akashacms-embeddables</code> plugin requires a authentication key from Google to allow access to the YouTube API.</p>
+<p>Since that configuration data needs to reside in <code>config.js</code> we need some rules-of-the-road to share that common resource in a way that plugins don&apos;t step on each other.</p>
+<p>First - we recommend naming plugins with dash&apos;s in their name: <code>akashacms-embeddables</code> etc</p>
+<p>Second - that dash-separated name then translates to a camelCase name: <code>akashacmsEmbeddables</code></p>
+<p>Use the camelCase name in the <code>config.js</code> as the root object of config data for the plugin:</p>
+<pre><code>akashacmsEmbeddables: {
+    ... data for plugin
+}
+</code></pre>
+<p>The plugin can then access the data as so: <code>config.akashacmsEmbeddables....</code></p>
+<h1>Typical plugin structure</h1>
+<p>The typical plugin will have this directory structure</p>
+<pre><code>partials/*
+assets/*
+layout/*
+index.js
+package.json
+</code></pre>
+<p>The <code>partials</code> directory will of course contain partial templates.</p>
+<p>The <code>assets</code> and <code>layout</code> directories are less typically used. The first, of course, contains static files like images, while the second contains page layouts.</p>
+<p>The <code>index.js</code> module will, of course, contain the <code>config</code> function and the <code>package.json</code> file is necessary to be recognized by both Node and npm as a module.</p>
+<p>Typically the <code>config</code> function will have this structure:</p>
+<pre><code>module.exports.config = function(akasha, config) {
+    // Push directories onto end of the array
+    config.root_partials.push(path.join(__dirname, &apos;partials&apos;));
+    // config.root_layouts.push(path.join(__dirname, &apos;layout&apos;));
+    // config.root_assets.unshift(path.join(__dirname, &apos;bootstrap&apos;));
+    ...
+}
+</code></pre>
+<h2>Pluggable Renderers</h2>
+<p>AkashaCMS allows a plugin to define new rendering chains. These are documented by the file-name extension, with each combination of extensions indicating different rendering steps. For example, among <a href="../documents/extensions.html">the built-in rendering chains</a> is support for <code>.html.ejs.md</code> files. Such files are first rendered from Markdown to HTML, then processed using EJS, to finally produce HTML output.</p>
+<p>See <a href="../documents/rendering-chains.html" title="Customized rendering chains -- fileName.html.xyz.abc.ksk">Customized rendering chains -- fileName.html.xyz.abc.ksk</a> for details.</p>
+<h1>Mahabhuta functions</h1>
+<p>Plugins can add <a href="/documents/mahabhuta.html">Mahabhuta</a> functions to support additional tags or perform additional DOM manipulations. Simply create an array, <code>module.exports.mahabhuta</code>, containing Mahabhuta functions. During the <code>registerPlugins</code> process, this array of functions will be detected and registered in the master list of Mahabhuta functions.</p>
+<pre><code>module.exports.mahabhuta = [
+    function($, metadata, dirty, done) {
+    	logger.trace(&apos;ak-teaser&apos;);
+        var elements = [];
+        $(&apos;ak-teaser&apos;).each(function(i, elem) { elements.push(elem); });
+        async.eachSeries(elements,
+        function(element, next) {
+			if (typeof metadata.teaser !== &quot;undefined&quot; || typeof metadata[&quot;ak-teaser&quot;] !== &quot;undefined&quot;) {
+					akasha.partial(&quot;ak_teaser.html.ejs&quot;, {
+							teaser: typeof metadata[&quot;ak-teaser&quot;] !== &quot;undefined&quot;
+								? metadata[&quot;ak-teaser&quot;] : metadata.teaser
+						},
+						function(err, html) {
+							if (err) next(err);
+							else {
+									$(element).replaceWith(html);
+									next();
+							}
+						});
+			} else {
+				$(element).remove();
+				next();
+			}
+        }, 
+        function(err) {
+			if (err) {
+				logger.error(&apos;ak-teaser Errored with &apos;+ util.inspect(err));
+				done(err);
+			} else done();
+        });
+    },
+    
+    ... other functions
+];
+</code></pre>
+<h1>The <em>akashacms-base</em> plugin</h1>
+<p>The AkashaCMS-base plugin provides some basic functions, partials and assets. As I pondered the AkashaCMS design, it was clear fundamental content management and layout capabilities were needed, designed to be last on the list of plugins, allowing any other plugin to override its behavior. That thought lead to the <code>akashacms-base</code> plugin.</p>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<div class="col-md-2">
+<p>AkashaCMS developed by the author of <a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086">Node Web Development</a>
+</p>
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=davidherron-20"></a>
+<span class="st_sharethis" st_title="AkashaCMS plugins">
+<span class="st_tumblr_large"></span><span class="st_stumbleupon_large"></span><span class="st_care2_large"></span><span class="st_twitter_large"></span><span class="st_facebook_large"></span><span class="st_yahoo_large"></span><span class="st_blogger_large"></span><span class="st_sharethis_large"></span>
+</span>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+stLight.options({
+    
+    
+    
+    
+    
+    
+    
+    publisher:'c828d855-27af-4910-b7a5-2b9b14030895'
+});
+</script>
+<a href="http://www.reddit.com/submit" onclick="window.location = &apos;http://www.reddit.com/submit?url=&apos; + encodeURIComponent(window.location); return false"> <img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0"> </a>
+<script type="text/javascript">
+(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=onLoadCallback';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<g:plusone></g:plusone>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<a href="https://twitter.com/AkashaCMS" rel="me nofollow" class="twitter-follow-button" data-show-count="false">Follow<br>@AkashaCMS</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

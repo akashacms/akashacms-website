@@ -1,0 +1,194 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>The AkashaCMS command line tool</title>
+<meta name="pagename" content="The AkashaCMS command line tool">
+<meta name="date" content="Wed May 11 2016 23:12:46 GMT-0700 (PDT)">
+<meta name="DC.title" content="The AkashaCMS command line tool">
+<meta name="og:title" content="The AkashaCMS command line tool">
+<meta name="og:url" content="https://akashacms.com/command-line/index.html">
+<link rel="canonical" href="https://akashacms.com/command-line/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/command-line/index.html">
+<meta name="twitter:title" content="The AkashaCMS command line tool">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/configuration/index.html">Configuration</a></li>
+<li><a href="/documents/index.html">Documents</a></li>
+<li><a href="/plugins/index.html">Plugins</a></li>
+<li><a href="/plugins/epub.html">AkashaEPUB</a></li>
+<li><a href="/layout/index.html">Layouts</a></li>
+<li><a href="/theming/index.html">Theming</a></li>
+<li><a href="/deployment/index.html">Deployment</a></li>
+<li><a href="/command-line/index.html">Command Line</a></li>
+<li><a href="/howto/index.html">Tutorials</a></li>
+<li><a href="/news/index.html">Blog</a></li>
+<li><a href="/about.html">About</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">The AkashaCMS command line tool</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<article class="col-md-10 col-sm-10">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/command-line/index.html">The AkashaCMS command line tool</a> </li>
+</ol>
+</div>
+<p>Installing AkashaCMS also brings along a command-line tool. The <a href="../install.html">installation instructions</a> says to do this:</p>
+<pre><code>$ npm install -g akashacms
+</code></pre>
+<p>In addition to installing the AkashaCMS module, the <code>akashacms</code> command becomes available. Let&apos;s look at what you can do with this tool.</p>
+<h1>Initializing a new AkashaCMS website</h1>
+<p>Type this:</p>
+<pre><code>$ akashacms init dirName
+</code></pre>
+<p>What this does effectively is this:</p>
+<pre><code>$ git clone git://github.com/robogeek/akashacms-example.git dirName
+</code></pre>
+<p>Which means, it clones the workspace corresponding to the <a href="http://example.akashacms.com">http://example.akashacms.com</a> website. This can give you a decent starting point for developing a new site.</p>
+<p>It does mean your computer must have the <code>git</code> software installed.</p>
+<h1>Building an AkashaCMS website</h1>
+<p>While at the top directory of an AkashaCMS workspace, type this:</p>
+<pre><code>$ akashacms build
+</code></pre>
+<p>What this does is read the <code>config.js</code> then render the website described by the configuration.</p>
+<h1>Rendering an individual file</h1>
+<p>Suppose you want to render just one file, rather than rebuild the whole site. It can save a lot of time on a large site to render just one file while testing the rendering of that file. Type this:</p>
+<pre><code>$ akashacms render path/to/fileName
+</code></pre>
+<p>The <code>path/to/fileName</code> must be a filename path within the <code>root_docs</code> directory. The file is rendered, and written into the <code>root_out</code> directory.</p>
+<h1>Deploying a built website</h1>
+<p>After rendering a website you want to copy it over to your server:</p>
+<pre><code>$ akashacms deploy
+</code></pre>
+<p>This requires some <a href="/deployment/index.html">configuration in <code>config.js</code> as noted elsewhere</a>.</p>
+<h1>Running a local webserver to preview the site</h1>
+<p>After rendering a website you might want to preview it before deploying the site to a server.</p>
+<pre><code>$ akashacms preview
+</code></pre>
+<p>This starts up a webserver on <a href="http://localhost:6080">http://localhost:6080</a></p>
+<h1>Notifying search engines the site was updated</h1>
+<p>The search engine Sitemap protocol includes provision for pinging search engines.</p>
+<pre><code>$ akashacms ping
+</code></pre>
+<p>This sends notifications to the known search engines that are known to support pinging.</p>
+<h1>Printing out the configuration</h1>
+<p>Unsure if you have set up the configuration correctly? Want to see how the plugins you&apos;ve installed have affected the configuration?</p>
+<pre><code>$ akashacms config
+</code></pre>
+<p>This prints out the data from the configuration.</p>
+<ul class="booknav-tree list-group"><li class="list-group-item">
+/command-line/index.html
+<ul class="booknav-tree list-group">
+</ul>
+</li>
+</ul>
+</article>
+<section id="right" class="col-md-2 col-sm-2">
+<p>AkashaCMS developed by the author of <a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086">Node Web Development</a>
+</p>
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=davidherron-20"></a>
+<span class="st_sharethis" st_title="The AkashaCMS command line tool">
+<span class="st_tumblr_large"></span><span class="st_stumbleupon_large"></span><span class="st_care2_large"></span><span class="st_twitter_large"></span><span class="st_facebook_large"></span><span class="st_yahoo_large"></span><span class="st_blogger_large"></span><span class="st_sharethis_large"></span>
+</span>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+stLight.options({
+    
+    
+    
+    
+    
+    
+    
+    publisher:'c828d855-27af-4910-b7a5-2b9b14030895'
+});
+</script>
+<a href="http://www.reddit.com/submit" onclick="window.location = &apos;http://www.reddit.com/submit?url=&apos; + encodeURIComponent(window.location); return false"> <img src="http://www.reddit.com/static/spreddit7.gif" alt="submit to reddit" border="0"> </a>
+<script type="text/javascript">
+(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=onLoadCallback';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<g:plusone></g:plusone>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<a href="https://twitter.com/AkashaCMS" rel="me nofollow" class="twitter-follow-button" data-show-count="false">Follow<br>@AkashaCMS</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

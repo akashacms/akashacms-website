@@ -1,0 +1,345 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Creating content with AkashaRender</title>
+<meta name="pagename" content="AkashaRender">
+<meta name="date" content="Thu May 12 2016 18:18:19 GMT-0700 (PDT)">
+<meta name="DC.title" content="AkashaRender">
+<meta name="og:title" content="AkashaRender">
+<meta name="og:url" content="3-create-content.html.md">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+<link rel="canonical" href="3-create-content.html.md">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="/vendor/columnal/columnal.css" type="text/css" media="screen">
+<!--[if lt IE 9]>
+    	<link rel="stylesheet" href="/vendor/columnal/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+<!--[if lte IE 7]>
+		<link rel="stylesheet" href="/vendor/columnal/fixed-984px-ie.css" type="text/css" media="screen" />
+	<![endif]-->
+<!--[if lte IE 6]>
+		<link rel="stylesheet" href="/vendor/columnal/ie6-984px.css" type="text/css" media="screen" />
+	<![endif]-->
+<link rel="stylesheet" href="/vendor/columnal/custom.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/video.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/vendor/columnal/build.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/style.css" type="text/css" media="screen">
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "c828d855-27af-4910-b7a5-2b9b14030895"});</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="3-create-content.html.md">
+<meta name="twitter:title" content="Creating content with AkashaRender">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<p>AkashaRender&apos;s purpose is easy generation of HTML and related files for use on websites or EPUB3 documents. It&apos;s meant that the files you&apos;ll edit will be in an easy-to-use-or-edit format, like Markdown, which AkashaRender converts to correctly formatted HTML (or whatever) files for your website or eBook.</p>
+<p>We touched on this briefly in the previous chapter, <a href="2-setup.html">Project Setup</a>. Now it&apos;s time to dive deeply down the rabbit hole.</p>
+<h1>Render from docdirs to renderTo</h1>
+<p>In the configuration object are two fields, <code>docdirs</code> and <code>renderTo</code>, that are crucial to consider. AkashaRender scans all directories named in <code>docdirs</code>, rendering each file into the <code>renderTo</code> directory.</p>
+<p>That is, with:</p>
+<pre><code>{
+    documentDirs: [ &apos;documents&apos; ],
+    ...
+    renderTo: &apos;out&apos;
+}
+</code></pre>
+<p>A file, <code>documents/romania/vlad-tepes/history.html.md</code>, is rendered to <code>out/romania/vlad-tepes/history.html</code>, assuming the built-in Markdown rendering. The first element of the pathname, the directory containing the content file, is removed, and in its place is put the <code>renderTo</code> directory.</p>
+<p>One might want to add an archive of old documents, so:</p>
+<pre><code>{
+    documentDirs: [ &apos;documents&apos;, &apos;archive&apos; ],
+    ...
+    renderTo: &apos;out&apos;
+}
+</code></pre>
+<p>A file, <code>archive/1989/ceaucescu/revolution.html.md</code> would be rendered as <code>out/1989/ceaucescu/revolution.html</code>.</p>
+<p>That&apos;s easy enough.. files are copied/rendered from an input directory to a matching file in the output directory. You, the author, create your files in the desired input format(s), organizing them as you wish, and the result derives exactly from the directory heirarchy you design.</p>
+<p>Notice that <code>documentDirs</code> is an array. It means we can have multiple directories of documents. The ordering of those directories is important in determining the final result.</p>
+<p>The ordering of these directories is important in controlling the resulting output. Each directory tree is processed in turn, starting with the first directory tree, and the next, and the next, and so on.</p>
+<p>What would this mean two files existed <code>archive/romania/vlad-tepes/history.html.md</code>, and <code>documents/romania/vlad-tepes/history.html.md</code>?</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Rendered To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>documents/romania/vlad-tepes/history.html.md</code></td>
+<td><code>out/romania/vlad-tepes/history.html</code></td>
+</tr>
+<tr>
+<td><code>archive/romania/vlad-tepes/history.html.md</code></td>
+<td><code>out/romania/vlad-tepes/history.html</code></td>
+</tr>
+</tbody>
+</table>
+<p>Both files are rendered to <code>out</code> but because the file in <code>archive</code> is processed second the final product will be derived from that file.</p>
+<h2>Non-String documentDirs entries allow rendering to subdirectories</h2>
+<p>Entries in <code>documentDirs</code> can also be an object.</p>
+<pre><code>{
+    documentDirs: [
+        &apos;documents&apos;,
+        { src: &apos;archive&apos;, dest: &apos;archive&apos; }
+    ],
+    ...
+    renderTo: &apos;out&apos;
+}
+</code></pre>
+<p>In this case <code>archive/romania/vlad-tepes/history.html.md</code> does not overwrite <code>documents/romania/vlad-tepes/history.html.md</code>. Instead the files are rendered as follows</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Rendered To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archive/romania/vlad-tepes/history.html.md</code></td>
+<td><code>out/archive/romania/vlad-tepes/history.html</code></td>
+</tr>
+<tr>
+<td><code>documents/romania/vlad-tepes/history.html.md</code></td>
+<td><code>out/romania/vlad-tepes/history.html</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Renderers, Rendering and File Extensions</h1>
+<p>AkashaRender&apos;s flexibility comes from the variety of Renderer classes we can use. Each Renderer processes one or more file-types, as determined by the file extension. For each file AkashaRender processes, it searches the registered Renderer&apos;s for one which will process that file. File extension matching is used in determining the Renderer to use.</p>
+<table>
+<tr><th>Type</th><th>Extension</th><th>Description</th></tr>
+<tr><td>Markdown</td><td>`example.html.md` </td><td> A Markdown file, that produces HTML.</td></tr>
+<tr><td>EJS</td><td>`example.html.ejs` or `example.php.ejs` </td><td> for HTML, or PHP, with EJS markup, that produces HTML or PHP.</td></tr>
+<tr><td>LESS</td><td>`example.css.less` </td><td> A LESS file, that produces CSS.</td></tr>
+<tr><td>Fallback</td><td>any unmatched file </td><td>copied with no processing.</td></tr>
+</table>
+<p>It&apos;s easy to add new Renderer&apos;s and extend the file-types AkashaRender can process in many directions. You do so through the AkashaRender API, which we&apos;ll go over elsewhere (or you can study the source code).</p>
+<p>Renderers can do more than a simple rendering of the input format to output format. Some process the rendered content through layout templates, partials, special tags, and more. AkashaRender simply asks the Renderer to process the file, and the details are up to the Renderer author.</p>
+<p>Renderers are organized with a classification hierarchy. That let&apos;s a Renderer author reuse common methods shared among similar Renderer&apos;s. Well, that&apos;s the intention, at the moment there&apos;s only one such Renderer classification.</p>
+<h2>HTMLRenderer capabilities</h2>
+<p>The HTMLRenderer builds on the Renderer class to add extensive capabilities in formatting content into page layouts, using partials (content snippets), and a custom tag processing engine called Mahabhuta. With HTMLRenderer, complete control over page layout and structure is possible. It is used by both Markdown and EJS renderers.</p>
+<h3>YAML Frontmatter Metadata</h3>
+<p>Metadata is the extra/descriptive information attached to a content file. The content of the content file is its main purpose of existence. The metadata is carried along, and adds extra bits that are useful for a wide range of purposes.</p>
+<p>For an HTMLRenderer file, the metadata is carried as so:</p>
+<pre><code>---
+... metadata in YAML format
+---
+content
+</code></pre>
+<p>This is very simple and easy to create. Just write the content as normal, and prepend it with this segment surrounded by <code>---</code>.</p>
+<p>YAML is a full fledged text format to describe data objects in a simple-to-write way. It&apos;s capable of describing complex data objects, containing nested arrays or nested lists. The best documentation I know for YAML is the Wikipedia page: <a href="https://en.wikipedia.org/wiki/YAML">https://en.wikipedia.org/wiki/YAML</a></p>
+<p>For AkashaRender content files it&apos;ll be rare to use anything more than the simplest of YAML. Namely, something like this:</p>
+<pre><code>---
+title: Gettysburg Address
+layout: page.html.ejs
+otherTag: otherValue
+tag42: &quot;The Meaning of Life&quot;
+---
+content
+</code></pre>
+<p>That is, most of what we&apos;ll do in AkashaRender will be satisfied by simple <code>name:value</code> pairs. But, because we support YAML, the flexibility is there to go over the top with data modeling if desired.</p>
+<p>The metadata is made available during the rendering process, so that metadata values can be rendered into the content. This can be combined with other parts of AkashaRender, such as Partials and Mahabhuta custom tags. An example would be a Mahabhuta tag to look up YouTube videos based on YouTube URL&apos;s listed in the metadata.</p>
+<p>For example:</p>
+<pre><code>---
+layout: video-page.html.ejs
+title: Race 4, Buenos Aires pre-race driver interviews (Formula E)
+publicationDate: Jan 8, 2015
+tags: Electric Racing, Formula E 2014
+teaser: Going into the fourth race, drivers talk about their experiences and hopes.
+videoUrls:
+  - url: https://www.youtube.com/watch?v=O3lHuEmP9-g
+  - url: https://www.youtube.com/watch?v=02nVQQeBFjg
+  - url: https://www.youtube.com/watch?v=C7QiE9Iguxc
+  - url: https://www.youtube.com/watch?v=Itr9N4QpecA
+  - url: https://www.youtube.com/watch?v=H3BIYCgLeiw
+videoThumbnail: https://www.youtube.com/watch?v=O3lHuEmP9-g
+---
+</code></pre>
+<p>With a suitable page layout template (see below) this renders these YouTube videos along with associated information, and sets up the Thumbnail from one of those videos in the OpenGraph tags. The page is tagged to reference the Formula E electric racing series, and was written in January 2015.</p>
+<p>Support for metadata variables in renderer</p>
+<ul>
+<li>MarkdownRenderer: No</li>
+<li>EJSRenderer: Can substitute variables into rendered output</li>
+</ul>
+<h3>Page Layouts</h3>
+<p>HTMLRenderer supports much more than just rendering content files. That would be very boring and not useful to simply render from a document directory to the <code>renderTo</code> directory. Website designers need freedom to flow their content in all kinds of ways, to have sidebar widgets of all kinds, and on and on. The marketing department needs to have microformat tags of all kinds to express semantic information to search engines, hopefully having a positive SEO benefit. Your visitors need to be able to read/view the content, especially on their mobile device.</p>
+<p>The template is specified in the metadata:</p>
+<pre><code>---
+..
+layout: page.html.ejs
+..
+---
+content
+</code></pre>
+<p>We find templates by looking in directories specified in the configuration object:</p>
+<pre><code>{
+    ....
+    layoutDirs: [ &apos;layouts&apos; ],
+    ...
+}
+</code></pre>
+<p>This is another array of directories. The search begins at the first directory, proceeding to subsequent directories until the template file is found. In this case, with a single directory to search, the matching file would be <code>layouts/page.html.ejs</code>.</p>
+<p>It&apos;s quite easy to have multiple page layouts available. Simply put as many layout templates as desired in these directories, and specify the appropriate template in the metadata for each file.</p>
+<p>The template filename uses the same sort of file extension we use for content files. The same Renderer objects are used to render the template.</p>
+<p>The normal envisioned AkashaRender usage is:</p>
+<ul>
+<li>Content files are written in Markdown - <code>documents/path/to/content.html.md</code></li>
+<li>Layout files are written in EJS - <code>layouts/layoutFile.html.ejs</code></li>
+</ul>
+<p>Markdown is easy to create and edit, making it suitable for the writer. But it doesn&apos;t support variable substitution into the rendered output. That capability is required for performing full page layout.</p>
+<p>HTMLRenderer uses a two-stage process</p>
+<ol>
+<li>Content is rendered, producing HTML output. If the first stage Renderer supports variable substitution, variables are substituted, as are partials.
+<ol>
+<li>This HTML is added to metadata as the variable <code>content</code></li>
+</ol>
+</li>
+<li>(Optional) If a <code>layout</code> tag is present, the layout template is found. The template is rendered using the Renderer specified by its file extension.
+<ol>
+<li>Because the previous stage rendering is a metadata value, the layout template MUST support variable substitution. That means using the EJS Renderer.</li>
+</ol>
+</li>
+</ol>
+<p>The final output (after partials and Mahabhuta tags are processed) is written to the <code>renderTo</code> directory.</p>
+<p>Here&apos;s a slightly more comprehensive page template:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --&gt;
+&lt;!--[if lt IE 7]&gt; &lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;    &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;    &lt;html class=&quot;no-js lt-ie9&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
+&lt;!-- Consider adding a manifest.appcache: h5bp.com/d/Offline --&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt; &lt;!--&lt;![endif]--&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/i/378 --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+&lt;%
+// Our site title and description 
+if (typeof pagetitle !== &quot;undefined&quot;) {
+         %&gt;&lt;title&gt;&lt;%= pagetitle %&gt;&lt;/title&gt;&lt;% 
+} else if (typeof title !== &quot;undefined&quot;) {
+         %&gt;&lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;&lt;% 
+} %&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/style/main.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot; role=&quot;main&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;header class=&quot;col-md-12&quot;&gt;
+  &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+&lt;/header&gt;
+&lt;/row&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-md-12&quot;&gt;
+&lt;%- content %&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>This one uses Bootstrap tags to structure the page, and in the <code>&lt;head&gt;</code> section we&apos;ve added a couple best practices recommended by that project. It lets you use <code>pagetitle</code> in the metadata for the <code>&lt;title&gt;</code> tag if your thoughts are to use different text for the <code>&lt;title&gt;</code> than for the primary <code>&lt;h1&gt;</code>.</p>
+<p>The most important bit is where the <code>content</code> variable is substituted.</p>
+<h3>Partials</h3>
+<p>TODO Has this been tested?</p>
+<p>Partials are little snippets of template, which can be rendered into any location of any template using the <code>partial</code> function. They are the first stage of implementing arbitrary page layouts. Because the partials are available to all page layouts, this is an excellent way to implement common elements that are shared between different page layouts.</p>
+<p>An example is</p>
+<pre><code>&lt;%- partial(&apos;helloworld.html&apos;) %&gt;
+</code></pre>
+<p>Because this is a simple <code>.html</code> file, its content is simply copied verbatim into the rendering.</p>
+<p>You can pass data to a partial as so:</p>
+<pre><code>&lt;%- partial(&apos;listrender.html.ejs&apos;,
+    {
+        items: {
+            &quot;item 1&quot;: &quot;item text 1&quot;,
+            &quot;item 2&quot;: &quot;item text 2&quot;,
+            &quot;item 3&quot;: &quot;item text 3&quot;,
+            &quot;item 4&quot;: &quot;item text 4&quot;
+        }
+    })
+%&gt;
+</code></pre>
+<p>The named partial template is searched for in the directories named in the configuration object.</p>
+<pre><code>{
+    ...
+    partialDirs: [ &apos;partials&apos; ],
+    ...
+}
+</code></pre>
+<p>As for layout templates, the filename selects a Renderer for rendering the partial. Whether the partial renders the data it is given depends on the Renderer corresponding to the filename.</p>
+<p>Consider this implementation of <code>listrender.html.ejs</code></p>
+<pre><code>&lt;ul&gt;&lt;%
+    for (item in items) {
+        %&gt;&lt;li&gt;&lt;%= item %&gt;: &lt;%= items[item] %&gt;&lt;/li&gt;&lt;%
+    }
+%&gt;&lt;/ul&gt;
+</code></pre>
+<p>The variable <code>items</code> is iterated, producing a <code>&lt;ul&gt;</code> full of <code>&lt;li&gt;</code> tags containing the content.</p>
+<p>One way to use partials is in the <code>&lt;head&gt;</code> section where you&apos;ll be referencing common JavaScript or CSS assets. Rather than duplicate that coding across every page template, put them in a partial.</p>
+<pre><code>&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/i/378 --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;
+&lt;%
+// Our site title and description 
+if (typeof pagetitle !== &quot;undefined&quot;) {
+         %&gt;&lt;title&gt;&lt;%= pagetitle %&gt;&lt;/title&gt;&lt;% 
+} else if (typeof title !== &quot;undefined&quot;) {
+         %&gt;&lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;&lt;% 
+} %&gt;
+&lt;%- partial(&apos;sitemap.html.ejs&apos;) %&gt;
+&lt;%- partial(&apos;siteverification.html.ejs&apos;, locals) %&gt;
+&lt;!-- http://en.wikipedia.org/wiki/Canonical_link_element --&gt;
+&lt;% if (typeof rendered_url !== &quot;undefined&quot;) {
+    %&gt;&lt;link rel=&quot;canonical&quot; href=&quot;&lt;%- rendered_url %&gt;&quot; /&gt;&lt;%
+} %&gt;
+&lt;%- partial(&apos;stylesheets.html.ejs&apos;, locals) %&gt;
+&lt;% if (headerScripts &amp;&amp; headerScripts.javaScriptTop) {
+    %&gt;&lt;%- partial(&apos;javaScript.html.ejs&apos;, { javaScripts: headerScripts.javaScriptTop }) %&gt;&lt;%
+} %&gt;
+&lt;/head&gt;
+</code></pre>
+<h3>Custom tags with Mahabhuta</h3>
+<p>The <a href="https://github.com/akashacms/mahabhuta">Mahabhuta</a> engine allows website authors to perform jQuery DOM manipulations on the server side. Reusing your jQuery knowledge may be a good thing, we hope. Mahbhuta will make it possible to reuse jQuery knowledge to reorganize, rewrite, or otherwise manipulate pages on the server side. Let the concept sink in for a moment, because this can be powerful.</p>
+<p>The name? &quot;Mahabhuta&quot; is the Sanskrit name for the five elements, with Akasha being one of those elements. The Mahabhuta engine deals with HTML Elements, so it seems like a fitting name.</p>
+<p>TODO: THis is too big to put in this section?</p>
+<h2>LESS to CSS conversion</h2>
+<h2>Other Renderer types</h2>
+<script src="http//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/vendor/jquery.js"><\/script>')</script>
+<script src="/vendor/log.js"></script>
+<script src="/vendor/modernizr.js"></script>
+<script src="/script.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Page layout, and shared code snippets using partials or Mahabhuta custom tags</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Page layout, and shared code snippets using partials or Mahabhuta custom tags">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Page layout, and shared code snippets using partials or Mahabhuta custom tags">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Page layout, and shared code snippets using partials or Mahabhuta custom tags">
+
+<meta name="og:url" content="https://akashacms.com/akasharender/layouts-partials.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/akasharender/layouts-partials.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="../epubtools/toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+    <li class="dropdown-item"><a href="index.html" id="index" title="AkashaRender">AkashaRender</a></li>
+    <li class="dropdown-item"><a href="2-setup.html" id="setup" title="Project Setup">Project Setup</a></li>
+    <li class="dropdown-item"><a href="3-create-content.html" id="create-content" title="Creating content with AkashaRender">Creating content with AkashaRender</a></li>
+    <li class="dropdown-item"><a href="configuration.html" id="configuration" title="Configuring an AkashaCMS/AkashaRender project">Configuring an AkashaCMS/AkashaRender project</a></li>
+    <li class="dropdown-item"><a href="projects.html" id="projects" title="AkashaRender Projects, package.json, build process">AkashaRender Projects, package.json, build process</a></li>
+    <li class="dropdown-item"><a href="layouts-partials.html" id="layouts-partials" title="Page layout, and shared code snippets using partials or Mahabhuta custom tags">Page layout, and shared code snippets using partials or Mahabhuta custom tags</a>
+        <ol>
+            <li><a href="css-less.html" id="css-less" title="Using CSS and LESS and JS files">Using CSS and LESS and JS files</a></li>
+                <li><a href="theming.html" id="theming" title="Theming an AkashaRender Project">Theming an AkashaRender Project</a></li>
+        </ol>
+    </li>
+    <li class="dropdown-item"><a href="plugins-using.html" id="plugins-using" title="Using AkashaCMS plugins in AkashaRender projects">Using AkashaCMS plugins in AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="plugins-writing.html" id="plugins-writing" title="Writing AkashaCMS plugins for use by AkashaRender projects">Writing AkashaCMS plugins for use by AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="rendering-engines.html" id="rendering-engines" title="AkashaRender Rendering Engines - usage and implementation">AkashaRender Rendering Engines - usage and implementation</a></li>
+    <li class="dropdown-item"><a href="advanced.html" id="advanced" title="Advanced AkashaRender usage patterns">Advanced AkashaRender usage patterns</a></li>
+    <!-- <li>API
+        <ol>
+        <li><a href="api/built-in.js.html" id="built-in">Built-in Plugin</a></li>
+        <li><a href="api/caching.js.html" id="caching">Caching</a></li>
+        <li><a href="api/Configuration.js.html" id="Configuration">Configuration</a></li>
+        <li><a href="api/documents.js.html" id="documents">Documents</a></li>
+        <li><a href="api/filez.js.html" id="filez"></a>filez</li>
+        <li><a href="api/HTMLRenderer.js.html" id="HTMLRenderer">HTMLRenderer</a></li>
+        <li><a href="api/index.js.html" id="index">index</a></li>
+        <li><a href="api/Plugin.js.html" id="Plugin">Plugin</a></li>
+        <li><a href="api/render-cssless.js.html" id="render-cssless">render-cssless</a></li>
+        <li><a href="api/render-ejs.js.html" id="render-ejs">render-ejs</a></li>
+        <li><a href="api/render-md.js.html" id="render-md">render-md</a></li>
+        <li><a href="api/render.js.html" id="render">render</a></li>
+        <li><a href="api/Renderer.js.html" id="Renderer">Renderer</a></li>
+        </ol>
+    </li> -->
+</ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="projects.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Page layout, and shared code snippets using partials or Mahabhuta custom tags</h1>
+
+<a href="css-less.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>Website designers need freedom to flow their content in all kinds of ways, to have sidebar widgets of all kinds, and on and on.  The marketing department needs to have microformat tags of all kinds to express semantic information to search engines, hopefully having a positive SEO benefit.  Your visitors need to be able to read/view the content, especially on their mobile device.  Finally, the content authors need to be relieved of the burden of supplying HTML for the entire page for every document, and instead need to reuse each layout on multiple pages.</p>
+<h1>Specifying the layout used on a given page</h1>
+<p>As we noted when discussing the <a href="3-create-content.html">overall format for AkashaCMS files</a>, documents are split into frontmatter and content.  Among the frontmatter tags is the <code>layout</code> tag which specifies the layout template for the content.</p>
+<p>The template is simply declared using the <code>layout</code> tag in the frontmatter like so:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">article.html.ejs</span>
+<span class="hljs-attr">other:</span> <span class="hljs-string">frontmatter</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">&lt;p&gt;Content&lt;/p&gt;</span>
+</code></pre>
+<p>The layout template is interpreted by the template engine implied by the <a href="3-create-content.html">file extension</a>, just as for partials and documents.</p>
+<p>We find templates by looking in directories specified in the configuration object:</p>
+<pre><code class="hljs language-js">config.addLayoutsDir(<span class="hljs-string">&apos;layouts&apos;</span>);
+</code></pre>
+<p>We can use multiple <code>addLayoutsDir</code> declarations, and AkashaRender will consult each directory in order.  When searching for a specific layout file, it stops at the first matching file.   In this case, with a single directory to search, the matching file would be <code>layouts/article.html.ejs</code>.</p>
+<p>It&apos;s quite easy to have multiple page layouts available.  Simply put as many layout templates as desired in these directories, and specify the appropriate template in the metadata for each file.</p>
+<h2>Page structure and content</h2>
+<p>The separation of page content from page structure/layout is the result of what we just discussed.  The content author focuses on their content in the document file, while specifying the page layout in the metadata.  The website designer focuses on the page layout, in the layout template, and the same layout can be used for multiple pages.</p>
+<p>Building the page structure/layout will depend on the framework used.  For example in Bootstrap one defines <code>&lt;div class=&quot;row&quot;&gt;..&lt;/div&gt;</code> for each row of the layout, then the columns are defined within the row using <code>&lt;div class=&quot;col-md-5&quot;&gt;..&lt;/div&gt;</code> to specify the width of the column (<code>col-md-5</code> means 5 units of column width).</p>
+<p>We went over some ideas on creating a page layout in <a href="theming.html" title="Theming an AkashaRender Project">Theming an AkashaRender Project</a></p>
+<p>The rendered content from the content document is available to the layout template in the <code>content</code> variable.  Therefore, somewhere in the template that variable must be accessed to render the content into the template.  The content is to be referenced like so:-</p>
+<pre><code class="hljs">&lt;%- content %&gt;
+</code></pre>
+<p>That of course assumes the layout template is implemented with EJS.  The <code>&lt;%- .. %&gt;</code> tag makes a literal (no encoding) embeddment of the HTML in the variable into the rendered output.</p>
+<p>For some working examples see the layout templates used for <code>akashacms.com</code>: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms-website/tree/master/layouts" rel="nofollow" target="_blank">https://github.com/akashacms/akashacms-website/tree/master/layouts</a></p>
+<h2>Variable substitution in a template</h2>
+<p>Any time AkashaRender processes a template, it provides some variables.  Most template engines, like EJS, have a way for values to be substituted into the rendered output.  We already saw that with <code>&lt;%- content %&gt;</code> so let&apos;s take a closer look</p>
+<p>EJS provides two kinds of substitutions:</p>
+<table>
+<thead>
+<tr>
+<th>Substitution type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;%= value %&gt;</code></td>
+<td>Substitutes the content of the named variable, encoding any HTML as HTML entities</td>
+</tr>
+<tr>
+<td><code>&lt;%- value %&gt;</code></td>
+<td>Substitutes the content of the named variable, with no encoding</td>
+</tr>
+</tbody>
+</table>
+<p>The choice between the two depends on the variable you&apos;re substituting, and your purpose with that variable.  In the case of <code>content</code>, we have HTML that we want to appear as it is with no encoding.  For other variables shown in this template, it&apos;s expected they&apos;ll be simple text values and that HTML were in the variable would be an accident.</p>
+<p>With Liquid and Nunjucks there is one kind of substitution, and you get the difference between encoded and unencoded like so:</p>
+<table>
+<thead>
+<tr>
+<th>Substitution type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{{ value | escape }}</code></td>
+<td>Substitutes the content of the named variable, encoding any HTML as HTML entities</td>
+</tr>
+<tr>
+<td><code>{{ value }}</code></td>
+<td>Substitutes the content of the named variable, with no encoding</td>
+</tr>
+</tbody>
+</table>
+<p>The difference is in using the <code>escape</code> filter.  Liquid and Nunjucks both have a large number of available filters for various purposes.</p>
+<p>The most important bit is where the <code>content</code> variable is substituted.  The idea is to surround the <code>content</code> with the desired page layout, navigational widgets, etc.</p>
+<h1>Partials in AkashaCMS</h1>
+<p>Partials are little snippets of template, which can be rendered into any location of any template using the <code>partial</code> tag.  An example is</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&apos;helloworld.html&apos;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">partial</span>&gt;</span>
+</code></pre>
+<p>If you cannot use the <code>&lt;partial&gt;</code> tag, for example if you&apos;re creating a PHP file, and the file is processed by EJS, you can do this instead:</p>
+<pre><code class="hljs">&lt;<span class="hljs-meta">%</span>- partial<span class="hljs-comment">(&apos;helloworld.html&apos;)</span> <span class="hljs-meta">%</span>&gt;
+</code></pre>
+<p>This looks in the <em>partials</em> directories (also specified in the Configuration), and the first file found is what will be used.  In this case the partial is a simple HTML file, because its file name ends in <code>.html</code>.  A partial can also use any of the template formats such as <code>.html.ejs</code> to use EJS templates.</p>
+<p>Partials can receive data that is expanded in the template.  You can supply data in the <code>&lt;partial&gt;</code> tag as so:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;render-data.html.ejs&quot;</span>
+        <span class="hljs-attr">data-title</span>=<span class="hljs-string">&quot;Some title text&quot;</span>
+        <span class="hljs-attr">data-some-long-attribute-name</span>=<span class="hljs-string">&quot;attribute value&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">partial</span>&gt;</span>
+</code></pre>
+<p>All the attributes whose name starts with <code>data-</code> are collected and made available as variables in the template.  A long attribute name like shown above is translated into a camelCase variable name like <code>someLongAttributeName</code>.  The body text appears as the template variable named <code>partialBody</code>.</p>
+<p>A common use for partials in page layouts is for major page structures.  You might have a sitewide navigation bar at the top of every page, or an administrative-oriented set of links in the footer.  Since those need to be the same on every page, the simplest approach is to keep them in a partial pulling that into every page layout using the <code>&lt;partial&gt;</code> tag.</p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="projects.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Page layout, and shared code snippets using partials or Mahabhuta custom tags</h1>
+
+<a href="css-less.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

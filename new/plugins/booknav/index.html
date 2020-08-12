@@ -1,0 +1,155 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AskashaCMS &quot;Book-style-navigation&quot; plugin documentation</title>
+<meta name="pagename" content="AskashaCMS &quot;Book-style-navigation&quot; plugin documentation">
+<meta name="date" content="Mon May 15 2017 12:40:44 GMT-0700 (PDT)">
+<meta name="DC.title" content="AskashaCMS &quot;Book-style-navigation&quot; plugin documentation">
+<meta name="og:title" content="AskashaCMS &quot;Book-style-navigation&quot; plugin documentation">
+<meta name="og:url" content="https://akashacms.com/new/plugins/booknav/index.html">
+<link rel="canonical" href="https://akashacms.com/new/plugins/booknav/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/new/plugins/booknav/index.html">
+<meta name="twitter:title" content="AskashaCMS &quot;Book-style-navigation&quot; plugin documentation">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AskashaCMS &quot;Book-style-navigation&quot; plugin documentation</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/new/index.html">AkashaCMS - the powerful static file CMS to build your dream website NEW SITE</a> </li> <li> <a href="/new/plugins/index.html">AkashaCMS plugin directory</a> </li> <li> <a href="/new/plugins/booknav/index.html">AskashaCMS &quot;Book-style-navigation&quot; plugin documentation</a> </li>
+</ol>
+</div>
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p>The <code>akashacms-booknav</code> plugin is inspired by the Drupal <code>book</code> content type. It consists of a tree-structured arrangement of pages, and at the content-area bottom of each page is navigational aids showing the &quot;Next&quot; and &quot;Previous&quot; items in the &quot;book&quot;, as well as part of the book hierarchy.</p>
+<p>The part of <code>akashacms-booknav</code> which works correctly generates an indented listing of all the child documents to the current document. The <code>akashacms-breadcrumbs</code> plugin is useful in combination, as it automatically traces the hierarchy up to the website root directory.</p>
+<h1>Installation</h1>
+<p>With an AkashaCMS website setup, add the following to <code>package.json</code></p>
+<pre><code>  &quot;dependencies&quot;: {
+    ...
+    &quot;akashacms-base&quot;: &quot;akashacms/akashacms-booknav#akasharender&quot;,
+    ...
+  }
+</code></pre>
+<p>The AkashaRender version of <code>akashacms-booknav</code> has not been published to <code>npm</code> yet, and therefore must be referenced this way.</p>
+<p>Once added to <code>package.json</code> run: <code>npm install</code></p>
+<h1>Configuration</h1>
+<p>In <code>config.js</code> for the website:</p>
+<pre><code>config.use(require(&apos;akashacms-booknav&apos;));
+</code></pre>
+<h2>Page layout template</h2>
+<p>It&apos;s recommended to create a page layout template which renders the page index of content &quot;below&quot; its directory. That is, suppose you want a &quot;book&quot; rooted at <code>/guides/nose-scratching</code>, every directory underneath that location should contain an <code>index.html</code> indexing the pages in the hierarchy.</p>
+<p>With a template, say named <code>index-page.html.ejs</code>, each <code>index.html</code> would be generated from a content file like this:</p>
+<pre><code>---
+layout: index-page.html.ejs
+title: Nose Scratching for Fun and Profit
+---
+</code></pre>
+<p>For a working example, see: <a href="https://github.com/akashacms/akashacms-example/tree/akasharender/documents/folder">https://github.com/akashacms/akashacms-example/tree/akasharender/documents/folder</a></p>
+<p>An index page: <a href="https://github.com/akashacms/akashacms-example/blob/akasharender/documents/folder/index.html.md">https://github.com/akashacms/akashacms-example/blob/akasharender/documents/folder/index.html.md</a></p>
+<p>The matching page template: <a href="https://github.com/akashacms/akashacms-example/blob/akasharender/layouts/index-page.html.ejs">https://github.com/akashacms/akashacms-example/blob/akasharender/layouts/index-page.html.ejs</a></p>
+<h1>Custom Tags</h1>
+<h4>Rendering the book hierarchy</h4>
+<p>The page layout template should contain this:</p>
+<pre><code>&lt;book-child-tree&gt;&lt;/book-child-tree&gt;
+</code></pre>
+<p>This function scans through the documents in directories underneath the current directory. That scan finds every document under the directory containing the current document, and generating links to the pages. The presentation is nested and indented to indicate the structure of the directory tree.</p>
+<p>It&apos;s a quick and easy way to generate navigational pages for a group of documents.</p>
+<p>The document metadata consulted is:</p>
+<ul>
+<li><code>title</code>: The title for the document.</li>
+<li><code>teaser</code>: The teaser (a short description) for the document.</li>
+<li><code>teaserthumb</code>: Path for a thumbnail image for the document.</li>
+<li><code>youtubeThumbnail</code>: URL of a YouTube video to use for thumbnail image.</li>
+<li><code>imageThumbnail</code>: URL of a video to use for thumbnail image.</li>
+</ul>
+<h4>Next/Previous</h4>
+<p>Use: <code>&lt;book-next-prev&gt;</code></p>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

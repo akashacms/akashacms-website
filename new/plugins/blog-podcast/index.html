@@ -1,0 +1,247 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AskashaCMS Blog/Podcast plugin documentation</title>
+<meta name="pagename" content="AskashaCMS Blog/Podcast plugin documentation">
+<meta name="date" content="Mon May 15 2017 12:40:44 GMT-0700 (PDT)">
+<meta name="DC.title" content="AskashaCMS Blog/Podcast plugin documentation">
+<meta name="og:title" content="AskashaCMS Blog/Podcast plugin documentation">
+<meta name="og:url" content="https://akashacms.com/new/plugins/blog-podcast/index.html">
+<link rel="canonical" href="https://akashacms.com/new/plugins/blog-podcast/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/new/plugins/blog-podcast/index.html">
+<meta name="twitter:title" content="AskashaCMS Blog/Podcast plugin documentation">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AskashaCMS Blog/Podcast plugin documentation</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/new/index.html">AkashaCMS - the powerful static file CMS to build your dream website NEW SITE</a> </li> <li> <a href="/new/plugins/index.html">AkashaCMS plugin directory</a> </li> <li> <a href="/new/plugins/blog-podcast/index.html">AskashaCMS Blog/Podcast plugin documentation</a> </li>
+</ol>
+</div>
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p>While AkashaCMS is designed to build any website structure, we want it to support building commonly used website structures like Blogs and Podcasts. What distinguishes a blog or podcast from other website structures is that content items are presented one-by-one in reverse chronological order. That is, each new blog or podcast posting appears at the front of the list, with each subsequently older post appearing afterward. There&apos;s nothing special about a blog or podcast other than presenting the youngest item first and the use of an RSS (or Atom) feed so subscribers can be notified of new postings.</p>
+<p>This format is very useful in certain cases. For example a software project like AkashaCMS can use the blog structure to post the latest news about the project. See: <a href="http://akashacms.com/news/index.html">http://akashacms.com/news/index.html</a></p>
+<p>You may be scratching your head asking what we mean by &quot;blog or podcast&quot;. The two are very similarly structured with one required key difference: A podcast has an Enclosure tag in its RSS feed.</p>
+<p>That is, podcasts are a series of podcast episodes. Each episode is either an audio or video file, with listeners using a podcast-catcher application to track the episodes. Those applications subscribe to the podcast RSS feed, with the audio/video file comprising the episode attached using the <code>enclosure</code> tag. The episode &quot;show notes&quot; is simply the text contained within the RSS feed entry. In other words, a podcast is a blog that distributes multimedia files.</p>
+<p>For a working example, see: <a href="https://github.com/akashacms/akashacms-blog-skeleton">https://github.com/akashacms/akashacms-blog-skeleton</a></p>
+<h1>Requirements</h1>
+<p>With that in mind, let&apos;s go over the requirements for a blog/podcast AkashaCMS plugin.</p>
+<ul>
+<li>Identifying a group of content files contained in the blog/podcast</li>
+<li>Generate an index page for the blog/podcast -- using River-of-News format</li>
+<li>Generate an RSS file for the blog/podcast</li>
+<li>Support multiple blogs per website</li>
+</ul>
+<h1>Configuration</h1>
+<p>Assuming you have a working AkashaCMS site, run this command:</p>
+<pre><code>$ npm install &apos;akashacms/akashacms-blog-podcast#akasharender&apos; --save
+</code></pre>
+<p>As of this moment, the <code>npm</code> package <code>akashacms-blog-podcast</code> is the old version of this plugin which supports the older AkashaCMS system. The time required to convert to the new AkashaRender-based-AkashaCMS has not been available. The AkashaRender version of this plugin is available on its <code>akasharender</code> branch.</p>
+<p>In the <code>config.js</code> (again, the AkashaRender style of <code>config.js</code>) add this:</p>
+<pre><code>config
+    ...
+    .use(require(&apos;akashacms-blog-podcast&apos;))
+    ...
+</code></pre>
+<p>That much adds the Blog/Podcast support to AkashaCMS, but does not define any blogs.</p>
+<p>The blog-skeleton site has a full working config.js: <a href="https://github.com/akashacms/akashacms-blog-skeleton/blob/master/config.js">https://github.com/akashacms/akashacms-blog-skeleton/blob/master/config.js</a></p>
+<h1>Defining a blog</h1>
+<p>The content for a given blog or podcast is defined by a search through the documents. The documents matching the search parameters are part of the given blog/podcast. We&apos;ll go over defining the search parameters later.</p>
+<p>Remember the <code>akashacms-blog-podcast</code> plugin supports multiple blog/podcast instances per site. Each blog/podcast is defined by an object describing its parameters. The object describes not only the search parameters defining the blog/podcast contents, but also the metadata advertised in the RSS feed.</p>
+<p>The plugin only supports RSS, not Atom. It&apos;s unfortunately true that the plugin doesn&apos;t actually support Podcasts, because the need hasn&apos;t been there to follow through with the intention to support both in the same plugin.</p>
+<p>This comes from <code>akashacms-blog-skeleton</code></p>
+<pre><code>config.plugin(&apos;akashacms-blog-podcast&apos;)
+    .addBlogPodcast(config, &quot;news&quot;, {
+        rss: {
+            title: &quot;AkashaCMS Example Blog&quot;,
+            description: &quot;Skeleton blog for use with AkashaCMS&quot;,
+            site_url: &quot;http://blog-skeleton.akashacms.com/blog/index.html&quot;,
+            image_url: &quot;http://akashacms.com/logo.gif&quot;,
+            managingEditor: &apos;David Herron&apos;,
+            webMaster: &apos;David Herron&apos;,
+            copyright: &apos;2015 David Herron&apos;,
+            language: &apos;en&apos;,
+            categories: [ &quot;Node.js&quot;, &quot;Content Management System&quot;, &quot;HTML5&quot;, &quot;Static website generator&quot; ]
+        },
+        rssurl: &quot;/blog/rss.xml&quot;,
+        rootPath: &quot;blog&quot;,
+        matchers: {
+            layouts: [ &quot;blog.html.ejs&quot; ],
+            path: /^blog\//
+        }
+    });
+</code></pre>
+<p>With <code>config.plugin(&apos;akashacms-blog-podcast&apos;)</code> we access the Plugin instance object so we can call the <code>addBlogPodcast</code> function. As the name implies, this adds another Blog/Podcast to the site.</p>
+<p>The first argument is the <code>config</code> object, and the second is the <code>blogtag</code>. That string is used in several places to identify which blog instance is being referenced. The last argument is an object describing the blog instance.</p>
+<p>The <code>rss</code> field contains several entries describing the RSS metadata. This object is passed directly to the <code>rss</code> module, see its documentation for more details: <a href="https://www.npmjs.com/package/rss">https://www.npmjs.com/package/rss</a> Notice that it&apos;s relatively easy to define the metadata required for a podcast using that module.</p>
+<p>The <code>rssurl</code> field lists where the RSS file is to land within the website.</p>
+<p>The <code>rootPath</code> field constrains the document search to a given subtree in the website. Leaving this off allows any document to be included in the given blog. If specified, this gives a directory which is the top of the tree that&apos;s searched.</p>
+<p>The <code>matchers</code> field lists options, where matching documents are included in blog. Either or both of these options can be left out, in which case all documents are included in the blog. Only those documents matching all the provided matcher options will be included in the blog. The options are:</p>
+<ul>
+<li><code>layouts</code> Lists one-or-more layout templates. Presumably one will define a <em>blog</em> template and match on that as shown here. As the construct implies, you can list several templates in a comma-separated list. Hence, the <code>layout</code> metadata value is used not only to determine the page layout, but to select that this content file is in the blog.</li>
+<li><code>path</code> Is a regular expression to match against the file path. It&apos;s of course another way to get the same effect as the <code>rootPath</code> option</li>
+</ul>
+<p>Between <code>rootPath</code> and <code>matchers</code> a subset of the documents in the website will be selected. It&apos;s those documents that make up the blog/podcast.</p>
+<p>The RSS file will contain those documents, using a short prefix of each document (from the <code>teaser</code> metadata value) rather than the entire document. The RSS items will be sorted in reverse chronological order, meaning the newest item is listed first.</p>
+<h1>Custom tags and Layouts</h1>
+<p>The <code>akashacms-blog-podcast</code> plugin provides multiple custom tags that are useful for constructing elements of a blog post or blog index. The blog-skeleton contains examples of typical page layouts. You&apos;re of course free to develop your own page layout.</p>
+<p>The content documents contained in the blog/podcast must all include one metadata/frontmatter entry, <code>blogtag</code>, where the value is the <code>blogtag</code> value given above. Here&apos;s an example:</p>
+<pre><code>---
+layout: blog.html.ejs
+title: Test Post 1
+publicationDate: September 15, 2015
+blogtag: news
+teaser: This is a blog teaser
+---
+</code></pre>
+<p>Either the <code>publicationDate</code> metadata value, or the timestamp of the document file, is used to determine the ordering of documents within the blog/podcast.</p>
+<p>The <code>blogtag</code> entry is, as we just said, used to identify which blog this document belongs to.</p>
+<p>The <code>teaser</code> is what&apos;s output in the RSS feed.</p>
+<h2>Blog post page</h2>
+<p>The <code>blog.html.ejs</code> template (<a href="https://github.com/akashacms/akashacms-blog-skeleton/blob/akasharender/layouts/blog.html.ejs">https://github.com/akashacms/akashacms-blog-skeleton/blob/akasharender/layouts/blog.html.ejs</a>) is meant for formatting a single blog post. It&apos;s a fairly normal page layout but with a couple additions.</p>
+<pre><code>&lt;div class=&quot;row&quot;&gt;
+  &lt;section id=&quot;breadcrumb&quot; class=&quot;col-sm-12&quot;&gt;
+    &lt;breadcrumb-trail&gt;&lt;/breadcrumb-trail&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+</code></pre>
+<p>It&apos;s useful (perhaps) to organize the content documents in a directory structure, where the hierarchy has useful meaning. In such a case, the <code>akashacms-breadcrumbs</code> plugin can give you a useful breadcrumb trail.</p>
+<pre><code>&lt;div class=&quot;row&quot;&gt;
+  &lt;section id=&quot;category-tags&quot; class=&quot;col-sm-12&quot;&gt;
+    By: &lt;author-link&gt;&lt;/author-link&gt;;
+        &lt;publication-date&gt;&lt;/publication-date&gt;;
+        &lt;tags-for-document/&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+</code></pre>
+<p>This is meant to be an attribution line, listing the author, the publication date, and category tags. A common feature of blogs is &quot;tags&quot;. The <code>akashacms-tagged-content</code> plugin makes tagging easy.</p>
+<pre><code>&lt;section id=&quot;right&quot; class=&quot;col-sm-2&quot;&gt;
+  &lt;tag-cloud/&gt;
+&lt;/section&gt;
+</code></pre>
+<p>That module gives us a useful Tag Cloud (well, it&apos;s debatable whether tag clouds are all that useful) we can stick in a sidebar.</p>
+<pre><code>&lt;blog-next-prev&gt;&lt;/blog-next-prev&gt;
+</code></pre>
+<p>This tag figures out the &quot;next&quot; and &quot;previous&quot; entries in the blog. Remember that blogs are sorted in reverse-chronological order, meaning presenting this as a blog means presenting the content in that order.</p>
+<p>The <code>blog-next-prev</code> tag lists two links, to the Next and Previous entries in the blog. That way the reader could read the entire blog by repeatedly clicking on one or the other of those links. The <code>blog-next-prev.html.ejs</code> template is used in case you want to override the presentation.</p>
+<pre><code>&lt;partial file-name=&apos;disqus.html&apos;&gt;&lt;/partial&gt;
+</code></pre>
+<p>It&apos;s common in blogs to allow readers to leave comments. AkashaCMS doesn&apos;t support commenting natively, however Disqus is a fine system that supports commenting on any kind of website.</p>
+<h2>Blog index page</h2>
+<p>It&apos;s useful to have an index page for the blog. Historically blogs have been presented in the River of News format. The methodology shown here can present in other formats just by changing the template.</p>
+<p>See: <a href="https://github.com/akashacms/akashacms-blog-skeleton/blob/akasharender/layouts/index-blog.html.ejs">https://github.com/akashacms/akashacms-blog-skeleton/blob/akasharender/layouts/index-blog.html.ejs</a> for an example.</p>
+<pre><code>&lt;blog-news-river maxentries=&quot;100&quot;&gt;&lt;/blog-news-river&gt;
+</code></pre>
+<p>As the name of this tag implies, it produces the River of News format (by default). Supported attributes are:</p>
+<ul>
+<li><code>maxentries</code> Controls the maximum number of blog entries to show on the index page.</li>
+<li><code>template</code> Changes the template to use. By default this is <code>blog-news-river.html.ejs</code>. If you want to change the layout, you can either override this template, or you can specify a template using this attribute.</li>
+</ul>
+<pre><code>&lt;blog-rss-icon&gt;&lt;/blog-rss-icon&gt;
+</code></pre>
+<p>This tag is meant to be used from the <code>blog-news-river.html.ejs</code>, and it shows the RSS icon for the blog.</p>
+<h2>Using the blog index elsewhere</h2>
+<p>The &quot;Blog index page&quot; is one place you might present a blog index. Such content documents are expected to have a <code>blogtag</code> metadata entry. We also need to show a blog index on pages where there is no <code>blogtag</code>. Sometimes it&apos;s necessary to show multiple blog indexes on the same page.</p>
+<p>For example the blog-skeleton home page shows two blog indexes, see: <a href="https://github.com/akashacms/akashacms-blog-skeleton/blob/akasharender/documents/index.html.md">https://github.com/akashacms/akashacms-blog-skeleton/blob/akasharender/documents/index.html.md</a></p>
+<p>We do this as follows:</p>
+<pre><code>&lt;div id=&quot;blog-1-news&quot;&gt;
+    &lt;div class=&quot;well well-sm&quot;&gt;&lt;h2&gt;Blog #1&lt;/h2&gt;&lt;/div&gt;
+    &lt;blog-news-river maxentries=&quot;20&quot; blogtag=&quot;news&quot; template=&quot;blog-river-thumbs.html.ejs&quot;&gt;&lt;/blog-news-river&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;blog-2-news&quot;&gt;
+    &lt;div class=&quot;well well-sm&quot;&gt;&lt;h2&gt;Blog #2&lt;/h2&gt;&lt;/div&gt;
+    &lt;blog-news-river maxentries=&quot;20&quot; blogtag=&quot;news-2&quot; template=&quot;blog-river-thumbs.html.ejs&quot;&gt;&lt;/blog-news-river&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Notice that a <code>blogtag</code> attribute is given, to specify the blog being displayed.</p>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

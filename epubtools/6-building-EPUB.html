@@ -1,0 +1,566 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Building an EPUB with AkashaEPUB</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Building an EPUB with AkashaEPUB">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Building an EPUB with AkashaEPUB">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Building an EPUB with AkashaEPUB">
+
+<meta name="og:url" content="https://akashacms.com/epubtools/6-building-EPUB.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/epubtools/6-building-EPUB.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="../akasharender/toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+        <li class="dropdown-item"><a id="introduction" href="1-introduction.html" title="Introduction to AkashaEPUB">Introduction to AkashaEPUB</a></li>
+        <li class="dropdown-item"><a id="installation" href="2-installation.html" title="Installing the AkashaEPUB toolchain">Installing the AkashaEPUB toolchain</a></li>
+        <li class="dropdown-item"><a id="creating-content" href="3-creating-content.html" title="Creating book content">Creating book content</a>
+            <ol>
+                <li><a id="chap-3c-content-markup" href="3c-content-markup.html" title="Content markup formats">Content markup formats</a></li>
+                <li><a id="chap-3d-rendering" href="3d-rendering.html" title="The AkashaCMS rendering process">The AkashaCMS rendering process</a></li>
+                <li><a id="chap-3da-css" href="3da-css.html" title="CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s">CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</a></li>
+                <li><a id="chap-3e-html5-structure" href="3e-html5-structure.html" title="Summary of HTML5 markup in AkashaEPUB Documents">Summary of HTML5 markup in AkashaEPUB Documents</a></li>
+                <li><a id="chap-3e-internal-links" href="3e-internal-links.html" title="LINK, IMG tags and the requirement for relative URL&apos;s">LINK, IMG tags and the requirement for relative URL&apos;s</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="configuration" href="4-configuration.html" title="Configuration files for AkashaEPUB projects">Configuration files for AkashaEPUB projects</a>
+            <ol>
+                <li><a id="chap-4a-akasharender-epub" href="4a-akasharender-epub.html" title="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="structure" href="5-structure.html" title="Structuring your book">Structuring your book</a></li>
+        <li class="dropdown-item"><a id="building-EPUB" href="6-building-EPUB.html" title="Building an EPUB with AkashaEPUB">Building an EPUB with AkashaEPUB</a>
+            <ol>
+                <li><a id="chap-6aa-epub-website" href="6aa-epub-website.html" title="Detailed walk-through an embedding EPUB content in an AkashaCMS website">Detailed walk-through an embedding EPUB content in an AkashaCMS website</a></li>
+                <li><a id="chap-6b-validation" href="6b-validation.html" title="Validating EPUB files built by AkashaEPUB">Validating EPUB files built by AkashaEPUB</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="akashacms-project" href="7-akashacms-project.html" title="The AkashaCMS Open Source Project">The AkashaCMS Open Source Project</a></li>
+        <li class="dropdown-item"><a id="about" href="8-about.html" title="About the author, David Herron">About the author, David Herron</a></li>
+        <li class="dropdown-item"><a id="references" href="9-references.html" title="References">References</a></li>
+        <li class="dropdown-item"><a id="copyright" href="0a-copyright.html" title="Copyright Notice">Copyright Notice</a></li>
+    </ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="5-structure.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Building an EPUB with AkashaEPUB</h1>
+
+<a href="6aa-epub-website.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>Now that we know how to <a href="2-installation.html">install AkashaEPUB</a>, <a href="3-creating-content.html">how to create content</a>, and <a href="4-configuration.html">structure our book</a>, it&apos;s time to use AkashaEPUB to build some books.  We&apos;ll talk in this section about the book building process using <em>epubtools</em>.</p>
+<p>With <em>epubtools</em> we could theoretically take any XHTML files, a <code>book.yml</code>, a navigation document, and generate an EPUB.  It is not required to build the XHTML files with AkashaRender and its plugins.  While it was designed to work hand-in-hand with AkashaRender-based tools, the relationship is arms-length enough that the XHTML files could come from anywhere.  Say, it&apos;s theoretically possible to write content in Google Docs and to use a script to extract an XHTML version of what you write.</p>
+<p>While an EPUB is &quot;just&quot; a ZIP archive with specific contents, assembling it correctly as an EPUB is not as simple as ZIP&apos;ing the directory and changing the file extension to <code>.epub</code>.  There are a few specific EPUB requirements that are not met with that approach.   In <em>epubtools</em> we have well-tested functionality to generate the XML metadata files and to correctly bundle the EPUB following the EPUB spec.</p>
+<h1>Building an EPUB</h1>
+<p>Now that we know the configuration of directory structure and plugins, let&apos;s look at the build process.</p>
+<p>In the past <em>Grunt</em> was used but over time it proved to be unwieldy.  Over the last couple years npm&apos;s <code>scripts</code> support has become a popular build mechanism.  For smaller workflows the <code>scripts</code> support is a very useful mechanism that&apos;s easy to implement and document.  The process we describe here is very simple and fits well into the <code>pachage.json</code>.</p>
+<p>This is the <code>scripts</code> section of the EPUB Skeleton project&apos;s <code>package.json</code></p>
+<pre><code class="hljs"><span class="hljs-string">&quot;scripts&quot;</span>: {
+  <span class="hljs-string">&quot;clean&quot;</span>: <span class="hljs-string">&quot;rm -rf out&quot;</span>,
+  <span class="hljs-string">&quot;prebuild&quot;</span>: <span class="hljs-string">&quot;mkdir -p out &amp;&amp; akasharender copy-assets config.js&quot;</span>,
+  <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;akasharender render config.js&quot;</span>,
+  <span class="hljs-string">&quot;postbuild&quot;</span>: <span class="hljs-string">&quot;epubtools mimetype out &amp;&amp; epubtools containerxml out book.yml &amp;&amp; epubtools makemeta out book.yml&quot;</span>,
+  <span class="hljs-string">&quot;prebundle&quot;</span>: <span class="hljs-string">&quot;epubtools xhtml out&quot;</span>,
+  <span class="hljs-string">&quot;bundle&quot;</span>: <span class="hljs-string">&quot;epubtools package out book.yml&quot;</span>,
+  <span class="hljs-string">&quot;rebuild&quot;</span>: <span class="hljs-string">&quot;npm run clean &amp;&amp; npm run build &amp;&amp; npm run bundle&quot;</span>
+},
+</code></pre>
+<p>The first thing to call out is the hard-coded <code>out</code> directory.  This is the default RenderDestination.  There isn&apos;t any mechanism for retrieving Configuration options to use in a command-line script, so you&apos;ll just have to manually coordinate the directory name in these scripts with the setting of RenderDestination.</p>
+<p>The <code>build</code> step has companion <code>prebuild</code> and <code>postbuild</code> steps.  Between <code>prebuild</code> and <code>postbuild</code> is the typical AkashaRender build where we first ensure the RenderDestination directory exists, then copy in the asset files, then render the content files.</p>
+<p>The <code>postbuild</code> step is where <em>epubtools</em> comes into the picture.  We&apos;ve split the process into multiple <em>epubtools</em> commands.  With <code>epubtools mimetype</code> we obviously create the <code>mimetype</code> file.  With <code>epubtools containerxml</code> we generate the <code>META-INF/container.xml</code> file.  Then with <code>epubtools makemeta</code> we generate the OPF and NCX files.  In other words, these commands construct the metadata files required by the EPUB specification.</p>
+<p>Why weren&apos;t those steps all combined into one?  Yes, that&apos;s a good question.  Moving on.</p>
+<p>In <code>prebundle</code> we prepare for bundling the EPUB by ensuring <code>.html</code> files are renamed to <code>.xhtml</code>.  The EPUB spec requires the latter file extension on XHTML files.  Unfortunately AkashaRender cannot produce <code>.xhtml</code> files, only <code>.html</code>.  While <code>akasharender-epub</code> ensures the content is in XHTML format, EPUB still requires the <code>.xhtml</code> extension.  The <code>epubtools xhtml</code> command converts the file name from <code>.html</code> to <code>.xhtml</code>, plus it searches for links to local <code>.html</code> files, converting the link to <code>.xhtml</code>.</p>
+<p>It is in <code>bundle</code> where the RenderDestination directory is ZIP&apos;d to create the EPUB file.  Care is taken to construct it according to the EPUB spec.  An EPUB is a ZIP archive with certain fingerprints.  For example the <code>mimetype</code> file has to be the first entry in the ZIP archive and it cannot be compressed.  By doing so, the text <code>application/epub+zip</code> appears in plain text at a certain offset into the file, as shown here:</p>
+<pre><code class="hljs"><span class="hljs-symbol">0000000 </span>   P   K <span class="hljs-number">003</span> <span class="hljs-number">004</span> <span class="hljs-number">024</span>  \<span class="hljs-number">0</span>  \b  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span> <span class="hljs-number">340</span> <span class="hljs-number">234</span> <span class="hljs-number">355</span>   J  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>
+<span class="hljs-symbol">0000020 </span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \b  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>  \<span class="hljs-number">0</span>   m   i
+<span class="hljs-symbol">0000040 </span>   m   e   t   y   p   e   a   p   p   l   i   c   a   t   i   o
+<span class="hljs-symbol">0000060 </span>   n   /   e   p   u   b   +   z   i   p   P   K  \a  \b   o   a
+</code></pre>
+<p>For convenience the <code>rebuild</code> command runs the entire process.  The output will look something like this:</p>
+<pre><code class="hljs">$ npm run rebuild
+
+&gt; epub-skeleton@ rebuild /Users/david/akasharender/epub-skeleton
+&gt; npm run clean &amp;&amp; npm run build &amp;&amp; npm run bundle
+
+
+&gt; epub-skeleton@ clean /Users/david/akasharender/epub-skeleton
+&gt; rm -rf out
+
+
+&gt; epub-skeleton@ prebuild /Users/david/akasharender/epub-skeleton
+&gt; mkdir -<span class="hljs-selector-tag">p</span> out &amp;&amp; akasharender copy-assets config<span class="hljs-selector-class">.js</span>
+
+
+&gt; epub-skeleton@ build /Users/david/akasharender/epub-skeleton
+&gt; akasharender render config<span class="hljs-selector-class">.js</span>
+
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap1<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap1<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap1a<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap1a<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap2<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap2<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap3<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap3<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap3a<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap3a<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap3b<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap3b<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap4<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap4<span class="hljs-selector-class">.html</span>
+SKIP DIRECTORY documents/chap5
+SKIP DIRECTORY documents/chap5/<span class="hljs-selector-tag">b</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap5/b/chap5b<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap5/b/chap5b<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap5/chap5<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap5/chap5<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/chap5/chap5a<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/chap5/chap5a<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> documents/cover<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.md</span> ==&gt; out/cover<span class="hljs-selector-class">.html</span>
+<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.ejs</span> documents/toc<span class="hljs-selector-class">.html</span><span class="hljs-selector-class">.ejs</span> ==&gt; out/toc<span class="hljs-selector-class">.html</span>
+
+&gt; epub-skeleton@ postbuild /Users/david/akasharender/epub-skeleton
+&gt; epubtools mimetype out &amp;&amp; epubtools containerxml out book<span class="hljs-selector-class">.yml</span> &amp;&amp; epubtools makemeta out book<span class="hljs-selector-class">.yml</span>
+
+&gt; epub-skeleton@ prebundle /Users/david/akasharender/epub-skeleton
+&gt; epubtools xhtml out
+
+&gt; epub-skeleton@ bundle /Users/david/akasharender/epub-skeleton
+&gt; epubtools package out book<span class="hljs-selector-class">.yml</span>
+</code></pre>
+<h2>HTML Minification</h2>
+<p>It&apos;s useful to minify the HTML and other files for an EPUB just as it is for the Web.  In both cases a smaller file is preferable, because it delivers faster over the Internet, or it takes up less storage space in the eBook reader application.</p>
+<p>The good news is that HTML minifiers for the web can be used in the EPUB-building workflow.</p>
+<p>For example:</p>
+<pre><code class="hljs">$ npm <span class="hljs-keyword">install</span> html-minifier <span class="hljs-comment">--save</span>
+</code></pre>
+<p>This is an easy-to-use and powerful tool for HTML minification.  The npm registry also has CSS and JavaScript minifiers available.</p>
+<p>This tool can be incorporated into the workflow very easily:</p>
+<pre><code class="hljs"><span class="hljs-comment">&quot;minify&quot;:</span> <span class="hljs-comment">&quot;html</span><span class="hljs-literal">-</span><span class="hljs-comment">minifier</span> --<span class="hljs-comment">collapse</span><span class="hljs-literal">-</span><span class="hljs-comment">whitespace</span> --<span class="hljs-comment">conservative</span><span class="hljs-literal">-</span><span class="hljs-comment">collapse</span> --<span class="hljs-comment">html5</span> --<span class="hljs-comment">keep</span><span class="hljs-literal">-</span><span class="hljs-comment">closing</span><span class="hljs-literal">-</span><span class="hljs-comment">slash</span> --<span class="hljs-comment">preserve</span><span class="hljs-literal">-</span><span class="hljs-comment">line</span><span class="hljs-literal">-</span><span class="hljs-comment">breaks</span> --<span class="hljs-comment">remove</span><span class="hljs-literal">-</span><span class="hljs-comment">comments</span> --<span class="hljs-comment">file</span><span class="hljs-literal">-</span><span class="hljs-comment">ext</span> <span class="hljs-comment">xhtml</span>  --<span class="hljs-comment">input</span><span class="hljs-literal">-</span><span class="hljs-comment">dir</span> <span class="hljs-comment">out</span> --<span class="hljs-comment">output</span><span class="hljs-literal">-</span><span class="hljs-comment">dir</span> <span class="hljs-comment">out&quot;</span><span class="hljs-string">,</span>
+<span class="hljs-comment">&quot;rebuild&quot;:</span> <span class="hljs-comment">&quot;npm</span> <span class="hljs-comment">run</span> <span class="hljs-comment">clean</span> <span class="hljs-comment">&amp;&amp;</span> <span class="hljs-comment">npm</span> <span class="hljs-comment">run</span> <span class="hljs-comment">build</span> <span class="hljs-comment">&amp;&amp;</span> <span class="hljs-comment">npm</span> <span class="hljs-comment">run</span> <span class="hljs-comment">minify</span> <span class="hljs-comment">&amp;&amp;</span> <span class="hljs-comment">npm</span> <span class="hljs-comment">run</span> <span class="hljs-comment">bundle&quot;</span><span class="hljs-string">,</span>
+</code></pre>
+<p>In other words we can add another step, <em>minify</em>, to the process which is as shown here.  This is a fairly conservative form of minification, leaving the file still relatively readable while squeezing out excess whitespace and so on.</p>
+<p>For CSS Minification, <em>cssnano</em> (
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.npmjs.com" style="display: inline-block; padding-right: 2px;" alt="(www.npmjs.com)">
+                    <a href="https://www.npmjs.com/package/cssnano" rel="nofollow" target="_blank">https://www.npmjs.com/package/cssnano</a>) looks promising.</p>
+<h1>The <em>epubtools</em> command</h1>
+<pre><code class="hljs">$ epubtools <span class="hljs-comment">--help</span>
+
+  Usage: epubtools [options] [<span class="hljs-keyword">command</span>]
+
+
+  Options:
+
+    -V, <span class="hljs-comment">--version  output the version number</span>
+    -h, <span class="hljs-comment">--help     output usage information</span>
+
+
+  Commands:
+
+    package &lt;rendered&gt; &lt;bookYaml&gt;       Package <span class="hljs-keyword">an</span> EPUB3 <span class="hljs-built_in">file</span> <span class="hljs-built_in">from</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">directory</span>
+    extract &lt;epubFileName&gt; &lt;dirName&gt;    Extract <span class="hljs-keyword">an</span> EPUB3 <span class="hljs-built_in">file</span> <span class="hljs-built_in">to</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">directory</span>
+    stats &lt;rendered&gt;                    Print <span class="hljs-keyword">text</span> statistics <span class="hljs-keyword">for</span> rendered HTML <span class="hljs-built_in">file</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">directory</span>
+    <span class="hljs-keyword">words</span> &lt;rendered&gt;                    Print <span class="hljs-built_in">word</span> count statistics <span class="hljs-keyword">for</span> rendered HTML <span class="hljs-built_in">file</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">directory</span>
+    mimetype &lt;rendered&gt;                 Create <span class="hljs-keyword">an</span> EPUB3 mimetype <span class="hljs-built_in">file</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">directory</span>
+    containerxml &lt;rendered&gt; &lt;bookYaml&gt;  Create <span class="hljs-keyword">an</span> EPUB3 container.xml <span class="hljs-built_in">file</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">directory</span>
+    makemeta &lt;rendered&gt; &lt;bookYaml&gt;      Create OPF <span class="hljs-keyword">and</span> NCX <span class="hljs-built_in">files</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">directory</span>
+    check &lt;rendered&gt;                    Check <span class="hljs-keyword">an</span> EPUB <span class="hljs-built_in">directory</span> <span class="hljs-keyword">for</span> valid HTML
+    tohtml &lt;convertYaml&gt;                Convert EPUB <span class="hljs-built_in">to</span> HTML
+    xhtml &lt;rendered&gt;                    Convert .html <span class="hljs-built_in">files</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">directory</span> <span class="hljs-built_in">to</span> .xhtml, fixing links
+</code></pre>
+<p>The <em>epubtools</em> command does a bit more than what we&apos;ve just shown.</p>
+<p>It can not only bundle an EPUB using the <code>package</code> command, it can extract an EPUB&apos;s content using the <code>extract</code> command.</p>
+<p>With <code>stats</code> and <code>words</code> we can inspect statistics about the content.  There is more which could be done in this area, perhaps.</p>
+<p>The <code>check</code> command attempts to verify the EPUB content is correct.  It would be useful to add this to the workflow just before the <code>bundle</code> step.  The <code>epubcheck</code> program is the gold standard for verifying EPUB3 correctness.</p>
+<p>The <code>tohtml</code> command is an incomplete and probably bug-ridden attempt to convert an EPUB into an HTML.  Once it is converted to HTML it&apos;s fairly easy to use a web browser to generate a PDF.</p>
+<p>The <code>xhtml</code> command converts files with extension <code>.html</code> to have <code>.xhtml</code> extension, as required by EPUB.  Links are searched out in <code>.xhtml</code>, <code>.html</code>, <code>.opf</code> and <code>.ncx</code> files referring to local <code>.html</code> files, and the extension is converted to <code>.xhtml</code>.  The purpose is that AkashaRender only knows how to generate <code>.html</code> files, but the EPUB standard requires <code>.xhtml</code> files.  This command converts the directory to match the requirements.</p>
+<p>We already saw this in use:</p>
+<pre><code class="hljs"><span class="hljs-string">&quot;prebundle&quot;</span>: <span class="hljs-string">&quot;epubtools xhtml out&quot;</span>,
+</code></pre>
+<h2>Minimal input to <em>epubtools</em></h2>
+<p>We&apos;ve discussed a series of commands to execute, that successfully uses AkashaEPUB and epubtools to render content and bundle an EPUB.  A careful study shows that it first uses <code>akasharender</code> to render the content, then runs a number of steps using <code>epubtools</code> to generate metadata files and then bundle the EPUB.  This demonstrates the claim made earlier that epubtools can take XHTML files from any source.</p>
+<p>For example the RenderDestination directory for this book, after running <code>akasharender render config.js</code>, is:</p>
+<pre><code class="hljs">$ tree <span class="hljs-keyword">out</span>
+<span class="hljs-keyword">out</span>
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">0</span>a-copyright.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">1</span>-<span class="hljs-built_in">int</span>roduction.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">2</span>-installation.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>-creating-content.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>c-content-markup.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>d-rendering.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>da-css.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>e-html5-structure.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>e-<span class="hljs-built_in">int</span>ernal-links.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">4</span>-configuration.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">4</span>a-akasharender-epub.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">5</span>-structure.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">6</span>-building-EPUB.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">6</span>aa-epub-website.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">6</span>b-validation.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">7</span>-akashacms-project.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">8</span>-about.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">9</span>-<span class="hljs-built_in">ref</span>erences.html
+&#x251C;&#x2500;&#x2500; ___dlimages
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; vi
+&#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; M-sc73Y-zQA
+&#x2502;&#xA0;&#xA0;         &#x2514;&#x2500;&#x2500; hqdefault.jpg
+&#x251C;&#x2500;&#x2500; akashacms-logo.gif
+&#x251C;&#x2500;&#x2500; akashacms-rendering.png
+&#x251C;&#x2500;&#x2500; akashaepub-logo.png
+&#x251C;&#x2500;&#x2500; css
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; style.css
+&#x251C;&#x2500;&#x2500; fonts
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; LICENSE.txt
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans-Bold.ttf
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans-BoldItalic.ttf
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans-Italic.ttf
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; OpenSans-Regular.ttf
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; UbuntuMono-B.ttf
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; UbuntuMono-BI.ttf
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; UbuntuMono-R.ttf
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; UbuntuMono-RI.ttf
+&#x251C;&#x2500;&#x2500; images
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; <span class="hljs-number">640</span>px-Metal_movable_type.jpg
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; akasha-epub-<span class="hljs-keyword">in</span>-action.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; cc-by-nd<span class="hljs-number">-88</span>x31.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; cover.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; node-web-dev-cover.jpg
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; uuid-generator.png
+&#x251C;&#x2500;&#x2500; no-image.gif
+&#x2514;&#x2500;&#x2500; toc.html
+
+<span class="hljs-number">7</span> directories, <span class="hljs-number">40</span> files
+</code></pre>
+<p>It&apos;s just as we expect, a bunch of HTML, CSS and image files.  Imagine having created those files using a different tool than AkashaEPUB.  That&apos;s possible, since the content files are regular every-day XHTML files that could be created with any HTML editor.</p>
+<p>The next step is to run a sequence of commands to generate the metadata files:  <code>epubtools mimetype out &amp;&amp; epubtools containerxml out book.yml &amp;&amp; epubtools makemeta out book.yml</code></p>
+<p>Those steps rely on the <code>book.yml</code> and the navigation document to generate the metadata files.  What does the renderDestination directory look like after those commands?</p>
+<pre><code class="hljs">$ tree <span class="hljs-keyword">out</span>
+<span class="hljs-keyword">out</span>
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">0</span>a-copyright.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">1</span>-<span class="hljs-built_in">int</span>roduction.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">2</span>-installation.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>-creating-content.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>c-content-markup.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>d-rendering.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>da-css.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>e-html5-structure.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">3</span>e-<span class="hljs-built_in">int</span>ernal-links.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">4</span>-configuration.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">4</span>a-akasharender-epub.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">5</span>-structure.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">6</span>-building-EPUB.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">6</span>aa-epub-website.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">6</span>b-validation.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">7</span>-akashacms-project.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">8</span>-about.html
+&#x251C;&#x2500;&#x2500; <span class="hljs-number">9</span>-<span class="hljs-built_in">ref</span>erences.html
+&#x251C;&#x2500;&#x2500; META-INF
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; container.xml
+&#x251C;&#x2500;&#x2500; ___dlimages
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; vi
+&#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; M-sc73Y-zQA
+&#x2502;&#xA0;&#xA0;         &#x2514;&#x2500;&#x2500; hqdefault.jpg
+&#x251C;&#x2500;&#x2500; akashacms-logo.gif
+&#x251C;&#x2500;&#x2500; akashacms-rendering.png
+&#x251C;&#x2500;&#x2500; akashaepub-logo.png
+&#x251C;&#x2500;&#x2500; css
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; style.css
+&#x251C;&#x2500;&#x2500; fonts
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; LICENSE.txt
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans-Bold.ttf
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans-BoldItalic.ttf
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; OpenSans-Italic.ttf
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; OpenSans-Regular.ttf
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; UbuntuMono-B.ttf
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; UbuntuMono-BI.ttf
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; UbuntuMono-R.ttf
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; UbuntuMono-RI.ttf
+&#x251C;&#x2500;&#x2500; guide.opf
+&#x251C;&#x2500;&#x2500; images
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; <span class="hljs-number">640</span>px-Metal_movable_type.jpg
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; akasha-epub-<span class="hljs-keyword">in</span>-action.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; cc-by-nd<span class="hljs-number">-88</span>x31.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; cover.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; node-web-dev-cover.jpg
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; uuid-generator.png
+&#x251C;&#x2500;&#x2500; mimetype
+&#x251C;&#x2500;&#x2500; no-image.gif
+&#x251C;&#x2500;&#x2500; toc.html
+&#x2514;&#x2500;&#x2500; toc.ncx
+
+<span class="hljs-number">8</span> directories, <span class="hljs-number">44</span> files
+</code></pre>
+<p>That added one directory and four files.  If you look carefully at the two tree&apos;s, the files added are <code>META-INF/container.xml</code>, <code>guide.opf</code>, <code>mimetype</code> and <code>toc.ncx</code>.</p>
+<h1>Building both a website and an EPUB</h1>
+<p>We&apos;ve already shown that we can reuse the content of an EPUB in an AkashaCMS website.  The build process is a little more complex in this case.  To demonstrate, we&apos;ll show the <code>scripts</code> section for the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=greentransportation.info" style="display: inline-block; padding-right: 2px;" alt="(greentransportation.info)">
+                    <a href="http://greentransportation.info" rel="nofollow" target="_blank">greentransportation.info</a> website.</p>
+<pre><code class="hljs"><span class="hljs-string">&quot;scripts&quot;</span>: {
+  <span class="hljs-string">&quot;prebuild&quot;</span>: <span class="hljs-string">&quot;akasharender copy-assets config.js&quot;</span>,
+  <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;akasharender render config.js&quot;</span>,
+  <span class="hljs-string">&quot;deploy&quot;</span>: <span class="hljs-string">&quot;cd out &amp;&amp; rsync --archive --delete --verbose ./ user-name@web-server-domain.com:sub-directory-for-greentransportation.info/ &quot;</span>,
+  <span class="hljs-string">&quot;preview&quot;</span>: <span class="hljs-string">&quot;cd out &amp;&amp; ../node_modules/.bin/hostr&quot;</span>,
+  <span class="hljs-string">&quot;clean-range-confidence&quot;</span>: <span class="hljs-string">&quot;rm -rf out-range-confidence&quot;</span>,
+  <span class="hljs-string">&quot;prebuild-range-confidence&quot;</span>: <span class="hljs-string">&quot;mkdir -p out-range-confidence &amp;&amp; akasharender copy-assets config-ebook-range-confidence.js &amp;&amp; globfs copy documents/ev-charging out-range-confidence &apos;**/cover.html&apos;&quot;</span>,
+  <span class="hljs-string">&quot;build-range-confidence&quot;</span>: <span class="hljs-string">&quot;akasharender render config-ebook-range-confidence.js&quot;</span>,
+  <span class="hljs-string">&quot;postbuild-range-confidence&quot;</span>: <span class="hljs-string">&quot;rm -rf out-range-confidence/vendor/Viewer.js &amp;&amp; epubtools mimetype out-range-confidence &amp;&amp; epubtools containerxml out-range-confidence book-range-confidence.yml &amp;&amp; epubtools makemeta out-range-confidence book-range-confidence.yml&quot;</span>,
+  <span class="hljs-string">&quot;prebundle-range-confidence&quot;</span>: <span class="hljs-string">&quot;epubtools xhtml out-range-confidence&quot;</span>,
+  <span class="hljs-string">&quot;bundle-range-confidence&quot;</span>: <span class="hljs-string">&quot;epubtools package out-range-confidence book-range-confidence.yml&quot;</span>,
+  <span class="hljs-string">&quot;rebuild-range-confidence&quot;</span>: <span class="hljs-string">&quot;npm run clean-range-confidence &amp;&amp; npm run build-range-confidence &amp;&amp; npm run bundle-range-confidence&quot;</span>,
+  <span class="hljs-string">&quot;check-range-confidence&quot;</span>: <span class="hljs-string">&quot;java -jar /usr/bin/epubcheck range-confidence.epub&quot;</span>,
+  <span class="hljs-string">&quot;kindle-range-confidence&quot;</span>: <span class="hljs-string">&quot;~/KindleGen/kindlegen range-confidence.epub&quot;</span>
+},
+</code></pre>
+<p>The <code>prebuild</code>, <code>build</code>, <code>deploy</code> and <code>preview</code> scripts correspond to building the website.  These steps use the website-oriented configuration file, <code>config.js</code>, whose RenderDestination is <code>out</code>.</p>
+<p>The scripts ending with <code>-range-confidence</code> correspond to building the eBook.  These steps use a different configuration file, <code>config-ebook-range-confidence.js</code>, whose RenderDestination is <code>out-range-confidence</code>.  Other than that the steps are largely the same as in the EPUB Skeleton project.</p>
+<p>There are two additional steps, <code>check-range-confidence</code> and <code>kindle-range-confidence</code>.  The first runs the <em>epubcheck</em> tool to verify the EPUB is correct.  The second runs the <em>KindleGen</em> tool to repackage the EPUB into the MOBI format used by Amazon&apos;s Kindle online store.</p>
+<p>This covers only the workflow required to build the same content for both a website and an EPUB.  In the next chapter we&apos;ll go over templates and the required special processing.</p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="5-structure.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Building an EPUB with AkashaEPUB</h1>
+
+<a href="6aa-epub-website.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

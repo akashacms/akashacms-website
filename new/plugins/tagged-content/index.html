@@ -1,0 +1,154 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AskashaCMS Tagged-Content plugin documentation</title>
+<meta name="pagename" content="AskashaCMS Tagged-Content plugin documentation">
+<meta name="date" content="Mon May 15 2017 12:40:44 GMT-0700 (PDT)">
+<meta name="DC.title" content="AskashaCMS Tagged-Content plugin documentation">
+<meta name="og:title" content="AskashaCMS Tagged-Content plugin documentation">
+<meta name="og:url" content="https://akashacms.com/new/plugins/tagged-content/index.html">
+<link rel="canonical" href="https://akashacms.com/new/plugins/tagged-content/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/new/plugins/tagged-content/index.html">
+<meta name="twitter:title" content="AskashaCMS Tagged-Content plugin documentation">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AskashaCMS Tagged-Content plugin documentation</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/new/index.html">AkashaCMS - the powerful static file CMS to build your dream website NEW SITE</a> </li> <li> <a href="/new/plugins/index.html">AkashaCMS plugin directory</a> </li> <li> <a href="/new/plugins/tagged-content/index.html">AskashaCMS Tagged-Content plugin documentation</a> </li>
+</ol>
+</div>
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p><em>Tags</em> are an excellent way to categorize and organize content. Other platforms like Drupal or Wordpress or Blogger have similar features. In <code>akashacms-tagged-content</code> you add a comma-separated list of tags to the frontmatter, and three tools are available:</p>
+<ul>
+<li>A <code>tags-for-document</code> custom element shows the tags for the current document</li>
+<li>A <code>tag-cloud</code> custom element shows all tags, as a tag cloud. I know tag clouds stopped being popular, but I like them</li>
+<li>A set of pages can be generated, one page per tag, showing the items associated with that tag</li>
+</ul>
+<h1>Installation</h1>
+<p>Add the following to <code>package.json</code></p>
+<pre><code>&quot;dependencies&quot;: {
+      ...
+      &quot;akashacms-tagged-content&quot;: &quot;akashacms/akashacms-tagged-content#akasharender&quot;,
+      ...
+}
+</code></pre>
+<p>The AkashaRender version of <code>akashacms-tagged-content</code> has not been published to <code>npm</code> yet, and therefore must be referenced this way.</p>
+<p>Once added to <code>package.json</code> run: <code>npm install</code></p>
+<h1>Configuration</h1>
+<p>Add the following to <code>config.js</code></p>
+<pre><code>config
+    ...
+    .use(require(&apos;akashacms-tagged-content&apos;))
+    ...
+
+config.plugin(&quot;akashacms-tagged-content&quot;)
+    .sortBy(&apos;title&apos;)
+    .headerTemplate(&quot;---\ntitle: @title@\nlayout: tagpage.html.ejs\n---\n&lt;p&gt;Pages with tag @tagName@&lt;/p&gt;&quot;)
+    .tagsDirectory(&apos;/tags/&apos;);
+</code></pre>
+<p><em>sortBy</em>: As suggested by the function name, this controls the sorting of tag entries in a tag index page.</p>
+<p><em>headerTemplate</em>: The tag index pages are dynamically generated, meaning that you don&apos;t create them yourself. This value controls the initial content of each.</p>
+<p><em>tagsDirectory</em>: Controls where, within the site, the tag index pages are rendered.</p>
+<h1>Custom Tags</h1>
+<pre><code>&lt;tag-cloud id=&quot;id&quot; class=&quot;class&quot; style=&quot;style&quot;/&gt;
+</code></pre>
+<p>Generates a tag cloud. The wrapper has <code>id</code> and <code>class</code> and <code>style</code> attributes as specified by the (optional) attributes.</p>
+<p>The tag cloud is rendered through the <code>tagged-content-cloud.html.ejs</code> template.</p>
+<pre><code>&lt;tags-for-document/&gt;
+</code></pre>
+<p>Generates an indicator of the tags for this document, linking them to the corresponding tag page.</p>
+<p>The tags are rendered through the <code>tagged-content-doctags.html.ejs</code> template.</p>
+<pre><code>&lt;% ... config.plugin(&apos;akashacms-tagged-content&apos;).hasTag(tags, &apos;Doctor Who&apos;) ... %&gt;
+</code></pre>
+<p>The <em>hasTag</em> function is useful for checking whether a given tag is set, or not. This will allow you to modify the content based on the document tags.</p>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

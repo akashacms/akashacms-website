@@ -1,0 +1,389 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">
+
+<meta name="og:url" content="https://akashacms.com/epubtools/4a-akasharender-epub.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/epubtools/4a-akasharender-epub.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="../akasharender/toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+        <li class="dropdown-item"><a id="introduction" href="1-introduction.html" title="Introduction to AkashaEPUB">Introduction to AkashaEPUB</a></li>
+        <li class="dropdown-item"><a id="installation" href="2-installation.html" title="Installing the AkashaEPUB toolchain">Installing the AkashaEPUB toolchain</a></li>
+        <li class="dropdown-item"><a id="creating-content" href="3-creating-content.html" title="Creating book content">Creating book content</a>
+            <ol>
+                <li><a id="chap-3c-content-markup" href="3c-content-markup.html" title="Content markup formats">Content markup formats</a></li>
+                <li><a id="chap-3d-rendering" href="3d-rendering.html" title="The AkashaCMS rendering process">The AkashaCMS rendering process</a></li>
+                <li><a id="chap-3da-css" href="3da-css.html" title="CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s">CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</a></li>
+                <li><a id="chap-3e-html5-structure" href="3e-html5-structure.html" title="Summary of HTML5 markup in AkashaEPUB Documents">Summary of HTML5 markup in AkashaEPUB Documents</a></li>
+                <li><a id="chap-3e-internal-links" href="3e-internal-links.html" title="LINK, IMG tags and the requirement for relative URL&apos;s">LINK, IMG tags and the requirement for relative URL&apos;s</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="configuration" href="4-configuration.html" title="Configuration files for AkashaEPUB projects">Configuration files for AkashaEPUB projects</a>
+            <ol>
+                <li><a id="chap-4a-akasharender-epub" href="4a-akasharender-epub.html" title="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="structure" href="5-structure.html" title="Structuring your book">Structuring your book</a></li>
+        <li class="dropdown-item"><a id="building-EPUB" href="6-building-EPUB.html" title="Building an EPUB with AkashaEPUB">Building an EPUB with AkashaEPUB</a>
+            <ol>
+                <li><a id="chap-6aa-epub-website" href="6aa-epub-website.html" title="Detailed walk-through an embedding EPUB content in an AkashaCMS website">Detailed walk-through an embedding EPUB content in an AkashaCMS website</a></li>
+                <li><a id="chap-6b-validation" href="6b-validation.html" title="Validating EPUB files built by AkashaEPUB">Validating EPUB files built by AkashaEPUB</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="akashacms-project" href="7-akashacms-project.html" title="The AkashaCMS Open Source Project">The AkashaCMS Open Source Project</a></li>
+        <li class="dropdown-item"><a id="about" href="8-about.html" title="About the author, David Herron">About the author, David Herron</a></li>
+        <li class="dropdown-item"><a id="references" href="9-references.html" title="References">References</a></li>
+        <li class="dropdown-item"><a id="copyright" href="0a-copyright.html" title="Copyright Notice">Copyright Notice</a></li>
+    </ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="4-configuration.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</h1>
+
+<a href="5-structure.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>With AkashaCMS plugins it is easy to generate web pages for a website.  While EPUB3 uses HTML5, there are many things one can do with HTML5 which are not allowed in EPUB3.  Therefore, when using AkashaCMS tools to write content for an EPUB we need a strategy to convert non-allowed HTML5 constructs into something that&apos;s EPUB-safe and makes sense.</p>
+<p>That&apos;s the role for the <code>akasharender-epub</code> plugin.  In this chapter we&apos;ll look at what it does.</p>
+<p>The source code repository is at 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akasharender-epub" rel="nofollow" target="_blank">https://github.com/akashacms/akasharender-epub</a></p>
+<p>As we said earlier, this plugin is invoked with this statement in the Configuration file.</p>
+<pre><code class="hljs">config
+    .<span class="hljs-keyword">use</span>(<span class="hljs-keyword">require</span>(<span class="hljs-string">&apos;akasharender-epub&apos;</span>))
+</code></pre>
+<p>The <code>package.json</code> requires a corresponding dependency to <code>akashacms/akasharender-epub</code> to make the plugin available.  As of this writing, the plugin is not published into the npm registry, but is easy enough to use this way.</p>
+<h1>Forcing XML mode to generate XHTML</h1>
+<p>EPUB3 requires an XHTML version of HTML5.  By default AkashaRender produces HTML files, not XML/XHTML.  However that&apos;s just a simple configuration away.</p>
+<p>The <code>akasharender-epub</code> plugin automatically sets XML mode so that it automatically produces XHTML files.</p>
+<p>However, even though the files are in XHTML format, the file extension is <code>.html</code>.  That&apos;s because AkashaRender&apos;s Renderer objects all produce <code>.html</code> filenames.</p>
+<p>If the files are not renamed from <code>.html</code> to <code>.xhtml</code> <em>epubcheck</em> will give warnings and it will look like a problem.  It&apos;s actually not much of a problem, but it&apos;s always nicer to have zero warnings and zero errors from a tool like <em>epubcheck</em>.</p>
+<p>The <em>epubtools</em> command includes a command <code>epubtools xhtml</code> that converts the <code>.html</code> files to <code>.xhtml</code> files.  See <a href="6-building-EPUB.html" title="Building an EPUB with AkashaEPUB">Building an EPUB with AkashaEPUB</a></p>
+<h1>Removal of <code>&lt;html&gt;/&lt;body&gt;</code> tags from embedded content</h1>
+<p>Some content retrieved by <code>akashacms-embeddables</code> inserts an <code>&lt;html&gt;</code> tag containing a <code>&lt;body&gt;</code>.  This is questionable enough for a website, but in an EPUB it&apos;s right out.  The <code>&lt;html&gt;/&lt;body&gt;</code> wrapper is removed leaving behind what had been within that wrapper.</p>
+<h1>Using <code>akashacms-embeddables</code> with an EPUB</h1>
+<p>The <code>akashacms-embeddables</code> plugin makes it easy to <em>embed</em> content from 3rd party websites.  The primary use is when you have a YouTube link, to automatically get the embed code for that video.</p>
+<p>For example, take this early video of Ryan Dahl talking about Node.js at Yahoo: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.youtube.com" style="display: inline-block; padding-right: 2px;" alt="(www.youtube.com)">
+                    <a href="https://www.youtube.com/watch?v=M-sc73Y-zQA" rel="nofollow" target="_blank">https://www.youtube.com/watch?v=M-sc73Y-zQA</a>  It can be easily embedded into an AkashaCMS website with:</p>
+<pre><code class="hljs">&lt;embed-resource
+        <span class="hljs-attribute">href</span>=<span class="hljs-string">&quot;https://www.youtube.com/watch?v=M-sc73Y-zQA&quot;</span>
+        <span class="hljs-attribute">template</span>=<span class="hljs-string">&quot;embed-resource-framed.html.ejs&quot;</span>/&gt;
+</code></pre>
+<p>On an AkashaCMS website this shows the <em>title</em>, <em>description</em>, and other information including the embedded viewer.  While that&apos;s wonderful for a website it&apos;s not usable in an EPUB3 eBook.  Typical embedded viewers use an <code>&lt;iframe&gt;</code> tag that&apos;s simply not allowed in an EPUB.</p>
+<p>Here is a live version of that tag:</p>
+<div style="margin: 5px; border: 1px solid grey;">
+<div>
+    <h3>Ryan Dahl: Introduction to Node.js - YouTube</h3>
+    <p>Source: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.youtube.com" style="display: inline-block; padding-right: 2px;" alt="(www.youtube.com)">
+                    <a href="https://www.youtube.com/user/yuilibrary" rel="nofollow" target="_blank">YUI Library</a></p>
+    Ryan Dahl, the creator of Node.js, introduces the project and talks about performance improvements and new architecture. This talk took place at the May 2010...
+    <div class="embed-responsive embed-responsive-16by9" style="clear: both;"><iframe width="480" height="270" src="https://www.youtube.com/embed/M-sc73Y-zQA?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="embed-responsive-item"></iframe></div>
+</div>
+
+
+
+
+
+</div>
+<p>The problem is, how do you use this construct so it works well in both an EPUB and on a website? To see how to embed EPUB content into a website see <a href="6aa-epub-website.html" title="Detailed walk-through an embedding EPUB content in an AkashaCMS website">Detailed walk-through an embedding EPUB content in an AkashaCMS website</a></p>
+<p>The <code>akashacms-epub</code> plugin doesn&apos;t do much to help in this case.  Instead, what we do is use an <code>embed-resource-framed.html.ejs</code> partial that does the right thing in an EPUB -- namely to just show the preview image.</p>
+<p>The general idea is to fix things so the <em>thumbnail</em> is used instead of the embedded content.  The trick is to override certain of the templates provided by <code>akashacms-embeddables</code>, such as <code>embed-resource-framed.html.ejs</code> and <code>embed-resource.html.ejs</code>.  In both <code>&lt;%- embedCode %&gt;</code> is used to embed the HTML snippet from the 3rd party website.  For example:</p>
+<pre><code class="hljs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> &lt;%</span></span><span class="ruby">
+    <span class="hljs-keyword">if</span> (typeof embedClass !== <span class="hljs-string">&apos;undefined&apos;</span>) {
+        </span><span class="xml"><span class="hljs-tag">%&gt;</span>class=&quot;<span class="hljs-tag">&lt;<span class="hljs-name">%=</span></span></span><span class="ruby"> embedClass </span><span class="xml"><span class="hljs-tag">%&gt;</span>&quot; <span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby">
+    }
+    <span class="hljs-keyword">if</span> (typeof width !== <span class="hljs-string">&apos;undefined&apos;</span> &amp;&amp; width) {
+        </span><span class="xml"><span class="hljs-tag">%&gt;</span>width=&quot;<span class="hljs-tag">&lt;<span class="hljs-name">%=</span></span></span><span class="ruby"> width </span><span class="xml"><span class="hljs-tag">%&gt;</span>&quot; <span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby">
+    }
+
+    <span class="hljs-keyword">if</span> (typeof style !== <span class="hljs-string">&apos;undefined&apos;</span> &amp;&amp; style) {
+        </span><span class="xml"><span class="hljs-tag">%&gt;</span>style=&quot;<span class="hljs-tag">&lt;<span class="hljs-name">%=</span></span></span><span class="ruby"> style </span><span class="xml"><span class="hljs-tag">%&gt;</span>&quot; <span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby">
+    }
+    </span><span class="xml"><span class="hljs-tag">%&gt;</span> &gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span></span></span><span class="ruby"> title </span><span class="xml"><span class="hljs-tag">%&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Source: <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%=</span></span></span><span class="ruby"> embedUrl </span><span class="xml"><span class="hljs-tag"><span class="hljs-string">%&gt;&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;nofollow&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span></span></span><span class="ruby"> embedSource </span><span class="xml"><span class="hljs-tag">%&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby"> <span class="hljs-keyword">if</span> ((typeof hideDescription === <span class="hljs-string">&quot;undefined&quot;</span> <span class="hljs-params">||</span> ! hideDescription) &amp;&amp; description) {
+    		</span><span class="xml"><span class="hljs-tag">%&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span></span></span><span class="ruby"> description </span><span class="xml"><span class="hljs-tag">%&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby">
+    	} </span><span class="xml"><span class="hljs-tag">%&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;embed-responsive embed-responsive-16by9&quot;</span> &lt;%</span></span><span class="ruby">
+    </span><span class="xml"><span class="hljs-tag">%&gt;</span> style=&quot;clear: both;&quot;&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%=</span></span></span><span class="ruby"> embedHref </span><span class="xml"><span class="hljs-tag"><span class="hljs-string">%&gt;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&lt;%=</span></span></span><span class="ruby"> imageUrl </span><span class="xml"><span class="hljs-tag"><span class="hljs-string">%&gt;&quot;</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre>
+<p>The key thing is to replace <code>&lt;%- embedCode %&gt;</code> in the standard template with <code>&lt;a href=&quot;&lt;%= embedHref %&gt;&quot;&gt;&lt;img src=&quot;&lt;%= imageUrl %&gt;&quot;/&gt;&lt;/a&gt;</code>.  The <code>imageUrl</code> is the preview image provided by the source website.</p>
+<p>See 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/epub-guide/partials" rel="nofollow" target="_blank">https://github.com/akashacms/epub-guide/partials</a> for how that is done in this book.</p>
+<h1><code>&lt;a name=&quot;&quot;&gt;</code> removal</h1>
+<p>EPUB doesn&apos;t allow the <code>name=</code> attribute on <code>&lt;a&gt;</code> tags, and these are removed.</p>
+<h1><code>&lt;h1&gt;</code> etc within a <code>&lt;p&gt;</code></h1>
+<p>Sometimes the Markdown processor emits a <code>&lt;h#&gt;</code> tag within a <code>&lt;p&gt;</code> tag.  Browsers don&apos;t care about this, but <em>epubcheck</em> does.  The <code>&lt;p&gt;</code> is removed.</p>
+<h1><code>href</code> attributes in <code>&lt;a&gt;</code> and <code>&lt;link&gt;</code> are relativized</h1>
+<p>Within <code>&lt;a&gt;</code> and <code>&lt;link&gt;</code> tags, if the <code>href</code> attribute points at a local resource, the link must be relative.  It&apos;s most convenient for the content author to just use <code>/path/to/file.html</code> instead of figuring out the relative path.  Such <code>href</code>&apos;s are automatically rewritten.</p>
+<h2>And... for <code>&lt;img&gt;</code> tags, remote images are auto-downloaded</h2>
+<p>For <code>&lt;img&gt;</code> tags the <code>src=</code> attribute recieves the same treatment for local references.  For remote image references, the image is auto-downloaded into a local directory and is automatically bundled into the EPUB.</p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="4-configuration.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</h1>
+
+<a href="5-structure.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

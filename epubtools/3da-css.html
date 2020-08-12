@@ -1,0 +1,523 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="CSS, Fonts, and Stylesheets for creating good quality EPUB" s'>
+
+<meta name="og:url" content="https://akashacms.com/epubtools/3da-css.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/epubtools/3da-css.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="../akasharender/toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+        <li class="dropdown-item"><a id="introduction" href="1-introduction.html" title="Introduction to AkashaEPUB">Introduction to AkashaEPUB</a></li>
+        <li class="dropdown-item"><a id="installation" href="2-installation.html" title="Installing the AkashaEPUB toolchain">Installing the AkashaEPUB toolchain</a></li>
+        <li class="dropdown-item"><a id="creating-content" href="3-creating-content.html" title="Creating book content">Creating book content</a>
+            <ol>
+                <li><a id="chap-3c-content-markup" href="3c-content-markup.html" title="Content markup formats">Content markup formats</a></li>
+                <li><a id="chap-3d-rendering" href="3d-rendering.html" title="The AkashaCMS rendering process">The AkashaCMS rendering process</a></li>
+                <li><a id="chap-3da-css" href="3da-css.html" title="CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s">CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</a></li>
+                <li><a id="chap-3e-html5-structure" href="3e-html5-structure.html" title="Summary of HTML5 markup in AkashaEPUB Documents">Summary of HTML5 markup in AkashaEPUB Documents</a></li>
+                <li><a id="chap-3e-internal-links" href="3e-internal-links.html" title="LINK, IMG tags and the requirement for relative URL&apos;s">LINK, IMG tags and the requirement for relative URL&apos;s</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="configuration" href="4-configuration.html" title="Configuration files for AkashaEPUB projects">Configuration files for AkashaEPUB projects</a>
+            <ol>
+                <li><a id="chap-4a-akasharender-epub" href="4a-akasharender-epub.html" title="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="structure" href="5-structure.html" title="Structuring your book">Structuring your book</a></li>
+        <li class="dropdown-item"><a id="building-EPUB" href="6-building-EPUB.html" title="Building an EPUB with AkashaEPUB">Building an EPUB with AkashaEPUB</a>
+            <ol>
+                <li><a id="chap-6aa-epub-website" href="6aa-epub-website.html" title="Detailed walk-through an embedding EPUB content in an AkashaCMS website">Detailed walk-through an embedding EPUB content in an AkashaCMS website</a></li>
+                <li><a id="chap-6b-validation" href="6b-validation.html" title="Validating EPUB files built by AkashaEPUB">Validating EPUB files built by AkashaEPUB</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="akashacms-project" href="7-akashacms-project.html" title="The AkashaCMS Open Source Project">The AkashaCMS Open Source Project</a></li>
+        <li class="dropdown-item"><a id="about" href="8-about.html" title="About the author, David Herron">About the author, David Herron</a></li>
+        <li class="dropdown-item"><a id="references" href="9-references.html" title="References">References</a></li>
+        <li class="dropdown-item"><a id="copyright" href="0a-copyright.html" title="Copyright Notice">Copyright Notice</a></li>
+    </ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="3d-rendering.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</h1>
+
+<a href="3e-html5-structure.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>Just as EPUB3 adopted HTML5 because it&apos;s a modern web standard, it also adopted CSS3, and we can use the same fonts as on the web.  That means we have as much freedom to dress up and structure our content in an EPUB as on the Web.</p>
+<p>For example consider this simple gradient generated at: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.cssmatic.com" style="display: inline-block; padding-right: 2px;" alt="(www.cssmatic.com)">
+                    <a href="http://www.cssmatic.com/gradient-generator" rel="nofollow" target="_blank">http://www.cssmatic.com/gradient-generator</a></p>
+<pre><code class="hljs"><span class="hljs-string">&lt;div</span> <span class="hljs-string">style=&quot;height:</span> <span class="hljs-string">40px;</span> <span class="hljs-attr">width:</span> <span class="hljs-number">100</span><span class="hljs-string">%;</span> <span class="hljs-attr">background:</span> <span class="hljs-string">rgba(98,125,77,1);</span> <span class="hljs-attr">background:</span> <span class="hljs-string">-moz-linear-gradient(left,</span> <span class="hljs-string">rgba(98,125,77,1)</span> <span class="hljs-number">0</span><span class="hljs-string">%,</span> <span class="hljs-string">rgba(31,59,8,1)</span> <span class="hljs-number">100</span><span class="hljs-string">%);</span> <span class="hljs-attr">background:</span> <span class="hljs-string">-webkit-gradient(left</span> <span class="hljs-string">top,</span> <span class="hljs-string">right</span> <span class="hljs-string">top,</span> <span class="hljs-string">color-stop(0%,</span> <span class="hljs-string">rgba(98,125,77,1)),</span> <span class="hljs-string">color-stop(100%,</span> <span class="hljs-string">rgba(31,59,8,1)));</span> <span class="hljs-attr">background:</span> <span class="hljs-string">-webkit-linear-gradient(left,</span> <span class="hljs-string">rgba(98,125,77,1)</span> <span class="hljs-number">0</span><span class="hljs-string">%,</span> <span class="hljs-string">rgba(31,59,8,1)</span> <span class="hljs-number">100</span><span class="hljs-string">%);</span> <span class="hljs-attr">background:</span> <span class="hljs-string">-o-linear-gradient(left,</span> <span class="hljs-string">rgba(98,125,77,1)</span> <span class="hljs-number">0</span><span class="hljs-string">%,</span> <span class="hljs-string">rgba(31,59,8,1)</span> <span class="hljs-number">100</span><span class="hljs-string">%);</span> <span class="hljs-attr">background:</span> <span class="hljs-string">-ms-linear-gradient(left,</span> <span class="hljs-string">rgba(98,125,77,1)</span> <span class="hljs-number">0</span><span class="hljs-string">%,</span> <span class="hljs-string">rgba(31,59,8,1)</span> <span class="hljs-number">100</span><span class="hljs-string">%);</span> <span class="hljs-attr">background:</span> <span class="hljs-string">linear-gradient(to</span> <span class="hljs-string">right,</span> <span class="hljs-string">rgba(98,125,77,1)</span> <span class="hljs-number">0</span><span class="hljs-string">%,</span> <span class="hljs-string">rgba(31,59,8,1)</span> <span class="hljs-number">100</span><span class="hljs-string">%);</span> <span class="hljs-attr">filter:</span> <span class="hljs-string">progid:DXImageTransform.Microsoft.gradient(</span> <span class="hljs-string">startColorstr=&apos;#627d4d&apos;,</span> <span class="hljs-string">endColorstr=&apos;#1f3b08&apos;,</span> <span class="hljs-string">GradientType=1</span> <span class="hljs-string">);&quot;&gt;</span>
+<span class="hljs-string">&lt;/div&gt;</span>
+</code></pre>
+<p>It renders just as you&apos;d expect:</p>
+<div style="height: 40px; width: 100%; background: rgba(98,125,77,1); background: -moz-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%); background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,125,77,1)), color-stop(100%, rgba(31,59,8,1))); background: -webkit-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%); background: -o-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%); background: -ms-linear-gradient(left, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%); background: linear-gradient(to right, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&apos;#627d4d&apos;, endColorstr=&apos;#1f3b08&apos;, GradientType=1 );">
+</div>
+<p>In other words, we can really go to town on using CSS to dress up our eBooks because EPUB3 opened the door to modern CSS.  Before you get too excited, Amazon&apos;s Kindle marketplace does not use EPUB3.  Books sold through Kindle might well lose the styling you create.</p>
+<p>We are warned, however, of variation in CSS3 support by EPUB readers.  For example eInk devices, due to limitations of the display technology, provide a limited set of functions.</p>
+<h1>CSS2.1 and CSS3 support</h1>
+<p>EPUB3 expects a Reader application to implement CSS2.1 support with the following exceptions:</p>
+<ul>
+<li>The fixed property cannot be used with position property.</li>
+<li>The direction and unicode-bidi properties must not be used. (HTML5 provides elements for internationalization.)</li>
+</ul>
+<p>EPUB3 introduced support for some (at the time, &apos;newly minted&apos;) CSS3 modules.  This includes:</p>
+<ul>
+<li>Media Queries to support not just conditional styling, but importing CSS files</li>
+<li>CSS namespaces, in particular to bring in the <code>epub</code> namespace</li>
+<li>Fonts including the <code>@font-face</code> rules</li>
+<li>Multi-column layout</li>
+<li>CSS Writing Modes, Text and Speech.  Because these were experimental at the time EPUB3 was finalized, you must prefix the properties with <code>-epub-</code>.</li>
+</ul>
+<p>Because EPUB3 includes JavaScript support, it&apos;s possible to use the Modernizr script (
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=modernizr.com" style="display: inline-block; padding-right: 2px;" alt="(modernizr.com)">
+                    <a href="https://modernizr.com/" rel="nofollow" target="_blank">https://modernizr.com/</a>) to fix up some CSS differences in given EPUB3 readers.</p>
+<h1>Defining stylesheets and JavaScript</h1>
+<p>In the next section (<a href="4-configuration.html" title="Configuration files for AkashaEPUB projects">Configuration files for AkashaEPUB projects</a>) we go over the configuration files.  Assuming your stylesheets and JavaScript files are to appear on every page of the EPUB, it is simplest to declare them in the Configuration file.</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">config</span><span class="hljs-selector-class">.addStylesheet</span>({ <span class="hljs-attribute">href</span>: <span class="hljs-string">&quot;/style.css&quot;</span> });
+</code></pre>
+<p>You can declare as many as you like.  While EPUB3 requires all links to be relative, the Configuration file declaration should be an absolute link as shown.  AkashaEPUB will fix it so this is rewritten into a relative link.</p>
+<p>The CSS files can be kept in a AssetsDir directory, where its file name must have the <code>.css</code> extension, or they can be kept in a DocumentsDir directory, where they can have the <code>.css.less</code> extension.  A <code>.css.less</code> file is of course written using LESS constructs. (
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=lesscss.org" style="display: inline-block; padding-right: 2px;" alt="(lesscss.org)">
+                    <a href="http://lesscss.org/" rel="nofollow" target="_blank">http://lesscss.org/</a>)</p>
+<p>JavaScript is added in a similar way:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">config</span>
+    <span class="hljs-selector-class">.addFooterJavaScript</span>({ <span class="hljs-attribute">href</span>: <span class="hljs-string">&quot;/js/file-for-footer.js&quot;</span> })
+    <span class="hljs-selector-class">.addHeaderJavaScript</span>({ <span class="hljs-attribute">href</span>: <span class="hljs-string">&quot;/js/file-for-header.js&quot;</span>  })
+</code></pre>
+<p>On the Web we often want to put JavaScript in the foot of the file, rather than the head, for better loading time.  AkashaCMS supports loading the JavaScript into either location.</p>
+<p>We just mentioned Modernizr, and it will be instructive to go over exactly how to set this up.</p>
+<p>Go to 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=modernizr.com" style="display: inline-block; padding-right: 2px;" alt="(modernizr.com)">
+                    <a href="https://modernizr.com/download" rel="nofollow" target="_blank">https://modernizr.com/download</a> and click on the options you wish to include.  Then click on the <strong>Build</strong> button and a JavaScript file will download.</p>
+<p>Add that JavaScript file into your AssetsDir and in the Configuration use this:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">config</span>
+    <span class="hljs-selector-class">.addHeaderJavaScript</span>({ <span class="hljs-attribute">href</span>: <span class="hljs-string">&quot;/path/to/modernizr-custom.js&quot;</span>  })
+</code></pre>
+<h2>CSS Resets?</h2>
+<p>In the Web, we often use CSS Reset stylesheets to get things to a known blank slate.  In EPUB3 it&apos;s thought best to not do this, unless you need pixel-perfect layout.</p>
+<h1>A few useful CSS rules for EPUB3</h1>
+<p>You are of course free to design your own stylesheet.  You can just use regular CSS constructs (almost) exactly like on the Web.</p>
+<p>The stylesheet for this book will be instructive:  
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/epub-guide/blob/master/assets/css/style.css" rel="nofollow" target="_blank">https://github.com/akashacms/epub-guide/blob/master/assets/css/style.css</a></p>
+<p>The sections in that file include:</p>
+<ul>
+<li>Styling to the <code>&lt;nav&gt;</code> structure in the Table of Contents</li>
+<li>Making code sections look like code</li>
+<li>Alternate striping for table rows</li>
+</ul>
+<p>Among the EPUB3 examples kept by the EPUB3 committee in their Github repositories is the complete book, <em>Accessible EPUB3</em>, by O&apos;Reilly and Associates.  That book includes an interesting-looking CSS file at: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/IDPF/epub3-samples/blob/master/30/accessible_epub_3/EPUB/css/epub.css" rel="nofollow" target="_blank">https://github.com/IDPF/epub3-samples/blob/master/30/accessible_epub_3/EPUB/css/epub.css</a></p>
+<p>It begins with a few CSS Resets and then gets to the business of styling elements for that book.  It may give you some inspiration.</p>
+<h1>EPUB-Specific media queries</h1>
+<p>Generally media queries work on EPUB3 readers as they do on the Web.  You detect attributes like screen size, and adjust things to fit.</p>
+<p>However, many EPUB3 have limited color support, or only support grayscale.  This may be useful:</p>
+<pre><code class="hljs">@<span class="hljs-keyword">import</span> <span class="hljs-built_in">url</span>(<span class="hljs-built_in">color</span>.css) screen and (<span class="hljs-built_in">color</span>);
+@<span class="hljs-keyword">import</span> <span class="hljs-built_in">url</span>(grayscale.css) screen and (not <span class="hljs-built_in">color</span>);
+</code></pre>
+<p>This would set up different color schemes depending on whether the display supported color or grayscale.</p>
+<h1>CSS namespaces</h1>
+<p>The primary use for CSS namespaces will be creating CSS rules matching HTML elements containing attributes in the <code>epub:</code> namespace.</p>
+<p>An example:</p>
+<pre><code class="hljs"><span class="hljs-keyword">@namespace</span> epub <span class="hljs-string">&quot;http://www.idpf.org/2007/ops&quot;</span>;
+
+<span class="hljs-selector-tag">section</span><span class="hljs-selector-attr">[epub|type=<span class="hljs-string">&apos;dedication&apos;</span>]</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">210</span>,<span class="hljs-number">210</span>,<span class="hljs-number">210</span>);
+}
+</code></pre>
+<p>The first line defines the <code>epub</code> namespace.  Next we have a CSS selector matching <code>&lt;section epub:type=&quot;dedication&quot;&gt;</code>.</p>
+<p>It&apos;s important to not that where in HTML the attribute is <code>epub:type</code> (with a <code>:</code>), in a CSS selector the <code>:</code> is replaced with <code>|</code>.</p>
+<h1>Multi-column layout</h1>
+<p>CSS3 supports multi-column layout using the <code>column-count</code> property.</p>
+<p>Simply add it to a stylesheet like:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">article</span> {
+    <span class="hljs-attribute">column-count</span>: <span class="hljs-number">2</span>
+}
+</code></pre>
+<p>Or, as in the following example, add it to a given tag <code>&lt;div style=&quot;column-count: 2&quot;&gt;</code></p>
+<div style="column-count: 2">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget neque purus. Maecenas eu sapien id nisi pretium laoreet. Phasellus eget convallis eros, non porta mi. Nullam efficitur facilisis mauris quis tristique. Etiam pulvinar, dolor eget viverra tristique, diam sem suscipit justo, sed volutpat lectus turpis a dui. Etiam aliquam vehicula dui sit amet tincidunt. Donec aliquet laoreet nisl non sodales. Pellentesque cursus nibh quis ipsum rhoncus, ut malesuada ipsum convallis. Pellentesque et metus in quam aliquet lobortis sit amet convallis justo. Nunc bibendum, dolor quis pretium eleifend, libero magna efficitur dolor, sagittis tempor mauris augue condimentum lectus. Sed varius ante eu risus tempor, vel egestas nulla molestie. Nulla placerat mollis quam et pellentesque. Nam maximus, sapien sit amet vulputate venenatis, sem enim aliquet enim, eu scelerisque tellus sapien ut risus. Praesent lobortis felis non urna imperdiet, non vulputate ipsum posuere.</p>
+<p>Nam nec augue euismod, vestibulum risus at, pharetra lacus. Aenean at faucibus tortor, eget aliquam nisi. Maecenas ac nisi iaculis, condimentum ante ut, facilisis erat. Aenean mi purus, hendrerit ac massa id, molestie rhoncus ipsum. Sed facilisis tellus lorem, nec lobortis nunc facilisis in. Phasellus porta et velit eu imperdiet. Maecenas ultrices et libero vitae feugiat. Curabitur in elit in justo condimentum rhoncus eget id tortor. Aenean quam neque, finibus quis risus ut, consequat bibendum risus. Nunc vel orci quis lectus maximus mattis. Aenean vitae dolor a odio rhoncus malesuada. Cras a congue arcu. Proin pulvinar arcu quam, in placerat nisi viverra in.</p>
+<p>Ut faucibus, elit sit amet gravida tempus, velit tortor feugiat ligula, at euismod ipsum libero sit amet erat. Donec congue neque ut aliquam interdum. Praesent nec mi suscipit, ullamcorper tellus vitae, ultricies nisl. Praesent auctor, purus id lacinia blandit, risus elit aliquam risus, tempor rhoncus urna arcu non dolor. Nullam erat nulla, ultrices vitae pharetra at, efficitur ac neque. Cras semper porttitor arcu, non ullamcorper erat pharetra sed. Duis ut nisl non turpis semper vestibulum id nec sapien. Phasellus eleifend quis tellus sit amet auctor. Nunc lobortis facilisis massa, eget accumsan neque commodo vel. Nam venenatis auctor est quis pellentesque. Pellentesque varius dictum semper. Curabitur ac imperdiet velit. Maecenas convallis lacus quis sem finibus, et vulputate sem efficitur. Fusce pharetra massa auctor neque posuere iaculis. Maecenas rutrum ante lectus, in tincidunt risus tempus quis.</p>
+<p>Duis metus diam, sollicitudin eget odio vitae, molestie placerat augue. Curabitur finibus magna at ullamcorper fringilla. Fusce semper mollis sem vitae ultrices. Nulla egestas mollis justo et malesuada. Sed ac dolor elit. Donec elementum eleifend nibh, in tincidunt metus pulvinar at. Duis fringilla dolor vitae ante auctor gravida convallis et sapien.</p>
+<p>Nunc eu tortor et nulla gravida blandit. Nullam leo elit, tincidunt quis rhoncus sit amet, scelerisque vitae neque. Curabitur rutrum sit amet tortor a porta. Mauris sollicitudin odio euismod, varius quam sit amet, mattis eros. Aenean venenatis quam velit, sed aliquet nisl porttitor nec. Aenean imperdiet quam turpis, at eleifend urna rhoncus a. Nam a nisl id nunc ullamcorper vestibulum. Praesent bibendum ex eget est gravida viverra. Proin mattis orci feugiat, congue orci in, blandit ante.</p>
+</div>
+<p>That&apos;s cool, a simple way to make multi-column text.  With some media queries, and EPUB readers that support those queries, this can fairly easily be responsive to the size of the screen.</p>
+<h1>Using Fonts</h1>
+<p>Each EPUB reading application chooses some default fonts, and perhaps that will be good enough for your purpose.  But your readers experience of your EPUB can be improved by selecting custom fonts.  Because the system is based on HTML5, the whole ecosystem of font choices are available with the caveat that font definition files have to be shipped inside the EPUB.  (because the Internet is not available from an EPUB reader)</p>
+<p>Website developers using custom fonts have to do so carefully to limit the impact on download time.  When crafting an EPUB, one has to carefully choose the custom fonts to minimize the size of the EPUB.</p>
+<p>Embedding a font in an EPUB is optional.  Doing so can improve the presentation of your book, but adds technical and administrative overhead.  Mitigating that overhead are two considerations:</p>
+<ol>
+<li>AkashaEPUB has made the technical part fairly easy,</li>
+<li>Choosing an open source font (versus commercial) limits the administrative overhead to checking the font license.</li>
+</ol>
+<p>There&apos;s more technical overhead than just the task of embedding the font.  EPUB reader software has a spotty record of supporting custom font choices.  Sometimes it&apos;s significantly difficult to get an embedded font to work correctly.  EPUB3 does require support for OpenType and WOFF fonts, however.  As EPUB reading systems move to EPUB3, supporting custom fonts should become easier.</p>
+<p>Commercial font licenses prohibit redistributing the font in the way an EPUB does.  That is, anybody receiving the EPUB can simply unzip the file and copy the fonts elsewhere, which commercial font foundaries wish to avoid.  The EPUB3 spec includes a simple encryption mechanism that then allows one to distribute a commercial font in an EPUB.  AkashaEPUB, at this time, doesn&apos;t implement font encryption.  The good news is that the open source fonts can be very good, and are available under a license that presents zero administrative burden.</p>
+<p>The problem you cannot get around is &quot;bloat&quot;.  An EPUB with embedded font files is unavoidably larger than an EPUB which doesn&apos;t.</p>
+<h2>Implementation</h2>
+<p>There are three steps to implementing a custom font:</p>
+<ol>
+<li>Include the font file in the EPUB, and in the OPF manifest.</li>
+<li>Declare the font in your CSS stylesheet.</li>
+<li>Use the font on one or more elements in the stylesheet.</li>
+</ol>
+<p>For the first step, just put the font file somewhere under an Assets directory.  AkashaEPUB will automatically copy it to the RenderDestination and automatically list it in the OPF manifest.</p>
+<p>Now you declare the fonts in the stylesheet.  At the end of the stylesheet declare the font-face&apos;s as so.  You must of course use a relative URL from the CSS file to the font file(s):</p>
+<pre><code class="hljs"><span class="hljs-keyword">@font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Free Serif&quot;</span>;
+  <span class="hljs-attribute">font-style</span>: normal;
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(../fonts/FreeSerif.otf);
+}
+
+<span class="hljs-keyword">@font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Free Sans Bold&quot;</span>;
+  <span class="hljs-attribute">font-style</span>: normal;
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(../fonts/FreeSansBold.otf);
+}
+
+<span class="hljs-keyword">@font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Ubuntu Mono&quot;</span>;
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">font-style</span>: normal;
+  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(../fonts/UbuntuMono-R.ttf);
+}
+
+<span class="hljs-keyword">@font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Ubuntu Mono Bold&quot;</span>;
+  <span class="hljs-attribute">font-style</span>: normal;
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(../fonts/UbuntuMono-B.ttf);
+}
+
+<span class="hljs-keyword">@font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Ubuntu Mono BoldItal&quot;</span>;
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">font-style</span>: italic;
+  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(../fonts/UbuntuMono-BI.ttf);
+}
+
+<span class="hljs-keyword">@font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Ubuntu Mono Ital&quot;</span>;
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">font-style</span>: italic;
+  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(../fonts/UbuntuMono-RI.ttf);
+}
+</code></pre>
+<p>The last thing is to use the fonts as so in your CSS:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5em</span>;
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Free Sans Bold&quot;</span>, sans-serif;
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span> <span class="hljs-meta">!important</span>;
+}
+</code></pre>
+<p>The <code>font-family</code> line here should match one of the <code>@font-face</code> declarations.  As one does on the Web, you declare multiple fonts as a fall-back for any missing glyphs.</p>
+<p>It can be useful to declare a radically different fallback font to make it easy to spot glyphs missing from your chosen font.  For example, use <code>serif</code> as a backup for a sans-serif font, as is done here.</p>
+<pre><code class="hljs"><span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Free Sans Bold&quot;</span>, serif;
+</code></pre>
+<h2>Finding quality, free, fonts</h2>
+<p>You don&apos;t have to spend an arm and a leg on fonts, because there are many open source fonts available, such as the ones shown above.  Here are a few websites with fonts that can be downloaded for free</p>
+<ul>
+<li>The Open Font Library 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=openfontlibrary.org" style="display: inline-block; padding-right: 2px;" alt="(openfontlibrary.org)">
+                    <a href="http://openfontlibrary.org/" rel="nofollow" target="_blank">http://openfontlibrary.org/</a></li>
+<li>The Google Fonts library 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.google.com" style="display: inline-block; padding-right: 2px;" alt="(www.google.com)">
+                    <a href="http://www.google.com/fonts" rel="nofollow" target="_blank">http://www.google.com/fonts</a></li>
+<li>Wikipedia Open Source Unicode Typefaces 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=en.wikipedia.org" style="display: inline-block; padding-right: 2px;" alt="(en.wikipedia.org)">
+                    <a href="https://en.wikipedia.org/wiki/Open-source_Unicode_typefaces" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Open-source_Unicode_typefaces</a></li>
+<li>The League of Movable Type 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.theleagueofmoveabletype.com" style="display: inline-block; padding-right: 2px;" alt="(www.theleagueofmoveabletype.com)">
+                    <a href="https://www.theleagueofmoveabletype.com/" rel="nofollow" target="_blank">https://www.theleagueofmoveabletype.com/</a></li>
+<li>Wikipedia OpenType and FreeType 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=en.wikipedia.org" style="display: inline-block; padding-right: 2px;" alt="(en.wikipedia.org)">
+                    <a href="https://en.wikipedia.org/wiki/OpenType" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/OpenType</a> and <a href="https://en.wikipedia.org/wiki/FreeType" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/FreeType</a></li>
+<li>Open Source Hebrew Fonts 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=opensiddur.org" style="display: inline-block; padding-right: 2px;" alt="(opensiddur.org)">
+                    <a href="http://opensiddur.org/tools/fonts/" rel="nofollow" target="_blank">http://opensiddur.org/tools/fonts/</a></li>
+<li>The SIL Open Font License 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=scripts.sil.org" style="display: inline-block; padding-right: 2px;" alt="(scripts.sil.org)">
+                    <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL" rel="nofollow" target="_blank">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL</a></li>
+<li>The SIL Project fonts 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=scripts.sil.org" style="display: inline-block; padding-right: 2px;" alt="(scripts.sil.org)">
+                    <a href="http://scripts.sil.org/cms/scripts/page.php?cat_id=FontDownloads" rel="nofollow" target="_blank">http://scripts.sil.org/cms/scripts/page.php?cat_id=FontDownloads</a></li>
+<li>Lato Fonts 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.latofonts.com" style="display: inline-block; padding-right: 2px;" alt="(www.latofonts.com)">
+                    <a href="http://www.latofonts.com/" rel="nofollow" target="_blank">http://www.latofonts.com/</a></li>
+<li>Font Squirrel 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.fontsquirrel.com" style="display: inline-block; padding-right: 2px;" alt="(www.fontsquirrel.com)">
+                    <a href="http://www.fontsquirrel.com/" rel="nofollow" target="_blank">http://www.fontsquirrel.com/</a></li>
+<li>Deja Vu Fonts 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=dejavu-fonts.org" style="display: inline-block; padding-right: 2px;" alt="(dejavu-fonts.org)">
+                    <a href="http://dejavu-fonts.org/wiki/Main_Page" rel="nofollow" target="_blank">http://dejavu-fonts.org/wiki/Main_Page</a></li>
+<li>Wikipedia Web Typography 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=en.wikipedia.org" style="display: inline-block; padding-right: 2px;" alt="(en.wikipedia.org)">
+                    <a href="https://en.wikipedia.org/wiki/Web_typography" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/Web_typography</a></li>
+</ul>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="3d-rendering.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</h1>
+
+<a href="3e-html5-structure.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

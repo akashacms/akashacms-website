@@ -1,0 +1,172 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AskashaCMS Adblock Checker documentation</title>
+<meta name="pagename" content="AskashaCMS Adblock Checker documentation">
+<meta name="date" content="Mon May 15 2017 12:40:44 GMT-0700 (PDT)">
+<meta name="DC.title" content="AskashaCMS Adblock Checker documentation">
+<meta name="og:title" content="AskashaCMS Adblock Checker documentation">
+<meta name="og:url" content="https://akashacms.com/new/plugins/adblock-checker/index.html">
+<link rel="canonical" href="https://akashacms.com/new/plugins/adblock-checker/index.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+<meta name="twitter:url" content="https://akashacms.com/new/plugins/adblock-checker/index.html">
+<meta name="twitter:title" content="AskashaCMS Adblock Checker documentation">
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center">
+<a href="/index.html"><img src="/logo.gif" align="left"></a>
+<h1 align="center">AskashaCMS Adblock Checker documentation</h1>
+</span>
+<span class="col-md-4">
+<form action="//www.google.com" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" size="30">
+<input type="submit" name="sa" value="Search">
+</div>
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+// Not empty
+</script>
+<br>
+</span>
+</div>
+</header>
+</div>
+<div class="row">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<div id="breadcrumbTrail">
+<ol class="breadcrumb">
+<li> <a href="/index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li> <a href="/new/index.html">AkashaCMS - the powerful static file CMS to build your dream website NEW SITE</a> </li> <li> <a href="/new/plugins/index.html">AkashaCMS plugin directory</a> </li> <li> <a href="/new/plugins/adblock-checker/index.html">AskashaCMS Adblock Checker documentation</a> </li>
+</ol>
+</div>
+</section>
+</div>
+<div class="row">
+<article class="col-sm-10">
+<p>Understandably many people run an Advertising Blocking extension in their web browser. Advertising techniques frequently cause excess page load times and bad performance. Those of us who publish websites often monetize by running advertising, and therefore we earn our living by showing advertising to our customers. Ad blockers interfere with that business model, and we require a method to communicate with the customers who block our advertising efforts.</p>
+<p>Of course it&apos;s useful if our advertising efforts do not cause an excessively bad experience for our customers. That our customers resort to running an ad blocker is a symptom of over-the-top advertising techniques. It is your choice whether to follow that recommendation, or not.</p>
+<p>The point of the <code>akashacms-adblock-checker</code> plugin is two-fold:</p>
+<ul>
+<li>Detect whether an advertisement has been blocked</li>
+<li>Display a message to the reader</li>
+</ul>
+<h1>Installation</h1>
+<p>With an AkashaCMS website setup, add the following to <code>package.json</code></p>
+<pre><code>  &quot;dependencies&quot;: {
+    ...
+    &quot;akashacms-adblock-checker&quot;: &quot;akashacms/akashacms-adblock-checker&quot;
+    ...
+  }
+</code></pre>
+<p>I haven&apos;t decided to publish this plugin to <code>npm</code> yet. Instead, at the moment, one should access it as shown here from the Github repository.</p>
+<p>Once added to <code>package.json</code> run: <code>npm install</code></p>
+<h2>Page layout code</h2>
+<p>To enable the Adblock-Checker on a given page layout, add the following custom tag:</p>
+<pre><code>&lt;adblock-checker&gt;&lt;/adblock-checker&gt;
+</code></pre>
+<p>This custom tag invokes the partial named below, passing in the data given in the Configuration.</p>
+<h1>Configuration</h1>
+<p>In <code>config.js</code> for the website:</p>
+<pre><code>config.use(require(&apos;akashacms-adblock-checker&apos;));
+
+config.plugin(&apos;akashacms-adblock-checker&apos;).useSelector(config, &apos;.advert&apos;);
+config.plugin(&apos;akashacms-adblock-checker&apos;).useCodeOnBlocked(config, `
+    HTML of message to display to user
+    `);
+</code></pre>
+<p>The string passed in <code>useSelector</code> is a jQuery selector to match a wrapper <code>div</code> you add to your advertising blocks. See the next section for a discussion.</p>
+<p>The string passed in <code>useCodeOnBlocked</code> is HTML that is to be displayed to the user. By using a back-quote string (what ES-2015 calls a Template String) the string can include newlines for readability. Those newlines will be removed before passing to the partial, however.</p>
+<h1>Ad-Block Detection methodology</h1>
+<p>Having looked at the configuration, let&apos;s discuss the detection methodology. I&apos;ve verified this technique works with the adblocker I sometimes run in Chrome.</p>
+<p>An adblocker works by looking for HTML sections it doesn&apos;t like, that it thinks constitutes an advertisement. For example it might look for JavaScript or an <code>iframe</code> loading from specific URL&apos;s, or simply an HTML snippet that it recognizes as an advertisement. It then removes that HTML from the DOM.</p>
+<p>Therefore, if one wraps the advertisement with a <code>div</code>, that <code>div</code> will be empty. Ergo, if one were to run some JavaScript to check the height of the wrapper <code>div</code>, a height of 0 pixels should be a clue of a blocked advertisement.</p>
+<p>Consider:</p>
+<pre><code>&lt;div class=&quot;advert&quot;&gt;
+&lt;script async src=&quot;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+&lt;ins class=&quot;adsbygoogle&quot;
+     style=&quot;display:block&quot;
+     data-ad-client=&quot;ca-pub-PUBLISHER-ID&quot;
+     data-ad-slot=&quot;AD-SLOT-CODE&quot;
+     data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+<p>This is a typical advertising snippet from Adsense. Clearly an adblocker knows that Adsense advertising loads from <code>googlesyndication.com</code> and can remove said code from the page preventing the advertisement from loading.</p>
+<p>In such a case the HTML effectively becomes:</p>
+<pre><code>&lt;div class=&quot;advert&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<p>In such a case, this jQuery expression will be true:</p>
+<pre><code>if ($(selector).height() === 0) { ... }
+</code></pre>
+<p>That&apos;s how the Adblock Checker works.</p>
+<h1>Partial</h1>
+<p>The key to this is in the partial, <code>adblock-checker.html.ejs</code>. Use a different detection mechanism requires overriding this file. As with any other partial in AkashaCMS, implement that same partial in your website containing whatever it is you want.</p>
+</article>
+<section id="right" class="col-sm-2">
+</section>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

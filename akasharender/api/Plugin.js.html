@@ -1,0 +1,320 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>AkashaRenderer Plugins</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="AkashaRenderer Plugins">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="AkashaRenderer Plugins">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="AkashaRenderer Plugins">
+
+<meta name="og:url" content="https://akashacms.com/akasharender/api/Plugin.js.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/akasharender/api/Plugin.js.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../../pulse.min.css"><link rel="stylesheet" type="text/css" href="../../style.css"><link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../../index.html">Home</a>
+                        <a class="dropdown-item" href="../toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="../../epubtools/toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../../news/index.html">News</a>
+                        <a class="dropdown-item" href="../../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+    <li class="dropdown-item"><a href="../index.html" id="index" title="AkashaRender">AkashaRender</a></li>
+    <li class="dropdown-item"><a href="../2-setup.html" id="setup" title="Project Setup">Project Setup</a></li>
+    <li class="dropdown-item"><a href="../3-create-content.html" id="create-content" title="Creating content with AkashaRender">Creating content with AkashaRender</a></li>
+    <li class="dropdown-item"><a href="../configuration.html" id="configuration" title="Configuring an AkashaCMS/AkashaRender project">Configuring an AkashaCMS/AkashaRender project</a></li>
+    <li class="dropdown-item"><a href="../projects.html" id="projects" title="AkashaRender Projects, package.json, build process">AkashaRender Projects, package.json, build process</a></li>
+    <li class="dropdown-item"><a href="../layouts-partials.html" id="layouts-partials" title="Page layout, and shared code snippets using partials or Mahabhuta custom tags">Page layout, and shared code snippets using partials or Mahabhuta custom tags</a>
+        <ol>
+            <li><a href="../css-less.html" id="css-less" title="Using CSS and LESS and JS files">Using CSS and LESS and JS files</a></li>
+                <li><a href="../theming.html" id="theming" title="Theming an AkashaRender Project">Theming an AkashaRender Project</a></li>
+        </ol>
+    </li>
+    <li class="dropdown-item"><a href="../plugins-using.html" id="plugins-using" title="Using AkashaCMS plugins in AkashaRender projects">Using AkashaCMS plugins in AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="../plugins-writing.html" id="plugins-writing" title="Writing AkashaCMS plugins for use by AkashaRender projects">Writing AkashaCMS plugins for use by AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="../rendering-engines.html" id="rendering-engines" title="AkashaRender Rendering Engines - usage and implementation">AkashaRender Rendering Engines - usage and implementation</a></li>
+    <li class="dropdown-item"><a href="../advanced.html" id="advanced" title="Advanced AkashaRender usage patterns">Advanced AkashaRender usage patterns</a></li>
+    <!-- <li>API
+        <ol>
+        <li><a href="api/built-in.js.html" id="built-in">Built-in Plugin</a></li>
+        <li><a href="api/caching.js.html" id="caching">Caching</a></li>
+        <li><a href="api/Configuration.js.html" id="Configuration">Configuration</a></li>
+        <li><a href="api/documents.js.html" id="documents">Documents</a></li>
+        <li><a href="api/filez.js.html" id="filez"></a>filez</li>
+        <li><a href="api/HTMLRenderer.js.html" id="HTMLRenderer">HTMLRenderer</a></li>
+        <li><a href="api/index.js.html" id="index">index</a></li>
+        <li><a href="api/Plugin.js.html" id="Plugin">Plugin</a></li>
+        <li><a href="api/render-cssless.js.html" id="render-cssless">render-cssless</a></li>
+        <li><a href="api/render-ejs.js.html" id="render-ejs">render-ejs</a></li>
+        <li><a href="api/render-md.js.html" id="render-md">render-md</a></li>
+        <li><a href="api/render.js.html" id="render">render</a></li>
+        <li><a href="api/Renderer.js.html" id="Renderer">Renderer</a></li>
+        </ol>
+    </li> -->
+</ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="../advanced.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>AkashaRenderer Plugins</h1>
+
+<a href="../index.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><ul>
+<li><a href="#undefinedconfigure">undefined.configure()</a></li>
+<li><a href="#name">name</a></li>
+</ul>
+<h2>undefined.configure()</h2>
+<p>Add this plugin to the configuration object.</p>
+<h2>name</h2>
+<p>Getter for the plugin name</p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="../advanced.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>AkashaRenderer Plugins</h1>
+
+<a href="../index.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../../vendor/jquery/jquery.min.js"></script><script src="../../vendor/popper.js/umd/popper.min.js"></script><script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

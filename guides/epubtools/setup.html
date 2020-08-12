@@ -1,0 +1,319 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>Setting up AkashaRender to generate both a EPUB and Website</title>
+<meta name="pagename" content="Setting up AkashaRender to generate both a EPUB and Website">
+<meta name="date" content="Mon May 15 2017 15:11:03 GMT-0700 (PDT)">
+<meta name="DC.title" content="Setting up AkashaRender to generate both a EPUB and Website">
+<meta name="og:title" content="Setting up AkashaRender to generate both a EPUB and Website">
+<meta name="og:url" content="https://akashacms.com/guides/epubtools/setup.html">
+<link rel="canonical" href="https://akashacms.com/guides/epubtools/setup.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<style>
+html, body {
+    height:100%;
+    max-height:100%;
+    margin:0;
+}
+
+#page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#site-navbar {
+    display: none;
+    flex-shrink: 0;
+    height: 30px;
+}
+
+#ebook-masthead {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#ebook-masthead h2 {
+    font-size: 22px;
+    margin-top: 0px;
+}
+
+#ebook-navigation {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#book-page-content {
+    flex-grow: 1;
+    overflow: auto;
+    min-height: 2em;
+}
+
+#footer-row {
+    display: none;
+    flex-shrink: 0;
+    height: 50px;
+    background-color: grey;
+}
+</style>
+</head>
+<body class="ebook-page">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/configuration/index.html">Configuration</a></li>
+<li><a href="/documents/index.html">Documents</a></li>
+<li><a href="/plugins/index.html">Plugins</a></li>
+<li><a href="/plugins/epub.html">AkashaEPUB</a></li>
+<li><a href="/layout/index.html">Layouts</a></li>
+<li><a href="/theming/index.html">Theming</a></li>
+<li><a href="/deployment/index.html">Deployment</a></li>
+<li><a href="/command-line/index.html">Command Line</a></li>
+<li><a href="/howto/index.html">Tutorials</a></li>
+<li><a href="/news/index.html">Blog</a></li>
+<li><a href="/about.html">About</a></li>
+</ul>
+</div>
+</div>
+<div id="page-container">
+<header class="epub-website-ebook-masthead" id="ebook-masthead">
+<table border="0"><tr>
+<td class="epub-website-ebook-masthead-logo"><a href="/guides/epubtools/toc.html"><img src="/css/MAHABHUTA.png"></a></td>
+<td class="epub-website-ebook-masthead-title">
+<a href="/guides/epubtools/toc.html"><h2 align="center">Rendering EPUB content as a Website</h2></a><em>By David Herron</em>
+</td>
+</tr></table>
+</header>
+<div class="panel panel-default">
+<div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+<div class="epub-website-ebook-logo-area">
+<div class="btn-group">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+Table of Contents
+<span class="caret"></span>
+</button>
+<ol type="1" start="1" class="dropdown-menu">
+<li><a href="introduction.html" id="introduction">Introduction</a></li>
+<li><a href="setup.html" id="setup">Setup</a></li>
+<li><a href="layout-fixed.html" id="layout-fixed">Example fixed layout for an EPUB reading experience</a></li>
+<li><a href="layout-flexbox.html" id="layout-flexbox">Example flexbox-based layout for an EPUB reading experience</a></li>
+</ol>
+</div>
+</div>
+<div class="epub-website-ebook-chapter-area">
+<a href="introduction.html">
+<span class="epub-website-ebook-chevron-left glyphicon glyphicon-chevron-left" aria-hidden="true" style=""></span>
+</a>
+<h1 class="panel-title" align="center" style="">Setting up AkashaRender to generate both a EPUB and Website</h1>
+<a href="layout-fixed.html">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+</div>
+<div id="book-page-content" class="panel-body">
+<div id="book-page-content" class="panel-body"><h1>Directory structure</h1>
+<p>This is the recommended directory structure:</p>
+<table>
+<thead>
+<tr>
+<th>Website</th>
+<th>EPUB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assets-web</td>
+<td>assets-epub</td>
+</tr>
+<tr>
+<td>documents-web</td>
+<td>documents</td>
+</tr>
+<tr>
+<td>layouts-web</td>
+<td>layouts-epub</td>
+</tr>
+<tr>
+<td>partials-web</td>
+<td>partials-epub</td>
+</tr>
+<tr>
+<td>config-web.js</td>
+<td>config-epub.js</td>
+</tr>
+<tr>
+<td>maha-web.js</td>
+<td>maha-epub.js</td>
+</tr>
+<tr>
+<td>package.json</td>
+<td>package.json</td>
+</tr>
+<tr>
+<td>book.yml</td>
+<td>book.yml</td>
+</tr>
+</tbody>
+</table>
+<p>The idea is to have parallel directories, <code>-web</code> and <code>-epub</code>, for the directories which must be different for Website and EPUB destinations.</p>
+<p>This shows different configuration and mahabhuta files for a similar purpose.. there will be code and configuration differences between the two rendering destinations. Some of the files will be identical between the two rendering destinations.</p>
+<h1>config.js for EPUB</h1>
+<pre><code>&apos;use strict&apos;;
+
+const util    = require(&apos;util&apos;);
+const akasha  = require(&apos;akasharender&apos;);
+
+const log    = require(&apos;debug&apos;)(&apos;epub-website:configuration&apos;);
+const error  = require(&apos;debug&apos;)(&apos;epub-website:error-configuration&apos;);
+
+const config = new akasha.Configuration();
+
+config
+    .addAssetsDir(&apos;assets-epub&apos;)
+    .addLayoutsDir(&apos;layout-epub&apos;)
+    .addDocumentsDir(&apos;documents&apos;)
+    .addPartialsDir(&apos;partials-epub&apos;)
+    .setRenderDestination(&apos;rendered&apos;)
+    .addStylesheet({ href: &quot;css/style.css&quot; });
+
+config
+    .use(require(&apos;akashacms-footnotes&apos;))
+    .use(require(&apos;akasharender-epub&apos;));
+
+config.prepare();
+module.exports = config;
+</code></pre>
+<p>This is a fairly minimal <code>config.js</code> for generating an EPUB. Notice that the stylesheet reference does not have a leading <code>/</code> because EPUB&apos;s do not allow rooted pathnames.</p>
+<h1>config.js for websites</h1>
+<pre><code>&apos;use strict&apos;;
+
+const util    = require(&apos;util&apos;);
+const akasha  = require(&apos;akasharender&apos;);
+
+const log    = require(&apos;debug&apos;)(&apos;epub-website:configuration&apos;);
+const error  = require(&apos;debug&apos;)(&apos;epub-website:error-configuration&apos;);
+
+const config = new akasha.Configuration();
+
+config
+    .addAssetsDir(&apos;assets-web&apos;)
+    .addAssetsDir(&apos;assets&apos;)
+    .addAssetsDir({
+        src: &apos;bower_components/bootstrap/dist&apos;,
+        dest: &apos;vendor/bootstrap&apos;
+    })
+   .addAssetsDir({
+        src: &apos;bower_components/jquery/dist&apos;,
+        dest: &apos;vendor/jquery&apos;
+    })
+    // .addLayoutsDir(&apos;layouts-web-fixed&apos;)   // Use this for fixed layout
+    .addLayoutsDir(&apos;layouts-web-flex&apos;)       // Use this for flexbox layout
+    .addDocumentsDir(&apos;documents&apos;)
+    .addPartialsDir(&apos;partials-web&apos;)
+    .setRenderDestination(&apos;out&apos;);
+
+config
+    .use(require(&apos;akashacms-theme-bootstrap&apos;))
+    .use(require(&apos;akashacms-base&apos;))
+    .use(require(&apos;akashacms-footnotes&apos;))
+    .use(require(&apos;akasharender-epub&apos;))
+    .use(require(&apos;epub-website&apos;));
+
+config
+    .addFooterJavaScript({ href: &quot;/vendor/jquery/jquery.min.js&quot; })
+    .addFooterJavaScript({ href: &quot;/vendor/bootstrap/js/bootstrap.min.js&quot;  })
+    .addStylesheet({       href: &quot;//fonts.googleapis.com/css?family=Luckiest+Guy|Raleway&quot; })
+    .addStylesheet({       href: &quot;/vendor/bootstrap/css/bootstrap.min.css&quot; })
+    .addStylesheet({       href: &quot;/vendor/bootstrap/css/bootstrap-theme.min.css&quot; })
+    .addStylesheet({ href: &quot;/css/style.css&quot; });
+
+config.setMahabhutaConfig({
+    recognizeSelfClosing: true,
+    recognizeCDATA: true
+});
+
+config.prepare();
+module.exports = config;
+</code></pre>
+<p>Notice this is a little more comprehensive, and includes Bootstrap support to assist with layout. The plugins are all oriented to website creation.</p>
+<p>An important thing to note in this case is two different layout directories. We&apos;ll get to this elsewhere, but there are various ways to format an online EPUB viewer for an optimum reading experience.</p>
+<p>This config includes the <code>epub-website</code> plugin, which is the plugin containing this particular guidebook.</p>
+</div>
+<div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+<div class="epub-website-ebook-logo-area">
+<div class="btn-group">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+Table of Contents
+<span class="caret"></span>
+</button>
+<ol type="1" start="1" class="dropdown-menu">
+<li><a href="introduction.html" id="introduction">Introduction</a></li>
+<li><a href="setup.html" id="setup">Setup</a></li>
+<li><a href="layout-fixed.html" id="layout-fixed">Example fixed layout for an EPUB reading experience</a></li>
+<li><a href="layout-flexbox.html" id="layout-flexbox">Example flexbox-based layout for an EPUB reading experience</a></li>
+</ol>
+</div>
+</div>
+<div class="epub-website-ebook-chapter-area">
+<a href="introduction.html">
+<span class="epub-website-ebook-chevron-left glyphicon glyphicon-chevron-left" aria-hidden="true" style=""></span>
+</a>
+<h1 class="panel-title" align="center" style="">Setting up AkashaRender to generate both a EPUB and Website</h1>
+<a href="layout-fixed.html">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+<footer id="footer-row" class="container">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Using the built-in Mahafuncs</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Using the built-in Mahafuncs">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Using the built-in Mahafuncs">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Using the built-in Mahafuncs">
+
+<meta name="og:url" content="https://akashacms.com/mahabhuta/built-in.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/mahabhuta/built-in.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="../akasharender/toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="../epubtools/toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+    <li class="dropdown-item"><a href="introduction.html" id="introduction">Introduction</a></li>
+    <li class="dropdown-item"><a href="quickstart.html" id="quickstart" title="Quick start introduction to Mahabhuta">Quick start introduction to Mahabhuta</a></li>
+    <li class="dropdown-item"><a href="project-setup.html" id="project-setup">Project Setup</a></li>
+    <li class="dropdown-item"><a href="processing.html" id="processing">Processing HTML DOM with Mahabhuta&apos;s Mahafuncs</a></li>
+    <li class="dropdown-item"><a href="built-in.html" id="built-in">Using the built-in Mahafuncs</a></li>
+    <li class="dropdown-item"><a href="express.html" id="built-in">Using Mahabhuta in an Express application</a></li>
+    <li class="dropdown-item"><a href="api.html" id="api">The Mahabhuta API</a></li>
+</ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="processing.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Using the built-in Mahafuncs</h1>
+
+<a href="express.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>Included with Mahabhuta is a small collection of useful Mahafunc&apos;s.  They serve both as an example of Mahafunc implementation, and as basic HTML manipulations to simplify your projects.</p>
+<p>The MahafuncArray for these built-in Mahafuncs is available as:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> mahaMetadata = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mahabhuta/maha/metadata&apos;</span>);
+<span class="hljs-keyword">const</span> mahaPartial = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mahabhuta/maha/partial&apos;</span>);
+</code></pre>
+<p>Typically you&apos;ll have a master MahafuncArray containing other MahafuncArray instances for each group of Mahafunc&apos;s.  The Mahabhuta built-in MahafuncArray should be the last in the master list.</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">var</span> mahamaster = <span class="hljs-keyword">new</span> mahabhuta.MahafuncArray(<span class="hljs-string">&quot;master&quot;</span>, {});
+mahamaster.addMahafunc(group1.mahabhuta);
+mahamaster.addMahafunc(group2.mahabhuta);
+mahamaster.addMahafunc(group3.mahabhuta);
+mahamaster.addMahafunc(mahaMetadata.mahabhutaArray({
+    <span class="hljs-comment">// options</span>
+}));
+mahamaster.addMahafunc(mahaPartial.mahabhutaArray({
+    <span class="hljs-comment">// options</span>
+}));
+</code></pre>
+<p>This is to ensure we take advantage of the over-rideability principle.</p>
+<h2>Options for <code>maha/metadata</code></h2>
+<p>The options object lets us pass in a root URL.  If the generated code is for a subdirectory, then the URL for certain things need to reflect the subdirectory.  What this means is if the canonical URL is <code>http://example.com/path/to/docroot/</code> then the URL&apos;s for certain things must start with <code>/path/to/docroot/</code>.</p>
+<pre><code class="hljs language-js">mahamaster.addMahafunc(mahaMetadata.mahabhutaArray({
+    <span class="hljs-attr">root_url</span>: config.root_url
+});
+</code></pre>
+<h2>Options for <code>maha/partial</code></h2>
+<p>Some systems have a function for processing <code>&lt;partial&gt;</code> tags.  In such a case</p>
+<pre><code class="hljs language-js">mahamaster.addMahafunc(mahaPartial.mahabhutaArray({
+    <span class="hljs-attr">renderPartial</span>: thePartialFunction
+}));
+</code></pre>
+<h1>SiteVerification -- site-verification</h1>
+<p>Various services want you to validate ownership of a website or domain by putting special tags in the HTML.  At the moment we only support Google site verification.</p>
+<p>USAGE:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">site-verification</span> <span class="hljs-attr">google</span>=<span class="hljs-string">&quot;code from Google&quot;</span>/&gt;</span>
+</code></pre>
+<h1>DNSPrefetch -- dns-prefetch</h1>
+<blockquote class="blockquote">
+<p>DNS prefetching is a feature by which browsers proactively perform domain name resolution on both links that the user may choose to follow as well as URLs for items referenced by the document, including images, CSS, JavaScript, and so forth. This prefetching is performed in the background, so that the DNS is likely to have been resolved by the time the referenced items are needed.  This reduces latency when the user clicks a link.  (from: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=developer.mozilla.org" style="display: inline-block; padding-right: 2px;" alt="(developer.mozilla.org)">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Controlling_DNS_prefetching" rel="nofollow" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/Controlling_DNS_prefetching</a>)</p>
+</blockquote>
+<p>In other words, this can speed up the user experience by instructing the web browser what content can be prefetched.</p>
+<p>USAGE:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">dns-prefetch</span> <span class="hljs-attr">control</span>=<span class="hljs-string">&quot;on|off&quot;</span> <span class="hljs-attr">dnslist</span>=<span class="hljs-string">&quot;url1, url2, url3&quot;</span>/&gt;</span>
+</code></pre>
+<p>The first parameter controls whether dns-prefetch is used, by generating this tag:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;x-dns-prefetch-control&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;on|off&quot;</span>&gt;</span>
+</code></pre>
+<p>The second parameter is a comma-separated list of URL&apos;s which end up generating a corresponding list of these tags:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;dns-prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.spreadfirefox.com/&quot;</span>&gt;</span>
+</code></pre>
+<h1>XMLSitemap -- xmp-sitemap</h1>
+<p>Several years ago the search engines cooperated on developing an XML based sitemap format that eases the process of indexing websites.  This is extremely important as it helps the search engines properly index your website.</p>
+<p>USAGE:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">xml-sitemap</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Title Text&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/path/to/sitemap.xml&quot;</span>/&gt;</span>
+</code></pre>
+<h1>ExternalStylesheet -- external-stylesheet</h1>
+<p>This assists with referencing CSS stylesheets outside the page, that must be loaded from another file.</p>
+<p>USAGE:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">external-stylesheet</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;optional media type&quot;</span>/&gt;</span>
+</code></pre>
+<h1>RSSHeaderMeta -- rss-header-meta</h1>
+<p>When publishing an RSS feed there are two things to get correct on the page.  One is the HTML block containing the RSS icon, and the link to the RSS feed itself.  The other is metadata to put in the header.  It&apos;s helpful for the page layout to declare both of those in the same place.  But then there&apos;s the issue of getting the metadata tag into the header.</p>
+<p>The <code>&lt;rss-header-meta&gt;</code> tag adds the correct tag into the header, if/when the header exists.  It rummages around in the DOM to find the <code>&lt;head&gt;</code> section, inserting there this tag:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;alternate&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;application/rss+xml&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;${href}&quot;</span>/&gt;</span>
+</code></pre>
+<p>If it finds the <code>&lt;head&gt;</code> tag, it inserts the <code>&lt;link&gt;</code> tag, and then deletes itself from the DOM.  If this does not happen, then the <code>&lt;rss-header-meta&gt;</code> tag is not deleted from the DOM.  Your processing pipeline might, like is done in AkashaCMS, run the Mahafuncs in multiple stages.  In one stage the <code>&lt;head&gt;</code> section won&apos;t exist, while it will exist in a later stage.</p>
+<p>USAGE:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">rss-header-meta</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;url&quot;</span>/&gt;</span>
+</code></pre>
+<h1>Partial&apos;s -- partial</h1>
+<p>Instantiate it with:</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> mahaPartial = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mahabhuta/maha/partial&apos;</span>);
+...
+mahamaster.addMahafunc(mahaPartial.mahabhuta);
+</code></pre>
+<p>The Partial concept is very powerful, since it lets you substitute a large piece of template into one location on the page.  For example you might have boilerplate code that&apos;s replicated on every page, such as the group of JavaScript and CSS references, or a navigation toolbar that&apos;s the same on every page.  By using a Partial you can avoid replicating that code, and instead keep it in one place.</p>
+<p>Implementation is a little more complex than for the other tags, as it will require hooking in some code to find the template file.</p>
+<p>USAGE:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">data-param1</span>=<span class="hljs-string">&quot;value1&quot;</span> <span class="hljs-attr">data-param2</span>=<span class="hljs-string">&quot;value2&quot;</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&quot;partial.html&quot;</span>&gt;</span>
+body content of the partial
+<span class="hljs-tag">&lt;/<span class="hljs-name">partial</span>&gt;</span>
+</code></pre>
+<p>The file named in <code>file-name</code> is the <em>partial</em> which is invoked, and once it&apos;s rendered the resulting HTML is substituted for the tag.  While this can be run standalone, this feature can be integrated into a larger system.</p>
+<p><strong>Collecting Metdata</strong> This first step creates a new metadata object, merging data from the <code>metadata</code> passed in through Mahabhuta with the value of <code>data-</code> attributes in the tag.  The <code>data-</code> attributes are a universal feature in HTML supplying data values.  Inside the <code>partial</code> Mahafunc, the <code>$element.data()</code> function is called to gather those items and to merge them into the <code>metadata</code>.</p>
+<p><strong>Partial Body</strong> Text content of the tag is collected with <code>$element.html()</code>, and appears in the <code>metadata</code> in the <code>partialBody</code> field.</p>
+<p><strong>Rendering the Partial</strong> The point of collecting metadata and the <code>partialBody</code> is to render the <em>partial</em> using a template engine.  The metadata can be substituted into the <em>partial</em> as dictated by the template.  The example <code>file-name</code> above, <code>partial.html</code>, would not be processed by a template engine, however, and would simply be what replaces the tag.  There are two methods to render the <em>partial</em> through a template engine, one uses the default built-in renderer, and the other uses an external renderer.</p>
+<p><strong>Default internal Partial renderer</strong> With no further configuration the file named in <code>file-name</code> is looked for in the current directory.  Files ending in <code>.ejs</code> are rendered using the EJS template engine, and files ending in <code>.literal</code> are rendered using the <em>template-literal</em> engine.  Files ending in <code>.html</code> are used intact with no modifications.  In either case the resulting HTML is substituted for the tag.  If the file ends in any other extension, an error is thrown.</p>
+<p><strong>Supplying a list of directories to search in</strong> It&apos;s possible to set up an array of directories to search for the <em>partial</em> file.  Make <code>mahaPartial.configuration.partialDirs</code> an array giving directory names to earch, and the first one found will be used.</p>
+<p><strong>Configuring an external Partial renderer</strong> The above method is powerful but limited.  What if you want to use other template engines, or to use Markdown or Asciidoc in your <em>Partial</em>?  A generalized rendering process for Partial&apos;s is best handled by an external Renderer.  For example Mahabhuta&apos;s sister project, AkashaRender, supplies a rendering process exploiting its Renderer objects.</p>
+<p>To integrate your own rendering process, overwrite the <code>mahaPartial.configuration.renderPartial</code> function with your own.  The function signature is <code>(fname, attrs)</code> where <code>fname</code> is the file passed in <code>file-name</code> and <code>attrs</code> is the merged metadata object.  The function must return a Promise that when fulfilled produces the rendered HTML.</p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="processing.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Using the built-in Mahafuncs</h1>
+
+<a href="express.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

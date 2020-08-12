@@ -1,0 +1,200 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>Using the built-in Mahafuncs</title>
+<meta name="pagename" content="Using the built-in Mahafuncs">
+<meta name="date" content="Sat Dec 03 2016 22:08:52 GMT-0800 (PST)">
+<meta name="DC.title" content="Using the built-in Mahafuncs">
+<meta name="og:title" content="Using the built-in Mahafuncs">
+<meta name="og:url" content="https://akashacms.com/guides/mahabhuta/built-in.html">
+<link rel="canonical" href="https://akashacms.com/guides/mahabhuta/built-in.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<style>
+html, body {
+    height:100%;
+    max-height:100%;
+    margin:0;
+}
+
+#page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#site-navbar {
+    display: none;
+    flex-shrink: 0;
+    height: 30px;
+}
+
+#ebook-masthead {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#ebook-masthead h2 {
+    font-size: 22px;
+    margin-top: 0px;
+}
+
+#ebook-navigation {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#book-page-content {
+    flex-grow: 1;
+    overflow: auto;
+    min-height: 2em;
+}
+
+#footer-row {
+    display: none;
+    flex-shrink: 0;
+    height: 50px;
+    background-color: grey;
+}
+</style>
+</head>
+<body class="ebook-page">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/install.html">Installation</a></li>
+<li><a href="/configuration/index.html">Configuration</a></li>
+<li><a href="/documents/index.html">Documents</a></li>
+<li><a href="/plugins/index.html">Plugins</a></li>
+<li><a href="/plugins/epub.html">AkashaEPUB</a></li>
+<li><a href="/layout/index.html">Layouts</a></li>
+<li><a href="/theming/index.html">Theming</a></li>
+<li><a href="/deployment/index.html">Deployment</a></li>
+<li><a href="/command-line/index.html">Command Line</a></li>
+<li><a href="/howto/index.html">Tutorials</a></li>
+<li><a href="/news/index.html">Blog</a></li>
+<li><a href="/about.html">About</a></li>
+</ul>
+</div>
+</div>
+<div id="page-container">
+<ebook-page-header id="ebook-masthead" header-height="60px"></ebook-page-header>
+<div class="panel panel-default">
+<ebook-navigation-header id="ebook-navigation" class="panel-heading"></ebook-navigation-header>
+<div id="book-page-content" class="panel-body">
+<div id="book-page-content" class="panel-body"><p>Included with Mahabhuta is a small collection of useful Mahafunc&apos;s. They serve both as an example of Mahafunc implementation, and as basic HTML manipulations to simplify your projects.</p>
+<p>The MahafuncArray for these built-in Mahafuncs is available as <code>mahabhuta.builtin.mahabhuta</code>.</p>
+<p>Typically you&apos;ll have a master MahafuncArray containing other MahafuncArray instances for each group of Mahafunc&apos;s. The Mahabhuta built-in MahafuncArray should be the last in the master list.</p>
+<pre><code>var mahamaster = new mahabhuta.MahafuncArray(&quot;master&quot;, {});
+mahamaster.addMahafunc(group1.mahabhuta);
+mahamaster.addMahafunc(group2.mahabhuta);
+mahamaster.addMahafunc(group3.mahabhuta);
+mahamaster.addMahafunc(mahabhuta.builtin.mahabhuta);
+</code></pre>
+<p>This is to ensure we take advantage of the over-rideability principle.</p>
+<h1>SiteVerification -- site-verification</h1>
+<p>Various services want you to validate ownership of a website or domain by putting special tags in the HTML. At the moment we only support Google site verification.</p>
+<p>USAGE:</p>
+<pre><code>&lt;site-verification google=&quot;code from Google&quot;/&gt;
+</code></pre>
+<h1>DNSPrefetch -- dns-prefetch</h1>
+<blockquote>
+<p>DNS prefetching is a feature by which browsers proactively perform domain name resolution on both links that the user may choose to follow as well as URLs for items referenced by the document, including images, CSS, JavaScript, and so forth. This prefetching is performed in the background, so that the DNS is likely to have been resolved by the time the referenced items are needed. This reduces latency when the user clicks a link. (from: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Controlling_DNS_prefetching">https://developer.mozilla.org/en-US/docs/Web/HTTP/Controlling_DNS_prefetching</a>)</p>
+</blockquote>
+<p>In other words, this can speed up the user experience by instructing the web browser what content can be prefetched.</p>
+<p>USAGE:</p>
+<pre><code>&lt;dns-prefetch control=&quot;on|off&quot; dnslist=&quot;url1, url2, url3&quot;/&gt;
+</code></pre>
+<p>The first parameter controls whether dns-prefetch is used, by generating this tag:</p>
+<pre><code>&lt;meta http-equiv=&quot;x-dns-prefetch-control&quot; content=&quot;on|off&quot;&gt;
+</code></pre>
+<p>The second parameter is a comma-separated list of URL&apos;s which end up generating a corresponding list of these tags:</p>
+<pre><code>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;http://www.spreadfirefox.com/&quot;&gt;
+</code></pre>
+<h1>XMLSitemap -- xmp-sitemap</h1>
+<p>Several years ago the search engines cooperated on developing an XML based sitemap format that eases the process of indexing websites. This is extremely important as it helps the search engines properly index your website.</p>
+<p>USAGE:</p>
+<pre><code>&lt;xml-sitemap title=&quot;Title Text&quot; href=&quot;/path/to/sitemap.xml&quot;/&gt;
+</code></pre>
+<h1>ExternalStylesheet -- external-stylesheet</h1>
+<p>This assists with referencing CSS stylesheets outside the page, that must be loaded from another file.</p>
+<p>USAGE:</p>
+<pre><code>&lt;external-stylesheet href=&quot;url&quot; media=&quot;optional media type&quot;/&gt;
+</code></pre>
+<h1>RSSHeaderMeta -- rss-header-meta</h1>
+<p>When publishing an RSS feed there are two things to get correct on the page. One is the HTML block containing the RSS icon, and the link to the RSS feed itself. The other is metadata to put in the header. It&apos;s helpful for the page layout to declare both of those in the same place. But then there&apos;s the issue of getting the metadata tag into the header.</p>
+<p>The <code>&lt;rss-header-meta&gt;</code> tag adds the correct tag into the header, if/when the header exists. It rummages around in the DOM to find the <code>&lt;head&gt;</code> section, inserting there this tag:</p>
+<pre><code>&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; href=&quot;${href}&quot;/&gt;
+</code></pre>
+<p>If it finds the <code>&lt;head&gt;</code> tag, it inserts the <code>&lt;link&gt;</code> tag, and then deletes itself from the DOM. If this does not happen, then the <code>&lt;rss-header-meta&gt;</code> tag is not deleted from the DOM. Your processing pipeline might, like is done in AkashaCMS, run the Mahafuncs in multiple stages. In one stage the <code>&lt;head&gt;</code> section won&apos;t exist, while it will exist in a later stage.</p>
+<p>USAGE:</p>
+<pre><code>&lt;rss-header-meta href=&quot;url&quot;/&gt;
+</code></pre>
+<h1>Partial&apos;s -- partial</h1>
+<p>The Partial concept is very powerful, since it lets you substitute a large piece of template into one location on the page. For example you might have boilerplate code that&apos;s replicated on every page, such as the group of JavaScript and CSS references, or a navigation toolbar that&apos;s the same on every page. By using a Partial you can avoid replicating that code, and instead keep it in one place.</p>
+<p>Implementation is a little more complex than for the other tags, as it will require hooking in some code to find the template file.</p>
+<p>USAGE:</p>
+<pre><code>&lt;partial data-param1=&quot;value1&quot; data-param2=&quot;value2&quot; file-name=&quot;partial.html&quot;&gt;
+body content of the partial
+&lt;/partial&gt;
+</code></pre>
+<p>The <code>data-</code> attributes are made available to the Partial as part of the metadata object. That is, when <code>mahabhuta.process</code> is called, you are to supply a metadata object which can have multiple values. The <code>data-</code> attributes are added to the metadata object, and then supplied to the template file. The body content is also added to the metadata as <code>metadata.partialBody</code>.</p>
+<p>What, then, does that mean that the metadata is supplied to the template file?</p>
+<p>The answer to that depends on how you implement the next required step to using the <code>&lt;partial&gt;</code> tag. Out of the box <code>&lt;partial&gt;</code> will not work, and it instead relies on hooking in code to assist finding the partial file.</p>
+<pre><code>mahabhuta.builtin.configuration.renderPartial = function(fname, body, data) {
+};
+</code></pre>
+<p>The <code>&lt;partial&gt;</code> tag looks for this function, and calls it. That function is to supply a Promise, and if that Promise resolve&apos;s correctly its value is substituted into the HTML in place of the <code>&lt;partial&gt;</code> tag.</p>
+<p>The parameters for the <code>renderPartial</code> function are straight-forward. The <code>file-name</code> attribute is supplied in the <code>fname</code> parameter, the body content is supplied in the <code>body</code> parameter, and the computed metadata object is supplied as <code>data</code>.</p>
+<p>The result of this depends on the function connected here. Your function may simply read in an HTML file, or it could render it through a template engine. In AkashaCMS, the <code>file-name</code> can be like <code>navigation.html.ejs</code> to indicate the EJS engine is used. Obviously using a template engine brings with it the capability to substitute metadata values into the text.</p>
+</div>
+<ebook-navigation-header id="ebook-navigation-bottom" class="panel-heading"></ebook-navigation-header>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+<footer id="footer-row" class="container">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

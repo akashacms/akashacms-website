@@ -1,0 +1,741 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Creating content with AkashaRender</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Creating content with AkashaRender">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Creating content with AkashaRender">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Creating content with AkashaRender">
+
+<meta name="og:url" content="https://akashacms.com/akasharender/3-create-content.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/akasharender/3-create-content.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="../epubtools/toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+    <li class="dropdown-item"><a href="index.html" id="index" title="AkashaRender">AkashaRender</a></li>
+    <li class="dropdown-item"><a href="2-setup.html" id="setup" title="Project Setup">Project Setup</a></li>
+    <li class="dropdown-item"><a href="3-create-content.html" id="create-content" title="Creating content with AkashaRender">Creating content with AkashaRender</a></li>
+    <li class="dropdown-item"><a href="configuration.html" id="configuration" title="Configuring an AkashaCMS/AkashaRender project">Configuring an AkashaCMS/AkashaRender project</a></li>
+    <li class="dropdown-item"><a href="projects.html" id="projects" title="AkashaRender Projects, package.json, build process">AkashaRender Projects, package.json, build process</a></li>
+    <li class="dropdown-item"><a href="layouts-partials.html" id="layouts-partials" title="Page layout, and shared code snippets using partials or Mahabhuta custom tags">Page layout, and shared code snippets using partials or Mahabhuta custom tags</a>
+        <ol>
+            <li><a href="css-less.html" id="css-less" title="Using CSS and LESS and JS files">Using CSS and LESS and JS files</a></li>
+                <li><a href="theming.html" id="theming" title="Theming an AkashaRender Project">Theming an AkashaRender Project</a></li>
+        </ol>
+    </li>
+    <li class="dropdown-item"><a href="plugins-using.html" id="plugins-using" title="Using AkashaCMS plugins in AkashaRender projects">Using AkashaCMS plugins in AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="plugins-writing.html" id="plugins-writing" title="Writing AkashaCMS plugins for use by AkashaRender projects">Writing AkashaCMS plugins for use by AkashaRender projects</a></li>
+    <li class="dropdown-item"><a href="rendering-engines.html" id="rendering-engines" title="AkashaRender Rendering Engines - usage and implementation">AkashaRender Rendering Engines - usage and implementation</a></li>
+    <li class="dropdown-item"><a href="advanced.html" id="advanced" title="Advanced AkashaRender usage patterns">Advanced AkashaRender usage patterns</a></li>
+    <!-- <li>API
+        <ol>
+        <li><a href="api/built-in.js.html" id="built-in">Built-in Plugin</a></li>
+        <li><a href="api/caching.js.html" id="caching">Caching</a></li>
+        <li><a href="api/Configuration.js.html" id="Configuration">Configuration</a></li>
+        <li><a href="api/documents.js.html" id="documents">Documents</a></li>
+        <li><a href="api/filez.js.html" id="filez"></a>filez</li>
+        <li><a href="api/HTMLRenderer.js.html" id="HTMLRenderer">HTMLRenderer</a></li>
+        <li><a href="api/index.js.html" id="index">index</a></li>
+        <li><a href="api/Plugin.js.html" id="Plugin">Plugin</a></li>
+        <li><a href="api/render-cssless.js.html" id="render-cssless">render-cssless</a></li>
+        <li><a href="api/render-ejs.js.html" id="render-ejs">render-ejs</a></li>
+        <li><a href="api/render-md.js.html" id="render-md">render-md</a></li>
+        <li><a href="api/render.js.html" id="render">render</a></li>
+        <li><a href="api/Renderer.js.html" id="Renderer">Renderer</a></li>
+        </ol>
+    </li> -->
+</ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="2-setup.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Creating content with AkashaRender</h1>
+
+<a href="configuration.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>AkashaRender&apos;s purpose is easy generation of HTML and related files for use on websites or EPUB3 documents.  It&apos;s meant that the files you&apos;ll edit will be in an easy-to-use-or-edit format, like Markdown, which AkashaRender converts to correctly formatted HTML (or whatever) files for your website or eBook.</p>
+<p>We touched on this briefly in the previous chapter, <a href="2-setup.html" title="Project Setup">Project Setup</a>.  Now it&apos;s time to dive deeply down the rabbit hole.</p>
+<p>Given a configuration like so:</p>
+<pre><code class="hljs language-js">config
+    .addDocumentsDir(<span class="hljs-string">&apos;documents&apos;</span>)
+    .addDocumentsDir(<span class="hljs-string">&apos;archive&apos;</span>);
+
+config.setRenderDestination(<span class="hljs-string">&apos;out&apos;</span>);
+</code></pre>
+<p>This says to render files stored in <code>documents</code> and in <code>archive</code> into the rendering destination (<code>out</code>) directory, using the same directory hierarchy in both.  A file, <code>documents/romania/vlad-tepes/history.html.md</code>, is rendered to <code>out/romania/vlad-tepes/history.html</code>.</p>
+<p>A file, <code>archive/1989/ceaucescu/revolution.html.md</code> would be rendered as <code>out/1989/ceaucescu/revolution.html</code>.</p>
+<p>What would it mean if two files existed <code>archive/romania/vlad-tepes/history.html.md</code>, and <code>documents/romania/vlad-tepes/history.html.md</code>?</p>
+<p>In such a case, both files will be rendered, but since they render to the same file the last one processed by AkashaRender will be the result.  Since the document directories are processed in the order they appear in the file, you can easily predict which file will be the final result.</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Rendered To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>documents/romania/vlad-tepes/history.html.md</code></td>
+<td><code>out/romania/vlad-tepes/history.html</code></td>
+</tr>
+<tr>
+<td><code>archive/romania/vlad-tepes/history.html.md</code></td>
+<td><code>out/romania/vlad-tepes/history.html</code></td>
+</tr>
+</tbody>
+</table>
+<p>Both files are rendered to <code>out</code> but because the file in <code>archive</code> is processed second the final product will be derived from that file.  You could reverse this behavior by reversing the order of the <code>addDocumentsDir</code> calls, reversing the processing order.  The copy under <code>documents</code> would then be the version to appear on the rendered website.</p>
+<h1>Renderers, Rendering and File Extensions</h1>
+<p>AkashaRender&apos;s flexibility comes from the variety of Renderer classes we can use.  Each Renderer processes one or more file-types, as determined by the file extension.  For each file AkashaRender processes, it searches the registered Renderer&apos;s for one which will process that file.  File extension matching is used in determining the Renderer to use.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Markdown</td>
+<td><code>example.html.md</code></td>
+<td>A Markdown file, that produces HTML.</td>
+</tr>
+<tr>
+<td>AsciiDoc</td>
+<td><code>example.html.adoc</code></td>
+<td>An AsciiDoc file, that produces HTML.</td>
+</tr>
+<tr>
+<td>EJS</td>
+<td><code>example.html.ejs</code> or <code>example.php.ejs</code></td>
+<td>for HTML, or PHP, with EJS markup, that produces HTML or PHP.</td>
+</tr>
+<tr>
+<td>Liquid</td>
+<td><code>example.html.liquid</code></td>
+<td>For HTML, with Liquid markup, produces HTML</td>
+</tr>
+<tr>
+<td>Nunjucks</td>
+<td><code>example.html.njk</code></td>
+<td>For HTML, with Nunjucks markup, produces HTML</td>
+</tr>
+<tr>
+<td>LESS</td>
+<td><code>example.css.less</code></td>
+<td>A LESS file, that produces CSS.</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td><code>example.html.json</code></td>
+<td>A JSON file, with metadata header, producing HTML</td>
+</tr>
+<tr>
+<td>Fallback</td>
+<td>any unmatched file</td>
+<td>copied with no processing.</td>
+</tr>
+</tbody>
+</table>
+<p>It&apos;s easy to add new Renderer&apos;s and extend the file-types AkashaRender can process in many directions.  You do so through the AkashaRender API, which we&apos;ll go over elsewhere (or you can study the source code).</p>
+<p>Renderers can do more than a simple rendering of the input format to output format.  Some process the rendered content through layout templates, partials, special tags, and more.  AkashaRender simply asks the Renderer to process the file, and the details are up to the Renderer author.</p>
+<p>Renderers are organized with a classification hierarchy.  That let&apos;s a Renderer author reuse common methods shared among similar Renderer&apos;s.  Well, that&apos;s the intention, at the moment there&apos;s only one such Renderer classification.</p>
+<h2>HTMLRenderer capabilities</h2>
+<p>The HTMLRenderer handles rendering to HTML, as the name implies, and is used for <code>example.html.md</code> and <code>example.html.adoc</code> and <code>example.html.ejs</code> and <code>example.php.ejs</code> and <code>example.html.liquid</code> and <code>example.html.njk</code>.  This Renderer class adds extensive capabilities in formatting content with page layouts, using partials (content snippets), and a custom tag processing engine called Mahabhuta.  With HTMLRenderer, complete control over page layout and structure is possible.</p>
+<h3>Special considerations for PHP</h3>
+<p>It&apos;s been determined that if PHP code is processed by Mahabhuta, the tags get screwed up.  As a result in <code>EJSRenderer</code> the <code>doMahabhuta</code> method returns <code>false</code> for PHP files.  As a result Mahabhuta processing is automatically skipped, meaning that Mahabhuta tags will not be expanded in PHP files.</p>
+<p>That limits how much you can do inside a PHP file.  A workaround is code like this:</p>
+<pre><code class="hljs">&lt;%- config.plugin(&apos;akashacms-base&apos;).<span class="hljs-keyword">do</span><span class="hljs-constructor">HeaderMetaSync(<span class="hljs-params">config</span>, <span class="hljs-params">locals</span>)</span> %&gt;
+&lt;%- config.plugin(&apos;akashacms-base&apos;).<span class="hljs-keyword">do</span><span class="hljs-constructor">GoogleSitemap(<span class="hljs-params">locals</span>)</span> %&gt;
+&lt;%- partial<span class="hljs-constructor">Sync(&apos;<span class="hljs-params">google</span>-<span class="hljs-params">site</span>-<span class="hljs-params">verification</span>.<span class="hljs-params">html</span>&apos;)</span> %&gt;
+&lt;%- config.plugin(&apos;akashacms-builtin&apos;).<span class="hljs-keyword">do</span><span class="hljs-constructor">Stylesheets(<span class="hljs-params">locals</span>)</span> %&gt;
+&lt;%- config.plugin(&apos;akashacms-builtin&apos;).<span class="hljs-keyword">do</span><span class="hljs-constructor">HeaderJavaScript(<span class="hljs-params">locals</span>)</span> %&gt;
+&lt;%- partial<span class="hljs-constructor">Sync(<span class="hljs-string">&quot;php-recaptcha-check.html&quot;</span>)</span> %&gt;
+</code></pre>
+<p>And</p>
+<pre><code class="hljs">&lt;%- partial<span class="hljs-constructor">Sync(&apos;<span class="hljs-params">topnavbar</span>.<span class="hljs-params">html</span>&apos;)</span> %&gt;
+&lt;%- partial<span class="hljs-constructor">Sync(&apos;<span class="hljs-params">siteheader</span>.<span class="hljs-params">html</span>.<span class="hljs-params">ejs</span>&apos;)</span> %&gt;
+</code></pre>
+<p>In other words, you can make function calls to AkashaRender functions and thereby get access to certain capabilities.</p>
+<p>The <code>partialSync</code> function can take a data object like so:</p>
+<pre><code class="hljs">&lt;%= partial(<span class="hljs-string">&apos;some-partial.html.ejs&apos;</span>, locals) %&gt;
+&lt;%= partial(<span class="hljs-string">&apos;some-partial.html.ejs&apos;</span>, {
+    data: <span class="hljs-string">&quot;value&quot;</span>, data2: <span class="hljs-string">&quot;value2&quot;</span>
+}) %&gt;
+</code></pre>
+<p>The values passed are of course available as template variables.  The special variable <code>locals</code> passes along the template variables used in this template.</p>
+<h3>Markdown</h3>
+<p>AkashaRender uses the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.npmjs.com" style="display: inline-block; padding-right: 2px;" alt="(www.npmjs.com)">
+                    <a href="https://www.npmjs.com/package/markdown-it" rel="nofollow" target="_blank">Markdown-it</a> markdown processor.  This gives us quite a lot of capabilities, as well as a focus on the <a href="http://commonmark.org/" rel="nofollow" target="_blank">CommonMark</a> spec.  As nice as Markdown is, the original &quot;specification&quot; was not terribly precise leading to some fragmentation among the various Markdown processors.  The CommonMark spec aims to fix that, opening a route to a day of compatibility between Markdown processors.</p>
+<p>Perhaps the most useful thing is that Markdown-it adopts the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=help.github.com" style="display: inline-block; padding-right: 2px;" alt="(help.github.com)">
+                    <a href="https://help.github.com/articles/github-flavored-markdown/#tables" rel="nofollow" target="_blank">Tables</a> markup from Github Flavored Markdown.</p>
+<p>That means:</p>
+<pre><code class="hljs">First Header  | <span class="hljs-built_in">Second</span> Header
+------------- | -------------
+Content <span class="hljs-built_in">Cell</span>  | Content <span class="hljs-built_in">Cell</span>
+Content <span class="hljs-built_in">Cell</span>  | Content <span class="hljs-built_in">Cell</span>
+</code></pre>
+<p>Renders to</p>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+<p>It also supports &quot;strikethrough text&quot; where <code>~~deleted text~~</code> renders as <s>deleted text</s>.</p>
+<h3>AsciiDoc</h3>
+<p>AkashaRender uses the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/asciidoctor/asciidoctor.js" rel="nofollow" target="_blank">AsciiDoctor.js</a> package to process AsciiDoc.  It is a direct transliteration of the official AsciiDoctor renderer from its Ruby source code.</p>
+<p>The integration of AsciiDoc is minimal as of this writing.  It renders content using the <em>article</em> doctype, and doesn&apos;t allow you to override that choice.</p>
+<p>A subset of AkashaRender metadata is made available to AsciiDoc for use as what they call an <em>attribute</em>.  This means your metadata values can be rendered as <code>{attributeName}</code>.</p>
+<p>Because of limitations in AsciiDoc, AkashaRender only supplies String and Number metadata values.  Any functions or objects are dropped out of the metadata supplied to AsciiDoc.</p>
+<p>AsciiDoc user manual: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=asciidoctor.org" style="display: inline-block; padding-right: 2px;" alt="(asciidoctor.org)">
+                    <a href="http://asciidoctor.org/docs/user-manual/" rel="nofollow" target="_blank">http://asciidoctor.org/docs/user-manual/</a></p>
+<h3>YAML Frontmatter Metadata</h3>
+<p>Metadata is the extra/descriptive information attached to a content file.  The content of the content file is its main purpose of existence.  The metadata is carried along, and adds extra bits that are useful for a wide range of purposes.</p>
+<p>For an HTMLRenderer file, the metadata is carried as so:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-string">...</span> <span class="hljs-string">metadata</span> <span class="hljs-string">in</span> <span class="hljs-string">YAML</span> <span class="hljs-string">format</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">content</span>
+</code></pre>
+<p>This is very simple and easy to create.  Just write the content as normal, and prepend it with this segment surrounded by <code>---</code>.</p>
+<p>YAML is a full fledged text format to describe data objects in a simple-to-write way.  It&apos;s capable of describing complex data objects, containing nested arrays or nested lists.  The best documentation I know for YAML is the Wikipedia page: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=en.wikipedia.org" style="display: inline-block; padding-right: 2px;" alt="(en.wikipedia.org)">
+                    <a href="https://en.wikipedia.org/wiki/YAML" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/YAML</a></p>
+<p>For AkashaRender content files it&apos;ll be rare to use anything more than the simplest of YAML.  Namely, something like this:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">Gettysburg</span> <span class="hljs-string">Address</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">page.html.ejs</span>
+<span class="hljs-attr">otherTag:</span> <span class="hljs-string">otherValue</span>
+<span class="hljs-attr">tag42:</span> <span class="hljs-string">&quot;The Meaning of Life&quot;</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">This</span> <span class="hljs-string">is</span> <span class="hljs-string">the</span> <span class="hljs-string">content</span> <span class="hljs-string">area.</span>
+</code></pre>
+<p>That is, most of what we&apos;ll do in AkashaRender will be satisfied by simple <code>name:value</code> pairs.  But, because we support YAML, the flexibility is there to go over the top with data modeling if desired.</p>
+<p>The metadata is made available during the rendering process, so that metadata values can be rendered into the content.  This can be combined with other parts of AkashaRender, such as Partials and Mahabhuta custom tags.  An example would be a Mahabhuta tag to look up YouTube videos based on YouTube URL&apos;s listed in the metadata.</p>
+<p>For example:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">video-page.html.ejs</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">Race</span> <span class="hljs-number">4</span><span class="hljs-string">,</span> <span class="hljs-string">Buenos</span> <span class="hljs-string">Aires</span> <span class="hljs-string">pre-race</span> <span class="hljs-string">driver</span> <span class="hljs-string">interviews</span> <span class="hljs-string">(Formula</span> <span class="hljs-string">E)</span>
+<span class="hljs-attr">publicationDate:</span> <span class="hljs-string">Jan</span> <span class="hljs-number">8</span><span class="hljs-string">,</span> <span class="hljs-number">2015</span>
+<span class="hljs-attr">tags:</span> <span class="hljs-string">Electric</span> <span class="hljs-string">Racing,</span> <span class="hljs-string">Formula</span> <span class="hljs-string">E</span> <span class="hljs-number">2014</span>
+<span class="hljs-attr">teaser:</span> <span class="hljs-string">Going</span> <span class="hljs-string">into</span> <span class="hljs-string">the</span> <span class="hljs-string">fourth</span> <span class="hljs-string">race,</span> <span class="hljs-string">drivers</span> <span class="hljs-string">talk</span> <span class="hljs-string">about</span> <span class="hljs-string">their</span> <span class="hljs-string">experiences</span> <span class="hljs-string">and</span> <span class="hljs-string">hopes.</span>
+<span class="hljs-attr">videoUrls:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">url:</span> <span class="hljs-string">https://www.youtube.com/watch?v=O3lHuEmP9-g</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">url:</span> <span class="hljs-string">https://www.youtube.com/watch?v=02nVQQeBFjg</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">url:</span> <span class="hljs-string">https://www.youtube.com/watch?v=C7QiE9Iguxc</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">url:</span> <span class="hljs-string">https://www.youtube.com/watch?v=Itr9N4QpecA</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">url:</span> <span class="hljs-string">https://www.youtube.com/watch?v=H3BIYCgLeiw</span>
+<span class="hljs-attr">videoThumbnail:</span> <span class="hljs-string">https://www.youtube.com/watch?v=O3lHuEmP9-g</span>
+<span class="hljs-meta">---</span>
+</code></pre>
+<p>With a suitable page layout template (see below) this renders these YouTube videos along with associated information, and sets up the Thumbnail from one of those videos in the OpenGraph tags.  The page is tagged to reference the Formula E electric racing series, and was written in January 2015.</p>
+<p>Support for metadata variables in renderer</p>
+<ul>
+<li>MarkdownRenderer: No</li>
+<li>EJSRenderer: Can substitute variables into rendered output</li>
+<li>LiquidRenderer: Can substitute variables into rendered output</li>
+<li>NunjucksRenderer: Can substitute variables into rendered output</li>
+</ul>
+<h3>Page Layouts</h3>
+<p>HTMLRenderer supports much more than just rendering content files.  That would be very boring and not useful to simply render from a document directory to the rendering destination directory.</p>
+<p>For more details beyond this brief overview see: <a href="layouts-partials.html" title="Page layout, and shared code snippets using partials or Mahabhuta custom tags">Page layout, and shared code snippets using partials or Mahabhuta custom tags</a></p>
+<p>The template is specified in the metadata:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-string">..</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">page.html.ejs</span>
+<span class="hljs-string">..</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">content</span>
+</code></pre>
+<p>The template filename uses the same sort of file extension we use for content files.  The same Renderer objects are used to render the template.  As it currently stands it&apos;s expected content authors will write files in Markdown, while the website designer will design page layouts in HTML using EJS layout templates.</p>
+<p>If you want to use other template engines:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-string">..</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">page.html.liquid</span> <span class="hljs-string">..</span> <span class="hljs-string">or</span> <span class="hljs-string">page.html.njk</span> <span class="hljs-string">..</span> <span class="hljs-string">etc</span>
+<span class="hljs-string">..</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">content</span>
+</code></pre>
+<p>This lets you use both any supported template engine.  At this time Liquid and Nunjucks templates are not supported in Partials.</p>
+<p>Markdown is easy to create and edit, making it suitable for the writer.  But it doesn&apos;t support the HTML details required by the website designer.  Hence the designer needs precise control over the HTML, while the writer simply needs support for their writing.</p>
+<p>HTMLRenderer uses a two-stage process</p>
+<ol>
+<li>Content is rendered, producing HTML output.  If the first stage Renderer supports variable substitution, variables are substituted, as are partials.
+<ol>
+<li>This HTML is added to metadata as the variable <code>content</code></li>
+</ol>
+</li>
+<li>(Optional) If a <code>layout</code> tag is present, the layout template is found.   The template is rendered using the Renderer specified by its file extension.
+<ol>
+<li>Because the previous stage rendering is a metadata value, the layout template MUST support variable substitution.  That means using the EJS Renderer.</li>
+</ol>
+</li>
+</ol>
+<p>The final output (after partials and Mahabhuta tags are processed) is written to the rendering directory.</p>
+<h3>Partials</h3>
+<p>Partials are little snippets of template, which can be rendered into any location of any template using the <code>partial</code> function.  They are the first stage of implementing arbitrary page layouts.  Because the partials are available to all page layouts, this is an excellent way to implement common elements that are shared between different page layouts.</p>
+<p>An example is</p>
+<pre><code class="hljs">&lt;<span class="hljs-meta">%</span>- partial<span class="hljs-comment">(&apos;helloworld.html&apos;)</span> <span class="hljs-meta">%</span>&gt;
+</code></pre>
+<p>Because this is a simple <code>.html</code> file, its content is simply copied verbatim into the rendering.</p>
+<p>You can pass data to a partial as so:</p>
+<pre><code class="hljs">&lt;%- partial(<span class="hljs-string">&apos;listrender.html.ejs&apos;</span>,
+    {
+        items: {
+            <span class="hljs-string">&quot;item 1&quot;</span>: <span class="hljs-string">&quot;item text 1&quot;</span>,
+            <span class="hljs-string">&quot;item 2&quot;</span>: <span class="hljs-string">&quot;item text 2&quot;</span>,
+            <span class="hljs-string">&quot;item 3&quot;</span>: <span class="hljs-string">&quot;item text 3&quot;</span>,
+            <span class="hljs-string">&quot;item 4&quot;</span>: <span class="hljs-string">&quot;item text 4&quot;</span>
+        }
+    })
+%&gt;
+</code></pre>
+<p>The named partial template is searched for in the directories named in the configuration object.</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">config</span><span class="hljs-selector-class">.addPartialsDir</span>(<span class="hljs-string">&apos;partials&apos;</span>)
+</code></pre>
+<p>As for layout templates, you can have multiple <code>.addPartialsDir</code> directories.  The partials directories are searched in order, with the first matching file being the one that&apos;s used.  The filename selects a Renderer for rendering the partial.  Whether the partial renders the data it is given depends on the Renderer corresponding to the filename.</p>
+<p>Consider this implementation of <code>listrender.html.ejs</code></p>
+<pre><code class="hljs">&lt;ul&gt;&lt;<span class="hljs-meta">%</span>
+    for <span class="hljs-comment">(item in items)</span> {
+        <span class="hljs-meta">%</span>&gt;&lt;li&gt;&lt;<span class="hljs-meta">%</span>= item <span class="hljs-meta">%</span>&gt;: &lt;<span class="hljs-meta">%</span>= items[item] <span class="hljs-meta">%</span>&gt;&lt;/li&gt;&lt;<span class="hljs-meta">%</span>
+    }
+<span class="hljs-meta">%</span>&gt;&lt;/ul&gt;
+</code></pre>
+<p>The EJS engine allows you to mix JavaScript and HTML this way.  The variable <code>items</code> is iterated, producing a <code>&lt;ul&gt;</code> full of <code>&lt;li&gt;</code> tags containing the content.</p>
+<h3>Custom HTML tags and DOM manipulation with Mahabhuta</h3>
+<p>The 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/mahabhuta" rel="nofollow" target="_blank">Mahabhuta</a> engine allows website authors to perform jQuery DOM manipulations on the server side.  Reusing your jQuery knowledge may be a good thing, we hope.  Mahbhuta makes it possible to reuse jQuery knowledge to reorganize, rewrite, or otherwise manipulate pages on the server side.  Let the concept sink in for a moment, because this can be powerful.</p>
+<p>The name?  &quot;Mahabhuta&quot; is the Sanskrit name for the five elements, with Akasha being one of those elements.  The Mahabhuta engine deals with HTML Elements, so it seems like a fitting name.</p>
+<p>We won&apos;t go into developing Mahabhuta tags at this point, but let&apos;s go over how to use them.  For full documentation see: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=akashacms.com" style="display: inline-block; padding-right: 2px;" alt="(akashacms.com)">
+                    <a href="https://akashacms.com/mahabhuta/toc.html" rel="nofollow" target="_blank">https://akashacms.com/mahabhuta/toc.html</a></p>
+<p>A few tags and partials and Mahabhuta tags are provided by AkashaRender.  Judicious use of those tags can simplify the header code we just showed.</p>
+<p>Mahabhuta can perform any DOM manipulation.  The most common usage is to define a custom tag, performing a custom DOM manipulation based on that tag.</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+..
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-stylesheets</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-stylesheets</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-headerJavaScript</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-headerJavaScript</span>&gt;</span>
+..
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+..
+<span class="hljs-tag">&lt;<span class="hljs-name">ak-footerJavaScript</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ak-footerJavaScript</span>&gt;</span>
+..
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>This shows three of the baked-in Mahabhuta custom tags, <code>ak-stylesheets</code>, <code>ak-headerJavaScript</code>, and <code>ak-footerJavaScript</code>.  Each takes information from the site configuration, and outputs stylesheet or JavaScript tags.</p>
+<p>It might be common to specify these stylesheets:</p>
+<pre><code class="hljs language-js">config
+    .addStylesheet({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap.min.css&quot;</span> })
+    .addStylesheet({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap-theme.min.css&quot;</span> })
+    .addStylesheet({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/style.css&quot;</span> });
+</code></pre>
+<p>The first two lines utilize a local Bootstrap instance, while the last is a place for custom CSS.</p>
+<p>Then add this to complete the Bootstrap configuration:</p>
+<pre><code class="hljs language-js">config
+    .addFooterJavaScript({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/jquery/jquery.min.js&quot;</span> })
+    .addFooterJavaScript({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/js/bootstrap.min.js&quot;</span>  })
+</code></pre>
+<p>It&apos;s common for an article to have a <em>teaser</em> that might be presented in a special way, and might appear in the page metadata.  The <code>&lt;ak-teaser&gt;</code> tag is available to present the <code>teaser</code> metadata variable using the <code>ak_teaser.html.ejs</code> template.</p>
+<p>The <code>&lt;partial&gt;</code> tag lets us simplify the partial feature.</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">partial</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&apos;disqus.html&apos;</span>/&gt;</span>
+</code></pre>
+<p>Mahabhuta tags can of course take attributes to customize their action.  In this case we specify the partial file name using the <code>file-name</code> attribute.  Any attributes whose name begins with <code>data-</code> are gathered and made available as metadata.  Additionally, the child content of the partial tag is made available in the metadata as the <code>partialBody</code> variable.</p>
+<p>The final Mahabhuta processing that&apos;s baked into AkashaRender is not a custom tag, but a DOM manipulation.  For <code>&lt;a&gt;</code> tags with an empty body, that reference a local document, the document title is retrieved and used as the anchor text.</p>
+<p>What this means is - if your content has this:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/romania/vlad-tepes/history.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<p>Normally this would render as an empty tag, and the user would not know about the link.  The search engines might even ding your site for attempting some subterfuge.  You could go ahead and add some anchor text, and you&apos;re free to do so.  However, as a convenience AkashaRender will do something for you.  It looks for the matching document file, and inserts the <code>title</code> metadata from that document as the anchor text.  This way as the title of documents change, the text displayed to readers automagically changes to match.</p>
+<p>We have two pieces of required Mahabhuta configuration:</p>
+<pre><code class="hljs language-js">config.setMahabhutaConfig({
+    <span class="hljs-attr">recognizeSelfClosing</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">recognizeCDATA</span>: <span class="hljs-literal">true</span>
+});
+</code></pre>
+<p>This configures the <em>Cheerio</em> engine that Mahabhuta relies on under the covers.  This particular configuration works great for websites.</p>
+<pre><code class="hljs language-js">config.addMahabhuta(<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./mahafuncs&apos;</span>));
+</code></pre>
+<p>This lets you declare a file containing Mahabhuta functions.  We won&apos;t go over how to write those functions at this time.</p>
+<h3>Overriding layouts and partials</h3>
+<p>There&apos;s an important aspect of layouts and partials to discuss - that we can override the files provided by plugins or baked into AkashaRender.  This is because the layout or partial file that&apos;s actually used is the first one found while searching the respective directories.</p>
+<table>
+<thead>
+<tr>
+<th>Built-in tag</th>
+<th>partial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ak-stylesheets</code></td>
+<td><code>ak_stylesheets.html.ejs</code></td>
+</tr>
+<tr>
+<td><code>ak-headerJavaScript</code></td>
+<td><code>ak_javaScript.html.ejs</code></td>
+</tr>
+<tr>
+<td><code>ak-footerJavaScript</code></td>
+<td><code>ak_javaScript.html.ejs</code></td>
+</tr>
+<tr>
+<td><code>ak-teaser</code></td>
+<td><code>ak_teaser.html.ejs</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you don&apos;t like the default layout implemented by a partial, your site can implement the same partial.</p>
+<p>Because the directories are searched in the order specified in the configuration, a layout or partial appearing in an earlier directory will override a layout or partial appearing in a later directory.</p>
+<p>For example, in AkashaRender is a file <code>built-in.js</code> providing the Mahabhuta tags mentioned above.  It also adds the <code>akasharender/partials</code> directory to the list of partials directories.  We try to make sure this directory is the last one added.</p>
+<p>The <code>ak_teaser.html.ejs</code> in that directory contains this:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">teaser</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p>But what if you want teasers to be rendered in italics rather than bold text?  Your site can have an <code>ak_teaser.html.ejs</code> in its partials directory, containing this instead:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">teaser</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h3>JSON Document Files in AkashaCMS</h3>
+<p>It may be useful for some documents, rather than use a recognized text format (like HTML or Markdown) to use a data format.  That is, take some data, formatting it through a template, to make a web page.  To that end, AkashaCMS supports JSON documents that can be processed through the AkashaCMS rendering system and producing HTML.</p>
+<p>For example, this file named <code>json-data.html.json</code> (
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms-example/blob/master/documents/json-data.html.json" rel="nofollow" target="_blank">from akashacms-example</a>)</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">default.html.ejs</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">JSON</span> <span class="hljs-string">example</span>
+<span class="hljs-attr">JSONFormatter:</span> <span class="hljs-string">json-format.html.ejs</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">{</span>
+    <span class="hljs-attr">&quot;Row1&quot;:</span> <span class="hljs-string">&quot;value 1&quot;</span><span class="hljs-string">,</span>
+    <span class="hljs-attr">&quot;Row2&quot;:</span> <span class="hljs-string">&quot;value 2&quot;</span><span class="hljs-string">,</span>
+    <span class="hljs-attr">&quot;Row3&quot;:</span> <span class="hljs-string">&quot;value 3&quot;</span>
+<span class="hljs-string">}</span>
+</code></pre>
+<p>This is a fairly normal AkashaCMS document, but the body is JSON.</p>
+<p>The JSON Renderer triggers on file names ending in <code>.html.json</code>.  It parses the content body as JSON, passing it as a variable named <code>data</code> to the partial named in <code>JSONFormatter</code>.</p>
+<p>The named partial used here is 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms-example/blob/master/partials/json-format.html.ejs" rel="nofollow" target="_blank">json-format.html.ejs</a>, or</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">%</span>
+<span class="hljs-attr">var</span> <span class="hljs-attr">keys</span> = <span class="hljs-string">Object.keys(data);</span>
+<span class="hljs-attr">for</span> (<span class="hljs-attr">var</span> <span class="hljs-attr">i</span> = <span class="hljs-string">0;</span> <span class="hljs-attr">i</span> &lt; <span class="hljs-attr">keys.length</span>; <span class="hljs-attr">i</span>++) {
+    <span class="hljs-attr">var</span> <span class="hljs-attr">datum</span> = <span class="hljs-string">data[keys[i]];</span>
+    %&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">keys</span>[<span class="hljs-attr">i</span>] %&gt;</span> :- <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">datum</span> %&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">%</span>
+} %&gt;</span>
+</code></pre>
+<p>With this data it produces, live copy: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=example.akashacms.com" style="display: inline-block; padding-right: 2px;" alt="(example.akashacms.com)">
+                    <a href="https://example.akashacms.com/json-data.html" rel="nofollow" target="_blank">https://example.akashacms.com/json-data.html</a></p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+Row1 :- value 1
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+Row2 :- value 2
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+Row3 :- value 3
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p>This example shows the steps.</p>
+<ul>
+<li>JSON data</li>
+<li>Format that data using a partial into HTML</li>
+<li>That HTML used as input to the AkashaCMS rendering to produce the final page</li>
+</ul>
+<h1>The akasharender command</h1>
+<p>When AkashaRender is installed, a new command is available:  <code>akasharender</code></p>
+<pre><code class="hljs">$ akasharender <span class="hljs-keyword">help</span>
+copy-assets [config_file]
+	Copy assets <span class="hljs-keyword">into</span> <span class="hljs-keyword">output</span> <span class="hljs-keyword">directory</span>
+	
+<span class="hljs-keyword">document</span> [config_file] [<span class="hljs-keyword">document</span>]
+	<span class="hljs-keyword">Show</span> information about a <span class="hljs-keyword">document</span>
+	
+render [config_file]
+	Render a site <span class="hljs-keyword">into</span> <span class="hljs-keyword">output</span> <span class="hljs-keyword">directory</span>
+	
+
+</code></pre>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="2-setup.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Creating content with AkashaRender</h1>
+
+<a href="configuration.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

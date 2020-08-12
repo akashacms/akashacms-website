@@ -1,0 +1,454 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>What is JAMStack and how does it differ from static website generators?</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="What is JAMStack and how does it differ from static website generators?">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Aug 08 2020 23:41:21 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="What is JAMStack and how does it differ from static website generators?">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="What is JAMStack and how does it differ from static website generators?">
+
+<meta name="og:url" content="https://akashacms.com/news/2020/08/jamstack-websites.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/news/2020/08/jamstack-websites.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../../../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../../../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../../../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../../../pulse.min.css"><link rel="stylesheet" type="text/css" href="../../../style.css"><link rel="stylesheet" type="text/css" href="../../../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../../../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+
+<!-- Facebook app for AkashaCMS fan page -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<!-- Twitter summary card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+
+<meta name="twitter:url" content="https://akashacms.com/news/2020/08/jamstack-websites.html">
+
+
+<meta name="twitter:title" content="What is JAMStack and how does it differ from static website generators?">
+
+
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav navbar-rights">
+          <li class="nav-item">
+              <a class="nav-link" href="../../../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../akasharender/toc.html">AkashaRender</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../plugins/index.html">Plugins</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../mahabhuta/toc.html">Mahabhuta</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../epubtools/toc.html">EPUB Tools</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../howto/index.html">How To</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../index.html">News</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../about.html">About</a>
+          </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+  <div class="row">
+    <span class="col-md-8" style="text-align: center;">
+      <a href="../../../index.html"><img src="../../../logo.gif" align="left"></a>
+      <h1 align="center">What is JAMStack and how does it differ from static website generators?</h1>
+    </span>
+    <span class="col-md-4">
+      <form action="//www.google.com" id="cse-search-box">
+        <div>
+          <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input type="text" name="q" size="30">
+          <input type="submit" name="sa" value="Search">
+        </div>
+      </form>
+      <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+      // Not empty
+      </script>
+      <br>
+
+    </span>
+  </div>
+
+</header>
+
+</div>
+
+<div class="row">
+  <section id="breadcrumb" class="col-sm-12">
+    <nav aria-label="breadcrumb" id="breadcrumbTrail">
+    <ol class="breadcrumb">
+     <li class="breadcrumb-item "> <a href="../../../index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li class="breadcrumb-item "> <a href="../../index.html">Announcements and News about AkashaCMS</a> </li> <li class="breadcrumb-item "> <a href="../index.html">AkashaCMS News for 2020</a> </li> <li class="breadcrumb-item "> <a href="index.html">News for August 2020</a> </li> <li class="breadcrumb-item "> <a href="jamstack-websites.html">What is JAMStack and how does it differ from static website generators?</a> </li>
+    </ol>
+</nav>
+
+  </section>
+  <section id="category-tags" class="col-sm-12">
+    
+    Date: August 8, 2020
+
+  </section>
+  <section id="author-byline" class="col-sm-12">
+    <div class="author-byline" itemprop="author" itemscope itemtype="http://schema.org/Person">
+By <span itemprop="name" class="author-name-wrapper"><a href="../../../about.html" rel="author" itemprop="url">David Herron</a></span>
+</div>
+
+  </section>
+</div>
+
+<div class="row">
+  <article class="col-sm-10">
+    <strong><p><strong>Two ideas, JAMStack and static website generators, are getting attention as a way to simplify website and web application development, while simultaneously being vague unclear marketing terms.  Both talk about static assets for website, but what does that really mean?  To help decode the vague marketing words, let&apos;s examine the technologies, see how they differ, and try to figure out if there&apos;s anything important to learn.
+</strong></p>
+</strong> 
+    
+    <figure>
+        <img src="img/what-is-jamstack.jpg" class="heropicture">
+        
+    </figure>
+    
+
+    <p>In the beginning (of the web) websites were HTML files (and images) you uploaded to a web server using FTP.  That&apos;s it.  My first websites, in 1994-1995, were coded that way, and of course I used FTP.  A big advance was finding a programmers editor, that handled HTML syntax coloring, and which could directly edit files in remote directory structures.  That meant not having to upload using FTP, and the syntax coloring made it a little easier to edit the HTML.  Another advance was a feature called <em>Server Side Includes</em>, letting one have sidebar or header or footer &quot;widgets&quot; loaded as HTML snippets from a shared directory.  That simplified having a consistent look across the website.  Then came the variety of pseudo-WYSIWYG HTML editors where we could edit web pages visually, rather than guessing what the page looked like while editing raw HTML.  These editors didn&apos;t support server side includes, but there was a similar feature in Dreamweaver allowing one to have shared HTML snippets.</p>
+<p>The point is that a website built with simple HTML files is not a new concept.  We&apos;ve been doing that since the beginning of the Web.</p>
+<p>The story for both JAMStack and Static Website Generators is that there&apos;s a big speed advantage with static HTML+CSS+JavaScript rather than deploying a dynamic content management system (CMS) or a custom server-side application.  There&apos;s no complex server-side code for rendering the pages.</p>
+<p>For me, both are a reaction to complicated dynamic CMS&apos;s, or complex custom micro-services deployed to cloud hosting.  Over the years of learning the intricacies of Drupal 6 and Wordpress, learning how to customize Blogger templates, and learning Docker and Docker Swarm, I came away with a distaste of the burden it is to host a complex content management system which dynamically generates pages.  At one time I was maintaining 10 or so Drupal instances for different websites, managing multiple VPS&apos;s, facing a never ending grind of updating modules on each site, and worrying how I would pay the hosting bill.</p>
+<p>As a result of those experiences I developed my own static website generator, AkashaCMS.  With it the hosting bill is minuscule, and the page load time for users of the websites is excellent.</p>
+<p>The JAMStack and static website generator proponents are preaching a similar vision - modern HTML+CSS+JS - static assets for speed - simplified deployment - eliminating complexity - so let&apos;s start with this question...</p>
+<h1>What is JAMStack?</h1>
+<p>The JAMStack concept is defined as &quot;<em>Fast and secure sites and apps delivered by pre-rendering files and serving them directly from a CDN, removing the requirement to manage or run web servers.</em>&quot;  To drive the point home the acronym, JAM, means:</p>
+<ul>
+<li>(<strong>J</strong>) JavaScript executed in a web browser page as the client tier</li>
+<li>(<strong>A</strong>) API&apos;s hosted on servers are accessed by client-side JavaScript to retrieve data</li>
+<li>(<strong>M</strong>) Markup, both as HTML and HTML templates, are used to dynamically update pages using the JavaScript and retrieved data</li>
+<li>(<strong>STACK</strong>) Because, well, every software product is described as a Stack, right?</li>
+</ul>
+<p>That&apos;s simple enough, static assets and fast page load times.  But the JAMStack definition says &quot;<em>sites or apps</em>&quot; and requires deployment to a CDN.  Why do they explicitly call out those points?  Is there a real difference between JAMStack and a static website generator?</p>
+<p>In a system like AkashaCMS, the user edits Markdown or AsciiDoc files, then runs a tool to render those files to HTML+CSS+JS, and uses <em>rsync</em> to deploy to a web server.  This is the JAMStack and statically generated website model, uploading static HTML+CSS+JS assets to a hosting system.  A couple observations:</p>
+<ul>
+<li>A statically generated website does not <strong>require</strong> backend API&apos;s or DOM manipulation, but can include JS that calls backend API&apos;s and performs DOM manipulation, if needed</li>
+<li>We can use modern HTML+CSS+JS in a statically generated website</li>
+<li>The statically generated website can be hosted on cheap shared web hosting that uses Apache or NGINX web-servers</li>
+<li>Such websites can be hosted to a CDN to aid delivery to readers around the world</li>
+<li>Why is there an insistence on deployment to a CDN?</li>
+</ul>
+<p>In other words - a JAMStack site is a subset of the statically generated websites, since JAMStack is a statically generated website with additional constraints.  In both cases pre-rendered HTML+CSS+JavaScript are deployed to a hosting location, and the hosting location does nothing other than deliver the files to web browsers.  The difference is the reliance on JavaScript and API&apos;s and DOM Manipulation.</p>
+<p>With both, we skip a bunch of complexity and cost arising from using dynamically executed services to dynamically generate websites (e.g. Drupal or Wordpress).</p>
+<p>But, why do JAMStack proponents insist on using a CDN?  <strong>What is a CDN?</strong> A CDN, a.k.a. Content Delivery Network, is a cloud based service for distributing assets to remote servers around the world.  The promise is high performance, in part to automatically distribute content to CDN endpoints around the world.</p>
+<h1>Why insist on a CDN?</h1>
+<p>In the JAMStack literature the task of &quot;managing a webserver&quot; is described as a huge burden.  The CDN is described as being &quot;serverless&quot;, which is described as a huge advantage.  Of course <em>serverless</em> is rather silly because of course CDN&apos;s are built from zillions of servers.  What that really means is that the person deploying the code isn&apos;t involved with the overhead of provisioning and managing servers.  The customer doesn&apos;t have to configure the servers.  We just deploy our code, and the serverless service takes care of the rest.  With a CDN, you upload the files, and the CDN takes care of both the servers and distributing your HTML+CSS+JS assets around the world.</p>
+<p>CDN&apos;s primary stated advantage is that the CDN guarantees similar performance anywhere in the world.  With traditional hosting from a single web server -- my sites are hosted on shared hosting rented from Dreamhost whose servers are in southern California -- the distance from that server affects speed of accessing the website.</p>
+<p>According to Google Analytics the page load speed for my websites (all hosted on simple shared Apache web hosting) is under 20 milliseconds.  Seems to me that 20 milliseconds is pretty close to <em>blazingly fast</em>.  I haven&apos;t tried hosting a site on a CDN and don&apos;t know if CDN&apos;s deliver content even more blazingly fast.  A reader of my sites in Uganda might see slower page loading times than a reader in Huntington Beach California.  Hosting on a CDN is supposed to equalize the two.</p>
+<p>Additionally, CDN providers truly offer <em>unlimited bandwidth</em> (at a fee).  The traditional shared hosting providers, like Dreamhost, offer unlimited bandwidth, but there is often an unstated usage level beyond which the hosting provider will start sending emails demanding your site move somewhere else.  CDNs have performance guarantees that cannot be made by the traditional Apache-based web hosting provider.</p>
+<h1>Where did JAMStack come from?</h1>
+<p>It seems that JAMStack came from <em>Front End Engineers</em> who had been roped into the unnatural thing of writing back-end code.  Management might think that JavaScript is JavaScript, so a front engineer should surely be able to stand up Node.js services as the back end of their web application.  But the skillset of creating visual experiences with HTML, CSS and JavaScript is very different from the skillset of back-end deployment tools like Docker, Databases and Node.js.</p>
+<p>Front-end engineering is oriented to visual and interactive effects, whereas back-end coding is about server deployments, service scaling, and the like.  It stands to reason a front-end engineer would balk at doing server deployments.</p>
+<p>The folks talking about JAMStack focus on the ease of deploying applications.  The folks using static website generators, like me, are looking for a slightly different thing.  We have websites (blogs etc) to deploy, don&apos;t see the point of dynamically generating the content on every page view, and want a lower hosting cost.</p>
+<h1>Avoiding complexity may be the biggest gain</h1>
+<figure>
+        
+        <img src="./img/static-vs-cloud.jpg">
+        
+        
+</figure>
+
+<p>This image demonstrates the advantage of both JAMStack and the websites rendered using a Static Website Generator.  The far simpler system is lower cost and lower resource impact and lower overhead to maintain and faster.</p>
+<p>On the left (blue arrows and text) we have the model of deploying static assets.  They can be deployed to a CDN, as the JAMStack proponents insist, or to a simple Apache or NGINX server.  In both cases the user&apos;s web browser makes a request to a web server, and the web server simply sends back the file, and that&apos;s that.</p>
+<p>On the right (with green text and arrows) we have a complex system deployed on cloud hosting infrastructure.  A cloud hosting platform like AWS has close to a zillion features, giving technologists lots of things to get excited about.  Global scale custom services of the type driving all kinds of websites are possible by configuring and using cloud hosting platforms.  It&apos;s a compelling model, because anyone can rent service that can scale from a small deployment to a globe spanning service at the click of a few buttons.  But trust me when I say that it is complex to learn, complex to understand, complex to grok how to minimize the costs, complex to manage, etc.</p>
+<h1>Serverless is the real method for eliminating complexity</h1>
+<p>The JAMStack proponents praise CDN deployment, but what they should be praising is the <em>serverless</em> concept.</p>
+<p>There are a lot of hugely complex systems available in today&apos;s computing world.  Some kinds of websites require that complexity, because of the intense number of services to manage.</p>
+<p>To build and maintain a system that works across multiple availability zones, automatically handles service failure, that handles automatic localization and internationalization, and much more, requires multiple teams of highly skilled engineers.  Not everyone can afford the cost of hiring such a deep talent base.</p>
+<p>The <em>serverless</em> approach offers a different route.  The service provider hires the engineering talent required to deploy a cloud based service, and we simply rent their service.  Whether it&apos;s a database service, a content distribution service, a cloud functions service, or any other service, we simply use the service providers website to rent the service.  The service provider&apos;s engineering team takes care of scaling to meet traffic, multi-zone availability, backups, reliability, and more.  Our task is simple - we configure the application stack with service access particulars, and get on with the business of writing application code.</p>
+<p>It&apos;s so simple that an individual (or small team) can:</p>
+<ul>
+<li>Create an application using front-end JavaScript</li>
+<li>Deploy any custom back-end services to functions-as-a-service system</li>
+<li>Utilize database-as-a-service</li>
+<li>Utilize other 3rd party cloud services</li>
+</ul>
+<p>All with no complexity, and the ability to quickly develop/deploy a website or web application.  All the complexity is handled by serverless service providers.</p>
+<p>However, not all serverless services are equally simplified.  AWS Fargate is billed as a serverless version of AWS ECS or AWS EKS.  ECS is an AWS cloud service for hosting Docker containers, and EKS is the AWS service for running Kubernetes.  Fargate is <em>serverless</em> in that you do not provision the servers involved in hosting the Docker containers, which does slightly simplify the task of hosting a Docker service.  But Fargate is still extremely complex.</p>
+<p>In the next section let&apos;s talk more concretely about JAMStack implementation.</p>
+<h1>That&apos;s nice theory, but what are JAMStack or static websites for real?</h1>
+<p>All of that was rather abstract, so let&apos;s look at some concrete examples of JAMStack.</p>
+<p>At the simplest, JAMStack is an HTML page, containing JavaScript, where it makes API calls to services, using retrieved data to make changes to the HTML.  Let&apos;s take a look at some examples ...</p>
+<h2>Commenting systems on static HTML or JAMStack websites</h2>
+<p>There were advantages to those dynamic CMS&apos;s.  For instance Wordpress and Drupal both integrate a native commenting system, and allow users to register with the website in order to leave comments.  It is possible to build a community via a website by allowing your readers to leave comments.  Why should we leave that and other features behind?</p>
+<p>The first step is to render the content of the website using a static website generator.  There are many such systems each with different behaviors.  In most cases content is written in Markdown and rendered through templates to create the static HTML site.</p>
+<p>Then, for each page where you want comments, add some JavaScript containing a commenting UI.  The JavaScript should be added to the template rather than the Markdown content, to simplify implementing comments across the website.  The commenting UI would make calls to a back-end commenting system, and also render a user interface in a given location in the web page.  For example:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;disqus_thread&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">var</span> disqus_shortname = <span class="hljs-string">&apos;site-name-slug&apos;</span>;
+<span class="hljs-keyword">var</span> dsq = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&apos;script&apos;</span>); dsq.type = <span class="hljs-string">&apos;text/javascript&apos;</span>; dsq.async = <span class="hljs-literal">true</span>;
+dsq.src = <span class="hljs-string">&apos;https://&apos;</span> + disqus_shortname + <span class="hljs-string">&apos;.disqus.com/embed.js&apos;</span>;
+(<span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&apos;head&apos;</span>)[<span class="hljs-number">0</span>] || <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&apos;body&apos;</span>)[<span class="hljs-number">0</span>]).appendChild(dsq);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>This is (more or less) the JavaScript provided by Disqus, a large scale commenting service.  It handles comments on websites, and has many useful tools for managing spammers and user authentication.</p>
+<p>The Disqus UI integrates a number of back-end services.  For example users can sign up as a Disqus user without leaving the web page, and it can also authenticate people using 3rd party services like Facebook or Twitter.  Once a reader is authenticated, they can leave comments and the comments area is dynamically updated as others leave comments.</p>
+<p>When I installed Disqus on a Blogger blog, or on a Drupal blog, that was not a JAMStack situation.  Simply using a JavaScript UI to a 3rd party service does not make it JAMStack.  That Drupal blog is its own complexity.  What makes it JAMStack is to use a static website generator so that you&apos;re deploying HTML+CSS+JS.</p>
+<p>There are plenty of services like Disqus offering many services.  For example, a weather site might offer a widget displaying the current weather for the locale of the visitor.  And the embed widgets supplied by Facebook, Twitter, YouTube and other sites, are also examples of JavaScript UI&apos;s that call an API and modify the DOM.</p>
+<h2>Custom back-end services in static HTML or JAMStack websites</h2>
+<p>Many websites have custom services as well.  Not every need fits into what a 3rd party service can provide, after all.</p>
+<p>To take an example, one of my websites is a proper static HTML site, where one section has a service implemented in old school PHP.  The original version of that service was implemented in TCL in 1997, and sometime in the 00&apos;s I rewrote it to simplistic old-CGI-style PHP.  Today, the PHP scripts are rendered from templates by AkashaCMS and deployed with the HTML+CSS+JS of that website, but it&apos;s still the old-school PHP.</p>
+<p>That website is therefore not pure static HTML, nor is it a JAMStack site.  According to JAMStack proponents, this has complexity and is something to avoid.  In this case the PHP implementation requires extra security measures.</p>
+<p>There are close to a zillion reasons any given site might have custom dynamic services.  Not every need is satisfied by a prebaked third party service.  Since the JAMStack approach is not just about performance, but simplicity and security, that leads us to a question: What&apos;s the simplest, highest performance, and most secure way to use a custom dynamic service on a JAMStack site?</p>
+<p>My mind turns immediately to a function-as-a-service platform like AWS Lambda, and the promises of scalability, performance, and baked-in security.</p>
+<p>The JAMStack proponents would probably say to implement a custom service as:</p>
+<ul>
+<li>A back-end offering a JSON/REST API</li>
+<li>A JavaScript UI doing browser-side rendering of HTML for the user interface</li>
+</ul>
+<p>It is easy to generate a static bundle for the JavaScript UI for deployment through a CDN.  On 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=techsparx.com" style="display: inline-block; padding-right: 2px;" alt="(techsparx.com)">
+                    <a href="https://techsparx.com/software-development/vue-js/getting-started/" rel="nofollow" target="_blank">one of my other sites</a> I wrote a tutorial about doing just that with Vue.js.  Using Webpack to build the Vue.js application bundle gives a directory containing static assets that can be deployed with the rest of the static website.  You then include it in the HTML like so:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/dist/build.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>The JS code at the URL, in this case <code>/dist/build.js</code>, must be written to target the <code>div#app</code> element where it will initialize the application.</p>
+<h2>Search engines indexing JavaScript UI&apos;s</h2>
+<p>One thing which stops me from doing this on my site is whether that would be indexable by search engines.  The HTML of the corresponding pages would have the JavaScript application, rather than the currently shown information.  How will search engines index the information supplied by that service?  In many cases, like mine, that information is a big value point of that website and many of the visitors are drawn to the site because of that information.</p>
+<p>Over on the JAMStack website is a corresponding issue.  Namely, the list of factors that are <strong>NOT</strong> JAMStack websites includes:</p>
+<blockquote class="blockquote">
+<p>A single page app that uses isomorphic rendering to build views on the server at runtime.</p>
+</blockquote>
+<p>I&apos;m not certain what that phrase means, but it&apos;s clearly talking about server-side rendering.  The 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=en.wikipedia.org" style="display: inline-block; padding-right: 2px;" alt="(en.wikipedia.org)">
+                    <a href="https://en.wikipedia.org/wiki/Isomorphic_JavaScript" rel="nofollow" target="_blank">Wikipedia page on Isomorphic JavaScript</a> talks about a hybrid situation with both server-side and client-side rendering.  Possibly the JAMStack website is saying it is best for all rendering to occur on the client side using data retrieved from servers.</p>
+<p>On that Wikipedia page, there is a discussion of the problem of search engines indexing sites that have client side rendering.  Rather, since that page presents Isomorphic Rendering as a good thing, it gives this as one of the benefits:</p>
+<blockquote class="blockquote">
+<p>More predictable SEO and Site Indexing: In order to index content that JavaScript apps render on client-side, Googlebot must run those JavaScript apps inside a full browser environment and capture the rendered DOM. This involves complex browser compatibility issues. Also, because JavaScript apps can make AJAX requests for further rendering, Googlebot must have a policy that controls apps&#x2019; network access. These are why getting your JavaScript app indexed properly by Googlebot is still challenging.</p>
+</blockquote>
+<p>Hence, I am justified in my concern about whether this would impact search engine visibility of my site.  FWIW Vue.js claims to be indexable by search engines, so I might be overstating the issue.</p>
+<h2>Websites as applications</h2>
+<p>Unlike the sites I normally create, some folks use a website as the location for an application.  Some examples are Slack, Discord, Google Mail, Canva, all of which are websites with a small amount of public content, and an area where you access an application.  Instead of the primary purpose being presenting written content like this, it is the application.</p>
+<p>Clearly such a site is very similar to what I just described.  We&apos;d use a static website generator to build the few normal web pages, plus the page(s) containing the JavaScript user interface.  As discussed in the previous section we&apos;d build a code bundle for the JavaScript UI, and deploy it with the static website.</p>
+<p>For back-end services, the UI would likely use a variety of 3rd party and custom services.  For the custom services you again are recommended to host on a serverless platform in order to keep it simple.</p>
+<p>Following those recommendations would make this a JAMStack site.</p>
+<p>Such a site probably does not desire search engines to index the application.  Would a search engine find any indexable anything in a wordprocessor application UI like what we get on Google Docs?</p>
+<h1>Summary</h1>
+<p>What we&apos;ve learned is that a JAMStack site is similar to a static HTML website, but with a couple specific requirements.  Since the goal is simple system management, JAMStack sites are best hosted on serverless platforms.</p>
+<p>Otherwise, JAMStack is little different than what we&apos;ve called <em>static HTML websites</em> for some time.  Both involve static bundles of HTML, JavaScript and CSS, with the goal of improving speed and user experience for the folks reading our websites.</p>
+<p>But there&apos;s this issue about insisting JAMStack sites/applications must be on a CDN.  I fully understand the goal of &quot;<em>Jamstack projects don&#x2019;t rely on server-side code</em>&quot; since that eliminates a bottleneck to delivering blistering performance.  Clearly the JAMStack website insists on CDN deployment, but is that the only rational choice?</p>
+<p>In my experience, for the traffic level I deal with, Apache on a simple shared web hosting provider is sufficient for excellent page load times.  One thing the JAMStack site says is:</p>
+<blockquote class="blockquote">
+<p>The thing that they all have in common is that they don&#x2019;t depend on a web server.</p>
+</blockquote>
+<p>Instead we&apos;re supposed to depend on serverless services, which of course are built from servers.  What <em>serverless</em> means is <em>other peoples servers</em>, and the advantage to that is a simplified management experience.  That&apos;s what JAMStack means by not depending on a web server.</p>
+<p>I guarantee that with Dreamhost I&apos;m not involved with server management either.  I have a half dozen static HTML sites on a simple shared Apache account on Dreamhost, and have zero involvement with managing the server.  I simply use <em>rsync</em> to upload the HTML+CSS+JS to the server and everything is hunky dory.  I wish the JAMStack site weren&apos;t so stuck on this anti-server stance.</p>
+
+    <div class="btn-group blog-prev-next-wrapper" role="group" aria-label="Next/Previous">
+    <a class="btn btn-outline-primary blog-prev-link" href="../../2013/08/plugins-announce.html" role="button">
+    &#xAB;&#xAB;&#xAB;&#xAB;&#xAB;&#xAB; Preparing AkashaCMS for 0.3.x, adding plugin support</a>
+    <a class="btn btn-outline-primary blog-next-link" href="liquid-templates.html" role="button">
+    <span style="float: right">Added support for Liquid templates to AkashaCMS, no performance improvements &#xBB;&#xBB;&#xBB;&#xBB;&#xBB;&#xBB;</span></a>
+</div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </article>
+  <section id="right" class="col-sm-2">
+    
+    
+<p>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=twitter.com" style="display: inline-block; padding-right: 2px;" alt="(twitter.com)">
+                    <a href="https://twitter.com/AkashaCMS" rel="me nofollow" class="twitter-follow-button" data-show-count="false" target="_blank">Follow<br>@AkashaCMS</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+
+<p>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.facebook.com" style="display: inline-block; padding-right: 2px;" alt="(www.facebook.com)">
+                    <a href="https://www.facebook.com/Nodejs-Web-Development-116624021765933/" rel="me nofollow" target="_blank">Follow Node.js Web Development on Facebook</a></p>
+
+    
+<ul class="list-group">
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+    </li>
+
+</ul>
+  </section>
+</div>
+
+<footer class="row" style="text-align: center; height: 100px;">
+<!-- partial file-name="ebook-footer.html"/ -->
+
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+</footer>
+</div>
+
+<script src="../../../vendor/jquery/jquery.min.js"></script><script src="../../../vendor/popper.js/umd/popper.min.js"></script><script src="../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

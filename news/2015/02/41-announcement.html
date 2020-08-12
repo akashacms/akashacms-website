@@ -1,0 +1,387 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+<title>Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Aug 08 2020 22:47:21 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more">
+
+<meta name="og:url" content="https://akashacms.com/news/2015/02/41-announcement.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/news/2015/02/41-announcement.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../../../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../../../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../../../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../../../pulse.min.css"><link rel="stylesheet" type="text/css" href="../../../style.css"><link rel="stylesheet" type="text/css" href="../../../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../../../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+
+<!-- Facebook app for AkashaCMS fan page -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<!-- Twitter summary card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+
+<meta name="twitter:url" content="https://akashacms.com/news/2015/02/41-announcement.html">
+
+
+<meta name="twitter:title" content="Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more">
+
+
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav navbar-rights">
+          <li class="nav-item">
+              <a class="nav-link" href="../../../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../akasharender/toc.html">AkashaRender</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../plugins/index.html">Plugins</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../mahabhuta/toc.html">Mahabhuta</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../epubtools/toc.html">EPUB Tools</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../howto/index.html">How To</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../index.html">News</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../../about.html">About</a>
+          </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+  <div class="row">
+    <span class="col-md-8" style="text-align: center;">
+      <a href="../../../index.html"><img src="../../../logo.gif" align="left"></a>
+      <h1 align="center">Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more</h1>
+    </span>
+    <span class="col-md-4">
+      <form action="//www.google.com" id="cse-search-box">
+        <div>
+          <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input type="text" name="q" size="30">
+          <input type="submit" name="sa" value="Search">
+        </div>
+      </form>
+      <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+      // Not empty
+      </script>
+      <br>
+
+    </span>
+  </div>
+
+</header>
+
+</div>
+
+<div class="row">
+  <section id="breadcrumb" class="col-sm-12">
+    <nav aria-label="breadcrumb" id="breadcrumbTrail">
+    <ol class="breadcrumb">
+     <li class="breadcrumb-item "> <a href="../../../index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li class="breadcrumb-item "> <a href="../../index.html">Announcements and News about AkashaCMS</a> </li> <li class="breadcrumb-item "> <a href="../index.html">AkashaCMS News and Announcements for 2015</a> </li> <li class="breadcrumb-item "> <a href="index.html">AkashaCMS News and Announcements for February 2015</a> </li> <li class="breadcrumb-item "> <a href="41-announcement.html">Announcing AkashaCMS 0.4.1 - rendering chains, grunt integration, EPUB generation, and more</a> </li>
+    </ol>
+</nav>
+
+  </section>
+  <section id="category-tags" class="col-sm-12">
+    
+    Date: Feb 25, 2015 12:07 PDT
+
+  </section>
+  <section id="author-byline" class="col-sm-12">
+    <div class="author-byline" itemprop="author" itemscope itemtype="http://schema.org/Person">
+By <span itemprop="name" class="author-name-wrapper"><a href="../../../about.html" rel="author" itemprop="url">David Herron</a></span>
+</div>
+
+  </section>
+</div>
+
+<div class="row">
+  <article class="col-sm-10">
+    
+    <strong><p><strong>Major amount of work went on the last two weeks, restructuring AkashaCMS to allow pluggable rendering chains, using it in a Grunt workflow, and generate EPUB files.</strong></p>
+</strong>
+    
+    <!-- no hero picture -->
+
+    <p>The last two weeks I&apos;ve learned how to create EPUB 3 documents, and have adapted AkashaCMS to do so.  Along the way some major restructuring of AkashaCMS were necessary to create EPUB 3 documents.  A new plugin, 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms-epub" rel="nofollow" target="_blank">AkashaEPUB</a>, is the result.  This brought in some much-wanted capabilities that had been on the issue queue for a long time.</p>
+<h2>Pluggable renderingChain&apos;s</h2>
+<p>Out of the box AkashaCMS supports a <a href="../../../akasharender/3-create-content.html">couple file extensions (example.html.md, etc)</a>.  While that was pretty good, there are a lot more potential file types we might want to create using AkashaCMS.  Such as the special files used in EPUB documents.  A generic file processing mechanism was needed.  In the 0.3.x timeframe I tried to implement such a thing, but it became too convoluted and I gave up.  As of 0.4.0 the rendering module supported just a few rendering chains.</p>
+<p>A <em>renderingChain</em> is a sequence of rendering steps.  For example, AkashaCMS core supports <code>example.html.ejs.md</code> which says to render the content first with Markdown, then with EJS, and produce an HTML file named <code>example.html</code>.</p>
+<p>The code to implement that renderingChain is 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms/blob/master/lib/renderer-ejs.js" rel="nofollow" target="_blank">in the repository</a> and looks like this:</p>
+<pre><code class="hljs">
+<span class="hljs-built_in">module</span>.exports.rendererEJSMD = {
+  <span class="hljs-attr">match</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fname</span>) </span>{
+	<span class="hljs-keyword">var</span> matches;
+	<span class="hljs-keyword">if</span> ((matches = fname.match(<span class="hljs-regexp">/^(.*\.html)(\.ejs\.md)$/</span>)) !== <span class="hljs-literal">null</span>) {
+	  <span class="hljs-keyword">return</span> {
+		<span class="hljs-attr">path</span>: matches[<span class="hljs-number">0</span>],
+		<span class="hljs-attr">renderedFileName</span>: matches[<span class="hljs-number">1</span>],
+		<span class="hljs-attr">extension</span>: matches[<span class="hljs-number">2</span>]
+	  };
+	} <span class="hljs-keyword">else</span> {
+	  <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+	}
+  },
+  <span class="hljs-attr">renderSync</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">text, metadata</span>) </span>{
+	<span class="hljs-keyword">return</span> ejs.render(md.renderSync(text), metadata);
+  },
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">text, metadata, done</span>) </span>{
+	done(<span class="hljs-literal">null</span>, ejs.render(md.renderSync(text), metadata));
+  }
+};
+</code></pre>
+<p>It&apos;s just an object with three methods.  You can, if desired, implement a renderingChain as a module as is done for the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms/blob/master/lib/renderer-html.js" rel="nofollow" target="_blank">HTML rendering chain</a>, which just copies the input to the output with no modification.</p>
+<p>The functions are:</p>
+<ul>
+<li><code>match</code>: Function to match a filename to see if this renderingChain is to be used.  As you see an object with three elements are returned.  The full path (<code>path</code>), the file name to render this to (<code>renderedFileName</code>) and the portion of the extension which indicated the rendering chain.</li>
+<li><code>renderSync</code>: Function to render the content in a synchronous fashion.</li>
+<li><code>render</code>: Function to render the content in an asynchronous fasion.</li>
+</ul>
+<p>You inform AkashaCMS about a renderingChain with the <code>akasha.registerRenderChain</code> function.</p>
+<pre><code class="hljs"><span class="hljs-params">...</span>
+<span class="hljs-built_in">var</span> rendererCSSLess = <span class="hljs-keyword">require</span>(<span class="hljs-string">&apos;./lib/renderer-cssless&apos;</span>);
+<span class="hljs-params">...</span>
+akasha.registerRenderChain(rendererCSSLess);
+<span class="hljs-params">...</span>
+</code></pre>
+<p>In practice it is now quite easy to develop a custom renderingChain module, plug it into AkashaCMS, and start rendering a new kind of file.  
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/akashacms-epub" rel="nofollow" target="_blank">AkashaEPUB</a> has several renderingChain&apos;s</p>
+<h2>First integration with Grunt</h2>
+<p>Grunt (and Gulp) are two major results of the Node.js platform&apos;s existence, and are widely used in building not just Node.js projects but other sorts of things.  I&apos;d long been interested in the potential that might come from integrating AkashaCMS with either, or both.</p>
+<p>For example there&apos;s a whole slew of minifying tools.  Rather than build a minifier into AkashaCMS, just minify the <code>root_out</code> directory after building it.</p>
+<p>While creating the AkashaEPUB module, I decided to use that as an excuse for Grunt integration.  Turned out to be real easy.  By no means is the integration finished, but there are a few Tasks now exported by AkashaCMS.  Grunt is the only way to build an EPUB using AkashaEPUB.</p>
+<p>The idea is that, when fully implemented, you&apos;ll be able to write a Gruntfile.js containing commands like this:</p>
+<pre><code class="hljs">grunt.load<span class="hljs-constructor">NpmTasks(&apos;<span class="hljs-params">akashacms</span>&apos;)</span>;
+grunt.load<span class="hljs-constructor">NpmTasks(&apos;<span class="hljs-params">akashacms</span>-<span class="hljs-params">epub</span>&apos;)</span>;
+</code></pre>
+<p>And then use the Gruntfile to drive the process of building your site.  At that point I might retire the <code>akashacms</code> command.</p>
+<p>For a working example, look at the Gruntfile in the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=github.com" style="display: inline-block; padding-right: 2px;" alt="(github.com)">
+                    <a href="https://github.com/akashacms/epub-guide" rel="nofollow" target="_blank">AkashaEPUB Guide</a>.</p>
+<h2>AkashaEPUB</h2>
+<p>It&apos;s almost not worth mentioning this, since I&apos;ve already given the requisite links above.</p>
+<p>AkashaEPUB is an AkashaCMS plugin which adds the capability to generate EPUB 3 files.</p>
+<p>At the moment the plugin generates <code>.epub</code> files, that conform to the EPUB 3 spec, and that pass the <code>epubcheck</code> program.  The documentation is incomplete, and is in the AkashaEPUB Guide.  The source code for the guide is itself documentation on how to use the plugin.</p>
+
+    <div class="btn-group blog-prev-next-wrapper" role="group" aria-label="Next/Previous">
+    <a class="btn btn-outline-primary blog-prev-link" href="../04/epub-released.html" role="button">
+    &#xAB;&#xAB;&#xAB;&#xAB;&#xAB;&#xAB; AkashaEPUB 0.4.2 released, Guidebook written</a>
+    <a class="btn btn-outline-primary blog-next-link" href="40-announcement.html" role="button">
+    <span style="float: right">Announcing AkashaCMS 0.4.0 - server-side jQuery, streamlined rendering, and more &#xBB;&#xBB;&#xBB;&#xBB;&#xBB;&#xBB;</span></a>
+</div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </article>
+  <section id="right" class="col-sm-2">
+    
+    
+<p>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=twitter.com" style="display: inline-block; padding-right: 2px;" alt="(twitter.com)">
+                    <a href="https://twitter.com/AkashaCMS" rel="me nofollow" class="twitter-follow-button" data-show-count="false" target="_blank">Follow<br>@AkashaCMS</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p>
+
+<p>
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.facebook.com" style="display: inline-block; padding-right: 2px;" alt="(www.facebook.com)">
+                    <a href="https://www.facebook.com/Nodejs-Web-Development-116624021765933/" rel="me nofollow" target="_blank">Follow Node.js Web Development on Facebook</a></p>
+
+    
+<ul class="list-group">
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+    </li>
+
+</ul>
+  </section>
+</div>
+
+<footer class="row" style="text-align: center; height: 100px;">
+
+
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+</footer>
+</div>
+
+<script src="../../../vendor/jquery/jquery.min.js"></script><script src="../../../vendor/popper.js/umd/popper.min.js"></script><script src="../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+</body>
+</html>

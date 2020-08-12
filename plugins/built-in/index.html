@@ -1,0 +1,454 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="AskashaCMS " built-in" plugin documentation - foundational support for constructing any html">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="AskashaCMS " built-in" plugin documentation - foundational support for constructing any html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML">
+
+<meta name="og:url" content="https://akashacms.com/plugins/built-in/index.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/plugins/built-in/index.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../../pulse.min.css"><link rel="stylesheet" type="text/css" href="../../style.css"><link rel="stylesheet" type="text/css" href="../../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+
+<!-- Facebook app for AkashaCMS fan page -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=234745903279111";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<!-- Twitter summary card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@akashacms">
+<meta name="twitter:creator" content="@7genblogger">
+
+<meta name="twitter:url" content="https://akashacms.com/plugins/built-in/index.html">
+
+
+<meta name="twitter:title" content="AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML">
+
+
+<meta name="twitter:image" content="http://akashacms.com/logo.gif">
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav navbar-rights">
+          <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../akasharender/toc.html">AkashaRender</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../index.html">Plugins</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../mahabhuta/toc.html">Mahabhuta</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../epubtools/toc.html">EPUB Tools</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../howto/index.html">How To</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../news/index.html">News</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../../about.html">About</a>
+          </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+  <div class="row">
+    <span class="col-md-8" style="text-align: center;">
+      <a href="../../index.html"><img src="../../logo.gif" align="left"></a>
+      <h1 align="center">AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML</h1>
+    </span>
+    <span class="col-md-4">
+      <form action="//www.google.com" id="cse-search-box">
+        <div>
+          <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input type="text" name="q" size="30">
+          <input type="submit" name="sa" value="Search">
+        </div>
+      </form>
+      <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+      // Not empty
+      </script>
+      <br>
+
+    </span>
+  </div>
+
+</header>
+
+</div>
+
+<div class="row">
+
+<div class="row">
+  <section id="breadcrumb" class="col-sm-12">
+    <nav aria-label="breadcrumb" id="breadcrumbTrail">
+    <ol class="breadcrumb">
+     <li class="breadcrumb-item "> <a href="../../index.html">AkashaCMS - the powerful static file CMS to build your dream website</a> </li> <li class="breadcrumb-item "> <a href="../index.html">AkashaCMS plugin directory</a> </li> <li class="breadcrumb-item "> <a href="index.html">AskashaCMS &quot;built-in&quot; plugin documentation - Foundational support for constructing any HTML</a> </li>
+    </ol>
+</nav>
+
+  </section>
+</div>
+
+<div class="row">
+  <article class="col-sm-10">
+    
+    <p>AkashaRender includes a &quot;built-in&quot; plugin with custom tags useful for any target use.  The AkashaCMS toolchain supports rendering both websites and EPUB&apos;s, and could support rendering for other target uses of HTML.  The EPUB format includes constraints where, while EPUB3 uses HTML5, a sizeable list of HTML5 features are not allowed.  Both the built-in plugin and the <code>akashacms-base</code> plugin both aspire to provide features useful to everyone, the latter includes those features useful only for websites, whereas the built-in plugin features are useful for everyone.</p>
+<h1>Installation and Configuration</h1>
+<p>There&apos;s nothing to do, the built-in plugin is, well, built-in to AkashaRender.</p>
+<h1>Simplification for <code>figure/img</code> tags</h1>
+<p>This construct is recommended in the HTML5 world for its microformat goodness</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">figure</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;an-image.jpg&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">figcaption</span>&gt;</span>Image caption<span class="hljs-tag">&lt;/<span class="hljs-name">figcaption</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+</code></pre>
+<p>While you can surely write these tags yourself, the <code>&lt;fig-img&gt;</code> tag offers a simplification.</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">fig-img</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;an-image.jpg&quot;</span> 
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class-name&quot;</span> 
+        <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;id-name&quot;</span> 
+        <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;...CSS...&quot;</span> 
+        <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;...width...&quot;</span> 
+        <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;template-partial.html.ejs&quot;</span>&gt;</span>
+Optional caption text
+<span class="hljs-tag">&lt;/<span class="hljs-name">fig-img</span>&gt;</span>
+</code></pre>
+<p>Using the default template (<code>ak_figimg.html.ejs</code>) the tag converts into the structure shown above.  The attributes are interpreted as so:</p>
+<ul>
+<li><code>class</code> is added as a <code>class</code> attribute to the <code>&lt;figure&gt;</code></li>
+<li><code>id</code> is added as a <code>id</code> attribute to the <code>&lt;figure&gt;</code></li>
+<li><code>style</code> is added as a <code>style</code> attribute to the <code>&lt;figure&gt;</code></li>
+<li><code>width</code> is added as a <code>width</code> attribute to the <code>&lt;figure&gt;</code></li>
+<li><code>template</code> overrides the default template</li>
+</ul>
+<h2>Create figure/img constructs from images</h2>
+<p>We have a tag <code>&lt;fig-img&gt;</code> to aid constructing the combination of a <code>&lt;figure&gt;</code> containing an <code>&lt;img&gt;</code>.  But after some time of using that tag it seems better to use the <code>&lt;img&gt;</code> tag, and add attributes to control the construction of the figure/img construct.</p>
+<p>To trigger this behavior include the <code>figure</code> property on the image.</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;change1&quot;</span> <span class="hljs-attr">figure</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/Human-Skeleton.jpg&quot;</span>&gt;</span>
+</code></pre>
+<p>With the <code>figure</code> property, we replace the <code>&lt;img&gt;</code> with a <code>&lt;figure&gt;</code> containing an <code>&lt;img&gt;</code>.</p>
+<p>The recognized attributes are:</p>
+<ul>
+<li><code>id</code> becomes the <code>id</code> of the <code>&lt;figure&gt;</code></li>
+<li><code>class</code> becomes the <code>class</code> of the <code>&lt;figure&gt;</code></li>
+<li><code>width</code> becomes the <code>width</code> of the <code>&lt;figure&gt;</code></li>
+<li><code>style</code> becomes the <code>style</code> of the <code>&lt;figure&gt;</code></li>
+<li><code>dest</code> becomes an <code>&lt;a&gt;</code> tag surrounding the <code>&lt;img&gt;</code> within the <code>&lt;figure&gt;</code></li>
+<li><code>caption</code> becomes a <code>&lt;figcaption&gt;</code> tag within the <code>&lt;figure&gt;</code></li>
+</ul>
+<p>This is processed through the <code>ak_figimg.html.ejs</code> template just as for <code>&lt;fig-img&gt;</code>.</p>
+<h1>Resizing images</h1>
+<p>Sometimes you want to store a full-size image in the <code>documents</code> directory, but the deployed website will use a reasonable size image for web browsers.  For example a marketing department might provide highly detailed product images accompanying a press release, but of course it is useful to keep images to 100-300kb for delivery on a public website.</p>
+<p>For this purpose a filter exists to resize images.  This feature may be extended in the future to include general image manipulation.</p>
+<p>It is triggered by adding a <code>resize-width</code> property to an <code>&lt;img&gt;</code>.  The value of this property declares the width of the resulting image in pixels.  The image height is automatically calculated to maintain the same width/height scale (e.g. a 600x400 image resized to 300 width would be 200 pixels high).</p>
+<p>The usage is as follows:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;resizeto150&quot;</span> 
+        <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/Human-Skeleton.jpg&quot;</span>
+        <span class="hljs-attr">resize-width</span>=<span class="hljs-string">&quot;150&quot;</span>
+        <span class="hljs-attr">resize-to</span>=<span class="hljs-string">&quot;img/Human-Skeleton-150.jpg&quot;</span>&gt;</span>
+</code></pre>
+<p>The recognized properties are:</p>
+<ul>
+<li><code>src</code> The file within the documents or assets directories that is copied into the render output</li>
+<li><code>resize-to</code> The file name used within the render output directory</li>
+<li><code>resize-width</code> The resulting image width as discussed above.</li>
+</ul>
+<p>In the rendered HTML, if <code>resize-to</code> is given, the <code>src</code> attribute of the <code>&lt;img&gt;</code> will be rewritten to the value of the <code>resize-to</code> attribute.</p>
+<p>The rendered version of this tag will be:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;resizeto150&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/Human-Skeleton-150.jpg&quot;</span>&gt;</span>
+</code></pre>
+<p>The <code>resize-width</code> and <code>resize-to</code> attributes are removed in the final output.</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;png2jpg&quot;</span>  <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;rss_button.png&quot;</span> <span class="hljs-attr">resize-width</span>=<span class="hljs-string">&quot;50&quot;</span> <span class="hljs-attr">resize-to</span>=<span class="hljs-string">&quot;rss_button.jpg&quot;</span>&gt;</span>
+</code></pre>
+<p>In this case the image type in <code>src</code> differs from <code>resize-to</code>.  In this case an image format conversion is performed.</p>
+<h1>Stylesheets</h1>
+<p>The <code>&lt;ak-stylesheets&gt;</code> tag generates links to CSS stylesheets, as declared in <code>config.js</code> or in the document metadata.</p>
+<p>In <code>config.js</code> add something like this:</p>
+<pre><code class="hljs language-js">config
+    .addStylesheet({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap.min.css&quot;</span> })
+    .addStylesheet({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap-theme.min.css&quot;</span> })
+    .addStylesheet({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootswatch-readable/bootstrap.min.css&quot;</span> })
+    .addStylesheet({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/style.css&quot;</span> });
+</code></pre>
+<p>The options include the <code>href</code> option shown here, and <code>media</code> to declare the media type.  These correspond to these attributes</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;${style.href}&quot;</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;${style.media}&quot;</span>/&gt;</span>
+</code></pre>
+<p>In document metadata include this for per-page stylesheets:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-string">...</span>
+<span class="hljs-attr">headerStylesheetsAdd:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">href:</span> <span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap.min.css&quot;</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">href:</span> <span class="hljs-string">&quot;/style-for-this-page.css&quot;</span>
+<span class="hljs-string">...</span>
+<span class="hljs-meta">---</span>
+</code></pre>
+<h1>JavaScript</h1>
+<p>JavaScript tags can be added either at the top of the page, in the <code>&lt;head&gt;</code> section, or at the bottom of the page, depending on your preferences.  AkashaRender supports declaring the JavaScript files to be put in which section.</p>
+<p>Place the <code>&lt;ak-headerJavaScript&gt;</code> tag where you want header JavaScript to appear, and the <code>&lt;ak-footerJavaScript&gt;</code> tag where you want the footer JavaScript to appear.</p>
+<p>In <code>config.js</code> add something like this:</p>
+<pre><code class="hljs language-js">config
+    .addFooterJavaScript({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/jquery/jquery.min.js&quot;</span> })
+    .addFooterJavaScript({ <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;/vendor/bootstrap/js/bootstrap.min.js&quot;</span>  })
+</code></pre>
+<p>Substitute <code>Header</code> for <code>Footer</code> and the JavaScript will appear in the <code>&lt;head&gt;</code> section.</p>
+<p>The object can contain these fields:</p>
+<ul>
+<li><code>lang</code> (optional) specifies the language of the script, corresponding to the <code>type=</code> attribute</li>
+<li><code>href</code> corresponds to the <code>src=</code> attribute</li>
+<li><code>script</code> becomes an in-line JavaScript placed within the <code>&lt;script&gt;..&lt;/script&gt;</code> tag</li>
+</ul>
+<p>It is not allowed to have both <code>href</code> and <code>script</code> fields.</p>
+<p>To specify these on a per-document basis in the metadata:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-string">...</span>
+<span class="hljs-attr">headerJavaScriptAddTop:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">href:</span> <span class="hljs-string">&quot;/vendor/jquery/jquery.min.js&quot;</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">href:</span> <span class="hljs-string">&quot;/vendor/bootstrap/js/bootstrap.min.js&quot;</span>
+<span class="hljs-string">...</span>
+<span class="hljs-meta">---</span>
+</code></pre>
+<p>This specifies JavaScript at the top of the page, use <code>headerJavaScriptAddBottom</code> for JavaScript at the bottom of the page.</p>
+<h1>Teaser content</h1>
+<p>Some writers swear by creating a <em>teaser</em> for every document.  The idea is a small bit of text <em>teasing</em> the reader to go ahead and read the whole document.</p>
+<p>The <code>&lt;ak-teaser&gt;</code> tag supports inserting the content of a <code>teaser</code> metadata object.  It uses the <code>ak_teaser.html.ejs</code> partial to do so.</p>
+<h1>Embedding code snippets from files in the document directory</h1>
+<p>Sometimes we want to embed code snippets.  While Markdown makes this easy, we could also have code in files and then embed the files.  To do that:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">code-embed</span> <span class="hljs-attr">file-name</span>=<span class="hljs-string">&apos;path/to/file.ext&apos;</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&apos;lang-code&apos;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code-embed</span>&gt;</span>
+</code></pre>
+<p>The <code>file-name</code> argument must be either a relative path, or absolute path, within a documents directory.  Relative path&apos;s are computed relative to the file this is within.</p>
+<p>The <code>lang</code> argument is refers to what language code is to be used with this file.  For example <code>css</code> for a CSS file.</p>
+<p>Not shown is the <code>id</code> argument that creates an <code>id</code> in the output code.</p>
+<p>This element is integrates with the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=www.npmjs.com" style="display: inline-block; padding-right: 2px;" alt="(www.npmjs.com)">
+                    <a href="https://www.npmjs.com/package/highlight.js" rel="nofollow" target="_blank">Highlight.js library</a> and therefore the <code>lang</code> codes must be from their list of supported programming languages.</p>
+<p>The contents of the file must be textual for this to work.  That&apos;s because the file contents will be inserted into the output wrapped within this structure:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;id&apos;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">code</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;lang&apos;</span>&gt;</span>
+... CONTENTS OF FILE
+<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+</code></pre>
+<p>Clearly for this to work correctly the file must have textual content.</p>
+<h1>Select N elements from a group</h1>
+<p>Sometimes you want to randomly select one or more elements from a group of items.  Consider:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">select-elements</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;advert-group&apos;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;advert1&apos;</span>&gt;</span>... HTML for advert 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;advert2&apos;</span>&gt;</span>... HTML for advert 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;advert3&apos;</span>&gt;</span>... HTML for advert 3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;advert4&apos;</span>&gt;</span>... HTML for advert 4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select-elements</span>&gt;</span>
+</code></pre>
+<p>The idea is to support displaying only one of them, selecting at random the child to display.</p>
+<p>It selects among the direct children which element or elements to display.  The outer element for the child is discarded, and only its contents are displayed in the output HTML.  For example the result of the above example might be:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;advert-group&apos;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&apos;advert3&apos;</span>&gt;</span>... HTML for advert 3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>The attributes accepted by <code>select-elements</code> are:</p>
+<ul>
+<li><code>id</code> - The ID value to use on the outputted HTML element</li>
+<li><code>class</code> - The class value to use on the outputted HTML element</li>
+<li><code>count</code> - The number of child elements to display - defaults to 1</li>
+</ul>
+<h1>Anchor tag cleanups</h1>
+<p>This feature automagically fixes <code>&lt;a&gt;</code> tags, referencing a local document, and which lack text or an image.  Normally an empty tag would show up as nothing in the web browser.  AkashaRender makes it into something useful.</p>
+<p>It reads the metadata of the referenced document, and inserts that documents title as the anchor text.</p>
+<p>For example the code <code>&lt;a href=&quot;/hello-world.html&quot;&gt;&lt;/a&gt;</code> might be rewritten to: <code>&lt;a href=&quot;/hello-world.html&quot;&gt;Hello, world!&lt;/a&gt;</code>.  If you&apos;re using Markdown the equivalent works: <code>[](/hello-world.html)</code> because Markdown converts that to a normal <code>&lt;a&gt;</code> tag.</p>
+<p>The URL passed in the <code>href</code> attribute should of course be the URL of the rendered file.  You might have created a file <code>hello-world.html.md</code> which is then rendered to <code>hello-world.html</code>.  The link of course needs to reference the rendered file even though the metadata is in the source file.  AkashaRender figures out which is which under the covers.</p>
+<h1>Relative local URL&apos;s versus absolute local URL&apos;s</h1>
+<p>It is encouraged to write your content using absolute local URL&apos;s like:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/index.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/images/logo.jpg&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/vendor/bootstrap/css/bootstrap.min.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/vendor/jquery/jquery.min.js&quot;</span>&gt;</span>
+</code></pre>
+<p>But for deployment this has a couple issues:</p>
+<ul>
+<li>If the content is to be rendered as an EPUB all URL&apos;s must be relative, and therefore we must rewrite the URL&apos;s</li>
+<li>If the content is deployed to a subdirectory .. that is, if <code>config.root_url</code> is something like <code>http://example.com/path/to/subdir/</code> .. the URL&apos;s must be rewritten either to include the subdirectory, or to be relative</li>
+</ul>
+<p>For the purpose of deployment to a subdirectory, rewriting the URL&apos;s to include the subdirectory made it difficult to preview the site using a local web server.  That is, if the above is rewritten to:</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/path/to/subdir/index.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/path/to/subdir/images/logo.jpg&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/path/to/subdir/vendor/bootstrap/css/bootstrap.min.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/path/to/subdir/vendor/jquery/jquery.min.js&quot;</span>&gt;</span>
+</code></pre>
+<p>And then we run a local webserver to preview the rendered site, none of these links will work.  The biggest problem is CSS and JavaScript for theming will not load.</p>
+<p>As a result the built-in plugin now rewrites those to use relative links instead of absolute links.</p>
+
+  </article>
+  <section id="right" class="col-sm-2">
+    
+    
+<ul class="list-group">
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+    </li>
+
+    <li class="list-group-item">
+        <a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+    </li>
+
+</ul>
+  </section>
+</div>
+
+</div>
+
+<footer class="row" style="text-align: center; height: 100px;">
+<!-- partial file-name="ebook-footer.html"/ -->
+
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+</footer>
+</div>
+
+<script src="../../vendor/jquery/jquery.min.js"></script><script src="../../vendor/popper.js/umd/popper.min.js"></script><script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

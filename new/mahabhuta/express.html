@@ -1,0 +1,239 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>Using Mahabhuta in an Express application</title>
+<meta name="pagename" content="Using Mahabhuta in an Express application">
+<meta name="date" content="Mon May 15 2017 13:53:00 GMT-0700 (PDT)">
+<meta name="DC.title" content="Using Mahabhuta in an Express application">
+<meta name="og:title" content="Using Mahabhuta in an Express application">
+<meta name="og:url" content="https://akashacms.com/new/mahabhuta/express.html">
+<link rel="canonical" href="https://akashacms.com/new/mahabhuta/express.html">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<link rel="stylesheet" type="text/css" href="/akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" type="text/css" href="/readable.min.css"><link rel="stylesheet" type="text/css" href="/style.css">
+<style>
+html, body {
+    height:100%;
+    max-height:100%;
+    margin:0;
+}
+
+#page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#site-navbar {
+    display: none;
+    flex-shrink: 0;
+    height: 30px;
+}
+
+#ebook-masthead {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#ebook-masthead h2 {
+    font-size: 22px;
+    margin-top: 0px;
+}
+
+#ebook-navigation {
+    flex-shrink: 0;
+    height: 60px;
+}
+
+#book-page-content {
+    flex-grow: 1;
+    overflow: auto;
+    min-height: 2em;
+}
+
+#footer-row {
+    display: none;
+    flex-shrink: 0;
+    height: 50px;
+    background-color: grey;
+}
+</style>
+</head>
+<body class="ebook-page">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-collapse collapse navHeaderCollapse">
+<ul class="nav navbar-nav navbar-rights">
+<li><a href="/new/index.html">Home</a></li>
+<li><a href="/new/akasharender/toc.html">AkashaRender</a></li>
+<li><a href="/new/plugins/index.html">Plugins</a></li>
+<li><a href="/new/mahabhuta/toc.html">Mahabhuta</a></li>
+<li><a href="/new/epubtools/toc.html">EPUB Tools</a></li>
+</ul>
+</div>
+</div>
+<div id="page-container">
+<header class="epub-website-ebook-masthead" id="ebook-masthead">
+<table border="0"><tr>
+<td class="epub-website-ebook-masthead-title">
+<a href="/new/mahabhuta/toc.html"><h2 align="center">Mahabhuta - DOM-processing on the server in Node.js</h2></a><em>By David Herron</em>
+</td>
+</tr></table>
+</header>
+<div class="panel panel-default">
+<div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+<div class="epub-website-ebook-logo-area">
+<div class="btn-group">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+Table of Contents
+<span class="caret"></span>
+</button>
+<ol type="1" start="1" class="dropdown-menu">
+<li><a href="introduction.html" id="introduction">Introduction</a></li>
+<li><a href="project-setup.html" id="project-setup">Project Setup</a></li>
+<li><a href="processing.html" id="processing">Processing HTML DOM with Mahabhuta&apos;s Mahafuncs</a></li>
+<li><a href="built-in.html" id="built-in">Using the built-in Mahafuncs</a></li>
+<li><a href="express.html" id="built-in">Using Mahabhuta in an Express application</a></li>
+<li><a href="api.html" id="api">The Mahabhuta API</a></li>
+</ol>
+</div>
+</div>
+<div class="epub-website-ebook-chapter-area">
+<a href="built-in.html">
+<span class="epub-website-ebook-chevron-left glyphicon glyphicon-chevron-left" aria-hidden="true" style=""></span>
+</a>
+<h1 class="panel-title" align="center" style="">Using Mahabhuta in an Express application</h1>
+<a href="api.html">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+</div>
+<div id="book-page-content" class="panel-body">
+<div id="book-page-content" class="panel-body"><p>While Mahabhuta came into being as part of AkashaCMS, a static HTML website generator, DOM processing in a dynamically generated website should be very useful. It&apos;s fairly easy to integrate Mahabhuta into Express as a &quot;template engine&quot;. While Mahabhuta&apos;s model is very unlike template engines, it does manipulate HTML to produce different HTML. That makes it easy enough to fit Mahabhuta into Express as a template engine.</p>
+<p>Integrating Mahabhuta with Express is easy. The following is written for Express v4, and there is an example application in the Mahabhuta repository.</p>
+<p>If you&apos;ve followed the normal outline of an Express application you&apos;ll have a line reading:</p>
+<pre><code>var app = express();
+</code></pre>
+<p>Following this you&apos;ll register template engines, the <code>views</code> directory, and define the default View Engine. Here&apos;s how it goes in the sample application:</p>
+<pre><code>const mahabhuta = require(&apos;mahabhuta&apos;);
+...
+
+var app = express();
+
+mahabhuta.registerExpress(app, &quot;maha&quot;, mahabhuta.builtin.mahabhuta);
+
+app.set(&apos;views&apos;, path.join(__dirname, &apos;views&apos;));
+app.set(&apos;view engine&apos;, &apos;maha&apos;);
+</code></pre>
+<p>That&apos;s it. Configured this way, you put files in the <code>views</code> directory using the extension <code>.maha</code>. These files will be HTML, but will be processed by whatever CustomElement and Munger operations you&apos;ve defined.</p>
+<p>In the sample application we have this route:</p>
+<pre><code>router.get(&apos;/&apos;, function(req, res, next) {
+  res.render(&apos;hello-world&apos;, { title: &apos;Express&apos; });
+});
+</code></pre>
+<p>And in <code>views/hello-world.maha</code> we have this:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+    &lt;external-stylesheet href=&apos;/stylesheets/style.css&apos; &gt;&lt;/external-stylesheet&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+    &lt;p&gt;Hello, World!  Welcome to &lt;%= title %&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Since we have used the Mahabhuta built-in functions, the <code>external-stylesheet</code> tag is a recognized CustomElement.</p>
+<p>Then, we can access that route as so:</p>
+<pre><code>$ curl -f http://localhost:3000/
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;%= title=&quot;&quot; %=&quot;&quot;&gt;&lt;/%=&gt;&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/stylesheets/style.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;&lt;%= title=&quot;&quot; %=&quot;&quot;&gt;&lt;/%=&gt;&lt;/h1&gt;
+    &lt;p&gt;Hello, World!  Welcome to &lt;%= title=&quot;&quot; %=&quot;&quot;&gt;&lt;/%=&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Notice that the output is the same as in <code>hello-world.maha</code> except that the <code>external-stylesheet</code> tag has been replaced.</p>
+<p>Notice that the EJS tags in <code>hello-world.maha</code> did not get processed, and instead came out a little weird. Mahabhuta did that to them, and they should have been processed before getting to the DOM processing.</p>
+</div>
+<div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+<div class="epub-website-ebook-logo-area">
+<div class="btn-group">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+Table of Contents
+<span class="caret"></span>
+</button>
+<ol type="1" start="1" class="dropdown-menu">
+<li><a href="introduction.html" id="introduction">Introduction</a></li>
+<li><a href="project-setup.html" id="project-setup">Project Setup</a></li>
+<li><a href="processing.html" id="processing">Processing HTML DOM with Mahabhuta&apos;s Mahafuncs</a></li>
+<li><a href="built-in.html" id="built-in">Using the built-in Mahafuncs</a></li>
+<li><a href="express.html" id="built-in">Using Mahabhuta in an Express application</a></li>
+<li><a href="api.html" id="api">The Mahabhuta API</a></li>
+</ol>
+</div>
+</div>
+<div class="epub-website-ebook-chapter-area">
+<a href="built-in.html">
+<span class="epub-website-ebook-chevron-left glyphicon glyphicon-chevron-left" aria-hidden="true" style=""></span>
+</a>
+<h1 class="panel-title" align="center" style="">Using Mahabhuta in an Express application</h1>
+<a href="api.html">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+<footer id="footer-row" class="container">
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+</footer>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script><script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

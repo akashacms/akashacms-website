@@ -1,0 +1,422 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+    <title>Creating book content</title>
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Creating book content">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Sat Oct 26 1985 01:15:00 GMT-0700 (Pacific Daylight Time)">
+
+<meta name="DC.title" content="Creating book content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Creating book content">
+
+<meta name="og:url" content="https://akashacms.com/epubtools/3-creating-content.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://akashacms.com/epubtools/3-creating-content.html">
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
+
+
+<link rel="stylesheet" type="text/css" href="../akasha/epub-website/style.css"><link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../pulse.min.css"><link rel="stylesheet" type="text/css" href="../style.css"><link rel="stylesheet" type="text/css" href="../vendor/fontawesome-free/css/all.min.css"><link rel="stylesheet" type="text/css" href="../vendor/highlight.js/styles/tomorrow-night-blue.css">
+
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="../index.html">Home</a>
+                        <a class="dropdown-item" href="../akasharender/toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="../plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="../mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="../howto/index.html">How To</a>
+                        <a class="dropdown-item" href="../news/index.html">News</a>
+                        <a class="dropdown-item" href="../about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ol type="1" start="1" class="dropdown-menu" aria-labelledby="ebookNavbarToCdropdown">
+        <li class="dropdown-item"><a id="introduction" href="1-introduction.html" title="Introduction to AkashaEPUB">Introduction to AkashaEPUB</a></li>
+        <li class="dropdown-item"><a id="installation" href="2-installation.html" title="Installing the AkashaEPUB toolchain">Installing the AkashaEPUB toolchain</a></li>
+        <li class="dropdown-item"><a id="creating-content" href="3-creating-content.html" title="Creating book content">Creating book content</a>
+            <ol>
+                <li><a id="chap-3c-content-markup" href="3c-content-markup.html" title="Content markup formats">Content markup formats</a></li>
+                <li><a id="chap-3d-rendering" href="3d-rendering.html" title="The AkashaCMS rendering process">The AkashaCMS rendering process</a></li>
+                <li><a id="chap-3da-css" href="3da-css.html" title="CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s">CSS, Fonts, and Stylesheets for creating good quality EPUB&apos;s</a></li>
+                <li><a id="chap-3e-html5-structure" href="3e-html5-structure.html" title="Summary of HTML5 markup in AkashaEPUB Documents">Summary of HTML5 markup in AkashaEPUB Documents</a></li>
+                <li><a id="chap-3e-internal-links" href="3e-internal-links.html" title="LINK, IMG tags and the requirement for relative URL&apos;s">LINK, IMG tags and the requirement for relative URL&apos;s</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="configuration" href="4-configuration.html" title="Configuration files for AkashaEPUB projects">Configuration files for AkashaEPUB projects</a>
+            <ol>
+                <li><a id="chap-4a-akasharender-epub" href="4a-akasharender-epub.html" title="Cleaning up non-EPUB constructs with the `akasharender-epub` plugin">Cleaning up non-EPUB constructs with the `akasharender-epub` plugin</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="structure" href="5-structure.html" title="Structuring your book">Structuring your book</a></li>
+        <li class="dropdown-item"><a id="building-EPUB" href="6-building-EPUB.html" title="Building an EPUB with AkashaEPUB">Building an EPUB with AkashaEPUB</a>
+            <ol>
+                <li><a id="chap-6aa-epub-website" href="6aa-epub-website.html" title="Detailed walk-through an embedding EPUB content in an AkashaCMS website">Detailed walk-through an embedding EPUB content in an AkashaCMS website</a></li>
+                <li><a id="chap-6b-validation" href="6b-validation.html" title="Validating EPUB files built by AkashaEPUB">Validating EPUB files built by AkashaEPUB</a></li>
+            </ol>
+        </li>
+        <li class="dropdown-item"><a id="akashacms-project" href="7-akashacms-project.html" title="The AkashaCMS Open Source Project">The AkashaCMS Open Source Project</a></li>
+        <li class="dropdown-item"><a id="about" href="8-about.html" title="About the author, David Herron">About the author, David Herron</a></li>
+        <li class="dropdown-item"><a id="references" href="9-references.html" title="References">References</a></li>
+        <li class="dropdown-item"><a id="copyright" href="0a-copyright.html" title="Copyright Notice">Copyright Notice</a></li>
+    </ol>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="text" name="q" size="30">
+                    <input type="submit" name="sa" value="Search">
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <header class="epub-website-ebook-masthead" id="ebook-masthead">
+  <table border="0"><tr>
+      
+      <td class="epub-website-ebook-masthead-title">
+          
+      </td>
+  </tr></table>
+</header>
+
+    <div class="panel panel-default">
+        <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="2-installation.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Creating book content</h1>
+
+<a href="3c-content-markup.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+        <div id="book-page-content" class="panel-body">
+            
+            <div id="book-page-content" class="panel-body"><p>In this chapter we&apos;ll learn how to use AkashaRender to generate the XHTML, CSS files, and asset files used in your eBook.  In later chapters we&apos;ll look into packaging those files into an EPUB.  Generating these files in AkashaEPUB leverages AkashaRender and a couple plugins for EPUB-specific features.</p>
+<p>The AkashaRender model is writing files in an easy-to-write markup format like Markdown, processing the files with partials and templates, generating HTML, then packaging the HTML for the destination.  Each destination has its own packaging and delivery considerations.  With AkashaCMS the destination is a web server for display on web browsers, and for AkashaEPUB the destination is an EPUB ebook reader.</p>
+<h1>Quick overview on configuring content directories</h1>
+<p>In a later chapter we&apos;ll make a deep dive into the configuration files.  Understanding this section requires a little preview of the Configuration object.</p>
+<p>Content files are stored in two kinds of directories:</p>
+<table>
+<thead>
+<tr>
+<th>Directory type</th>
+<th>Config method</th>
+<th>Discussion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AssetsDir</code></td>
+<td><code>addAssetsDir()</code></td>
+<td>Files that are simply copied to the <code>RenderDestination</code> with no processing</td>
+</tr>
+<tr>
+<td><code>DocumentsDir</code></td>
+<td><code>addDocumentsDir()</code></td>
+<td>Files requiring processing (a.k.a. rendering), with the rendered result copied to the <code>RenderDestination</code></td>
+</tr>
+</tbody>
+</table>
+<p>AkashaRender renders all the input files into the RenderDestination directory.  The directory structure of the input directories (AssetsDir and DocumentsDir) is replicated in the RenderDestination.  The RenderDestination is what&apos;s delivered to the destination, meaning its either copied to a webserver, packaged into an EPUB or some other delivery mechanism.  There might be some post-processing such as minfying HTML or CSS or JavaScript before delivering the RenderDestination.</p>
+<p>Typically your images, JavaScript and CSS files, a.k.a. <em>asset files</em>, go in AssetsDir&apos;s.  However, files in DocumentsDir&apos;s not requiring rendering are also simply copied to the RenderDestination.  It is possible to place the <em>asset files</em> in the DocumentDir&apos;s, depending on your preference.  There are two additional directory types, PartialsDir and LayoutsDir, that we&apos;ll discuss later.</p>
+<p>There is only one RenderDestination directory.  With AssetsDir, DocumentsDir, LayoutsDir, and PartialsDir, there can be and often are multiple directories, since each is an array/list.  When AkashaRender looks for an instance of a given type of file, it searches each directory in the the corresponding list stopping on the first match.</p>
+<p>We&apos;ll go over details of the configuration in a later section: <a href="4-configuration.html" title="Configuration files for AkashaEPUB projects">Configuration files for AkashaEPUB projects</a>  You can read more about AkashaCMS configuration at: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=akashacms.com" style="display: inline-block; padding-right: 2px;" alt="(akashacms.com)">
+                    <a href="http://akashacms.com/akasharender/configuration.html" rel="nofollow" target="_blank">http://akashacms.com/akasharender/configuration.html</a></p>
+<h1>Content File Names</h1>
+<p>AkashaRender detects which files require what processing by inspecting the file name extension.  The rendering process is named by the extension as so:</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>example.html.md</code></td>
+<td>A Markdown file, that produces HTML.</td>
+</tr>
+<tr>
+<td><code>example.html.ejs</code></td>
+<td>for HTML with EJS markup, that produces HTML.</td>
+</tr>
+<tr>
+<td><code>example.php.ejs</code></td>
+<td>for PHP with EJS markup, that produces PHP.</td>
+</tr>
+<tr>
+<td><code>example.html</code></td>
+<td>Straight HTML, copied with no processing.</td>
+</tr>
+<tr>
+<td><code>example.css.less</code></td>
+<td>A LESS file, that produces CSS.</td>
+</tr>
+</tbody>
+</table>
+<p>Hence, a RenderDestination file named <code>css/style.css</code> could either come from an AssetsDir file <code>css/style.css</code> or a DocumentsDir file <code>css/style.css.less</code>.  Likewise, a RenderDestination file <code>chapter2/install.html</code> must come from a DocumentsDir file named either <code>chapter2/install.html.md</code> or <code>chapter2/install.html.ejs</code> or simply <code>chapter2/install.html</code>.</p>
+<p>You can use any directory hierarchy that you wish.  AkashaRender creates in the rendering directory the structure you create in the DocumentsDir and AssetsDir directories.  For the purpose of packing EPUB&apos;s, authors must remember the directory named <code>META-INF</code> cannot be used for your content.  AkashaEPUB automatically generates that directory, because it has special significance to packaging EPUB files.</p>
+<h1>Format of document&apos;s that render to HTML</h1>
+<p>Some files in DocumentsDir&apos;s render to HTML, depending on their file extension.  These files use a fairly straightforward file format supporting <em>metadata</em> in addition to the content.</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-attr">layout:</span> <span class="hljs-string">page.html.ejs</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">Four</span> <span class="hljs-string">Scores</span> <span class="hljs-string">and</span> <span class="hljs-string">Seven</span> <span class="hljs-string">Years</span> <span class="hljs-string">Ago</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">Four</span> <span class="hljs-string">score</span> <span class="hljs-string">and</span> <span class="hljs-string">seven</span> <span class="hljs-string">years</span> <span class="hljs-string">ago</span> <span class="hljs-string">our</span> <span class="hljs-string">forefathers</span> <span class="hljs-string">brought</span> <span class="hljs-string">forth</span> <span class="hljs-string">...</span>
+</code></pre>
+<p>The first part, between the <code>---</code> lines, is the metadata, a.k.a. <em>frontmatter</em>.  The rest is the <em>content</em>.  The content will be rendered through the processing steps dictated by the filename.  The metadata is used by the rendering process in various ways.  The <code>layout</code> tag declares the layout template, and the <code>title</code> tag gives the page title, for example.</p>
+<p>If the file ends in <code>.html.md</code> the content will be treated as Markdown and rendered through the Markdown processor.  If it ends in <code>.html.ejs</code> the content will instead be rendered through the EJS template engine.</p>
+<p>At its simplest the metadata follows a simple <code>tag: value</code> system:</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-attr">tag1:</span> <span class="hljs-string">value1</span>
+<span class="hljs-attr">tag2:</span> <span class="hljs-string">value2</span>
+<span class="hljs-attr">tag3:</span> <span class="hljs-string">value3</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-string">The</span> <span class="hljs-string">lazy</span> <span class="hljs-string">brown</span> <span class="hljs-string">fox</span> <span class="hljs-string">jumped</span> <span class="hljs-string">over</span> <span class="hljs-string">the</span> <span class="hljs-string">quick</span> <span class="hljs-string">green</span> <span class="hljs-string">tortoise</span>
+<span class="hljs-string">causing</span> <span class="hljs-string">many</span> <span class="hljs-string">heads</span> <span class="hljs-string">to</span> <span class="hljs-string">be</span> <span class="hljs-string">scratched.</span>
+</code></pre>
+<p>The metadata section is actually YAML (
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=en.wikipedia.org" style="display: inline-block; padding-right: 2px;" alt="(en.wikipedia.org)">
+                    <a href="https://en.wikipedia.org/wiki/YAML" rel="nofollow" target="_blank">https://en.wikipedia.org/wiki/YAML</a>).  Most of the time we&apos;ll simply use <code>tag: value</code> constructs in the metadata.  But by using YAML, AkashaRender has the flexibility to use structured data when it&apos;s needed.</p>
+<p>Many more details about the docuyment format are available at:  
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=akashacms.com" style="display: inline-block; padding-right: 2px;" alt="(akashacms.com)">
+                    <a href="http://akashacms.com/akasharender/3-create-content.html" rel="nofollow" target="_blank">http://akashacms.com/akasharender/3-create-content.html</a></p>
+<h1>Metadata</h1>
+<p>Metadata comes not just from the frontmatter in the content document.  The configuration file can declare metadata as well.</p>
+<ol>
+<li>Optional metadata declared in <code>addDocumentsDir()</code> in the configuration file</li>
+<li>Metadata declared in document file</li>
+</ol>
+<p>The metadata is carried alongside the content all through AkashaRender&apos;s processing.  The purpose of the metadata is to either instruct choices made at different rendering steps, or to provide data that&apos;s rendered into the document.</p>
+<p>An example of an instruction to the rendering process is the <code>layout</code> metadata tag.  It tells the system the layout template to use for the final rendering.</p>
+<pre><code class="hljs"><span class="hljs-meta">---</span>
+<span class="hljs-attr">layout:</span>  <span class="hljs-string">template-file-name.html.ejs</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">The</span> <span class="hljs-string">quick</span> <span class="hljs-string">brown</span> <span class="hljs-string">fox</span>
+<span class="hljs-string">...</span> <span class="hljs-string">other</span> <span class="hljs-string">metadata</span>
+<span class="hljs-meta">---</span>
+
+<span class="hljs-string">....</span> <span class="hljs-string">content</span>
+</code></pre>
+<p>Depending on the value in <code>layout</code> one template file or another will be used.  That choice determines the final rendered output.</p>
+<p>Some rendering modules can inject the metadata into the rendered document.  For example, with the EJS template engine every metadata value is available as a variable inside the template.</p>
+<p>This EJS snippet brings the <code>title</code> value into the rendered document:</p>
+<pre><code class="hljs"><span class="hljs-section">&lt;h1&gt;</span><span class="hljs-section">&lt;%= title %&gt;</span><span class="hljs-section">&lt;/h1&gt;</span>
+</code></pre>
+<p>For more information on both, see: 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=akashacms.com" style="display: inline-block; padding-right: 2px;" alt="(akashacms.com)">
+                    <a href="http://akashacms.com/akasharender/layouts-partials.html" rel="nofollow" target="_blank">http://akashacms.com/akasharender/layouts-partials.html</a></p>
+</div>
+            
+
+
+            <div class="panel-heading epub-website-ebook-navigation-header" id="ebook-navigation-bottom">
+
+
+
+<div class="epub-website-ebook-chapter-area">
+<a href="2-installation.html">
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+    <span class="fas fa-chevron-left" aria-hidden="true" style></span>
+</a>
+
+<h1 class="panel-title" align="center" style>Creating book content</h1>
+
+<a href="3c-content-markup.html">
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+    <span class="fas fa-chevron-right" aria-hidden="true" style="display: inline"></span>
+</a>
+</div>
+
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'akashacms'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the 
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com/?ref_noscript" rel="nofollow" target="_blank">comments powered by Disqus.</a></noscript>
+
+                    <img class="akashacms-external-links-favicon opengraph-no-promote" src="https://www.google.com/s2/favicons?domain=disqus.com" style="display: inline-block; padding-right: 2px;" alt="(disqus.com)">
+                    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    
+
+<a rel="nofollow noskim" href="https://www.amazon.com/gp/product/1785881507/ref=as_li_ss_il?ie=UTF8&amp;fpl=fresh&amp;pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=&amp;pf_rd_r=6C1SVA4RRTWPTY7VN1Z2&amp;pf_rd_t=36701&amp;pf_rd_p=14bf09e4-93c8-43ff-8639-e7979e7d1787&amp;pf_rd_i=desktop&amp;linkCode=li2&amp;tag=davidherron-20&amp;linkId=1a83c9a47355206fbe8622bf9e90b086" target="_blank"><img border="0" src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=1785881507&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=techsparx-20" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Asynchronous-Node-js-JavaScript-Promises-Generators-ebook/dp/B01N2Z4SOR/ref=as_li_ss_tl?ie=UTF8&amp;qid=1498526267&amp;sr=8-1&amp;keywords=asynchronous+javascript+promises+generators&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=0b8a5dc44c97bf8eb8452dac15ae724b" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/es-2015-16-17-promises-generators-and-async-await-2-1000.jpg" width="175"></a>
+
+<a rel="nofollow noskim" href="https://www.amazon.com/Creating-eBooks-Markdown-Source-Tools-ebook/dp/B00WTKDH72/ref=as_li_ss_tl?_encoding=UTF8&amp;psc=1&amp;refRID=4SGHASEAZJKJBV0G60R0&amp;linkCode=ll1&amp;tag=techsparx-20&amp;linkId=941071a7b25f067767f82a7b11c06968" target="_blank"><img border="0" src="https://techsparx.com/nodejs/img/create-ebook-cover.jpg" width="175"></a>
+
+    
+<div class="fb-like-box" data-href="http://www.facebook.com/Akashacms" data-width="125" data-height="250" data-show-faces="false" data-stream="false" data-header="true"></div>
+
+    </footer>
+</div>
+
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37003917-1']);
+  _gaq.push(['_setDomainName', 'akashacms.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

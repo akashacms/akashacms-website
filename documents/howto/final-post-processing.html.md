@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: Running Mahabhuta one last time - final post-processing
 rightsidebar:
 publicationDate: May 20, 2015

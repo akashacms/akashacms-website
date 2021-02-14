@@ -1,0 +1,105 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+
+{% import "ak_core_macros.njk" as ak_core with context %}
+{% import "ak_base_macros.njk" as ak_base with context %}
+
+<title>{{ title }}</title>
+{{ ak_base.headerMeta() }}
+{{ ak_core.XMLSitemap("/sitemap.xml") }}
+{# {{ ak_core.googleSiteVerification("We are good") }} #}
+{{ ak_base.linkRelTags() }}
+{{ ak_base.canonicalURL() }}
+
+{{ ak_core.stylesheets() }}
+{{ ak_core.headerJavaScript() }}
+
+<style>
+#container { padding-top: 5px; }
+</style>
+</head>
+<body class="ebook-page">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-print-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#ebookNavbarContent" aria-controls="ebookNavbarContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ebookNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarAkashaCMSdropdown" 
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AkashaCMS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ebookNavbarAkashaCMSdropdown">
+                        <a class="dropdown-item" href="/index.html">Home</a>
+                        <a class="dropdown-item" href="/akasharender/toc.html">AkashaRender</a>
+                        <a class="dropdown-item" href="/plugins/index.html">Plugins</a>
+                        <a class="dropdown-item" href="/mahabhuta/toc.html">Mahabhuta</a>
+                        <a class="dropdown-item" href="/epubtools/toc.html">EPUB Tools</a>
+                        <a class="dropdown-item" href="/howto/index.html">How To</a>
+                        <a class="dropdown-item" href="/news/index.html">News</a>
+                        <a class="dropdown-item" href="/about.html">About</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ebookNavbarToCdropdown" 
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Table of Contents
+                    </a>
+                    <ebook-toc-menu id="ebook-toc-ol" data-classes='[ "dropdown-menu" ]'
+                        data-olliclasses='[ "dropdown-item" ]'
+                        data-ollabeledby='ebookNavbarToCdropdown'></ebook-toc-menu>
+                </li>
+                <form class="form-inline" action="//www.google.com" id="cse-search-box">
+                    <div>
+                    <input type="hidden" name="cx" value="partner-pub-2401070691062219:4564101022" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <input type="text" name="q" size="30" />
+                    <input type="submit" name="sa" value="Search" />
+                    </div>
+                </form>
+                <script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en">
+                // Not empty
+                </script>
+            </ul>
+        </div>
+    </nav>
+
+<div id="container" class="container">
+
+    <ebook-page-header id="ebook-masthead" header-height="60px"></ebook-page-header>
+    <div class="panel panel-default">
+        <ebook-navigation-header showtoc="false" id="ebook-navigation" class="panel-heading"></ebook-navigation-header>
+        <div id="book-page-content" class="panel-body">
+            {% if teaser %}<div class="jumbotron"><p class="lead">{{ teaser }}</p></div> {% endif %}
+            <div id="book-page-content" class="panel-body">{{ content }}</div>
+            <partial file-name="video-players-from-videourls.html.ejs"/>
+            <ebook-navigation-header showtoc="false" id="ebook-navigation-bottom" class="panel-heading"></ebook-navigation-header>
+            <partial file-name='disqus.html'/>
+        </div>
+    </div>
+    <footer id="footer-row" class="container">
+    <partial file-name="ebook-footer.html"/>
+    <partial file-name="footer.html.ejs"></partial>
+    </footer>
+</div>
+
+{{ ak_core.footerJavaScript() }}
+<partial file-name="google-analytics.html"></partial>
+<!-- partial file-name="piwik_analytics.html"></partial -->
+
+
+</body>
+</html>

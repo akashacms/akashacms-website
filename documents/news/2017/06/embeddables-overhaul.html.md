@@ -25,9 +25,8 @@ The embedding functionality has been boiled down to one custom tag:
 <embed-resource href="https://twitter.com/AkashaCMS/status/565602061681971200"/>
 ```
 
-Which renders as so:
+Which renders should render the tweet but there's a problem.
 
-<embed-resource href="https://twitter.com/AkashaCMS/status/565602061681971200"/>
 
 This custom tag works for any URL for which oEmbed and/or OpenGraph returns data.  The algorithm consults oEmbed, OpenGraph and Twitter Cards for metadata.  Between those three sources lots of data is available.
 

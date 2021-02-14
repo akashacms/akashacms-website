@@ -1,5 +1,5 @@
 ---
-layout: index-blog.html.ejs
+layout: index-blog.html.njk
 title: AkashaCMS tutorials & howto
 rightsidebar:
 author: david

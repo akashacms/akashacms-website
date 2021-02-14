@@ -13,7 +13,10 @@ teaser: |
 
 AkashaCMS is a static website system built using AkashaRender and a small group of plugins.  Part of the system is Mahabhuta, a system to do server-side DOM manipulation of HTML for example to construct a custom tag like `<embed-resource href="https://twitter.com/AkashaCMS/status/565602061681971200"/>` to cause embeddable content from a 3rd party site to be easily embedded into this website:
 
+```
+CURRENTLY DISABLED
 <embed-resource href="https://twitter.com/AkashaCMS/status/565602061681971200"></embed-resource>
+```
 
 AkashaEPUB is a system to build EPUB's (electronic books) from the same content files you'd use in an AkashaCMS website.  While an AkashaEPUB project can use some of the plugins meant for AkashaCMS, there are a couple plugins specifically for producing EPUB's.  The system includes the _epubtools_ application which handles bundling files into a standards-correct EPUB3 file.
 

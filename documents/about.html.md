@@ -1,5 +1,5 @@
 ---
-layout: article.html.ejs
+layout: article.html.njk
 title: About AkashaCMS - the powerful static file CMS to build your dream website
 rightsidebar:
 publicationDate: June 25, 2017

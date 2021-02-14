@@ -1,5 +1,5 @@
 ---
-layout: default.html.ejs
+layout: default.html.njk
 title: AkashaCMS plugin directory
 rightsidebar:
 useNewSiteNavbar: true

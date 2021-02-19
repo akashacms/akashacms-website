@@ -66,7 +66,7 @@ config
         }
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-base/guide',
+        src: 'node_modules/@akashacms/plugins-base/guide',
         dest: 'plugins/base'
     })
     .addDocumentsDir({
@@ -78,23 +78,23 @@ config
         dest: 'plugins/authors'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-booknav/guide',
+        src: 'node_modules/@akashacms/plugins-booknav/guide',
         dest: 'plugins/booknav'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-blog-podcast/guide',
+        src: 'node_modules/@akashacms/plugins-blog-podcast/guide',
         dest: 'plugins/blog-podcast'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-breadcrumbs/guide',
+        src: 'node_modules/@akashacms/plugins-breadcrumbs/guide',
         dest: 'plugins/breadcrumbs'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-document-viewers/guide',
+        src: 'node_modules/@akashacms/plugins-document-viewers/guide',
         dest: 'plugins/document-viewers'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-embeddables/guide',
+        src: 'node_modules/@akashacms/plugins-embeddables/guide',
         dest: 'plugins/embeddables'
     })
     .addDocumentsDir({
@@ -112,15 +112,15 @@ config
         dest: 'plugins-mahabhuta/external-links'
     }) */
     .addDocumentsDir({
-        src: 'node_modules/akashacms-footnotes/guide',
+        src: 'node_modules/@akashacms/plugins-footnotes/guide',
         dest: 'plugins/footnotes'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-tagged-content/guide',
+        src: 'node_modules/@akashacms/plugins-tagged-content/guide',
         dest: 'plugins/tagged-content'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-theme-bootstrap/guide',
+        src: 'node_modules/@akashacms/theme-bootstrap/guide',
         dest: 'plugins/theme-bootstrap'
     })
     .addDocumentsDir({

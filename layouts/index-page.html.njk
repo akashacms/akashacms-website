@@ -41,7 +41,10 @@
 
 <div class="row">
 <article class="col-md-10 col-sm-10">
+    {% if hidebreadcrumb %}
+    {% else %}
     <breadcrumb-trail></breadcrumb-trail>
+    {% endif %}
     {{ content }}
     <book-child-tree></book-child-tree>
 </article>

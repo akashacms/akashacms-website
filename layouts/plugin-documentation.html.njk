@@ -40,9 +40,12 @@
 <div class="row">
 
 <div class="row">
+  {% if hidebreadcrumb %}
+  {% else %}
   <section id="breadcrumb" class="col-sm-12">
     <breadcrumb-trail></breadcrumb-trail>
   </section>
+  {% endif %}
 </div>
 
 <div class="row">

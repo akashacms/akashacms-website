@@ -1,52 +1,130 @@
 ---
 layout: article.html.njk
-title: AkashaCMS - the powerful static file CMS to build your dream website
+title: AkashaCMS - a powerful static website generator and content management system (CMS) for fast modern websites
 rightsidebar:
 publicationDate: June 25, 2017
+hidebreadcrumb: true
+hidepubldate: true
 ---
+
+
+<p align="center"><em>AkashaCMS is a family of tools for converting ideas into websites or EPUB3 eBooks while maintaining separation between content, layout and design.</em></p>
+
+<p align="center"><em>AkashaCMS is built around the AkashaRender rendering engine, with server-side DOM manipulation, and several plugins, to implement many useful content patterns.  The result is easily deployable HTML/JavaScript/CSS/etc files for upload to simple webservers, or cloud systems like AWS S3.</em></p>
+
 <p align="center"><em>Akasha means the basis and essence of all things in the material world; the first material element created from the astral world. </em></p>
 
-<p align="center"><em>AkashaRender (<a href="https://github.com/akashacms/akasharender">github project</a>) is a Node.js based tool with which you can convert ideas into websites while maintaining separation between content, layout and design.  AkashaRender renders files for websites or eBooks, while AkashaCMS is the sum of AkashaRender plus the AkashaCMS plugins.</em></p>
 
 <div class="row">
-
-<div class="col-6">
-<p>With AkashaCMS, one writes web content in HTML (or Markdown) but with none of the styling and framing boilerplate that surrounds the content.  Styles, page layouts, and navigational elements are kept in separate files, and are brought together in a highly flexible manner to produce HTML files.  We use the HTML5 boilerplate and/or the Twitter Bootstrap projects to provide a modern foundation.  Several templating engines are available to facilitate bringing in data from external repositories. </p>
-
-<p>The goal for AkashaCMS is to provide most of the flexibility of a full scale CMS, incorporate modern JavaScript/CSS UI frameworks, while producing static HTML files, and skipping the administrative overhead of running a full CMS.</p>
-
-<p>Technology: Node.js - Markdown - EJS templates - LESS - jQuery - Bootstrap - Server-side jQuery - OEmbed</p>
-
-<p>The <a href="https://github.com/akashacms/akashacms-example">AkashaCMS Example github project</a> contains a small working example of an AkashaCMS site.  The rendered version of that example is at <a href="http://example.akashacms.com">example.akashacms.com</a>.  The <a href="https://github.com/akashacms/akashacms-website">source code for this website</a> serves as a larger example of AkashaCMS use. </p>
-
-</div>
-<div class="col-6">
-<p>Getting started is pretty easy, assuming you already have Node.js installed:</p>
-
-<pre>
-$ git clone https://github.com/akashacms/akashacms-example.git
-$ git clone https://github.com/akashacms/akashacms-skeleton.git directoryName
-$ cd directoryName
-$ npm install
-$ .... start hacking
-$ npm run build
-$ npm run preview
-</pre>
-
-
-<p>The first <em>git</em> command pulls down the AkashaCMS examples site from the <a href="https://github.com/akashacms/akashacms-example">akashacms-example</a> project.  We've made that project available so you can peruse sample code.  The second command pulls down a blank starter site from <a href="https://github.com/akashacms/akashacms-skeleton">akashacms-skeleton</a>.  That site can serve as a starting point for your website. </p>
-
-<p>To build the static website:</p>
-
-<pre>
-$ npm run build
-</pre>
-
-<p>To view the local copy of the website in your browser (http://localhost:3000):</p>
-
-<pre>
-$ npm run preview
-</pre>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Your content</h5>
+        <p class="card-text">Markdown or AsciiDoc documents are converted to HTML.</p>
+        <p class="card-text">LESS files are converted to CSS.</p>
+        <p class="card-text">Conversion plugins are easy to create.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">AkashaRender</h5>
+        <p class="card-text">Fast and flexible rendering to HTML.</p>
+        <p class="card-text">You fully control page layout templates.</p>
+        <p class="card-text">Support for several template engines including EJS, Liquid, Handlebars, and Nunjucks.</p>
+        <p class="card-text">Template plugins are easy to create.</p>
+        <p class="card-text">Server-side DOM processing engine (Mahabhuta) uses a jQuery-like API to describe DOM transformations, adding huge flexibility.</p>
+        <p class="card-text">Partials are template snippets which can be used anywhere.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Deployment</h5>
+        <p class="card-text">Output is a simple directory hierarchy containing your files.</p>
+        <p class="card-text">Post-processing with minifiers or lint tools is easy to integrate.</p>
+        <p class="card-text">Deploy to normal web hosts (Apacha/NGINX/etc) or anywhere else that can serve static files, such as AWS S3.</p>
+        <p class="card-text">Deployment uses normal tools like <tt>rsync</tt>.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
+<hr/>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Easy local development</h5>
+        <p class="card-text">Editing content is easy with any editor supporting Mardown or AsciiDoc files.  Your content is stored as normal files in the file system, and are easily processed with normal tools.  Content rendering is easy to run on your laptop, for immediate feedback as you write.  No far distant server is required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Fast content delivery</h5>
+        <p class="card-text">Flat content files means no server-side processing to delay delivery to site visitors.  You have full freedom to implement techniques like code splitting, asset optimization, or progressive images.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Safe low-cost deployment</h5>
+        <p class="card-text">There are no server-side components, and no databases.  Because the deployment is only files, you push those files to a simple web server or a CDN.  Miscreants automatically have fewer routes to intrude into your site, and server costs are minimized.</p>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<hr/>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">SEO Friendly</h5>
+        <p class="card-text">Rendered websites are fully static HTML, and are therefore fully readable by search engines.  Because you're in full control of the HTML, you can use any tags you like from OpenGraph to Microformats, to further improve SEO factors.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Web Framework agnostic</h5>
+        <p class="card-text">Because you're in full control of the HTML, you can use any JavaScript or CSS you like.</p>
+
+        <p class="card-text">The goal for AkashaCMS is to provide most of the flexibility of a full scale CMS, incorporate modern JavaScript/CSS UI frameworks, while producing static HTML files, and skipping the administrative overhead of running a full CMS.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Supports any kind of website</h5>
+        <p class="card-text">Consider that a <em>blog</em> is just a website with an index presented in reverse chronological order, and where there is an RSS file.  AkashaCMS doesn't force any content hierarchy in the file system.  Instead, you organize your content as you wish.  For example, adding a <em>blog</em> to an AkashaCMS site simply requires using the Blog plugin, which in turn scans selected content files to construct a Blog-like presentation.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr/>
+
+<div class="d-flex justify-content-center">
+    <a href="/quick-start/index.html" class="btn btn-primary btn-lg" 
+        tabindex="-1" role="button" aria-disabled="true">
+        Get Started
+    </a>
+</div>
+
+

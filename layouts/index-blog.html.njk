@@ -44,9 +44,12 @@
 <div class="col-md-10">
 
   <article >
+    {% if hidebreadcrumb %}
+    {% else %}
     <section id="breadcrumb">
 	<breadcrumb-trail></breadcrumb-trail>
     </section>
+    {% endif %}
 
     {{ content }}
     <blog-news-river maxentries="100"></blog-news-river>

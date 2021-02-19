@@ -38,12 +38,18 @@
 </div>
 
 <div class="row">
+  {% if hidebreadcrumb %}
+  {% else %}
   <section id="breadcrumb" class="col-sm-12">
     <breadcrumb-trail></breadcrumb-trail>
   </section>
+  {% endif %}
+  {% if hidepubldate %}
+  {% else %}
   <section id="category-tags" class="col-sm-12">
     {{ ak_base.doPublicationDate() }}
   </section>
+  {% endif %}
   <section id="author-byline" class="col-sm-12">
     <authors-byline></authors-byline>
   </section>

@@ -41,12 +41,18 @@
 
 <div class="col-md-10">
     <div class="row">
+  {% if hidebreadcrumb %}
+  {% else %}
   <section id="breadcrumb" class="col-sm-12">
     <breadcrumb-trail></breadcrumb-trail>
   </section>
+  {% endif %}
+  {% if hidepubldate %}
+  {% else %}
   <section id="category-tags" class="col-sm-12">
     {{ ak_base.doPublicationDate() }}
   </section>
+  {% endif %}
 </div>
 <div class="row">
   <article class="col-sm-10">

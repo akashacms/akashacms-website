@@ -39,42 +39,44 @@
 
 <div class="row">
 
-<div class="col-md-10">
+    <div class="col-md-10">
+        <div class="row">
+            {% if hidebreadcrumb %}
+            {% else %}
+                <section id="breadcrumb" class="col-sm-12">
+                    <breadcrumb-trail></breadcrumb-trail>
+                </section>
+            {% endif %}
+            {% if hidepubldate %}
+            {% else %}
+                <section id="category-tags" class="col-sm-12">
+                    {{ ak_base.doPublicationDate() }}
+                </section>
+            {% endif %}
+        </div>
+        <div class="row">
+        <section id="left" class="col-sm-2 overflow-auto">
+            <p><a href="/quick-start/index.html"></a></p>
+            <p><a href="/quick-start/initialization.html"></a></p>
+            <p><a href="/quick-start/directories.html"></a></p>
+        </section>
+        <article class="col-sm-10 overflow-auto">
+            {% if teaser %}<p><strong>{{ teaser }}</p> {% endif %}
+            {{ content }}
+            <partial file-name='disqus.html'/>
+        </article>
+    </div>
 
-<div class="row">
-  {% if hidebreadcrumb %}
-  {% else %}
-  <section id="breadcrumb" class="col-sm-12">
-    <breadcrumb-trail></breadcrumb-trail>
-  </section>
-  {% endif %}
-  {% if hidepubldate %}
-  {% else %}
-  <section id="category-tags" class="col-sm-12">
-    {{ ak_base.doPublicationDate() }}
-  </section>
-  {% endif %}
-</div>
-
-<div class="row">
-  <article class="col-sm-10">
-    {% if teaser %}<p><strong>{{ teaser }}</p> {% endif %}
-    {{ content }}
-    <partial file-name='disqus.html'/>
-  </article>
-  <section id="right" class="col-sm-2">
-    {% if rightsidebar %}{{ partialSync(rightsidebar) }}{% endif %}
-  </section>
-</div>
-</div>
-<div class="col-md-2">
-  <partial file-name="sidebar.html.ejs"></partial>
-  <partial file-name="ebook-sidebar.html"/>
-</div>
+    </div>
+    <div class="col-md-2">
+        <partial file-name="sidebar.html.ejs"></partial>
+        <partial file-name="ebook-sidebar.html"/>
+    </div>
 
 </div>
 
 <footer class="row" style="text-align: center; height: 100px;">
+<!-- partial file-name="ebook-footer.html"/ -->
 <partial file-name="footer.html.ejs"></partial>
 </footer>
 </div>

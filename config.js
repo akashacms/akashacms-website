@@ -36,6 +36,10 @@ config
     .addAssetsDir({ 
         src: 'node_modules/highlight.js/', 
         dest: 'vendor/highlight.js' 
+    })
+    .addAssetsDir({
+        src: 'node_modules/bootstrap-icons/icons',
+        dest: 'vendor/bootstrap-icons'
     });
 
 config

@@ -6,6 +6,8 @@ author: david
 publicationDate: February 18, 2021
 ---
 
+Hello, World!  This is a new world.  Maybe.  Game changer?  Or unreliable?  Better?  Try again?  Better?  Hurm.
+
 As we said earlier a typical AkashaCMS project has these directories:
 
 * `assets` is a directory structure containing project assets

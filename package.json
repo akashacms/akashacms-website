@@ -44,6 +44,7 @@
     "epub-website": "akashacms/epub-website",
     "epubtools": "epubtools/epubtools#akasharender",
     "globfs": "*",
+    "gridjs": "^4.0.0",
     "highlight.js": "^10.4.x",
     "html-minifier": "^3.1.1",
     "jquery": "^3.5.x",

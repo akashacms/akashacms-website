@@ -40,6 +40,10 @@ config
     .addAssetsDir({
         src: 'node_modules/bootstrap-icons/icons',
         dest: 'vendor/bootstrap-icons'
+    })
+    .addAssetsDir({
+        src: 'node_modules/gridjs/dist',
+        dest: 'vendor/gridjs'
     });
 
 config

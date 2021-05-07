@@ -96,18 +96,18 @@ Perhaps the most useful thing is that Markdown-it adopts the [Tables](https://he
 That means:
 
 ```
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+First Header | Second Header
+-------------|-------------
+Content Cell | Content Cell
+Content Cell | Content Cell
 ```
 
 Renders to
 
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+First Header | Second Header
+-------------|-------------
+Content Cell | Content Cell
+Content Cell | Content Cell
 
 It also supports "strikethrough text" where `~~deleted text~~` renders as ~~deleted text~~.
 

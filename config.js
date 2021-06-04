@@ -29,14 +29,35 @@ config
         src: 'node_modules/popper.js/dist',
         dest: 'vendor/popper.js'
     })
+    // The purpose of the following mount is to solve this error:
+    //
+    // (node:75702) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 953)
+    // (node:75702) UnhandledPromiseRejectionWarning: Error: No mountPoint found for node_modules/@fortawesome/fontawesome-free/svgs/solid/school.svg
+    //    at DirsWatcher.fileInfo (file:///Volumes/Extra/akasharender/akashacms-website/node_modules/akasharender/watcher/watcher.mjs:49:19)
+    // .addAssetsDir({
+    //    src: 'node_modules/@fortawesome/fontawesome-free/',
+    //    dest: 'node_modules/@fortawesome/fontawesome-free'
+    // })
     .addAssetsDir({
-        src: 'node_modules/@fortawesome/fontawesome-free/',
+        src: 'node_modules/@fortawesome/fontawesome-free',
         dest: 'vendor/fontawesome-free'
     })
     .addAssetsDir({ 
-        src: 'node_modules/highlight.js/', 
+        src: 'node_modules/highlight.js', 
         dest: 'vendor/highlight.js' 
     })
+    // Likewise, the following is to fix this error:
+    //
+    // node:75846) UnhandledPromiseRejectionWarning: Error: No mountPoint found for node_modules/highlight.js/scss/kimbie.dark.scss
+    //    at DirsWatcher.fileInfo (file:///Volumes/Extra/akasharender/akashacms-website/node_modules/akasharender/watcher/watcher.mjs:49:19)
+    // .addAssetsDir({ 
+    //    src: 'node_modules/highlight.js/', 
+    //    dest: 'node_modules/highlight.js' 
+    // })
+    // 
+    // Actually - the error was that there was a trailing '/' on the
+    // "src" paths in these instances.  That caused something to go wrong.
+    //
     .addAssetsDir({
         src: 'node_modules/bootstrap-icons/icons',
         dest: 'vendor/bootstrap-icons'

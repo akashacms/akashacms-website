@@ -14,7 +14,7 @@
   "version": "0.7.0",
   "scripts": {
     "prebuild": "akasharender copy-assets config.js",
-    "build": "akasharender render config.js --quiet",
+    "build": "akasharender render config.js",
     "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out",
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
     "watch": "npm-run-all --parallel watcher preview",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@akashacms/plugins-authors": "github:akashacms/akashacms-plugin-authors",
-    "@akashacms/plugins-base": "akashacms/akashacms-base",
+    "@akashacms/plugins-base": "akashacms/akashacms-base#watcher",
     "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast#watcher",
     "@akashacms/plugins-booknav": "akashacms/akashacms-booknav",
     "@akashacms/plugins-breadcrumbs": "akashacms/akashacms-breadcrumbs",
@@ -55,7 +55,6 @@
     "markdown-it-plantuml": "^1.4.1",
     "npm-run-all": "^4.1.5",
     "oembed": "^0.1.0",
-    "popper.js": "^1.16.x",
-    "stacked-directories": "akashacms/stacked-directories"
+    "popper.js": "^1.16.x"
   }
 }

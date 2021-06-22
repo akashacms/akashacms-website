@@ -1,6 +1,6 @@
 ---
 layout: blog.html.njk
-title: A directory/file watcher for static website generators
+title: Stacked Directories - A directory/file watcher for static website generators
 publicationDate: June 17, 2021
 blogtag: news
 teaser: |

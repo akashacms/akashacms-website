@@ -3,20 +3,37 @@ layout: getting-started.html.njk
 title: AkashaCMS project directories
 rightsidebar:
 author: david
-publicationDate: February 18, 2021
+publicationDate: November 22, 2021
 ---
 
-Hello, World!  This is a new world.  Maybe.  Game changer?  Or unreliable?  Better?  Try again?  Better?  Hurm.
-
-As we said earlier a typical AkashaCMS project has these directories:
+An AkashaCMS project is a melding together of content from four classes of directories.  When showing [how to create a configuration file](configuration.html), we showed configuring these directories:
 
 * `assets` is a directory structure containing project assets
 * `documents` is a directory structure containing the content for the project
 * `layouts` contains page layout templates used in the project
 * `partials` contains template snippets used in the project
-* `out` is the output directory
 
-That's nice and straightforward and simple, yes?  But, AkashaCMS supports more flexibility than that, which came with a bit of complexity.
+We also mentioned that the actual reality is not as simple as this.  We set up these directories using the following configuration file stanza:
+
+```js
+config
+    .addAssetsDir('assets')
+    .addLayoutsDir('layouts')
+    .addDocumentsDir('documents')
+    .addPartialsDir('partials');
+```
+
+This means each of these directories are assigned into one category or another.  The `assets` directory is assigned to the _Assets_ category, the `layouts` directory to the _Layouts_ category, the `documents` directory to the _Documents_ category, and the `partials` directory to the _Partials_ category. 
+
+There is an additional directory, the _Rendering_ directory, which was not shown in the configuration file.  This directory is where all rendered files land.  Since we did not configure a name for this directory, AkashaRender gave it the name `out`.  
+
+That means we have five classes of directories:
+
+* _Assets_ one or more directories containing project assets
+* _Layouts_ one or more directories containing page layout templates
+* _Documents_ one or more directories containing the content for the project
+* _Partials_ one or more directories containing template snippets
+* _Rendering_ is exactly one directory containing the rendered project
 
 These three use cases drove the development of this feature:
 
@@ -24,12 +41,11 @@ These three use cases drove the development of this feature:
 1. One AkashaCMS plugin, or an AkashaCMS project, might want to override a file in an Assets, Layouts or Partials directory.
 1. An AkashaCMS project might want to assemble content from several sources.
 
-This led to two concepts:
+To satisfy these use cases, AkashaRender supports a _directory stack_ for the _Assets_, _Layouts_, _Documents_, and _Partials_ directory categories.  By "stack" we mean that there are virtual directories, `assets`, `documents`, `partials`, and `layouts`, which are a sort of merging of the actual directories in the corresponding directory categories.
 
-1. Stacked directories where there are multiple instances of a given directory
-1. Mounting one or more directories inside the Documents directory
+The basic rule is that the directories in each stack are listed in order.  When AkashaRender looks for a file in a virtual directory stack, it searches the directory in order, using the first matching file it finds.
 
-For the rest of this discussion it will be useful to refer to [the Configuration file for this website](https://github.com/akashacms/akashacms-website/blob/master/config.js).
+But, there is still more involved in fully describing this feature.  For the rest of this discussion it will be useful to refer to [the Configuration file for this website](https://github.com/akashacms/akashacms-website/blob/master/config.js).  It has a very complex directory stack structure pulling together content from multiple sources.
 
 # Stacked directories and overridable files
 
@@ -45,37 +61,42 @@ The `addPartialsDir` method adds a directory the `partialDirs` array in the conf
 
 It's helpful to think of the `partialDirs` array as a _stack_ of directories, one on top of the other.  To look for a file, we look for which directory/ies in the stack contains this file, using the top-most file.
 
-For example, to render a Partial template, AkashaRender will be given a path like `ak_toc_group_element.html.njk`.  This template is used in constructing a table of contents for a given page, and there is an implementation in both the `@akashacms/plugins-base` and `@akashacms/theme-bootstrap` plugins.  Further, an AkashaCMS project might have its own implementation of this template.  AkashaRender searches in each of the directories named in `partialDirs`, and it returns the first match it finds.
+You can inspect the stack in an AkashaCMS project by running this command:
+
+```
+$ akasharender partialdirs config.js 
+[
+  '.../guide/partials',
+  '.../guide/node_modules/@akashacms/theme-bootstrap/partials',
+  '.../guide/node_modules/@akashacms/plugins-base/partials',
+  '.../guide/node_modules/@akashacms/plugins-breadcrumbs/partials',
+  '.../guide/node_modules/@akashacms/plugins-tagged-content/partials',
+  '.../guide/node_modules/@akashacms/plugins-blog-podcast/partials',
+  '.../guide/node_modules/akasharender/partials'
+]
+```
+
+What is actually stored in this array is the full path-name, but I've edited out the prefix of each for the sake of space.  The first in this list is in the project directory, the next is in the `theme-bootstrap` plugin, and the last is associated with the `buitl-in` plugin which is part of AkashaRender.
+
+There are similar commands named `akasharender docdirs`, `akasharender assetdirs`, and `akasharender layoutsdirs`, for the corresponding directory categories.
+
+Consider what AkashaRender does when asked to render a partial template, like `ak_toc_group_element.html.njk`.  This template is used in constructing a table of contents for a given page, and there is an implementation in both the `@akashacms/plugins-base` and `@akashacms/theme-bootstrap` plugins.  Further, an AkashaCMS project might have its own implementation of this template.  What happens is, AkashaRender checks each directory in turn to see if the directory contains a matching file.
 
 That's the key pattern: To search through an array of directories, returning the first matching file.
 
-Going back to the configuration you see this code snippet:
+## Stacked Directories module
 
-```js
-config.addPartialsDir('partials');
-...
-config
-    .use(require('@akashacms/theme-bootstrap'))
-    .use(require('@akashacms/plugins-base'), {
-        generateSitemapFlag: true
-    })
-    .use(require('@akashacms/plugins-breadcrumbs'))
-    ...
-```
+The actual implementation is not that simple.  It used to be implemented as just described, but implementing `akashacms watch` changed a lot of things.
 
-Each of these `config.addPartialsDir('partials')` invocations add a directory to the `partialDirs` array.  The result is an array containing these entries
+Today, there is a module, _Stacked Directories_ ([see blog post](/news/2021/06/stacked-dirs.html)), that watches the contents of the directory stack.  It continuously watches the files looking for changes, so that the `watch` command can then cause files to be re-rendered.
 
-* `partials`
-* `/path/to/PROJECT-DIR/node_modules/@akashacms/theme-bootstrap/partials`
-* `/path/to/PROJECT-DIR/node_modules/@akashacms/plugins-base/partials`
-* `/path/to/PROJECT-DIR/node_modules/@akashacms/plugins-breadcrumbs/partials`
-* ...
+There are four instances of the stacked directory module, one for each directory stack (`assets`, `documents`, `partials`, and `layouts`).  Data collected through the module is then stored in an internal cache.
 
-To view the full list run `akasharender config config.js` and look for `partialDirs`.
+When AkashaRender is looking for a partial template, it calls the `find` method on the cache.  It looks in the Partials collection, and one of the parameters is the virtual path `ak_toc_group_element.html.njk`.
 
-When AkashaRender calls `findPartial('ak_toc_group_element.html.njk')` it looks in each of these directories.  The question is, since there are at least two instances of this file, how does it decide which to use?
+The query response is guaranteed to have the same result as described above - that it will return the first match in the directory stack.  It's just that the implementation is more complicated than a loop looking in one directory followed by another.
 
-The simple answer is that it returns the first file it finds.  The `findPartial` function searches the directories in order.  Given this arrangement, the instance in `@akashacms/theme-bootstrap` will be returned because it appears first in the `partialDirs` array.
+The simple answer is that it returns the first file it finds.
 
 Again, the same algorithm is used for Assets, Documents, and Layouts.
 
@@ -162,11 +183,9 @@ config
     })
 ```
 
-How you organize this is up to you.
+Each team would be in charge of the content stored in each corresponding directory.  How you organize this is up to you.  This demonstrates that AkashaCMS can be used to draw together content from any number of sources.
 
-This demonstrates that AkashaCMS can be used to draw together content from any number of sources.
-
-# A directory for rendered output
+# Configuring the Rendering directory
 
 We have one last directory to discuss, `out`, which we described as holding the rendered output from the project.
 

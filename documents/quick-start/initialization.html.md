@@ -17,9 +17,14 @@ $ npm run build
 $ npm run preview
 ```
 
-It is easy to store an AkashaCMS project in a Git repository.  On Github we have several repositories containing example starter projects, and this is one.
+It is easy to store an AkashaCMS project in a Git repository.  On Github we have several repositories containing example starter projects, such as:
 
-The typical workflow is what's shown here.  You clone the repository, then run `npm install` to install dependencies.  The `build` script is used to build the project, which renders it into an output directory.  The `preview` command might run a local web browser, so you can view the site in a browser.  Another script, `deploy`, might copy the rendered output directory to a public webserver that's associated with a public domain name.
+* `https://github.com/akashacms/akashacms-example`
+* `https://github.com/akashacms/akashacms-blog-skeleton`
+* `https://github.com/akashacms/akashacms-skeleton`
+* `https://github.com/akashacms/open-source-site`
+
+The typical workflow is what's shown above.  You clone the repository, then run `npm install` to install dependencies.  The `build` script is used to build the project, which renders it into an output directory.  The `preview` command runs a local web server, so you can view the site in a browser.  Another script, `deploy`, would copy the rendered output directory to a public web-server that's associated with a public domain name.
 
 The project directory will look like this:
 
@@ -75,23 +80,31 @@ Next, let's start installing tools:
 $ npm install akasharender @akashacms/plugins-base --save
 ```
 
-As said earlier, `akasharender` is the rendering engine for AkashaCMS.  There are several plugins available that extend its capabilities for various purposes.  The `base` plugin provides foundational features useful for typical websites.
+As said earlier, `akasharender` is the rendering engine for AkashaCMS.  There are several plugins available that extend its capabilities for various purposes.  The `base` plugin provides foundational features useful for typical websites.  If your project is instead an EPUB eBook, do not install the `base` plugin.
 
 ```
 $ npm install @akashacms/plugins-booknav @akashacms/plugins-breadcrumbs \
         @akashacms/plugins-tagged-content --save
-$ npm install @akashacms/theme-bootstrap bootstrap popper.js jquery --save
+$ npm install @akashacms/theme-bootstrap bootstrap@4.6.x popper.js@1.16.x jquery@3.6.x --save
 ```
 
 The `booknav` plugin generates useful navigational elements, and the `breadcrumbs` plugin generates a breadcrumb trail based on the file hierarchy.  The `tagged-content` plugin implements taxonomical tags for content, as well as index pages for each taxonomy term.
 
 It's possible to use any web framework to aid with page layout and user interface elements.  In the AkashaCMS project we've only created support for the Bootstrap framework.  The `theme-bootstrap` plugin contains template snippets for using Bootstrap features, and the other packages named here are ones required for using Bootstrap.
 
+When we install `popper.js` there will be a message printed about this version being deprecated, and we should use Popper v2 instead.  However, the Bootstrap v4 documentation explicitly says to use Popper v1.16.1, so that's what we're doing.
+
 ```
-$ npm install live-server --save
+$ npm install @compodoc/live-server --save
 ```
 
-The `live-server` package is a webserver meant for use during development.  It can watch a directory of website files, and if any file is changed the server will trigger an automatic reload in the browser.  This makes it an excellent tool for previewing content on your laptop during creation.
+The `@compodoc/live-server` package is a webserver meant for use during development.  It can watch a directory of website files, and if any file is changed the server will trigger an automatic reload in the browser.  This makes it an excellent tool for previewing content on your laptop during creation.
+
+```
+$ npm install npm-run-all --save
+```
+
+The `npm-run-all` package makes it easier to describe complex build procedures in the `scripts` section of a `package.json`.  To learn more, see [How to use npm/yarn/Node.js package.json scripts as your build tool](https://techsparx.com/nodejs/tools/npm-build-scripts.html)
 
 There is a long list of additional tools, like `html-minifier`, we can install to support a web development workflow.  Feel free to install whatever you like.
 
@@ -99,22 +112,20 @@ In the `package.json` file add this `scripts` section:
 
 ```json
 "scripts": {
-    "prebuild": "akasharender copy-assets config.js",
-    "build": "akasharender render config.js",
-    "deploy": "cd out && rsync --archive --delete --verbose ./ user-name@server-host.com:path-to-docroot/ ",
+    "build": "npm-run-all build:copy build:render",
+    "build:copy": "akasharender copy-assets config.js",
+    "build:render": "akasharender render config.js",
+    "watch": "npm-run-all --parallel watcher preview",
+    "watcher": "akasharender watch config.js",
     "preview": "live-server out",
+    "deploy": "cd out && rsync --archive --delete --verbose ./ user-name@server-host.com:path-to-docroot/ "
 }
 ```
 
-The `build` script has an associated `prebuild` script.  It runs `akasharender copy-assets` to copy files from the `assets` directory to the `out` directory.  Then the `build` script runs `akasharender render` to render all files in `documents` for the `out` directory.
+The `build` script runs the `build:copy` and `build:render` scripts.  The first runs `akasharender copy-assets` to copy files from the `assets` directory to the `out` directory.  The second runs `akasharender render` to render all files in `documents` for the `out` directory.
 
 The `deploy` script shows using `rsync` to upload the rendered website to a server.  Obviously one can replace this with other commands such as `aws s3 cp` to upload the files to an AWS S3 bucket.
 
-The `preview` script runs `live-server` to provide a live preview of the site.  With this you could be editing site content, and then every so often run `npm run build` to re-render the site, which will cause `live-server` to automatically reload the browser window.
+The `watch` script runs `live-server` in parallel with `akasharender watch`.  The latter watches the project directory for changes.  On any change, it rebuilds the relevant files, which will then cause files in the `out` directory to change.  The `live-server` tool is told to watch the `out` directory, and its first purpose is to be a web-server.  Its second purpose is, when it detects that a file in the `out` directory has changed, it tells the browser to reload the page.
 
-
-
-
-
-
-
+These two work together, with `akasharender watch` rebuilding any changed files, and `live-server` doing a live reload in the web browser.  The result is very nice, since you can be editing a file, save the edit buffer, and automatically the page rebuilds, and is automatically reloaded in the browser.  It's the closest you'll get to WYSIWYG when editing Markdown files.

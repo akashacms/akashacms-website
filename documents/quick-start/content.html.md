@@ -6,6 +6,7 @@ author: david
 publicationDate: February 18, 2021
 ---
 
+
 In an AkashaCMS project, _content files_ are stored in document directories, meaning the directories added using the `addDocumentsDir` method.  These files are either copied or rendered from a document directory into the appropriate place in the rendered output directory.  AkashaRender inspects the file extension to decide on one of two courses of action:
 
 1. Some files are simply copied to the rendered output directory

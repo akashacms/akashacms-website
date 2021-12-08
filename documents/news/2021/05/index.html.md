@@ -1,4 +1,4 @@
 ---
 layout: index-page.html.njk
-title: News for May 2021
+title: May 2021
 ---

@@ -81,7 +81,7 @@ config
         }
     })
     .addDocumentsDir({
-        src: 'node_modules/mahabhuta/guide',
+        src: 'modules/mahabhuta/guide',
         dest: 'mahabhuta',
         baseMetadata: {
             bookHomeURL: "/mahabhuta/toc.html"
@@ -127,7 +127,7 @@ config
         dest: 'plugins/embeddables'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-external-links/guide',
+        src: 'modules/akashacms-external-links/guide',
         dest: 'plugins/external-links'
     })
     /* TODO .addDocumentsDir({
@@ -175,7 +175,7 @@ config
     .use(require('@akashacms/plugins-breadcrumbs'))
     .use(require('@akashacms/plugins-booknav'))
     .use(require('@akashacms/plugins-embeddables'))
-    .use(require('akashacms-external-links'))
+    .use(require('@akashacms/plugin-external-links'))
     .use(require('@akashacms/plugins-footnotes'))
     .use(require('@akashacms/plugins-authors'), {
         default: 'david',
@@ -231,7 +231,7 @@ config
     })
     .use(require('epub-website'));
 
-config.plugin("akashacms-external-links")
+config.plugin("@akashacms/plugin-external-links")
     .setTargetBlank(config, true)
     .setShowFavicons(config, "before");
 

@@ -8,22 +8,9 @@ teaser: |
     In a simple website, a single person or small team can manage the website content using a single Git repository.  But more complex scenarios will require splitting the content across multiple repositories.  For example the marketing team, the support team, and the engineering team, can manage content separately, and through some AkashaCMS wizardry bring them all together into one website build system.
 ---
 
-The project setup for the AkashaCMS website drove development of this feature.  The website combines documentation for AkashaRender, Mahabhuta, and every plugin, from the corresponding GitHub repositories.
+What's needed is a method to have one directory hierarchy formed from two or more source repositories.  Following from the example, the marketing, support and engineering teams would have separate Git repositories.  Each contains content from the corresponding teams, and are meant to be joined together as an AkashaCMS project for producing a combined website.
 
-While [discussing AkashaCMS project directory configuration](/quick-start/directories.html) we discussed one method which has been used.  Namely, each of the GitHub repositories just named has a `guide` directory containing documentation for that package.  We then made sure the `guide` directory is included in the npm package.  Therefore, listing each package in `package.json` makes the `guide` directory available at `node_modules/PACKAGE/guide`.  In the Configuration file (`config.js`) we use this declaration:
-
-```js
-config.addDocumentsDir({
-    src: 'node_modules/@akashacms/plugins-base/guide',
-    dest: 'plugins/base'
-})
-```
-
-This _mounts_ the directory named in `src` at the virtual location named in `dest`.  We simply repeat this for each such npm package.  Again, for more details see [our discussion of directory configuration](/quick-start/directories.html).
-
-With this strategy, one uses `npm install` and `npm update` to download the documentation files, making it easy to distribute and update.  But, this is not the only distribution method which can be used.
-
-The generalized scenario is this:
+In an AkashaCMS configuration (as discussed in [](/quick-start/directories.html)), it might look like this:
 
 ```js
 config
@@ -45,29 +32,93 @@ config
     })
 ```
 
-The directories listed in the `src` fields do not have to come from npm packages.  It's easy to distribute documentation this way, because you simply use `npm update` to get the latest files.  But it's not always desirable, since in many cases nobody else needs those files but your team.  Another issue is the widespread worry about the size of `node_modules` directories, making it preferable to not include documentation in npm packages.
+These configuration settings describe four sections to the website, `marketing`, `support`, `docs` and `blog`.  For each, the content files come from a different filesystem location.
 
-A directory hierarchy like this can be constructed in many ways.  The recommended practice is to use a source code control system to manage your AkashaCMS projects.  That, in turn, makes the following recommendation a good practice.
+What we're discussing in this page is accessing these content files while storing them in separated repositories.  Using separate repositories allows each section to be managed on their own schedule.
+
+The [`akashacms.com` website](https://github.com/akashacms/akashacms-website) implements one method for this model.  Namely, each of the GitHub repositories just named has a `guide` directory containing documentation for that package.  We then made sure the `guide` directory is included in the npm package.  Therefore, listing each package in `package.json` makes the `guide` directory available at `node_modules/PACKAGE/guide`.  In the Configuration file (`config.js`) we use this declaration:
+
+```js
+config.addDocumentsDir({
+    src: 'node_modules/@akashacms/plugins-base/guide',
+    dest: 'plugins/base'
+})
+```
+
+This _mounts_ the directory named in `src` at the virtual location named in `dest`.  We simply repeat this for each such npm package.  Again, for more details see [our discussion of directory configuration](/quick-start/directories.html).
+
+Not all content is suitable for distributing as a dependency in `package.json` as npm packages.  For each source of content, that's stored in a separate repository, what is the correct way to get that content into the AkashaCMS project for the website?
+
+## Distributing content as dependencies in `package.json`
+
+The `dependencies` section of `package.json` is designed for installing Node.js packages in a Node.js application.  But, the npm repository is today used for distributing other packages, such as front-end browser-side libraries.  And, even for Node.js packages, some package authors decide to distribute documentation in the package, as has been done with AkashaCMS packages.
+
+For the AkashaCMS website, the dependencies are in this form:
+
+```json
+"dependencies": {
+    ...
+    "@akashacms/plugins-base": "akashacms/akashacms-base",
+    "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast",
+    "@akashacms/plugins-booknav": "akashacms/akashacms-booknav",
+    ...
+}
+```
+
+These package references are direct to the Git repository, rather than the published package in the npm repository.
+
+For the case mentioned earlier, sections for Marketing, Support, Documentations, and Announcements, it makes no sense to distribute that content through the npm repository.  For an npm package it might make sense to distribute package documentation that way, because it's easier to coordinate documentation changes with code changes.  But, consider the uproar over the size of `node_modules` and the necessity of reducing package size.  Eliminating documentation, and tests, from npm packages would reduce package size.
+
+Why should the npm servers be burdened with carrying more bytes than are necessary for the users of the package?  Is it appropriate to distribute documentation or test suites in npm packages?  The bytes consumed by distributing documentation and test suites in npm packages increases the bloat.
+
+To eliminate files from an npm package requires a `.npmignore` file.
+
+The [npm documentation describes in more depth how to specify dependencies](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies).  For example, we can even more directly specify a Git URL, such as these examples:
+
+```json
+"dependencies": {
+    ...
+    "marketing": "git+ssh://USER@SERVER/path/to/marketing.git",
+    "support": "git+ssh://USER@SERVER/path/to/support.git",
+    "documentation": "git+ssh://USER@SERVER/path/to/documentation.git",
+    "news": "git+ssh://USER@SERVER/path/to/news.git",
+    ...
+}
+```
+
+The `dependencies` can directly reference any HTTPS URL, or any Git repository.  For Git URLs, we can reference specific commits or branches.
+
+Therefore, one possible mechanism for gathering content for an AkashaCMS project, where the content for subsections is split across Git repositories.  Direct Git URLs in `package.json` dependencies bypasses the npm repository, while using the flexibility they provide.
+
+As interesting as that is, there is another method, Git submodules, to understand.
 
 ## Using Git submodules to gather AkashaCMS project content from multiple repositories
 
 The Git submodules feature lets folks use one repository within another repository.  For example, a project might use a library developed by another team.  Their Git repository can reference the library repository as a submodule, making the source code automatically available.
 
-We can do the same with content files used in AkashaCMS projects.
+Git submodules is a large feature which we'll only touch on here.  [An excellent introduction about Git submodules on Techsparx](https://techsparx.com/software-development/git/submodules.html) explains this feature in more depth.
 
-To explore this we'll examine the method used for the AkashaCMS website.  The [GitHub repository for the website](https://github.com/akashacms/akashacms-website) is an excellent example of an AkashaCMS project, and is well worth studying.
+What we'll do here is explore using Git submodules in an AkashaCMS project, using the [GitHub repository for the `akashacms.com` website](https://github.com/akashacms/akashacms-website) to explain what to do.
 
-Let's start by adding the Mahabhuta repository as a submodule.  The Mahabhuta npm package had previously contained its documentation, but we recently eliminated that reducing the package size considerable.  The side effect was to break the ability to build the AkashaCMS website.
+Briefly, a Git submodule is:
+
+* A parent Git repository contains submodule configuration referencing one or more other Git repositories
+* The external repositories appear within the directory tree of the checked-out parent repository
+* The parent repository contains a reference to the external repository, as well as the SHA-1 hash for the commit which is to be checked out
+
+Let's start by adding the Mahabhuta repository as a submodule.  To do so, we ran this command
 
 ```
 $ git submodule add --force \
-        git@github.com:akashacms/mahabhuta.git \
+        https://github.com/akashacms/mahabhuta \
         modules/mahabhuta
 ```
 
-This tells Git to clone the Mahabhuta repository within the `akashacms-website` workspace as `modules/mahabhuta`.  The plan is for each package, we'll clone it in the `modules` directory.  The GitHub URL uses the SSH format, because we might want to push to the repository directly.
+This tells Git to clone the Mahabhuta repository within the `akashacms-website` workspace as `modules/mahabhuta`.  A couple house-keeping files Git uses are setup as well, but we can do everything using normal `git` and `git submodule` commands.
 
-I've done this for two packages resulting in this:
+We used the HTTPS URL for the Mahabhuta repository because this repository must be usable by anybody with no preconfiguration required.  In other circumstances it is better to use an SSH URL instead, because SSH URLs make it easier to push commits to submodule repositories.  But for the `akashacms-website` repository, a hard requirement is allowing anyone to clone the repository.
+
+At the time of this writing, this command has been executed for two AkashaCMS packages, resulting in this:
 
 ```
 $ ls -l modules/
@@ -76,7 +127,7 @@ drwxr-xr-x  15 david  admin  480 Dec  7 22:39 akashacms-external-links
 drwxr-xr-x  14 david  admin  448 Dec  7 16:44 mahabhuta
 ```
 
-Take a look inside `modules/mahabhuta` and you'll find the entire repository.
+Take a look inside each and you'll find the entire repository is checked out.
 
 Run this:
 
@@ -93,7 +144,7 @@ origin  git@github.com:akashacms/akashacms-website.git (push)
 
 This demonstrates that the submodule directory has a different Git origin URL, and is technically a separate repository, from the main repository.
 
-The file `.gitmodules` contains configuration settings managed by the `git modules` command.  It seems best to use the command to manage this file, rather than to edit it directly.
+The files `.gitmodules` and `.git/config` contain configuration settings managed by the `git submodules` command.  It seems best to use the command to manage these files, rather than to edit them directly.
 
 In the `config.js` file, these document directory settings are used:
 
@@ -127,8 +178,11 @@ Because the project configuration mounts every directory into the same virtual s
 Once you've created this and verified it is working, you can share the Git submodule configuration with others.
 
 ```
+$ git status -s
+A .submodules
+A modules
 $ git add .submodules modules
-$ git commit -m 'Add submodules configuration' .
+$ git commit -a -m 'Add submodules configuration'
 $ git push
 ```
 
@@ -136,7 +190,7 @@ After doing this, you can go to the GitHub repository.  In the repository, you w
 
 <img figure src="/quick-start/img/submodules-references.png"/>
 
-This differs any other directory in a Git repository by having the `@ e950c56` reference.  The hex code is a reference to the commit in the source repository matching this submodule.
+This differs any other directory in a Git repository by having the `@ e950c56` reference.  The hex code is a reference to the SHA-1 commit in the source repository matching this submodule.
 
 ## Checking out an AkashaCMS project containing submodules
 
@@ -145,7 +199,7 @@ Let's next try checking out the repository, and see how that process works.
 As always:
 
 ```
-$ git clone git@github.com:akashacms/akashacms-website.git
+$ git clone https://github.com/akashacms/akashacms-website
 Cloning into 'akashacms-website'...
 remote: Enumerating objects: 4408, done.
 remote: Counting objects: 100% (30/30), done.
@@ -162,133 +216,53 @@ But:
 $ ls modules/mahabhuta/
 ```
 
-There is a second step required in order to check out the submodules.
+If you thought this was going to be trivially easy, think again.  What's happened is that we cloned the repository, but Git doesn't automatically check out the contents of submodules.  Instead we dive a little deeper.
+
+One alternative method is to instead use this command when cloning the repository:
 
 ```
-$ git submodule init
+git clone  --recurse-submodules \
+        https://github.com/akashacms/akashacms-website
+```
+
+Adding this option ensures the submodules are checked out when the parent repository is checked out.
+
+Another option is, after cloning the repository without using the `--recurse-submodules` option, to change directory into the repository and run this command:
+
+```
+$ cd akashacms-website
+$ git submodule update --init --recursive
 Submodule 'modules/akashacms-external-links' \
-    (git@github.com:akashacms/akashacms-external-links.git) \
+    (https://github.com/akashacms/akashacms-external-links.git) \
     registered for path 'modules/akashacms-external-links'
 Submodule 'modules/mahabhuta' \
-    (git@github.com:akashacms/mahabhuta.git) \
+    (https://github.com/akashacms/mahabhuta.git) \
     registered for path 'modules/mahabhuta'
-$ git submodule update --recursive
-Cloning into '.../akashacms-website/modules/akashacms-external-links'...
-Cloning into '.../akashacms-website/modules/mahabhuta'...
-Submodule path 'modules/akashacms-external-links': checked out 'e950c56a45a1d39cf26cf988525336adcc75ce6a'
-Submodule path 'modules/mahabhuta': checked out 'cbbe7cbe9a23afce51b29dadaf31ac142e63b193'
+Cloning into \
+    '/Volumes/Extra/akasharender/t/akashacms-website/modules/akashacms-external-links'...
+Cloning into \
+    '/Volumes/Extra/akasharender/t/akashacms-website/modules/mahabhuta'...
+Submodule path 'modules/akashacms-external-links': \
+    checked out 'e950c56a45a1d39cf26cf988525336adcc75ce6a'
+Submodule path 'modules/mahabhuta': \
+    checked out '0aa32ee05a137c7f0cccfc89cea8bb517a23a290'
 ```
 
-The output is actually very wide, and has been reformatted slightly for your viewing pleasure.  In any case, what we need to do is first initialize the submodule system in the new repository, then use the `update` command using `--recursive` to fetch the repositories.
+The output is actually very wide, and has been reformatted slightly for your viewing pleasure.  The `submodule update` command is how we update the submodule configuration.  The `--init` option makes sure to initialize submodule support.  The `--recursive` option makes sure to handle complex cases like a submodule repository itself containing submodules.
 
-But, because this is setup with SSH Git URL's there is a potential failure.
+The bottom line is the two lines reading _checked out 'SHA-1 hash'_.  This means the corresponding repositories were checked out at the commit named by the hash code.
 
-```
- > git submodule update --init --recursive modules/mahabhuta # timeout=10
-hudson.plugins.git.GitException: \
-    Command "git submodule update --init --recursive modules/mahabhuta" returned status code 1:
-stdout: 
-stderr: Cloning into '/home/docker/jenkinslave/root/workspace/akashacms.com/modules/mahabhuta'...
-Host key verification failed.
-fatal: Could not read from remote repository.
+Since it is the best practice to automate tasks like this, in the `akashacms-website` repository we've added the following script in `package.json`:
 
-Please make sure you have the correct access rights
-and the repository exists.
-fatal: clone of 'git@github.com:akashacms/mahabhuta.git' into submodule \
-    path '/home/docker/jenkinslave/root/workspace/akashacms.com/modules/mahabhuta' failed
-Failed to clone 'modules/mahabhuta'. Retry scheduled
+```json
+"scripts": {
+    "update:modules": "git submodule update --recursive --remote"
+}
 ```
 
-These messages came from inside a Jenkins server.  We configured the Jenkins job to use the Git submodule command, and notice that it checked out the repository with this command:
+Hence, we've recorded this command and can do the update at any time by running `npm run update:modules`.
 
-```
-$ git submodule update --init --recursive modules/mahabhuta
-```
-
-That gives us additional commands to explore, but first we must examine why this failed.
-
-Namely, the clone of the repository from the SSH URL failed.  Well, the reason would be that the `jenkinslave` user ID this is running under does not have the same SSH key, and its SSH key is not registered with the GitHub repository.  It may not be safe to register the SSH key with the repository.  And more importantly, this repository must be usable by anyone, and therefore cannot be dependent on an SSH key.
-
-What we need to do is go back to the start, by deleting the existing submodule configuration, and setting it up again.  This gives us an excuse to learn how to delete submodule configuration.
-
-## Deleting Git submodule configuration
-
-In the previous section we determined we'd setup the Git submodules using the incorrect Git URL.  Therefore we want to remove the submodules configuration and start over.  Or maybe that was just an excuse to learn how to remove submodules configuration.
-
-```
-$ git rm -r modules/
-rm 'modules/akashacms-external-links'
-rm 'modules/mahabhuta'
-$ cat .gitmodules 
-```
-
-This is all we need to do to remove the modules.  Notice that it also emptied out the `.gitmodules` file.  You may need to run this command as well:
-
-```
-$ rm -rf .git/modules/modules/
-```
-
-This directory is inside the `.git` area, and contains house-keeping files for the submodules.
-
-```
-$ git status -s
-M  .gitmodules
-D  modules/akashacms-external-links
-D  modules/mahabhuta
-```
-
-Next we see the commits that must be made because of changes that were made.
-
-```
-$ git commit -a -m 'Remove submodule configuration'
-[watcher 742197c] Remove submodule configuration
- 3 files changed, 8 deletions(-)
- delete mode 160000 modules/akashacms-external-links
- delete mode 160000 modules/mahabhuta
-$ git push
-...
-```
-
-And, we can commit these changes to the repository.
-
-## Reinitializing Git submodules the better way
-
-Let's now repeat the steps from before, but this time using the `https://github.com` URL for the repositories.
-
-```
-$ git submodule init
-$ git submodule add --force \
-    https://github.com/akashacms/mahabhuta.git \
-    modules/mahabhuta
-...
-$ git submodule add --force \
-    https://github.com/akashacms/akashacms-external-links.git \
-    modules/akashacms-external-links
-...
-```
-
-With these repository URLs anybody should be able to make a clone our repository.
-
-We've seen two different Git URLs being used.  The SSH URL is more useful when you want the ability to push commits from the submodule directory to its repository.  The HTTPS URL is useful when the person cloning the repository should not have that ability.
-
-Now that we've setup the submodule configuration again, let's commit these changes to the repository:
-
-```
-$ git status -s
-M  .gitmodules
-A  modules/akashacms-external-links
-A  modules/mahabhuta
-$ git commit -a -m 'Add submodule configuration again'[watcher 7abe82b] Add submodule configuration again
- 3 files changed, 8 insertions(+)
- create mode 160000 modules/akashacms-external-links
- create mode 160000 modules/mahabhuta
-$ git push
-...
-```
-
-We can then test, again, cloning the repository and running the commands shown earlier to pull down the submodules.  This should correctly, and in the `.gitmodules` file you should see the HTTPS URLs for the submodules.  Additionally, make sure to try these commands from a user ID whose SSH key is not registered with the GitHub repository.
-
-## How do push changes to a GitHub-hosted Git submodule repository
+## How to push changes to a GitHub-hosted Git submodule repository
 
 Now that we have this submodule setup, there's a likely thing we want to do.  Namely, we likely want to directly edit files in the submodule, then push those files to the repository corresponding to the submodule.
 
@@ -304,11 +278,64 @@ $ git commit -m 'foo' foo.js
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 foo.js
 $ git push
+fatal: You are not currently on a branch.
+To push the history leading to the current (detached HEAD)
+state now, use
+
+    git push origin HEAD:<name-of-remote-branch>
+
+
 ```
 
-We're just creating a dummy file and attempting to push it to the repository.
+The last fails with a somewhat inscrutable message.  This message is telling you that the submodule repository is in a _detached HEAD_ state.
 
-But, because we're using an HTTPS URL, we learn that on August 13, 2021, GitHub removed support for password authentication on HTTPS URLs.  The [blog post for that announcement](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/) says we are supposed to use a _Personal Access Token_ instead.  The [documentation to do this is straightforward](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+The solution for this is, in each submodule, to execute this command:
 
-As soon as we generate the personal access token, this works.  The documentation says the token can be used in place of the password that is requested when using the HTTPS URL.  We're also instructed to give the token a time limit, and limited access rights.
+```
+$ cd path/to/submodule
+$ git checkout BRANCH-NAME
+```
 
+Once you do this, the above commands will work, and you'll be able to use `git push`.  Except...
+
+This will be easy if you're using an SSH URL in the submodule, and your SSH key is registered with the Git repository.  But, if you're using an HTTPS URL, authenticating with the Git repository is trickier.
+
+In the olden days of GitHub, we would be prompted for a user-name and password, and then be good to go.  But, security needs have dictated change.  Today if we try this, we learn that on August 13, 2021, GitHub removed support for password authentication on HTTPS URLs.  The [blog post for that announcement](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/) says we are supposed to use a _Personal Access Token_ instead.  The [documentation to do this is straightforward](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+Fortunately getting that token is easy, and well documented.  As soon as we generate the personal access token, this works.  The documentation says the token can be used in place of the password that is requested when using the HTTPS URL.  We're also instructed to give the token a time limit, and limited access rights.
+
+## How to update if submodule repository has changed
+
+Another use case is when the source repository for a submodule has been updated.
+
+Someone else may have changed files in a submodule repository.  You therefore need to update the submodules, so that you're up-to-date with others on the team.
+
+Earlier we looked at this command:
+
+```
+$ git submodule update --recursive
+```
+
+But, this doesn't do the desired thing.  The files are not merged into the workspace.  What's needed is to add the following option:
+
+```
+$ git submodule update --recursive --remote
+```
+
+This does the right thing, namely merging the upstream commits into the submodule.
+
+One effect of this is updating the submodule to use the new SHA-1 commit hash.  In the parent module directory, run this:
+
+```
+$ git status -s
+M submodule-path
+```
+
+For each submodule that has received changes, you'll see the `M` status.  This status means a commit, recording the new SHA-1 hash, is ready to be pushed to the repository.
+
+```
+$ git commit -m 'Update submodule' submodule-path
+$ git push
+```
+
+This commits the updated submodule reference.

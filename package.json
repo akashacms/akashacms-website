@@ -19,7 +19,8 @@
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
     "watch": "npm-run-all --parallel watcher preview",
     "watcher": "akasharender watch config.js",
-    "preview": "live-server out"
+    "preview": "live-server out",
+    "update:modules": "git submodule update --recursive --remote --checkout"
   },
   "dependencies": {
     "@akashacms/plugins-authors": "github:akashacms/akashacms-plugin-authors",

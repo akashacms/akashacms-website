@@ -4,6 +4,3 @@
 [submodule "modules/akashacms-external-links"]
 	path = modules/akashacms-external-links
 	url = https://github.com/akashacms/akashacms-external-links.git
-[submodule "modules/markdown-it-highlightjs"]
-	path = modules/markdown-it-highlightjs
-	url = https://github.com/akashacms/markdown-it-highlightjs.git

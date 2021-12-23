@@ -49,7 +49,7 @@
     "html-minifier": "^4.x",
     "jquery": "^3.5.x",
     "@compodoc/live-server": "^1.2.x",
-    "markdown-it-highlightjs": "./modules/markdown-it-highlightjs",
+    "markdown-it-highlightjs": "akashacms/markdown-it-highlightjs",
     "markdown-it-plantuml": "^1.4.1",
     "npm-run-all": "^4.1.x",
     "popper.js": "^1.16.x"

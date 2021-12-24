@@ -149,7 +149,7 @@ config
         dest: 'plugins/tagged-content'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/theme-bootstrap/guide',
+        src: 'modules/akashacms-theme-bootstrap/guide',
         dest: 'plugins/theme-bootstrap'
     })
     .addDocumentsDir({

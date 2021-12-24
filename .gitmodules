@@ -4,3 +4,6 @@
 [submodule "modules/akashacms-external-links"]
 	path = modules/akashacms-external-links
 	url = https://github.com/akashacms/akashacms-external-links.git
+[submodule "modules/akashacms-theme-bootstrap"]
+	path = modules/akashacms-theme-bootstrap
+	url = https://github.com/akashacms/akashacms-theme-bootstrap.git

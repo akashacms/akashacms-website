@@ -175,7 +175,7 @@ config
     .use(require('@akashacms/plugins-breadcrumbs'))
     .use(require('@akashacms/plugins-booknav'))
     .use(require('@akashacms/plugins-embeddables'))
-    .use(require('@akashacms/plugin-external-links'))
+    .use(require('@akashacms/plugins-external-links'))
     .use(require('@akashacms/plugins-footnotes'))
     .use(require('@akashacms/plugins-authors'), {
         default: 'david',
@@ -231,7 +231,7 @@ config
     })
     .use(require('epub-website'));
 
-config.plugin("@akashacms/plugin-external-links")
+config.plugin("@akashacms/plugins-external-links")
     .setTargetBlank(config, true)
     .setShowFavicons(config, "before");
 

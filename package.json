@@ -25,20 +25,21 @@
   },
   "dependencies": {
     "@akashacms/plugins-authors": "github:akashacms/akashacms-plugin-authors",
-    "@akashacms/plugins-base": "akashacms/akashacms-base",
-    "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast",
-    "@akashacms/plugins-booknav": "akashacms/akashacms-booknav",
+    "@akashacms/plugins-base": "akashacms/akashacms-base#0.9",
+    "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast#0.9",
+    "@akashacms/plugins-booknav": "akashacms/akashacms-booknav#0.9",
     "@akashacms/plugins-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "@akashacms/plugins-document-viewers": "akashacms/akashacms-document-viewers",
-    "@akashacms/plugins-embeddables": "akashacms/akashacms-embeddables",
+    "@akashacms/plugins-embeddables": "akashacms/akashacms-embeddables#0.9",
+    "@akashacms/plugins-external-links": "./modules/akashacms-external-links",
     "@akashacms/plugins-footnotes": "akashacms/akashacms-footnotes",
     "@akashacms/plugins-tagged-content": "akashacms/akashacms-tagged-content",
     "@akashacms/theme-bootstrap": "./modules/akashacms-theme-bootstrap",
+    "@compodoc/live-server": "^1.2.x",
     "@fortawesome/fontawesome-free": "^5.7.2",
     "akashacms-adblock-checker": "akashacms/akashacms-adblock-checker",
-    "akashacms-affiliates": "akashacms/akashacms-affiliates",
-    "@akashacms/plugins-external-links": "./modules/akashacms-external-links",
-    "akasharender": "akashacms/akasharender",
+    "akashacms-affiliates": "akashacms/akashacms-affiliates#0.9",
+    "akasharender": "akashacms/akasharender#0.9",
     "akasharender-epub": "akashacms/akasharender-epub",
     "bootstrap": "^4.6.x",
     "bootstrap-icons": "^1.7.x",
@@ -49,10 +50,13 @@
     "highlight.js": "^11.3.x",
     "html-minifier": "^4.x",
     "jquery": "^3.5.x",
-    "@compodoc/live-server": "^1.2.x",
     "markdown-it-highlightjs": "akashacms/markdown-it-highlightjs",
     "markdown-it-plantuml": "^1.4.1",
     "npm-run-all": "^4.1.x",
     "popper.js": "^1.16.x"
+  },
+  "devDependencies": {
+    "textlint": "^12.2.2",
+    "textlint-rule-no-todo": "^2.0.1"
   }
 }

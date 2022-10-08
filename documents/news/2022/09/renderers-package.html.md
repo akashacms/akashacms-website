@@ -1,7 +1,7 @@
 ---
 layout: blog.html.njk
 title: How to create a custom static website generator in 170 lines of code
-publicationDate: October 7, 2022
+publicationDate: October 8, 2022
 blogtag: news
 teaser: |
     Live rebuild, rendering Markdown and AsciiDoctor, multiple template engines, in a few lines of code.
@@ -11,7 +11,7 @@ heroPicture:
 
 This tutorial shows how to create a simple static website generator, running on Node.js, in a small amount of code.  In my understanding a _static website generator_ is an application for producing HTML, CSS, JavaScript, and other files for a website.  The result is a directory hierarchy that can be uploaded to a simple webserver, like Apache, with no server-side execution of any dynamic anything.  I say this because other people may have a different definition.
 
-What's discussed is a demonstration application for the `@akashacms/renderers` package.  The application is called GuideCMS, and is included in the Renderers package repository.  It supports these features:
+What's discussed is a demonstration application, called GuideCMS, for the `@akashacms/renderers` package.  It is included in the Renderers package repository, and supports these features:
 
 * Live rebuild of content when files are changed
 * Rendering Markdown or AsciiDoctor content files
@@ -35,15 +35,15 @@ Before we dive in, let's briefly discuss what these two packages do.
 
 Stacked Directories (`@akashacms/stacked-dirs`) is used in AkashaCMS to handle potentially complex configuration of input directories, while also handling live rebuilding of changed input files.  To support live rebuilds, the package uses Chokidar to monitor input files and to send events if files are changed or deleted.
 
-In content management you can easily be merging content from multiple sources.  In AkashaCMS it was decided to support mapping multiple input directories into a virtual filesystem, and allow each directory to be potentially located in a different point within that filesystem.  You might have directories mapped to `/marketing`, `/support`, `/api`, and `/blog`, for example, with each being managed by different people.
+When managing content for a website you might merge content from multiple sources.  In AkashaCMS it was decided to support mapping multiple input directories into a virtual filesystem, and allow each directory to be potentially located in a different point within that filesystem.  You might have directories mapped to `/marketing`, `/support`, `/api`, and `/blog`, for example, with each being managed by different people.  The stacked directories package was designed handle such scenarios.
 
-Renderers (`@akashacms/renderers`) is a package encapsulating several rendering engines.  Mostly these are the popular template engines.  The concept is to have an object of one format, that is rendered to another format for use on a website.  For example LESS is suppored for easier-to-implement stylesheets which are rendered to CSS.  Both Markdown and AsciiDoctor is supported as a document format, for rendering to HTML.
+Renderers (`@akashacms/renderers`) is a package encapsulating several rendering engines.  Mostly these are the popular template engines.  The concept is to have an object of one format, that is rendered to another format for use on a website.  For example, LESS is suppored for easier-to-implement stylesheets which are rendered to CSS, both Markdown and AsciiDoctor is supported as a document format for HTML rendering, and several template engines are supported for page layout.
 
 The stacked directories package therefore scans the input files, sending notifications of new, changed, or deleted files, while the renderers package handles rendering input files for use on the website.
 
 ## Configuration for a CMS project
 
-The GuideCMS example tool uses a YAML-formatted configuration file.  We use this to declare input directories, and can also declare metadata values that are supplied to all rendered templates.  The latter is used for pathnames of CSS and JavaScript files.
+The GuideCMS example tool uses a YAML-formatted configuration file.  We use this to declare input directories, and to declare metadata values that are used in rendering templates.  One use of the metadata is to carry pathnames of CSS and JavaScript files, that are then rendered by page layout template code.
 
 An example config file
 
@@ -133,9 +133,9 @@ async function close() {
 
 We have created one `DirsWatcher` instance to watch the directories listed in the `documents` array.  The code watches four events, and takes appropriate action for each.  When its time to shut down the script, the `close` function is called, which causes DirsWatcher to stop listening for events, which causes the Node.js event loop to exit, causing the script to exit.
 
-FOr `change` and `add` events the `render` function is called.  This function handles page layout by rendering a content file, then rendering that content into a page layout template.  But, before we get to that we must discuss how to initialize the Renderers package.
+For `change` and `add` events the `render` function is called.  This function handles page layout by rendering a content file, then rendering that content into a page layout template.  But, before we get to that we must discuss how to initialize the Renderers package.
 
-## Initializing Renderers
+## Initializing the Renderers package
 
 For GuideCMS to be a CMS, it must render the files used in the website.  With the Stacked Dirs package, GuideCMS receives a list of input files.  For every input file, the `render` function is called, which uses the Renderers package to convert such files for use on the website.
 
@@ -150,7 +150,7 @@ const renderers = new Renderers.Configuration({
 
 The `renderers` object will contain the Renderers configuration used in GuideCMS.
 
-The Configuration class can be initialized from an object passed to the constructor, as shown here.  In this case we pass in the partials directory, and layouts directory.  It can also be configured, or reconfigured, via several methods for changing other configuration settings.
+The Configuration class can be initialized from an object passed to the constructor, as shown here.  In this case we pass in a single partials directory, and a single layouts directory.  The API supports an array of each type of directory, but in this case we need only one.  The package can be configured, or reconfigured, via several methods for setting other configuration values.
 
 The Renderers package includes support for rendering both Markdown and AsciiDoctor documents.  For Markdown, there is a default configuration that works well, but we can also do customizations.
 
@@ -173,9 +173,9 @@ rendererMarkdown.configuration({
 
 This is an optional configuration of the Markdown renderer.  Because the Renderers package guide uses many code snippets, it's useful for them to have syntax highlighting.  This configuration adds syntax highlighting using the Highlight.JS package.
 
-Because GuideCMS is implemented in `guidecms.mjs`, it is in ES6 format, and the CommonJS `require` function is not available.  The `createRequire` function generates a `require` function letting us use `require` to load a CommonJS package.
+Another detail is the `createRequire` function.  Because GuideCMS is an ES6 module, the CommonJS `require` function is not available.  It was determined that Markdown-IT plugins had to be loaded using `require`.  The `createRequire` function generates a `require` function letting us use `require` when needed.
 
-Next we use `findRendererName` to access the Renderer instance for Markdown.  For the MarkdownRenderer class, we have two options for its configuration.  First, the `configuration` method passes in Markdown configuration.  Second, the `use` method allows use of Markdown-IT plugins.
+The `findRendererName` retrieves the MarkdownRenderer instance.  While most Renderers do not require additional configuration, this one supports two configuration options.  First, the `configuration` method passes in a Markdown-IT configuration object.  Second, the `use` method allows use of Markdown-IT plugins.
 
 The GuideCMS configuration file shown earlier loads the CSS and JS for using Highlight.JS.  Adding the `markdown-it-highlightjs` plugin causes the Markdown renderer to emit markup for highlighting.
 
@@ -263,11 +263,11 @@ async function render(info) {
 }
 ```
 
-The `info` object comes from the Stacked Dirs package which supports combining several directories into one virtual filesystem.  See [](/news/2021/06/stacked-dirs.html).  Where `info.vpath` is the virtual pathname within the `documents` directory hierarchy, `info.fspath` is the absolute pathname in the filesystem.
+The `info` object comes from the Stacked Dirs package which supports combining several directories into one virtual filesystem.  For more details, see [](/news/2021/06/stacked-dirs.html).  This object contains several fields describing the file, but this code uses only two.  The `info.vpath` field is the virtual pathname within the `documents` directory hierarchy.  The `info.fspath` field is the absolute pathname in the filesystem.
 
 The `findRendererPath` method locates the correct Renderer based on the pathname.  Each Renderer instance uses one or more regular expressions for matching pathnames.  For example, a pathname ending in `.html.ejs` says the file is to be processed as an EJS template, that it produces HTML output, and that the output file name has the `.html` extension.  Likewise, `.html.njk` says the file is a Nunjucks template, producing HTML output, and the file name is to have the `.html` extension.
 
-If no renderer is found, then the file should be copied into the output directory.  The root of the output directory is in `renderedOutput`, so therefore the full pathname is computed with `path.join` using `info.vpath`.
+If no renderer is found, then the file should be copied into the output directory.  The root of the output directory is in `renderedOutput`, therefore the full pathname is computed with `path.join` using `info.vpath`.
 
 Next the code creates a RenderingContext object.  This object is used by several methods in the Renderer class for holding the data related to one rendering transaction.
 
@@ -334,7 +334,7 @@ The `findRendererPath` method is called to retrieve the Renderer to be used for 
 Finally we get to the bottom of the function where the rendered content is written to the output file.  The output file name is computed slightly differently this time.  The Renderer method `filePath` tells us the pathname to use for the input file name.
 
 
-## Simple layout template
+## Simple page layout template
 
 In the previous section we discussed using a page layout template for the second stage of rendering. Every website will use the same, or similar, page structure on every page. The second rendering stage lets us define one or more layout templates for that purpose.
 
@@ -435,7 +435,7 @@ const renderTo = path.join(renderedOutput, renderer.filePath(info.vpath));
 
 A file `documents/history/romania/vlad-tsepes.html.md` will therefore render to `out/history/romania/vlad-tsepes.html`.
 
-There is a slight wrinkle to this, in that documents directory can be mounted at positions within the virtual directory hierarchy.  This is the _documents_ configuration actually used for the actual guide documentation website:
+There is a slight wrinkle to this, in that documents directories can be mounted at positions within the virtual directory hierarchy.  The sample configuration file shows an example of this, because we need to include both the Bootstrap distribution and our rendered documents in the website.
 
 ```yaml
 documents:
@@ -445,9 +445,11 @@ documents:
       mountPoint: /vendor/bootstrap
 ```
 
-The website uses Bootstrap v5 for responsive layout.  The Bootstrap package available via NPM is installed, meaning that the Bootstrap code is in the directory named in the configuration.  The config says that those files are to be treated as if they are in the virtual directory `/vendor/bootstrap`, whereas the files in `documents` are to be treated as if they are in the root directory.
+The rendered content of the `documents` directory appears in the root of the rendered output directory.  For the Bootstrap package, the `dist` directory contains CSS and JavaScript files for deployment on a website, and this appears in the `/vendor/bootstrap` directory.
 
-The documents directories contain files that might be rendered, while the other directories contain templates that will be used during rendering.
+The `render` function simply copies files that are not to be rendered.  The Bootstrap distribution directory only contains `.css` and `.js` files, which must not be rendered, and are therefore copied into the desired place.
+
+The `documents` directory will tend to contain `.html.md` (Markdown), `.html.adoc` (AsciiDoctor), or `.css.less` (LESS) files, each of which must be rendered.
 
 The format of a Markdown content file is:
 
@@ -504,7 +506,15 @@ The `build` script builds the site in batch mode, and exits when all files have 
 
 The `publish` script handles publishing the built site to GitHub Pages.
 
-These scripts make it very easy to write content using GuideCMS.  You start the `watch` commands, which opens a browser tab on the site.  Then in an editor like Visual Studio Code, you write Markdown content.  Every time you save a change, the browser tab will quickly reload.  It's almost as good as a WYSIWYG editor, but you're writing Markdown.
+An alternate publishing method is to use `rsync` like so:
+
+```json
+"deploy": "cd out && rsync --archive --delete --verbose ./ user@example.com:path-name/",
+```
+
+Because it produces static HTML/CSS/JS websites, GuideCMS (and AkashaCMS) support deployment to simple webservers.
+
+These scripts make it very easy to write content using GuideCMS.  The `watch` script which opens a browser tab on the site attached to the live preview server.  In an editor like Visual Studio Code, you can write Markdown content.  Every time you save a change, the browser tab will quickly reload.  It's almost as good as a WYSIWYG editor, but you're writing Markdown, and the result can be easily stored in a Git repository.
 
 ## Summary
 

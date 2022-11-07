@@ -33,7 +33,7 @@
     "@akashacms/plugins-embeddables": "akashacms/akashacms-embeddables#0.9",
     "@akashacms/plugins-external-links": "./modules/akashacms-external-links",
     "@akashacms/plugins-footnotes": "akashacms/akashacms-footnotes",
-    "@akashacms/plugins-tagged-content": "akashacms/akashacms-tagged-content",
+    "@akashacms/plugins-tagged-content": "akashacms/akashacms-tagged-content#0.9",
     "@akashacms/theme-bootstrap": "./modules/akashacms-theme-bootstrap",
     "@compodoc/live-server": "^1.2.x",
     "@fortawesome/fontawesome-free": "^5.7.2",

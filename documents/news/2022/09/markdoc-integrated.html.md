@@ -1,7 +1,7 @@
 ---
 layout: blog.html.njk
 title: Markdoc support added via Renderers package
-publicationDate: October 8, 2022
+publicationDate: November 6, 2022
 blogtag: news
 teaser: |
     Markdoc is Markdown with extensions making it like a template engine sort of.

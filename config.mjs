@@ -1,16 +1,38 @@
 
 'use strict';
 
-const util    = require('util');
-const akasha  = require('akasharender');
+import util from 'node:util';
+import akasha from 'akasharender';
+
+// import { AffiliatesPlugin } from '../index.mjs';
+import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
+import { BasePlugin } from '@akashacms/plugins-base';
+import { BreadcrumbsPlugin } from '@akashacms/plugins-breadcrumbs';
+import { BooknavPlugin } from '@akashacms/plugins-booknav';
+import { EmbeddablesPlugin } from '@akashacms/plugins-embeddables';
+import { BlogPodcastPlugin } from '@akashacms/plugins-blog-podcast';
+// import { TaggedContentPlugin } from '@akashacms/plugins-tagged-content';
+
+import { AuthorsPlugin } from '@akashacms/plugins-authors';
+// import { DownloadAssetsPlugin } from '@akashacms/plugins-dlassets';
+import { DocumentViewersPlugin } from '@akashacms/plugins-document-viewers';
+import { ExternalLinksPlugin } from '@akashacms/plugins-external-links';
+import { FootnotesPlugin } from '@akashacms/plugins-footnotes';
+
+// import { EPUBWebsitePlugin } from 'epub-website';
+
+import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
+import { default as MarkdownITHighlight } from 'markdown-it-highlightjs';
+
+const __dirname = import.meta.dirname;
 
 const config = new akasha.Configuration();
 
 config.findRendererName('.html.md')
-    .use(require('markdown-it-plantuml'), {
+    .use(MarkdownITPlantUML, {
         imageFormat: 'svg'
     })
-    .use(require('markdown-it-highlightjs'), { 
+    .use(MarkdownITHighlight, { 
         auto: true, 
         code: true 
     });
@@ -168,16 +190,16 @@ config
 config.rootURL("https://akashacms.com");
 
 config
-    .use(require('@akashacms/theme-bootstrap'))
-    .use(require('@akashacms/plugins-base'), {
+    .use(ThemeBootstrapPlugin)
+    .use(BasePlugin, {
         generateSitemapFlag: true
     })
-    .use(require('@akashacms/plugins-breadcrumbs'))
-    .use(require('@akashacms/plugins-booknav'))
-    .use(require('@akashacms/plugins-embeddables'))
-    .use(require('@akashacms/plugins-external-links'))
-    .use(require('@akashacms/plugins-footnotes'))
-    .use(require('@akashacms/plugins-authors'), {
+    .use(BreadcrumbsPlugin)
+    .use(BooknavPlugin)
+    .use(EmbeddablesPlugin)
+    .use(ExternalLinksPlugin)
+    .use(FootnotesPlugin)
+    .use(AuthorsPlugin, {
         default: 'david',
         authors: [
             {
@@ -187,7 +209,7 @@ config
             }
         ]
     })
-    .use(require('@akashacms/plugins-blog-podcast'), {
+    .use(BlogPodcastPlugin, {
         bloglist: {
             news: {
                 rss: {
@@ -202,10 +224,9 @@ config
                     categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
                 },
                 rssurl: "/news/rss.xml",
-                rootPath: "news",
                 matchers: {
                     layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
-                    path: /^news\//
+                    rootPath: 'news/'
                 }
             },
             howto: {
@@ -221,15 +242,15 @@ config
                     categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
                 },
                 rssurl: "/howto/rss.xml",
-                rootPath: "howto",
                 matchers: {
                     layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
-                    path: /^howto\//
+                    rootPath: 'howto/'
                 }
             }
         }
     })
-    .use(require('epub-website'));
+    // .use(EPUBWebsitePlugin)
+    ;
 
 config.plugin("@akashacms/plugins-external-links")
     .setTargetBlank(config, true)
@@ -271,4 +292,4 @@ config.setMahabhutaConfig({
 
 config.prepare();
 
-module.exports = config;
+export default config;

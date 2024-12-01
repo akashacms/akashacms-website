@@ -1,0 +1,44 @@
+
+These were measured rendering akashacms.com after creating the SQLITE3 FileCache implementation.
+
+Hence, this is about 40 seconds - versus 30 seconds w/ LokiJS.
+
+$ for i in 1 2 3 4 5 6 7 8 9; do time npx akasharender render --quiet config.mjs; done
+
+real	0m39.513s
+user	0m42.946s
+sys	0m1.499s
+
+real	0m37.632s
+user	0m41.019s
+sys	0m1.692s
+
+real	0m41.352s
+user	0m42.649s
+sys	0m1.713s
+
+real	0m38.772s
+user	0m40.227s
+sys	0m1.569s
+
+real	0m40.351s
+user	0m40.935s
+sys	0m1.452s
+
+real	0m43.725s
+user	0m42.864s
+sys	0m1.516s
+
+real	0m42.749s
+user	0m41.400s
+sys	0m1.414s
+
+real	0m42.452s
+user	0m40.449s
+sys	0m1.598s
+
+real	0m42.209s
+user	0m40.731s
+sys	0m1.464s
+
+

@@ -1,16 +1,45 @@
 
 'use strict';
 
-const util    = require('util');
-const akasha  = require('akasharender');
+import util from 'node:util';
+import akasha from 'akasharender';
+
+// import { AffiliatesPlugin } from '../index.mjs';
+import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
+import { BasePlugin } from '@akashacms/plugins-base';
+import { BreadcrumbsPlugin } from '@akashacms/plugins-breadcrumbs';
+import { BooknavPlugin } from '@akashacms/plugins-booknav';
+import { EmbeddablesPlugin } from '@akashacms/plugins-embeddables';
+import { BlogPodcastPlugin } from '@akashacms/plugins-blog-podcast';
+// import { TaggedContentPlugin } from '@akashacms/plugins-tagged-content';
+
+import { AuthorsPlugin } from '@akashacms/plugins-authors';
+// import { DownloadAssetsPlugin } from '@akashacms/plugins-dlassets';
+import { DocumentViewersPlugin } from '@akashacms/plugins-document-viewers';
+import { ExternalLinksPlugin } from '@akashacms/plugins-external-links';
+import { FootnotesPlugin } from '@akashacms/plugins-footnotes';
+
+import { default as EPUBWebsitePlugin } from 'epub-website/index.mjs';
+
+import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
+import { default as MarkdownITHighlight } from 'markdown-it-highlightjs';
+
+const __dirname = import.meta.dirname;
 
 const config = new akasha.Configuration();
 
 config.findRendererName('.html.md')
-    .use(require('markdown-it-plantuml'), {
+    .configuration({
+        html:         true,
+        xhtmlOut:     false,
+        breaks:       false,
+        linkify:      true,
+        typographer:  false,
+    })
+    .use(MarkdownITPlantUML, {
         imageFormat: 'svg'
     })
-    .use(require('markdown-it-highlightjs'), { 
+    .use(MarkdownITHighlight, { 
         auto: true, 
         code: true 
     });
@@ -71,63 +100,74 @@ config
     .addLayoutsDir('layouts')
     .addPartialsDir('partials');
 
+// This group of directory mounts brings the documentation
+// from the plugins into the virtual filesystem.
+//
+// In the past we tried two methods:
+//   1. Use git submodules to bring in packages, but that
+//      proved to be too complex.
+//   2. Put the documentation into the package, but that
+//      increases the package size with no benefit.
+//
+// This approach requires all plugin repositories to be
+// checked out in sibling directories.
 config
     .addDocumentsDir('documents')
     .addDocumentsDir({
-        src: 'node_modules/akasharender/guide',
+        src: '../akasharender/guide',
         dest: 'akasharender',
         baseMetadata: {
             bookHomeURL: "/akasharender/toc.html"
         }
     })
     .addDocumentsDir({
-        src: 'modules/mahabhuta/guide',
+        src: '../mahabhuta/guide',
         dest: 'mahabhuta',
         baseMetadata: {
             bookHomeURL: "/mahabhuta/toc.html"
         }
     })
     .addDocumentsDir({
-        src: 'node_modules/epub-guide/documents',
+        src: '../epub-guide/documents',
         dest: 'epubtools',
         baseMetadata: {
             bookHomeURL: "/epubtools/toc.html"
         }
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-base/guide',
+        src: '../akashacms-base/guide',
         dest: 'plugins/base'
     })
     .addDocumentsDir({
-        src: 'node_modules/akasharender/built-in-guide',
+        src: '../akasharender/built-in-guide',
         dest: 'plugins/built-in'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-authors/guide',
+        src: '../akashacms-plugin-authors/guide',
         dest: 'plugins/authors'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-booknav/guide',
+        src: '../akashacms-booknav/guide',
         dest: 'plugins/booknav'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-blog-podcast/guide',
+        src: '../akashacms-blog-podcast/guide',
         dest: 'plugins/blog-podcast'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-breadcrumbs/guide',
+        src: '../akashacms-breadcrumbs/guide',
         dest: 'plugins/breadcrumbs'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-document-viewers/guide',
+        src: '../akashacms-document-viewers/guide',
         dest: 'plugins/document-viewers'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-embeddables/guide',
+        src: '../akashacms-embeddables/guide',
         dest: 'plugins/embeddables'
     })
     .addDocumentsDir({
-        src: 'modules/akashacms-external-links/guide',
+        src: '../akashacms-external-links/guide',
         dest: 'plugins/external-links'
     })
     /* TODO .addDocumentsDir({
@@ -141,43 +181,43 @@ config
         dest: 'plugins-mahabhuta/external-links'
     }) */
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-footnotes/guide',
+        src: '../akashacms-footnotes/guide',
         dest: 'plugins/footnotes'
     })
     .addDocumentsDir({
-        src: 'node_modules/@akashacms/plugins-tagged-content/guide',
+        src: '../akashacms-tagged-content/guide',
         dest: 'plugins/tagged-content'
     })
     .addDocumentsDir({
-        src: 'modules/akashacms-theme-bootstrap/guide',
+        src: '../akashacms-theme-bootstrap/guide',
         dest: 'plugins/theme-bootstrap'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-affiliates/guide',
+        src: '../akashacms-affiliates/guide',
         dest: 'plugins/affiliates'
     })
     .addDocumentsDir({
-        src: 'node_modules/akasharender-epub/guide',
+        src: '../akasharender-epub/guide',
         dest: 'plugins/akasharender-epub'
     })
     .addDocumentsDir({
-        src: 'node_modules/akashacms-adblock-checker/guide',
+        src: '../akashacms-adblock-checker/guide',
         dest: 'plugins/adblock-checker'
     });
 
 config.rootURL("https://akashacms.com");
 
 config
-    .use(require('@akashacms/theme-bootstrap'))
-    .use(require('@akashacms/plugins-base'), {
+    .use(ThemeBootstrapPlugin)
+    .use(BasePlugin, {
         generateSitemapFlag: true
     })
-    .use(require('@akashacms/plugins-breadcrumbs'))
-    .use(require('@akashacms/plugins-booknav'))
-    .use(require('@akashacms/plugins-embeddables'))
-    .use(require('@akashacms/plugins-external-links'))
-    .use(require('@akashacms/plugins-footnotes'))
-    .use(require('@akashacms/plugins-authors'), {
+    .use(BreadcrumbsPlugin)
+    .use(BooknavPlugin)
+    .use(EmbeddablesPlugin)
+    .use(ExternalLinksPlugin)
+    .use(FootnotesPlugin)
+    .use(AuthorsPlugin, {
         default: 'david',
         authors: [
             {
@@ -187,7 +227,7 @@ config
             }
         ]
     })
-    .use(require('@akashacms/plugins-blog-podcast'), {
+    .use(BlogPodcastPlugin, {
         bloglist: {
             news: {
                 rss: {
@@ -202,10 +242,9 @@ config
                     categories: [ "Node.js", "Content Management System", "HTML5", "Static website generator" ]
                 },
                 rssurl: "/news/rss.xml",
-                rootPath: "news",
                 matchers: {
                     layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
-                    path: /^news\//
+                    rootPath: 'news/'
                 }
             },
             howto: {
@@ -221,15 +260,15 @@ config
                     categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
                 },
                 rssurl: "/howto/rss.xml",
-                rootPath: "howto",
                 matchers: {
                     layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
-                    path: /^howto\//
+                    rootPath: 'howto/'
                 }
             }
         }
     })
-    .use(require('epub-website'));
+    .use(EPUBWebsitePlugin)
+    ;
 
 config.plugin("@akashacms/plugins-external-links")
     .setTargetBlank(config, true)
@@ -271,4 +310,4 @@ config.setMahabhutaConfig({
 
 config.prepare();
 
-module.exports = config;
+export default config;

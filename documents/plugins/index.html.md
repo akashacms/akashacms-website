@@ -19,13 +19,13 @@ Plugin | Description
 [@akashacms/plugins-breadcrumbs](breadcrumbs/index.html) | Provides a breadcrumb trail to aid navigation
 [@akashacms/plugins-document-viewers](document-viewers/index.html) | Embeds documents (PDF, etc) in-line
 [@akashacms/plugins-embeddables](embeddables/index.html) | Assists with embedding content from other sites
-[akashacms-external-links](external-links/index.html) | Useful manipulations to outbound links
+[@akashacms/plugins-external-links](external-links/index.html) | Useful manipulations to outbound links
 [@akashacms/plugins-footnotes](footnotes/index.html) | Adds footnote-style citations at the bottom of the page
-[akashacms-tagged-content](tagged-content/index.html) | Categorizing content by adding tags
+[@akashacms/plugins-tagged-content](tagged-content/index.html) | Categorizing content by adding tags
 [@akashacms/theme-bootstrap](theme-bootstrap/index.html) | Use Twitter Bootstrap to improve website look and feel
-[Adblock Checker](adblock-checker/index.html) | Detect if advertising has been blocked, and display a message
+[@akashacms/plugins-adblock-checker](adblock-checker/index.html) | Detect if advertising has been blocked, and display a message
 [AkashaEPUB](akasharender-epub/index.html) | Convert rendered HTML for use in an EPUB
-[Affiliate links](affiliates/index.html) | Simplify using affiliate links
+[@akashacms/plugins-affiliates](affiliates/index.html) | Simplify using affiliate links
 
 <!-- 
 <ul class="list-group">

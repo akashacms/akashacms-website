@@ -1,5 +1,5 @@
 ---
-layout: blog.html.ejs
+layout: blog.html.njk
 title: What is JAMStack and how does it differ from static website generators?
 publicationDate: August 8, 2020
 blogtag: news

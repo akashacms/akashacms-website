@@ -1,4 +1,4 @@
 ---
 layout: index-page.html.njk
-title: "News for February 2024"
+title: "News for 2025"
 ---

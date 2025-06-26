@@ -42,3 +42,24 @@ user	0m40.731s
 sys	0m1.464s
 
 
+These runs were after adding createIndex calls on the DAO objects.
+The time went from 40+ seconds to 31-32 seconds.
+
+$ for i in 1 2 3 4; do time npx akasharender render --quiet config.mjs; done
+
+real	0m31.200s
+user	0m36.652s
+sys	0m1.578s
+
+real	0m31.608s
+user	0m37.125s
+sys	0m1.560s
+
+real	0m31.438s
+user	0m36.577s
+sys	0m1.646s
+
+real	0m32.259s
+user	0m36.859s
+sys	0m1.561s
+

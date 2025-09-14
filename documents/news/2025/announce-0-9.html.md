@@ -15,25 +15,21 @@ The new release embodies two themes:
 
 The in-memory database is meant to bring greater fluidity to how AkashaCMS components organize and use content documents.  Originaly we used LokiJS, but abandoned it after it became clear that project was abandonware.  SQLITE3 was chosen because it supports JSON data, and is a mature, well tested, database.
 
-In AkashaCMS, site content falls into four groups:
+SQLITE3 is used primarily to implement an in-memory cache of data for all files.  As the StackedDirs package emits events concerning the files it discovers, the cache examines those files saving the data into the database.
+
+There are four content caches corresponding to the four groups of files AkashaCMS deals with:
 
 * _assets_ which are non-rendered files like CSS, JavaScript, or images
 * _partials_ which are template snippets
 * _layouts_ which are page templates
 * _documents_ which is the main content of a site, and is typically Markdown which is rendered through a template into an HTML file
 
-AkashaCMS has four content caches corresponding to those four groups.
-
-The base content cache class uses the separate Stacked Directories module to handle the AkashaCMS policy of multiple directory trees forming a virtual filesystem.  The content cache records files reported by Stacked Directories, and updates the cache as files are added, removed, or modified.
-
-Each of the four content groups is a subclass of the base content cache.  The subclasses have additional methods suitable for each content group.  For example, the documents cache parses the frontmatter, and indexes the fields.  For certain fields, like `layout`, `tags`, and `blogtag`, the documents cache explicitly indexes their values.
-
 The theme of using an in-memory database for improved content indexing is meant to provide at least two gains:
 
 * Greater reliability and functionality by having content in a well defined data store
 * Improve performance through data indexing
 
-The first themes has been fulfilled very well.  The second remains elusive.  My primary performance measure is the time required to render `techsparx.com`, which was about 10 minutes before and after switching from LokiJS to SQLITE3.
+The first theme was fulfilled very well.  This approach supports very flexible content mix/match/reuse.  The second remains elusive.  My primary performance measure is the time required to render `techsparx.com`, which was about 10 minutes before and after switching from LokiJS to SQLITE3.
 
 The second theme, implementing standalone tools using AkashaCMS components, has its first concrete product.
 

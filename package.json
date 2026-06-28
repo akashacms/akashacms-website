@@ -23,22 +23,22 @@
     "update:modules": "git submodule update --recursive --remote --checkout"
   },
   "dependencies": {
+    "@akashacms/plugins-adblock-checker": "akashacms/akashacms-adblock-checker",
+    "@akashacms/plugins-affiliates": "akashacms/akashacms-affiliates#0.10",
     "@akashacms/plugins-authors": "github:akashacms/akashacms-plugin-authors",
-    "@akashacms/plugins-base": "akashacms/akashacms-base",
-    "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast",
+    "@akashacms/plugins-base": "akashacms/akashacms-base#0.10",
+    "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast#0.10",
     "@akashacms/plugins-booknav": "akashacms/akashacms-booknav",
     "@akashacms/plugins-breadcrumbs": "akashacms/akashacms-breadcrumbs",
     "@akashacms/plugins-document-viewers": "akashacms/akashacms-document-viewers",
     "@akashacms/plugins-embeddables": "akashacms/akashacms-embeddables",
     "@akashacms/plugins-external-links": "akashacms/akashacms-external-links",
     "@akashacms/plugins-footnotes": "akashacms/akashacms-footnotes",
-    "@akashacms/plugins-tagged-content": "akashacms/akashacms-tagged-content",
+    "@akashacms/plugins-tagged-content": "akashacms/akashacms-tagged-content#0.10",
     "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap#4.6.0",
     "@compodoc/live-server": "^1.2.x",
     "@fortawesome/fontawesome-free": "^5.7.2",
-    "@akashacms/plugins-adblock-checker": "akashacms/akashacms-adblock-checker",
-    "@akashacms/plugins-affiliates": "akashacms/akashacms-affiliates",
-    "akasharender": "akashacms/akasharender",
+    "akasharender": "akashacms/akasharender#0.10",
     "akasharender-epub": "akashacms/akasharender-epub",
     "bootstrap": "^4.6.x",
     "bootstrap-icons": "^1.7.x",
@@ -49,19 +49,27 @@
     "highlight.js": "^11.3.x",
     "html-minifier": "^4.x",
     "jquery": "^3.5.x",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-bracketed-spans": "^1.0.1",
+    "markdown-it-div": "^1.1.0",
     "markdown-it-highlightjs": "akashacms/markdown-it-highlightjs",
+    "markdown-it-multimd-table": "^4.2.3",
+    "markdown-it-obsidian-callouts": "^0.3.3",
     "markdown-it-plantuml": "^1.4.1",
+    "markdown-it-table-captions": "^1.0.4",
     "npm-run-all": "^4.1.x",
     "popper.js": "^1.16.x"
   },
-  "devDependencies": {
-    "textlint": "^12.2.2",
-    "textlint-rule-no-todo": "^2.0.1"
-  },
   "overrides": {
     "rimraf@<4": "5.0.10",
-    "glob@<9": "10.4.5",
-    "globby@<14": "14.1.0"
+    "glob@<9": "11.x",
+    "globby@<14": "14.1.0",
+    "uuid@<11": "latest"
+  },
+  "allowScripts": {
+    "@fortawesome/fontawesome-free@5.15.4": true,
+    "sharp@0.34.5": true,
+    "sharp@0.29.3": true,
+    "forerunnerdb@2.0.24": true
   }
-
 }

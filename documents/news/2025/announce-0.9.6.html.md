@@ -4,8 +4,8 @@ title: Announcing AkashaCMS v0.9.6 - many more improvements over 0.9
 publicationDate: September 14, 2025
 blogtag: news
 teaser: |
-    After a lot of experimentation and rearchitecting, AkashaCMS 0.9 is now available.  And, we kept on rolling with improvements.
-
+  After a lot of experimentation and rearchitecting, AkashaCMS 0.9 is now available.  And, we kept on rolling with improvements.
+heroPicture:
 ---
 
 The theme following the 0.9 release was - Why the heck is this thing still so slow.  Rather, performance improvements, as well as tooling for measuring performance data.

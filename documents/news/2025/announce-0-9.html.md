@@ -13,7 +13,7 @@ The new release embodies two themes:
 * Improved content indexing by using an in-memory database (SQLITE3)
 * Building independent tools using AkashaCMS components
 
-The in-memory database is meant to bring greater fluidity to how AkashaCMS components organize and use content documents.  Originaly we used LokiJS, but abandoned it after it became clear that project was abandonware.  SQLITE3 was chosen because it supports JSON data, and is a mature, well tested, database.
+The in-memory database is meant to bring greater fluidity to how AkashaCMS components organize and use content documents.  Originally we used LokiJS, but abandoned it after it became clear that project was abandonware.  SQLITE3 was chosen because it supports JSON data, and is a mature, well tested, database.
 
 SQLITE3 is used primarily to implement an in-memory cache of data for all files.  As the StackedDirs package emits events concerning the files it discovers, the cache examines those files saving the data into the database.
 

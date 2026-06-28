@@ -21,8 +21,14 @@ import { FootnotesPlugin } from '@akashacms/plugins-footnotes';
 
 import { default as EPUBWebsitePlugin } from 'epub-website/index.mjs';
 
+import { default as MarkdownITBracketedSpans } from 'markdown-it-bracketed-spans';
+import { default as MarkdownItAttrs } from 'markdown-it-attrs';
 import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
 import { default as MarkdownITHighlight } from 'markdown-it-highlightjs';
+import { default as mdItObsidianCallouts } from 'markdown-it-obsidian-callouts';
+import { default as MarkdownItTableCaptions } from 'markdown-it-table-captions';
+import { default as MarkdownItMultiMDTable } from 'markdown-it-multimd-table';
+import { default as MarkdownItDiv } from 'markdown-it-div';
 
 const __dirname = import.meta.dirname;
 
@@ -36,12 +42,26 @@ config.findRendererName('.html.md')
         linkify:      true,
         typographer:  false,
     })
+    .use(MarkdownITBracketedSpans)
+    .use(MarkdownItDiv)
+    .use(MarkdownItAttrs, {
+        allowedAttributes: [ 'id', 'class', 'caption', 'data' ]
+    })
     .use(MarkdownITPlantUML, {
         imageFormat: 'svg'
     })
     .use(MarkdownITHighlight, { 
         auto: true, 
         code: true 
+    })
+    .use(mdItObsidianCallouts)
+    .use(MarkdownItTableCaptions)
+    .use(MarkdownItMultiMDTable, {
+        multiline: true,
+        rowspan: true,
+        headerless: true,
+        multibody: true,
+        aotolabel: true,
     });
 
 config

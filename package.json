@@ -17,12 +17,10 @@
     "build:render": "akasharender render --copy-assets config.mjs",
     "minify": "html-minifier --collapse-whitespace --conservative-collapse --html5 --keep-closing-slash --preserve-line-breaks --remove-comments --file-ext html  --input-dir out --output-dir out",
     "deploy": "cd out && rsync --archive --delete --verbose ./ reikiman@akashacms.com:akashacms.com/ ",
-    "watch": "npm-run-all --parallel watcher preview",
-    "watcher": "akasharender watch config.mjs",
-    "preview": "live-server out",
-    "update:modules": "git submodule update --recursive --remote --checkout"
+    "preview": "live-server out"
   },
   "dependencies": {
+    "@akashacms/diagram-makers": "akashacms/plugins-diagrams#0.10",
     "@akashacms/plugins-adblock-checker": "akashacms/akashacms-adblock-checker",
     "@akashacms/plugins-affiliates": "akashacms/akashacms-affiliates#0.10",
     "@akashacms/plugins-authors": "github:akashacms/akashacms-plugin-authors",
@@ -70,6 +68,7 @@
     "@fortawesome/fontawesome-free@5.15.4": true,
     "sharp@0.34.5": true,
     "sharp@0.29.3": true,
-    "forerunnerdb@2.0.24": true
+    "forerunnerdb@2.0.24": true,
+    "canvas@3.2.3": true
   }
 }

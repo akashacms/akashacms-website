@@ -30,6 +30,11 @@ import { default as MarkdownItTableCaptions } from 'markdown-it-table-captions';
 import { default as MarkdownItMultiMDTable } from 'markdown-it-multimd-table';
 import { default as MarkdownItDiv } from 'markdown-it-div';
 
+import {
+    DiagramsPlugin,
+    MarkdownITMermaidPlugin
+} from '@akashacms/diagram-makers';
+
 const __dirname = import.meta.dirname;
 
 const config = new akasha.Configuration();
@@ -62,6 +67,12 @@ config.findRendererName('.html.md')
         headerless: true,
         multibody: true,
         aotolabel: true,
+    })
+    .use(MarkdownITMermaidPlugin, {
+        // All options are optional
+        // themePreset: 'forest',
+        // configJSON: await fsp.readFile('mermaid-config.json', 'utf-8'),
+        // fontFNs: [ '/path/to/Roboto.ttf' ]
     });
 
 config
@@ -234,6 +245,7 @@ config
     })
     .use(BreadcrumbsPlugin)
     .use(BooknavPlugin)
+    .use(DiagramsPlugin)
     .use(EmbeddablesPlugin)
     .use(ExternalLinksPlugin)
     .use(FootnotesPlugin)

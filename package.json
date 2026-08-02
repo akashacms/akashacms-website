@@ -33,20 +33,18 @@
     "@akashacms/plugins-external-links": "akashacms/akashacms-external-links",
     "@akashacms/plugins-footnotes": "akashacms/akashacms-footnotes",
     "@akashacms/plugins-tagged-content": "akashacms/akashacms-tagged-content#0.10",
-    "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap#4.6.0",
+    "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap#5.x",
     "@compodoc/live-server": "^1.2.x",
     "@fortawesome/fontawesome-free": "^5.7.2",
     "akasharender": "akashacms/akasharender#0.10",
-    "akasharender-epub": "akashacms/akasharender-epub",
-    "bootstrap": "^4.6.x",
+    "akasharender-epub": "akashacms/akasharender-epub#0.10",
     "bootstrap-icons": "^1.7.x",
-    "epub-guide": "akashacms/epub-guide",
+    "epub-guide": "akashacms/epub-guide#0.10",
     "epub-website": "akashacms/epub-website",
-    "epubtools": "akashacms/epubtools",
+    "epubtools": "akashacms/epubtools#0.10",
     "gridjs": "^5.x",
     "highlight.js": "^11.3.x",
     "html-minifier": "^4.x",
-    "jquery": "^3.5.x",
     "markdown-it-attrs": "^4.3.1",
     "markdown-it-bracketed-spans": "^1.0.1",
     "markdown-it-div": "^1.1.0",
@@ -55,14 +53,14 @@
     "markdown-it-obsidian-callouts": "^0.3.3",
     "markdown-it-plantuml": "^1.4.1",
     "markdown-it-table-captions": "^1.0.4",
-    "npm-run-all": "^4.1.x",
-    "popper.js": "^1.16.x"
+    "npm-run-all": "^4.1.x"
   },
   "overrides": {
     "rimraf@<4": "5.0.10",
     "glob@<9": "11.x",
     "globby@<14": "14.1.0",
-    "uuid@<11": "latest"
+    "uuid@<11": "latest",
+    "cheerio": { "encoding-sniffer": "^1.x" }
   },
   "allowScripts": {
     "@fortawesome/fontawesome-free@5.15.4": true,

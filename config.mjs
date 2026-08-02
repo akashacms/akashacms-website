@@ -1,6 +1,7 @@
 
 'use strict';
 
+import path from 'node:path';
 import util from 'node:util';
 import akasha from 'akasharender';
 
@@ -38,6 +39,31 @@ import {
 const __dirname = import.meta.dirname;
 
 const config = new akasha.Configuration();
+
+// Rather than hardcode paths in the addAssetDirs call, we
+// compute the correct path.  It's not certain that npm
+// will install the packages to the hardcoded path.  Instead,
+// the import.meta.resolve function lets us compute the path
+// to something inside the package.
+//
+// The path returned by import.meta.resolve is the string form
+// of a file:/// URL.  new URL(..).pathname retrieves the 
+// filesystem path.
+//
+// Next, we need to use path.dirname and path.join to maneuver
+// to providing the desired pathname to addAssetDirs
+
+const resolvFontawesomePkg = import.meta.resolve('@fortawesome/fontawesome-free/js');
+const pathFontawesomePkg = path.dirname(new URL(resolvFontawesomePkg).pathname);
+
+const resolvHighlightPkg = import.meta.resolve('highlight.js/package.json');
+const pathHighlightPkg = path.dirname(new URL(resolvHighlightPkg).pathname);
+
+const resolvBootstrapIconsPkg = import.meta.resolve('bootstrap-icons/icons');
+const pathBootstrapIconsPkg = new URL(resolvBootstrapIconsPkg).pathname;
+
+const resolvGridJSPkg = import.meta.resolve('gridjs/package.json');
+const pathGridJSPkg = path.join(path.dirname(new URL(resolvGridJSPkg).pathname), 'dist');
 
 config.findRendererName('.html.md')
     .configuration({
@@ -77,18 +103,6 @@ config.findRendererName('.html.md')
 
 config
     .addAssetsDir('assets')
-    .addAssetsDir({
-        src: 'node_modules/bootstrap/dist',
-        dest: 'vendor/bootstrap'
-    })
-   .addAssetsDir({
-        src: 'node_modules/jquery/dist',
-        dest: 'vendor/jquery'
-    })
-    .addAssetsDir({
-        src: 'node_modules/popper.js/dist',
-        dest: 'vendor/popper.js'
-    })
     // The purpose of the following mount is to solve this error:
     //
     // (node:75702) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 953)
@@ -99,11 +113,11 @@ config
     //    dest: 'node_modules/@fortawesome/fontawesome-free'
     // })
     .addAssetsDir({
-        src: 'node_modules/@fortawesome/fontawesome-free',
+        src: pathFontawesomePkg,
         dest: 'vendor/fontawesome-free'
     })
     .addAssetsDir({ 
-        src: 'node_modules/highlight.js', 
+        src: pathHighlightPkg, 
         dest: 'vendor/highlight.js' 
     })
     // Likewise, the following is to fix this error:
@@ -119,11 +133,11 @@ config
     // "src" paths in these instances.  That caused something to go wrong.
     //
     .addAssetsDir({
-        src: 'node_modules/bootstrap-icons/icons',
+        src: pathBootstrapIconsPkg,
         dest: 'vendor/bootstrap-icons'
     })
     .addAssetsDir({
-        src: 'node_modules/gridjs/dist',
+        src: pathGridJSPkg,
         dest: 'vendor/gridjs'
     });
 
@@ -307,10 +321,6 @@ config.plugin("@akashacms/plugins-external-links")
     .setShowFavicons(config, "before");
 
 config
-    .addFooterJavaScript({ href: "/vendor/jquery/jquery.min.js" })
-    .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
-    .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
-    // .addFooterJavaScript({ href: "/vendor/highlight.js/lib/highlight.js" })
     // .addFooterJavaScript({ script: 'hljs.initHighlightingOnLoad();' })
     // .addFooterJavaScript({
     //    script: `
@@ -320,7 +330,7 @@ config
     //        });
     //    });
     //    `})
-    .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
+    // .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
     /* .addStylesheet({
         href: "/vendor/bootstrap/css/bootstrap-theme.min.css"
     }) */

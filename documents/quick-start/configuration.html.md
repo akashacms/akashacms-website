@@ -3,24 +3,28 @@ layout: getting-started.html.njk
 title: Project configuration
 rightsidebar:
 author: david
-publicationDate: November 21, 2021
+publicationDate: August 5, 2026
+step: 2
 ---
 
-To configure an AkashaCMS project, we need a Configuration object.  The Configuration class is exported from AkashaRender.  What we do is create an instance of this object, and use it when making calls into AkashaRender functions.
+The Configuration object, exported from `akasharender`, configures an AkashaCMS project.  It holds data about the setup of the project, and is used throughout all AkashaCMS components.
 
-The typical way to create this object is by creating a Node.js module file, named `config.js`, in which we create a Configuration object instance.  We then call methods on this instance to set up its configuration.
+It is a normal TypeScript object, and is tyupically created in a Node.js module file named `config.mjs`.  The `.mjs` extension is used because it is now simplest to use AkashaCMS projects as ES6-style modules.  We then call methods on this instance to set up its configuration.
 
-The file name is not required to be `config.js`, since it can be any file name you like.  You may have multiple configuration files for the same project directory.
+What's required is an instance of the Configuration class.  It is not required to use a file named `config.mjs`, for example the `akasharender` test suite contains examples of Configuration objects created in-line with a test suite file.   You may have multiple configuration objects for the same project.
 
 Here's a simple configuration file:
 
 ```js
-const akasha  = require('akasharender');
+import path from 'node:path';
+import util from 'node:util';
+import akasha from 'akasharender';
 
 const config = new akasha.Configuration();
 
 config.rootURL("http://example.com");
 
+const __dirname = import.meta.dirname;
 config.configDir = __dirname;
 
 config
@@ -62,14 +66,22 @@ When [setting up the project directory](installation.html), we installed `@akash
 In `config.js` add this:
 
 ```js
+// Add this to the top of config.mjs
+import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
+import { BasePlugin } from '@akashacms/plugins-base';
+import { BreadcrumbsPlugin } from '@akashacms/plugins-breadcrumbs';
+import { BooknavPlugin } from '@akashacms/plugins-booknav';
+import { TaggedContentPlugin } from '@akashacms/plugins-tagged-content';
+
+// Add this in the middle section of config.mjs
 config
-    .use(require('@akashacms/theme-bootstrap'))
-    .use(require('@akashacms/plugins-base'), {
+    .use(ThemeBootstrapPlugin)
+    .use(BasePlugin), {
         generateSitemapFlag: true
     })
-    .use(require('@akashacms/plugins-breadcrumbs'))
-    .use(require('@akashacms/plugins-booknav'))
-    .use(require('@akashacms/plugins-tagged-content'), {
+    .use(BreadcrumbsPlugin)
+    .use(BooknavPlugin)
+    .use(TaggedContentPlugin, {
         sortBy: 'title',
         // @tagDescription@ can only appear once
         headerTemplate: "---\ntitle: @title@\nlayout: tagpage.html.ejs\n---\n<p><a href='./index.html'>Tag Index</a></p><p>Pages with tag @tagName@</p><p>@tagDescription@</p>",
@@ -80,13 +92,11 @@ config
 
 The `.use` function says to add a plugin to the AkashaRender configuration.  We pass in the module, and an optional configuration object.
 
-Because of what `theme-bootstrap` does, it has to be listed first.  Namely, it overrides templates supplied by other plugins with equivalent templates which use Bootstrap features.
+Because of what `@akashacms/theme-bootstrap` does, it has to be listed first.  Namely, it overrides templates supplied by other plugins with equivalent templates which use Bootstrap features.  Overriding a template in another plugin means that the template directories in `@akashacms/theme-bootstrap` must be listed first so that it's templates are found first.
 
-What does that mean?  The `layouts` and `partials` directories contain templates we use for formatting things on the resulting website.  AkashaRender supports there being multiple directories of each kind.  Practically speaking, every plugin supplies a set of `partials` templates which the plugin uses in formatting the things it provides.
+What does that mean?  The `layouts` and `partials` directories contain templates we use for formatting things on the resulting website.  AkashaCMS configuration includes a list of directories for four categories:  `assets`, `partials`, `layouts`, and `documents`.  The templates are in `partials` and `layouts` directories.  These directories are listed in order.  Effectively, a template has a file name, and will override any template with the same file name appearing in a directory later in the list.
 
-In other words, there are six `partials` directories shown in this configuration file.  One is for the website project, and the other five are associated with these plugins.  There is another plugin, the `built-in` plugin, that is part of AkashaRender, and it also supplies a `partials` directory.
-
-When AkashaRender is asked to render a partial template, it looks in these `partials` directories, using the first template it finds.  So, when we say `theme-bootstrap` overrides other templates, what we mean is its `partials` directory has template files with the same file name as in other plugins.  These overriding templates perform the same purpose, but use Bootstrap components.
+By adding `@akashacms/theme-bootstrap` first, its template directories appear before the directories of other plugins.
 
 The `@akashacms/plugins-base` plugin provides basic website oriented facilities.  One feature is it handles generating an XML Sitemap.
 
@@ -98,7 +108,7 @@ The `@akashacms/plugins-tagged-content` plugin lets you add taxonomical categori
 
 # Handling CSS and JavaScript for Bootstrap
 
-The `theme-bootstrap` plugin is implemented for Bootstrap v4.  Yes, v5 is the current version, but there hasn't been time to update this plugin.  For v4, the recommended structure for loading the required JavaScript and CSS files is this:
+The `@akashacms/theme-bootstrap` plugin is implemented for Bootstrap v5.  The Bootstrap documentation suggests this structure for a page to use Bootstrap.
 
 ```html
 <!doctype html>
@@ -119,40 +129,19 @@ The `theme-bootstrap` plugin is implemented for Bootstrap v4.  Yes, v5 is the cu
     <!-- page content -->
 
     <!-- Load the JavaScript code at the bottom of the body -->
-    <script src=".../dist/jquery.slim.min.js"></script>
     <script src=".../dist/umd/popper.min.js"></script>
     <script src=".../dist/js/bootstrap.min.js"></script>
   </body>
 </html>
 ```
 
-The actual recommendation is loading these files from a CDN.  However, my belief is that it's better to put these files alongside the rest of the files of your website, so that your website has as few external dependencies as possible.
+The `...` portion of these URLs should be the path to where these files are stored.  Bootstrap recommends using their CDN.  However, my belief is that it's better to put these files alongside the rest of the files of your website, so that your website has as few external dependencies as possible.
 
-The first step of implementing this came [when initializing the project directory](initialization.html), when we installed `bootstrap@4.6.x`, `popper.js@1.16.x`, and `jquery@3.6.x`.  These packages are required for running Bootstrap v4.
+You can use npm to install the packages for `bootstrap`, and `@popperjs/core`.
 
-The next step is to ensure the files are copied into the rendering directory.  This means declaring some Asset directories.  In `config.js` add these lines:
+But, using `@akashacms/theme-bootstrap` has the correct dependencies for those packages, and adds the directories containing the CSS and JS files to the configuration.
 
-```js
-config
-    ...
-    .addAssetsDir({
-        src: 'node_modules/bootstrap/dist',
-        dest: 'vendor/bootstrap'
-    })
-   .addAssetsDir({
-        src: 'node_modules/jquery/dist',
-        dest: 'vendor/jquery'
-    })
-    .addAssetsDir({
-        src: 'node_modules/popper.js/dist',
-        dest: 'vendor/popper.js'
-    })
-    ...
-```
-
-If you look at the installed Bootstrap, Popper and jQuery packages, you find the browser-side code is in the three directories named here.  With these declarations we "_mount_" those `dist` directories into the directories named in the `dest` fields.
-
-The next step is to configure the layout templates to include the necessary code.  The `built-in` plugin supplies a set of custom tags to assist inserting JavaScript in either the header and/or footer, and to insert CSS in the header.  Using these tags, the above HTML looks like this:
+The result is that the tags, `<ak-stylesheets>`, `<ak-headerJavaScript>`, and `<ak-footerJavaScript>`, do the right thing.  The CSS and JS files will automatically appear at the correct place in the layout template:
 
 ```html
 <!doctype html>
@@ -176,22 +165,5 @@ The next step is to configure the layout templates to include the necessary code
   </body>
 </html>
 ```
-
-With appropriate data in `config.js`, this will automagically become the correct CSS and JavaScript references.
-
-Namely, in `config.js` add this:
-
-```js
-config
-    .addFooterJavaScript({ href: "/vendor/jquery/jquery.min.js" })
-    .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
-    .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
-    .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
-    // Support any custom CSS files
-    .addStylesheet({ href: "/style.css" })
-    ...
-```
-
-The `addFooterJavaScript` function emits the JavaScript references in place of the `<ak-footerJavaScript>` tag.  There is a `addHeaderJavaScript` function that does the same for `<ak-headerJavaScript>`.  Likewise, the `addStylesheet` function emits CSS references in place of the `<ak-stylesheets>` tag.
 
 

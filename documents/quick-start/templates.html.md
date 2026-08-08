@@ -4,6 +4,7 @@ title: Templates, Partials, Page Layout, and server-side DOM Manipulation
 rightsidebar:
 author: david
 publicationDate: February 18, 2021
+step: 8
 ---
 
 AkashaCMS supports your right to control every aspect of HTML pages you generate.  It even supports reconfiguring the system to produce XHTML, which is required for producing EPUB's using AkashaCMS.

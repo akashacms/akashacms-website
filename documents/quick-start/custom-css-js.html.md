@@ -9,17 +9,22 @@ headerStylesheetsAdd:
 headerJavaScriptAddBottom:
     - href: /vendor/gridjs/gridjs.production.min.js
     - href: /quick-start/js/gridjs.js
+step: 10
 ---
 
-There are many kinds of front-end libraries we might use for special effects on our websites.  We might use a layout framework, like Bootstrap, to handle both site theming and page layout.  For that, it's most likely that every page of the website will use the same CSS stylesheets and JavaScript files.  We covered that use case in: [](theming.html)
+Out of the box, AkashaCMS has a simple way to use the same CSS/JavaScript files on each page.  This is a key part of having a consistent look and feel across your website.  We covered this in  [](theming.html)
 
-In other cases a specific page will need a specific library or other custom file just for that page.  It doesn't make sense to inject the CSS or JavaScript used solely by one page into every page of the site.  Instead, what makes sense is that each page have the ability to declare the CSS and JavaScript files it needs.
+But, what if you need some special behavior on a specific page?
 
-AkashaCMS handles both site-wide CSS and JavaScript, as well as per-page CSS and JavaScript.  It is encouraged that page layout templates use the `<ak-stylesheets>`, `<ak-headerJavaScript>`, and `<ak-footerJavaScript>` custom tags to load CSS and JavaScript into a page.
+It's also easy to add specific CSS or JS files to specific pages.
 
-In [](theming.html), we showed how to configure those tags for site-wide theming.  These tags also pick up information from the page metadata to add specific CSS or JavaScript files to be loaded just for that page.
+AkashaCMS handles both site-wide CSS and JavaScript, as well as per-page CSS and JavaScript.  Both are handled by using the `<ak-stylesheets>`, `<ak-headerJavaScript>`, and `<ak-footerJavaScript>` custom tags.
 
-Namely, we add `headerStylesheetsAdd`, `headerJavaScriptAddBottom`, or `headerJavaScriptAddTop` declarations in the frontmatter of each page where custom CSS or JavaScript files are needed.  To see how this works, let's install [GridJS](https://gridjs.io) and show a sample table.
+For site-wide CSS and JavaScript files, we make a site-wide configuration in the `config.mjs` file.  Namely, we use `addAssetsDir` to add the directory for a CSS or JavaScript framework, then we use the `addStylesheet`, `addFooterJavaScript`, and `addHeaderJavaScript` functions to add CSS and JS files to the list used by the `<ak-stylesheets>`, `<ak-headerJavaScript>`, and `<ak-footerJavaScript>` custom tags.
+
+We can implement per-page CSS and JavaScript by using `headerStylesheetsAdd`, `headerJavaScriptAddBottom`, or `headerJavaScriptAddTop` declarations in the frontmatter of a page.  These make a per-page addition to those same lists, so when the page layout template sees the `<ak-stylesheets>`, `<ak-headerJavaScript>`, and `<ak-footerJavaScript>` custom tags, the page will have additional files.
+
+To see how this works, let's install [GridJS](https://gridjs.io) and show a sample table.
 
 ## Installing the GridJS package
 
@@ -33,7 +38,7 @@ This installs the current version of GridJS into the `node_modules` directory.  
 
 ## Configuring the AkashaCMS project to recognize the GridJS package
 
-In the project configuration file, `config.js`, add this:
+In the project configuration file, `config.mjs`, add this:
 
 ```js
 config
@@ -47,7 +52,7 @@ config
 
 This ensures the GridJS distribution is copied into the rendering directory at `/vendor/gridjs`.
 
-You might want to support GridJS use on every page of the site, in which case you consult [the theming guide](theming.html) to add references to the CSS and JavaScript files.  But instead we want to support using this on specific pages.
+At this point, if you want to use GridJS on every page of the site, add the CSS and JavaScript files in `config.mjs` as discussed in [the theming guide](theming.html).
 
 ## Adding the CSS and JavaScript required for GridJS to a page
 

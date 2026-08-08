@@ -3,7 +3,8 @@ layout: getting-started.html.njk
 title: AkashaCMS project directories
 rightsidebar:
 author: david
-publicationDate: November 22, 2021
+publicationDate: August 6, 2026
+step: 4
 ---
 
 An AkashaCMS project is a melding together of content from four classes of directories.  When showing [how to create a configuration file](configuration.html), we showed configuring these directories:
@@ -84,53 +85,95 @@ Consider what AkashaRender does when asked to render a partial template, like `a
 
 That's the key pattern: To search through an array of directories, returning the first matching file.
 
-## Stacked Directories module
-
-The actual implementation is not that simple.  It used to be implemented as just described, but implementing `akashacms watch` changed a lot of things.
-
-Today, there is a module, _Stacked Directories_ ([see blog post](/news/2021/06/stacked-dirs.html)), that watches the contents of the directory stack.  It continuously watches the files looking for changes, so that the `watch` command can then cause files to be re-rendered.
-
-There are four instances of the stacked directory module, one for each directory stack (`assets`, `documents`, `partials`, and `layouts`).  Data collected through the module is then stored in an internal cache.
-
-When AkashaRender is looking for a partial template, it calls the `find` method on the cache.  It looks in the Partials collection, and one of the parameters is the virtual path `ak_toc_group_element.html.njk`.
-
-The query response is guaranteed to have the same result as described above - that it will return the first match in the directory stack.  It's just that the implementation is more complicated than a loop looking in one directory followed by another.
-
-The simple answer is that it returns the first file it finds.
-
-Again, the same algorithm is used for Assets, Documents, and Layouts.
-
 # Mounting directories
 
 Some projects need to assemble content from multiple locations.  For example a website for a software product might have content from the marketing, engineering, or tech-pubs teams.  It's best if each team is able to work on its own, and that somehow the content be merged into one website.  In this section lets discuss how that's done.
 
-Refer back to the `config.js` for the AkashaCMS website, and you'll find a long list of declarations like this:
+For example, the [AkashaCMS website](https://akashacms.com) contains documentation for each plugin.  The documentation is contained in the repository for the plugin, not in the main website repository.  To bring that documentation into the AkashaCMS website, the `config.mjs` mounts a portion of the plugin repository into the directories of the website.  To do that, the repository for the AkashaCMS website project is cloned as a sibling directory to the plugin repositories.
 
-```js
-config.addDocumentsDir({
-    src: 'node_modules/@akashacms/plugins-base/guide',
-    dest: 'plugins/base'
-})
+```shell
+$ tree . -L 1
+.
+├── akashacms-adblock-checker
+├── akashacms-affiliates
+├── akashacms-base
+├── akashacms-blog-podcast
+├── akashacms-blog-podcast-old
+├── akashacms-blog-skeleton
+├── akashacms-booknav
+├── akashacms-breadcrumbs
+├── akashacms-dlassets
+├── akashacms-document-viewers
+├── akashacms-embeddables
+├── akashacms-example
+├── akashacms-external-links
+├── akashacms-footnotes
+├── akashacms.github.io
+├── akashacms-perftest
+├── akashacms-plugin-authors
+├── akashacms-skeleton
+├── akashacms-tagged-content
+├── akashacms-theme-bootstrap
+├── akashacms-website
+├── akasharender
+├── akasharender-epub
+├── asciidoctor.js
+├── bootstrap-icons
+├── build.js
+├── country-flag-icons
+├── epub-guide
+├── epub-skeleton
+├── epubtools
+├── epub-website
+├── icons-fontawesome-free
+├── icons-tabler
+├── llm-council
+├── mahabhuta
+├── mahabhuta-ai
+├── markdown-it-mermaid
+├── mermaid-wasm-renderer
+├── nomic-embed-text-v1.5.Q8_0.gguf
+├── open-source-site
+├── pdf-document-construction-set
+├── pdf-lib
+├── plugins-diagrams
+├── promised.node.sqlite
+├── promised.sqlite
+├── README-workspace.md
+├── renderers
+├── renderers-09
+├── scraper
+├── semantic-search
+└── stacked-directories
+
+49 directories, 3 files
 ```
 
-This is different from the `config.addPartialsDir('partials')` case we just discussed.  What's going on?
+There's a lot of extra things here.  But, notice that the `akashacms-website` directory is a sibling to other directories like `akashacms-base` and `akasharender`.  The policy for AkashaCMS project repositories is that the `guide` directory contains documentation.
 
+Refer back to the `config.mjs` for the AkashaCMS website, and you'll find a long list of declarations like this:
+
+```js
+config
+    // ...
+    .addDocumentsDir({
+        src: '../akashacms-base/guide',
+        dest: 'plugins/base'
+    })
+    .addDocumentsDir({
+        src: '../akasharender/built-in-guide',
+        dest: 'plugins/built-in'
+    })
+```
+
+This directory mount is different than what we showed earlier.  In this case we want each `guide` directory to be a subdirectory of the `plugins` directory.  
 We've supplied an object with two fields, `src` and `dest`.  The `src` field refers to a directory within `node_modules` and if you consult that directory you'll find `index.html.md` and some other content files.  The `dest` field is interpreted as a location within the Documents directory structure.
 
-Each module in the AkashaCMS project is in its own Github repository, and many of the modules are distributed through the npm repository.  We decided that documentation for each plugin should be in a `guide` directory.  What we're doing is to assemble those `guide` directories so they are used on the AkashaCMS website.
+To see the result visit:
 
-Some examples are:
+* https://akashacms.com/plugins/built-in/index.html -- Built-in plugin documentation
+* https://akashacms.com/plugins/base/index.html -- Base plugin documentation
 
-Project | Path | Mounted to
---------|------|-------------
-`@akashacms/plugins-base` | `node_modules/@akashacms/plugins-base/guide` | `plugins/base`
-AkashaCMS Built-In | `node_modules/akasharender/built-in-guide` | `plugins/built-in`
-`@akashacms/plugins-authors` | `node_modules/@akashacms/plugins-authors/guide` | `plugins/authors`
-`@akashacms/plugins-booknav` | `node_modules/@akashacms/plugins-booknav/guide` | `plugins/booknav`
-`@akashacms/plugins-blog-podcast` | `node_modules/@akashacms/plugins-blog-podcast/guide` | `plugins/blog-podcast`
-`@akashacms/plugins-breadcrumbs` | `node_modules/@akashacms/plugins-breadcrumbs/guide` | `plugins/breadcrumbs`
-
-There are a lot more of these.
 
 The resulting rendered output directory contains this:
 
@@ -161,7 +204,6 @@ out/plugins
 There is no single input directory structure.  Instead there are several input directories, each coming from their own Github repository, and each virtually mounted into into the `documents` directory.
 
 In the scenario named earlier, the configuration might be:
-
 
 ```js
 config

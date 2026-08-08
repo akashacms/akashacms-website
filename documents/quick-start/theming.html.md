@@ -3,16 +3,19 @@ layout: getting-started.html.njk
 title: Theming and CSS/JavaScript frameworks
 rightsidebar:
 author: david
-publicationDate: February 21, 2021
+publicationDate: August 3, 2026
+step: 9
 ---
 
-When [describing layouts and partials](templates.html) we said that _AkashaCMS supports your right to control every aspect of HTML pages you generate._  The primary reason is that you specify the layout templates used on your site, and you can override almost every partial template used by one of the custom tags.
+_AkashaCMS supports your right to control every aspect of HTML pages you generate._  That's what we said when describing [describing layouts and partials](templates.html).  You can design page layout templates at the HTML element level, and you can override almost every partial template used by one of the custom tags.
 
-There's another aspect to having full control over the HTML used in your project.  That is the choice of any CSS/JavaScript framework you'll use, or whether to use one at all.  You're free to choose any framework, or to skip using a framework and roll your own CSS and JavaScript theming.
+The next level is the choice to use one CSS/JavaScript framework or another.  Choosing a CSS/JavaScript framework usually means including links to CSS stylesheet and JavaScript files in your page header or page footer.
 
-However, the only framework we've invested any effort into using is Bootstrap.  The project started with Bootstrap v3, then migrated to Bootstrap v4, and is currently considering when to migrate to Bootstrap v5.  But it's intended that you can use any other framework you desire.
+You're free to choose any such framework, or to skip using a framework and roll your own CSS and JavaScript theming.
 
-The first stage of establishing a theme is to inject desired CSS and JavaScript files into the rendered HTML.  We've already seen the intended method to do so:
+The only framework we've invested effort in integration for AkashaCMS is the Bootstrap framework.  The [`@akashacms/theme-bootstrap`](https://www.npmjs.com/package/@akashacms/theme-bootstrap) package supports both the obselent 4.6.x Boostrap release, and the latest 5.3.x Bootstrap release.
+
+Injecting CSS/JavaScript files into your pages means using these custom tags along with associated configuration.
 
 ```html
 <html>
@@ -30,23 +33,34 @@ The first stage of establishing a theme is to inject desired CSS and JavaScript 
 </html>
 ```
 
-These custom tags let you declare CSS and JavaScript files in the Configuration file.  Whatever files you specify via the `addFooterJavaScript`, `addHeaderJavaScript`, and `addStylesheet` functions will be added to the HTML via these tags.  These functions allow adding files from the local filesystem, or from a CDN service.
+These custom tags let you declare CSS and JavaScript files in the Configuration file.  The files specified via the `addFooterJavaScript`, `addHeaderJavaScript`, and `addStylesheet` functions are added to the HTML via these tags.
 
-It's a best practice to host your CSS or JavaScript files yourself.  That way you're not dependent on the health of a third party service.
+It's a best practice to host your CSS or JavaScript files yourself.  That way you're not dependent on the health of a third party service.  All these projects offer the CSS/JavaScript files via a CDN (content delivery network), but what if the CDN goes down while your webserver is still running?  Your site would be nonfunctional with no way to fix it other than to wait for the CDN to repair itself.
 
-For example to use Bootstrap v4, set these dependencies in your `package.json`:
+## The process for installing CSS/JS framework files in an AkashaCMS project
 
-```json
-"dependencies": {
-    ...
-    "bootstrap": "^4.5.x",
-    "jquery": "^3.5.x",
-    "popper.js": "^1.16.x",
-    ...
-}
+Each CSS/JS framework will document the files required to use their framework on your web pages.
+
+For Bootstrap v5, go here: https://getbootstrap.com/docs/5.3/getting-started/download/
+
+You'll learn that v5.x requires the `bootstrap` and `@popperjs/core` packages.  That page more clearly documents the URLs for use from the Bootstrap CDN.  The primary thing to learn from those URLs is the two required packages.
+
+For an AkashaCMS project one can use npm, yarn, or other package manager to install the packages in your project:
+
+```shell
+npm install bootstrap@5.3.8 @popperjs/core@2.11.8 --save
 ```
 
-This installs the required packages into your `node_modules` directory.
+You then add these dependencies to `package.json`
+
+```json
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8"
+  }
+```
+
+This lets you easily change the version number for each package.  The `npm install` command will then make sure you've installed the correct version of these dependencies.
 
 Next, in `config.js`, add these lines:
 
@@ -57,12 +71,8 @@ config
         src: 'node_modules/bootstrap/dist',
         dest: 'vendor/bootstrap'
     })
-   .addAssetsDir({
-        src: 'node_modules/jquery/dist',
-        dest: 'vendor/jquery'
-    })
     .addAssetsDir({
-        src: 'node_modules/popper.js/dist',
+        src: 'node_modules/@popperjs/core/dist',
         dest: 'vendor/popper.js'
     })
 ```
@@ -73,31 +83,72 @@ Then in `config.js` add this:
 
 ```js
 config
-    .addFooterJavaScript({ href: "/vendor/jquery/jquery.min.js" })
     .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
     .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
     .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
     .addStylesheet({ href: "/style.css" })
 ```
 
-This ensures the custom tags shown earlier will generate the required HTML to load Bootstrap support.  We've also included a `style.css` that is useful to hold your custom CSS declarations.
+Recall that:
 
-The JavaScript code is loaded in the footer because that's the best practice.  It is also loaded in the correct order for correct initialization.
+* `addFooterJavascript` adds code to the bottom of the page to load JavaScript files
+* `addHeaderJavascript` adds code to the `<head>` section of the page to load JavaScript files
+* `addStylesheet` adds code to the `<head>` section of the page to load CSS files
 
-Review back over the last few paragraphs, and notice that this mechanism allows you to use any other framework.  Instead of installing the Bootstrap files, install the files from any other framework you desire.  Then mount those directories into your output directory, and add them to the configuration.  The process would be the same, just with different file names.
+These config function calls add Bootstrap and PopperJS to your pages.  We've also included a `style.css` that is useful to hold your custom CSS declarations.
 
-The code shown here gives you the default Bootstrap theme.  It's a best practice to customize it to your preference.  There is a whole industry of providing customized Bootstrap themes.  The [BootSwatch](https://bootswatch.com/) site provides a handful of nice open source free themes for Bootstrap.
+You can easily modify this process for any CSS/JS framework.  Just modify the details to suit.  Install the files from any other framework, mount those directories into your output directory, and add them to the configuration.
 
-All that we require is the `.min.css` file from one of their themes.  Download one of the files, and add it to your `assets` directory.  It's helpful to rename the file from `bootstrap.min.css` so that the file name matches the name of the theme, if only so you can remember in six months which theme you used.
+## For Bootstrap, use `@akashacms/theme-bootstrap`
 
-Then in the Configuration, change the stylesheet declarations to this:
+The `@akashacms/theme-bootstrap` plugin takes care of all those dependencies and config file settings.
+
+In `package.json` you do this:
+
+```json
+"dependencies": {
+    ...
+    "@akashacms/theme-bootstrap": "^5.x",
+}
+```
+
+NOTE: Currently the 5.x branch is not published to npm, and instead you use `akashacms/akashacms-theme-bootstrap#5.x`.
+
+Then, in the configuration file:
+
+```js
+import { ThemeBootstrapPlugin } from '@akashacms/theme-bootstrap';
+// ...
+
+config
+    .use(ThemeBootstrapPlugin)
+    // ...
+```
+
+That's it.
+
+The plugin takes care of adding the `addFooterJavascrip` and `addStylesheet` calls.
+
+Further, the plugin contains overrides for partial templates from other plugins that use Bootstrap goodness.
+
+## Theming Bootstrap or other CSS/JS frameworks
+
+There's a whole industry of theme files for Bootstrap or other CSS/JS frameworks.
+
+In the Bootstrap universe, one resource is https://bootstrap.build/, which has a few starter themes as well as an in-browser GUI for further customizations.
+
+What results is a `bootstrap.min.css` file which you can download and add to an `assets` directory.
+
+Issue https://github.com/akashacms/akasharender/issues/237 covers creating a configuration option in `@akashacms/theme-bootstrap` to override the default file with a new one.
+
+This configuration snippet shows a manual configuration to rename the `bootstrap.min.css` from the Pulse theme to `pulse.min.css`, and to use that.
 
 ```js
 config
-    .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
     .addStylesheet({ href: "/pulse.min.css" })
     .addStylesheet({ href: "/style.css" })
 ```
 
 This allows the declarations in the theme CSS file to override whatever was declared in the Bootstrap distribution.
+
 

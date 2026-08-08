@@ -4,14 +4,12 @@ title: Structure of the Rendered Output Directory
 rightsidebar:
 author: david
 publicationDate: February 21, 2021
+step: 5
 ---
 
 The whole purpose of AkashaCMS is to create a directory containing the content for a website or an EPUB e-book.  We funnel content files, asset files, page layout templates, and partials, through AkashaRender and any desired plugins, to create the desired content in the output directory.
 
 When we've fully rendered the content into the output directory, it is ready to be uploaded to a web server, or to be packaged as an EPUB.
-
-* TODO - import bootstrap icons
-* TODO - develop a special block for Principles
 
 An important principle is fairly obvious, that the directory hierarchy of the output directory is determined by the hierarchy of the asset and document directories.
 
@@ -30,10 +28,6 @@ config
     .addAssetsDir({
         src: 'node_modules/bootstrap/dist',
         dest: 'vendor/bootstrap'
-    })
-   .addAssetsDir({
-        src: 'node_modules/jquery/dist',
-        dest: 'vendor/jquery'
     })
     .addAssetsDir({
         src: 'node_modules/popper.js/dist',
@@ -57,7 +51,6 @@ Input dir                                    | Type   | Output location
 ---------------------------------------------|--------|------------------
 `assets`                                     | Assets | `out`
 `node_modules/bootstrap/dist`                | Assets | `out/vendor/bootstrap`
-`node_modules/jquery/dist`                   | Assets | `out/vendor/jquery`
 `node_modules/popper.js/dist`                | Assets | `out/vendor/popper.js`
 `documents`                                  | Docs   | `out`
 `archive`                                    | Docs   | `out`

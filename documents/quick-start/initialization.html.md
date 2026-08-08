@@ -3,7 +3,8 @@ layout: getting-started.html.njk
 title: Initializing an AkashaCMS project
 rightsidebar:
 author: david
-publicationDate: February 18, 2021
+publicationDate: August 5, 2026
+step: 1
 ---
 
 Before talking about initializing an AkashaCMS project from scratch, let's study one of the sample projects.
@@ -33,7 +34,7 @@ $ ls -l
 total 24
 -rw-r--r--    1 david  admin    347 Mar 25  2017 README.md
 drwxr-xr-x    5 david  admin    160 Jun 25  2017 assets
--rw-r--r--    1 david  admin   2137 Feb 17 21:56 config.js
+-rw-r--r--    1 david  admin   2137 Feb 17 21:56 config.mjs
 drwxr-xr-x    3 david  admin     96 Mar 25  2017 documents
 drwxr-xr-x    3 david  admin     96 Jun 25  2017 layouts
 drwxr-xr-x  319 david  admin  10208 Feb 17 21:54 node_modules
@@ -44,7 +45,7 @@ drwxr-xr-x    4 david  admin    128 Jun 25  2017 partials
 
 What we have are:
 
-* `config.js` is the JavaScript file which initializes the AkashaCMS Configuration object.
+* `config.mjs` is the JavaScript file which initializes the AkashaCMS Configuration object.
 * `package.json` is a normal Node.js project file, where we're primarily interested in listing dependencies on Node.js modules used by the project, and scripts recording how the project is built and deployed
 * `assets` is a directory structure containing project assets
 * `documents` is a directory structure containing the content for the project
@@ -58,17 +59,17 @@ This is fairly straight-forward.  While the `akashacms-skeleton` repository is m
 
 Start by creating a directory, and initializing a `package.json`
 
-```
+```shell
 $ mkdir test
 $ cd test
-$ npm init
+$ npm init -y
 ```
 
 This creates a nearly-empty `package.json` that can be used in any Node.js project.  What we must do is initialize it for AkashaCMS.
 
 Next, create some directories:
 
-```
+```shell
 $ mkdir assets documents partials layouts
 ```
 
@@ -76,31 +77,29 @@ As shown above, we'll add various files to these directories.
 
 Next, let's start installing tools:
 
-```
+```shell
 $ npm install akasharender @akashacms/plugins-base --save
 ```
 
 As said earlier, `akasharender` is the rendering engine for AkashaCMS.  There are several plugins available that extend its capabilities for various purposes.  The `base` plugin provides foundational features useful for typical websites.  If your project is instead an EPUB eBook, do not install the `base` plugin.
 
-```
+```shell
 $ npm install @akashacms/plugins-booknav @akashacms/plugins-breadcrumbs \
         @akashacms/plugins-tagged-content --save
-$ npm install @akashacms/theme-bootstrap bootstrap@4.6.x popper.js@1.16.x jquery@3.6.x --save
+$ npm install @akashacms/theme-bootstrap --save
 ```
 
-The `booknav` plugin generates useful navigational elements, and the `breadcrumbs` plugin generates a breadcrumb trail based on the file hierarchy.  The `tagged-content` plugin implements taxonomical tags for content, as well as index pages for each taxonomy term.
+The `@akashacms/plugins-booknav` plugin generates useful navigational elements, and the `@akashacms/plugins-breadcrumbs` plugin generates a breadcrumb trail based on the file hierarchy.  The `@akashacms/plugins-tagged-content` plugin implements taxonomical tags for content, as well as index pages for each taxonomy term.
 
-It's possible to use any web framework to aid with page layout and user interface elements.  In the AkashaCMS project we've only created support for the Bootstrap framework.  The `theme-bootstrap` plugin contains template snippets for using Bootstrap features, and the other packages named here are ones required for using Bootstrap.
+It's possible to use any web framework to aid with page layout and user interface elements.  In the AkashaCMS project we've only created support for the Bootstrap framework.  The `@akashacms/theme-bootstrap` plugin contains template snippets for using Bootstrap features, and the other packages named here are ones required for using Bootstrap.
 
-When we install `popper.js` there will be a message printed about this version being deprecated, and we should use Popper v2 instead.  However, the Bootstrap v4 documentation explicitly says to use Popper v1.16.1, so that's what we're doing.
-
-```
+```shell
 $ npm install @compodoc/live-server --save
 ```
 
 The `@compodoc/live-server` package is a webserver meant for use during development.  It can watch a directory of website files, and if any file is changed the server will trigger an automatic reload in the browser.  This makes it an excellent tool for previewing content on your laptop during creation.
 
-```
+```shell
 $ npm install npm-run-all --save
 ```
 
@@ -113,10 +112,8 @@ In the `package.json` file add this `scripts` section:
 ```json
 "scripts": {
     "build": "npm-run-all build:copy build:render",
-    "build:copy": "akasharender copy-assets config.js",
-    "build:render": "akasharender render config.js",
-    "watch": "npm-run-all --parallel watcher preview",
-    "watcher": "akasharender watch config.js",
+    "build:copy": "akasharender copy-assets config.mjs",
+    "build:render": "akasharender render config.mjs",
     "preview": "live-server out",
     "deploy": "cd out && rsync --archive --delete --verbose ./ user-name@server-host.com:path-to-docroot/ "
 }
@@ -126,6 +123,4 @@ The `build` script runs the `build:copy` and `build:render` scripts.  The first 
 
 The `deploy` script shows using `rsync` to upload the rendered website to a server.  Obviously one can replace this with other commands such as `aws s3 cp` to upload the files to an AWS S3 bucket.
 
-The `watch` script runs `live-server` in parallel with `akasharender watch`.  The latter watches the project directory for changes.  On any change, it rebuilds the relevant files, which will then cause files in the `out` directory to change.  The `live-server` tool is told to watch the `out` directory, and its first purpose is to be a web-server.  Its second purpose is, when it detects that a file in the `out` directory has changed, it tells the browser to reload the page.
-
-These two work together, with `akasharender watch` rebuilding any changed files, and `live-server` doing a live reload in the web browser.  The result is very nice, since you can be editing a file, save the edit buffer, and automatically the page rebuilds, and is automatically reloaded in the browser.  It's the closest you'll get to WYSIWYG when editing Markdown files.
+The `live-server` tool is told to watch the `out` directory, and its first purpose is to be a web-server.  Its second purpose is, when it detects that a file in the `out` directory has changed, it tells the browser to reload the page.

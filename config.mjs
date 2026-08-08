@@ -24,7 +24,7 @@ import { default as EPUBWebsitePlugin } from 'epub-website/index.mjs';
 
 import { default as MarkdownITBracketedSpans } from 'markdown-it-bracketed-spans';
 import { default as MarkdownItAttrs } from 'markdown-it-attrs';
-import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
+// import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
 import { default as MarkdownITHighlight } from 'markdown-it-highlightjs';
 import { default as mdItObsidianCallouts } from 'markdown-it-obsidian-callouts';
 import { default as MarkdownItTableCaptions } from 'markdown-it-table-captions';
@@ -33,7 +33,8 @@ import { default as MarkdownItDiv } from 'markdown-it-div';
 
 import {
     DiagramsPlugin,
-    MarkdownITMermaidPlugin
+    MarkdownITMermaidPlugin,
+    MarkdownITPlantUMLPlugin
 } from '@akashacms/diagram-makers';
 
 const __dirname = import.meta.dirname;
@@ -78,9 +79,9 @@ config.findRendererName('.html.md')
     .use(MarkdownItAttrs, {
         allowedAttributes: [ 'id', 'class', 'caption', 'data' ]
     })
-    .use(MarkdownITPlantUML, {
-        imageFormat: 'svg'
-    })
+    // .use(MarkdownITPlantUML, {
+    //     imageFormat: 'svg'
+    // })
     .use(MarkdownITHighlight, { 
         auto: true, 
         code: true 
@@ -99,7 +100,8 @@ config.findRendererName('.html.md')
         // themePreset: 'forest',
         // configJSON: await fsp.readFile('mermaid-config.json', 'utf-8'),
         // fontFNs: [ '/path/to/Roboto.ttf' ]
-    });
+    })
+    .use(MarkdownITPlantUMLPlugin);
 
 config
     .addAssetsDir('assets')

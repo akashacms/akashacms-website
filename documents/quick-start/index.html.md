@@ -9,7 +9,6 @@ publicationDate: February 18, 2021
 TODO:
 
 * Write for icon-libraries
-* write for diagrams
 
 AkashaCMS is a family of tools for converting ideas into websites or EPUB3 eBooks while maintaining separation between content, layout and design.  At the core is AkashaRender, the rendering engine, and Mahabhuta, a semi-independent module for server-side DOM processing using a jQuery-like API.
 

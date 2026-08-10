@@ -4,7 +4,7 @@ title: Importing CSV, TSV, and YAML, tables into AkashaCMS documents
 rightsidebar:
 author: david
 publicationDate: August 10, 2026
-step: 14
+step: 15
 ---
 
 Sometimes we have data in a CSV (or similar format) file that must be displayed in an AkashaCMS document.

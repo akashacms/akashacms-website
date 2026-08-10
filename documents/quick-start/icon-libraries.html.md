@@ -79,7 +79,7 @@ Additional attributes like `id=`, `class=`, `width=`, `height=`, `alt=`, `title=
 
 Result:
 
-<img src="/vendor/bootstrap-icons/icons/camera.svg"/>
+<img src="/vendor/bootstrap-icons/camera.svg"/>
 
 ## Integrating an icon library from scratch
 

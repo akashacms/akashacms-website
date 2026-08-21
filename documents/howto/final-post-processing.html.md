@@ -1,10 +1,11 @@
 ---
-layout: blog.html.njk
-title: Running Mahabhuta one last time - final post-processing
+layout: how-to.html.njk
+title: Running Mahabhuta one last time - final post-processing - OUT OF DATE
 rightsidebar:
 publicationDate: May 20, 2015
-blogtag: howto
 ---
+
+WARNING: This document is out of date (I think)
 
 Sometimes, no matter how perfect is your chain of Mahabhuta functions, there's something to do once when the whole document is ready.  While AkashaCMS renders documents, it runs the Mahabhuta functions several times.  Usually that's enough to ensure the document is completely processed before it's written to the `root_out` directory.  But of course there are corner cases to accomodate.
 

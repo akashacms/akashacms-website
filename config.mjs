@@ -294,24 +294,6 @@ config
                     layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
                     rootPath: 'news/'
                 }
-            },
-            howto: {
-                rss: {
-                    title: "AkashaCMS Tutorials",
-                    description: "Tutorials about using the AkashaCMS content management system",
-                    site_url: "http://akashacms.com/howto/index.html",
-                    image_url: "http://akashacms.com/logo.gif",
-                    managingEditor: 'David Herron',
-                    webMaster: 'David Herron',
-                    copyright: '2015 David Herron',
-                    language: 'en',
-                    categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
-                },
-                rssurl: "/howto/rss.xml",
-                matchers: {
-                    layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
-                    rootPath: 'howto/'
-                }
             }
         }
     })

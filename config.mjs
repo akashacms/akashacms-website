@@ -255,7 +255,9 @@ config
 config.rootURL("https://akashacms.com");
 
 config
-    .use(ThemeBootstrapPlugin)
+    .use(ThemeBootstrapPlugin, {
+        bootstrapCSSPath: '/pulse.min.css'
+    })
     .use(BasePlugin, {
         generateSitemapFlag: true
     })
@@ -314,11 +316,10 @@ config
     //        });
     //    });
     //    `})
-    // .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
-    /* .addStylesheet({
-        href: "/vendor/bootstrap/css/bootstrap-theme.min.css"
-    }) */
-    .addStylesheet({ href: "/pulse.min.css" })
+
+    // Bootstrap and Pulse theme are now handled in the
+    // config of theme-bootstrap
+
     .addStylesheet({ href: "/style.css" })
     .addStylesheet({ href: "/vendor/fontawesome-free/css/all.min.css" })
     .addStylesheet({ href: "/vendor/highlight.js/styles/shades-of-purple.css" });

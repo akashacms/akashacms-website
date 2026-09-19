@@ -57,7 +57,7 @@ The plugins are what we install in addition to AkashaRender to provide additiona
 
 Generally, plugins provide custom tags and custom `partials` templates we can use in the website.
 
-When [setting up the project directory](installation.html), we installed `@akashacms/plugins-base`, `@akashacms/plugins-booknav`, `@akashacms/plugins-breadcrumbs`, `@akashacms/plugins-tagged-content`, and `@akashacms/theme-bootstrap`.  These provide some useful basic features.  But, we must add them to the configuration file so AkashaRender recognizes the plugins are available.
+When [setting up the project directory](initialization.html), we installed `@akashacms/plugins-base`, `@akashacms/plugins-booknav`, `@akashacms/plugins-breadcrumbs`, `@akashacms/plugins-tagged-content`, and `@akashacms/theme-bootstrap`.  These provide some useful basic features.  But, we must add them to the configuration file so AkashaRender recognizes the plugins are available.
 
 In `config.js` add this:
 

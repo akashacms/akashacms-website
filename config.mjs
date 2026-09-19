@@ -77,18 +77,10 @@ config.findRendererName('.html.md')
 
 config
     .addAssetsDir('assets')
-    .addAssetsDir({
-        src: 'node_modules/bootstrap/dist',
-        dest: 'vendor/bootstrap'
-    })
-   .addAssetsDir({
-        src: 'node_modules/jquery/dist',
-        dest: 'vendor/jquery'
-    })
-    .addAssetsDir({
-        src: 'node_modules/popper.js/dist',
-        dest: 'vendor/popper.js'
-    })
+    // Bootstrap, jQuery, and Popper are mounted by @akashacms/theme-bootstrap
+    // itself (each at /vendor/<name>), so we must NOT mount them here as
+    // well.  Mounting the same source tree twice at the same destination
+    // caused copyAssets to race on `unlink` inside fsp.cp on rebuilds.
     // The purpose of the following mount is to solve this error:
     //
     // (node:75702) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 953)

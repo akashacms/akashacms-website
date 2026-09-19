@@ -16,7 +16,7 @@
 <title>{{ title }}</title>
 
 {{ ak_base.headerMeta() }}
-{{ ak_core.XMLSitemap("/sitemap.xml") }}
+{% aksitemap %}{% endaksitemap %}
 {# {{ ak_core.googleSiteVerification("We are good") }} #}
 {{ ak_base.linkRelTags() }}
 {{ ak_base.canonicalURL() }}

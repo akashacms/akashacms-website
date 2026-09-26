@@ -4,6 +4,7 @@ title: Using plugins in AkashaCMS projects
 rightsidebar:
 author: david
 publicationDate: February 22, 2021
+step: 12
 ---
 
 Remember that AkashaCMS is a loose term referring to an ecosystem centered on AkashaRender and Mahabhuta, and that we extend the capability of those modules by adding plugins.  AkashaRender is the name for the rendering system at the heart of AkashaCMS, while Mahabhuta handles server-side DOM processing to support both custom HTML tags and custom HTML manipulations.  A typical AkashaCMS plugin adds a Partials directory, and supports a few custom tags.
@@ -16,7 +17,7 @@ The first step is determining whether you need a plugin.  Browse the list of plu
 
 Having determined to use a plugin, the next step is to install it.  Since we're using a npm/Yarn `package.json` to manage the project:
 
-```
+```shell
 $ npm install @akashacms/plugins-base --save
 ```
 

@@ -4,6 +4,7 @@ title: AkashaRender Projects, and using package.json to describe the build proce
 rightsidebar:
 author: david
 publicationDate: December 23, 2021
+step: 3
 ---
 
 We've just discussed the AkashaRender Configuration object, and how to generate it in a Configuration file:  [](/quick-start/configuration.html).  This means that an AkashaRender project is comprised of these parts:

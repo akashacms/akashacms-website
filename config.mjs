@@ -1,6 +1,7 @@
 
 'use strict';
 
+import path from 'node:path';
 import util from 'node:util';
 import akasha from 'akasharender';
 
@@ -23,7 +24,7 @@ import { default as EPUBWebsitePlugin } from 'epub-website/index.mjs';
 
 import { default as MarkdownITBracketedSpans } from 'markdown-it-bracketed-spans';
 import { default as MarkdownItAttrs } from 'markdown-it-attrs';
-import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
+// import { default as MarkdownITPlantUML } from 'markdown-it-plantuml';
 import { default as MarkdownITHighlight } from 'markdown-it-highlightjs';
 import { default as mdItObsidianCallouts } from 'markdown-it-obsidian-callouts';
 import { default as MarkdownItTableCaptions } from 'markdown-it-table-captions';
@@ -32,12 +33,38 @@ import { default as MarkdownItDiv } from 'markdown-it-div';
 
 import {
     DiagramsPlugin,
-    MarkdownITMermaidPlugin
+    MarkdownITMermaidPlugin,
+    MarkdownITPlantUMLPlugin
 } from '@akashacms/diagram-makers';
 
 const __dirname = import.meta.dirname;
 
 const config = new akasha.Configuration();
+
+// Rather than hardcode paths in the addAssetDirs call, we
+// compute the correct path.  It's not certain that npm
+// will install the packages to the hardcoded path.  Instead,
+// the import.meta.resolve function lets us compute the path
+// to something inside the package.
+//
+// The path returned by import.meta.resolve is the string form
+// of a file:/// URL.  new URL(..).pathname retrieves the 
+// filesystem path.
+//
+// Next, we need to use path.dirname and path.join to maneuver
+// to providing the desired pathname to addAssetDirs
+
+const resolvFontawesomePkg = import.meta.resolve('@fortawesome/fontawesome-free/js');
+const pathFontawesomePkg = path.dirname(new URL(resolvFontawesomePkg).pathname);
+
+const resolvHighlightPkg = import.meta.resolve('highlight.js/package.json');
+const pathHighlightPkg = path.dirname(new URL(resolvHighlightPkg).pathname);
+
+const resolvBootstrapIconsPkg = import.meta.resolve('bootstrap-icons/icons');
+const pathBootstrapIconsPkg = new URL(resolvBootstrapIconsPkg).pathname;
+
+const resolvGridJSPkg = import.meta.resolve('gridjs/package.json');
+const pathGridJSPkg = path.join(path.dirname(new URL(resolvGridJSPkg).pathname), 'dist');
 
 config.findRendererName('.html.md')
     .configuration({
@@ -52,9 +79,9 @@ config.findRendererName('.html.md')
     .use(MarkdownItAttrs, {
         allowedAttributes: [ 'id', 'class', 'caption', 'data' ]
     })
-    .use(MarkdownITPlantUML, {
-        imageFormat: 'svg'
-    })
+    // .use(MarkdownITPlantUML, {
+    //     imageFormat: 'svg'
+    // })
     .use(MarkdownITHighlight, { 
         auto: true, 
         code: true 
@@ -73,7 +100,8 @@ config.findRendererName('.html.md')
         // themePreset: 'forest',
         // configJSON: await fsp.readFile('mermaid-config.json', 'utf-8'),
         // fontFNs: [ '/path/to/Roboto.ttf' ]
-    });
+    })
+    .use(MarkdownITPlantUMLPlugin);
 
 config
     .addAssetsDir('assets')
@@ -81,6 +109,7 @@ config
     // itself (each at /vendor/<name>), so we must NOT mount them here as
     // well.  Mounting the same source tree twice at the same destination
     // caused copyAssets to race on `unlink` inside fsp.cp on rebuilds.
+
     // The purpose of the following mount is to solve this error:
     //
     // (node:75702) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 953)
@@ -91,11 +120,11 @@ config
     //    dest: 'node_modules/@fortawesome/fontawesome-free'
     // })
     .addAssetsDir({
-        src: 'node_modules/@fortawesome/fontawesome-free',
+        src: pathFontawesomePkg,
         dest: 'vendor/fontawesome-free'
     })
     .addAssetsDir({ 
-        src: 'node_modules/highlight.js', 
+        src: pathHighlightPkg, 
         dest: 'vendor/highlight.js' 
     })
     // Likewise, the following is to fix this error:
@@ -111,11 +140,11 @@ config
     // "src" paths in these instances.  That caused something to go wrong.
     //
     .addAssetsDir({
-        src: 'node_modules/bootstrap-icons/icons',
+        src: pathBootstrapIconsPkg,
         dest: 'vendor/bootstrap-icons'
     })
     .addAssetsDir({
-        src: 'node_modules/gridjs/dist',
+        src: pathGridJSPkg,
         dest: 'vendor/gridjs'
     });
 
@@ -231,7 +260,9 @@ config
 config.rootURL("https://akashacms.com");
 
 config
-    .use(ThemeBootstrapPlugin)
+    .use(ThemeBootstrapPlugin, {
+        bootstrapCSSPath: '/pulse.min.css'
+    })
     .use(BasePlugin, {
         generateSitemapFlag: true
     })
@@ -270,24 +301,6 @@ config
                     layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
                     rootPath: 'news/'
                 }
-            },
-            howto: {
-                rss: {
-                    title: "AkashaCMS Tutorials",
-                    description: "Tutorials about using the AkashaCMS content management system",
-                    site_url: "http://akashacms.com/howto/index.html",
-                    image_url: "http://akashacms.com/logo.gif",
-                    managingEditor: 'David Herron',
-                    webMaster: 'David Herron',
-                    copyright: '2015 David Herron',
-                    language: 'en',
-                    categories: [ "Node.js", "Content Management System", "HTML5", "HTML5", "Static website generator" ]
-                },
-                rssurl: "/howto/rss.xml",
-                matchers: {
-                    layouts: [ "blog.html.ejs", "blog.html.liquid", "blog.html.njk" ],
-                    rootPath: 'howto/'
-                }
             }
         }
     })
@@ -299,10 +312,6 @@ config.plugin("@akashacms/plugins-external-links")
     .setShowFavicons(config, "before");
 
 config
-    .addFooterJavaScript({ href: "/vendor/jquery/jquery.min.js" })
-    .addFooterJavaScript({ href: "/vendor/popper.js/umd/popper.min.js" })
-    .addFooterJavaScript({ href: "/vendor/bootstrap/js/bootstrap.min.js" })
-    // .addFooterJavaScript({ href: "/vendor/highlight.js/lib/highlight.js" })
     // .addFooterJavaScript({ script: 'hljs.initHighlightingOnLoad();' })
     // .addFooterJavaScript({
     //    script: `
@@ -312,11 +321,10 @@ config
     //        });
     //    });
     //    `})
-    .addStylesheet({ href: "/vendor/bootstrap/css/bootstrap.min.css" })
-    /* .addStylesheet({
-        href: "/vendor/bootstrap/css/bootstrap-theme.min.css"
-    }) */
-    .addStylesheet({ href: "/pulse.min.css" })
+
+    // Bootstrap and Pulse theme are now handled in the
+    // config of theme-bootstrap
+
     .addStylesheet({ href: "/style.css" })
     .addStylesheet({ href: "/vendor/fontawesome-free/css/all.min.css" })
     .addStylesheet({ href: "/vendor/highlight.js/styles/shades-of-purple.css" });

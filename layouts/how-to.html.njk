@@ -15,7 +15,7 @@
 
 <title>{{ title }}</title>
 {{ ak_base.headerMeta() }}
-{% aksitemap %}{% endaksitemap %}
+{{ ak_core.XMLSitemap("/sitemap.xml") }}
 {# {{ ak_core.googleSiteVerification("We are good") }} #}
 {{ ak_base.linkRelTags() }}
 {{ ak_base.canonicalURL() }}
@@ -57,12 +57,12 @@
         <div class="row">
         <section id="left" class="col-sm-2 overflow-auto">
 
-            <document-group id="quick-start-sidebar"
+            <document-group id="howto-sidebar"
                 class="list-group"
-                root-path="quick-start"
+                root-path="howto"
                 render-glob="**/*.html"
                 skip-glob="**/index.html"
-                sort-by="step"
+                sort-by="title"
                 template="doc-group-link.html.ejs"></document-group>
 
         </section>

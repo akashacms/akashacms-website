@@ -4,6 +4,7 @@ title: Content files
 rightsidebar:
 author: david
 publicationDate: February 18, 2021
+step: 7
 ---
 
 
